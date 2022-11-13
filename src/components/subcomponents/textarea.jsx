@@ -5,6 +5,7 @@ const TextArea = ({ name, label, error, ...rest }) => {
     <div className="form-group">
       <label htmlFor={name}>{name}</label>
       <textarea
+        {...rest}
         placeholder={`Please enter a ${name}`}
         className="form-control"
         id={name}

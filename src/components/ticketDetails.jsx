@@ -1,79 +1,63 @@
 import Joi from 'joi-browser';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navigate, useParams, useNavigate } from 'react-router-dom';
 import Date from './subcomponents/date';
 import Input from './subcomponents/input';
 import Select from './subcomponents/select';
 import TextArea from './subcomponents/textarea';
 import Calendar from 'react-calendar';
+import { getTicket, saveTicket, updateTicket } from './util/database';
+import config from '../config/config.json';
 
 const TicketDetails = (props) => {
   const navigate = useNavigate();
   const params = useParams();
-  const [ticket, setTicket] = useState({
-    date: '',
-    title: '',
-    module: [
-      { id: '1', name: 'A' },
-      { id: '2', name: 'B' },
-    ],
-    type: [
-      { id: '1', name: 'Error' },
-      { id: '2', name: 'Notice' },
-      { id: '3', name: 'Suggestion' },
-    ],
-    source: [
-      { id: '1', name: 'Script' },
-      { id: '2', name: 'Vodcast' },
-      { id: '3', name: 'App' },
-    ],
-    status: [
-      { id: '1', name: 'Pending' },
-      { id: '2', name: 'In progress' },
-      { id: '3', name: 'Waiting for reply' },
-      { id: '4', name: 'Done' },
-    ],
-    comment: '',
-  });
+  const [ticket, setTicket] = useState(config.ticket);
+
   const [errors, setErrors] = useState({});
 
   const schema = {
+    _id: Joi.toString(),
     title: Joi.string().required().label('Title'),
     module: Joi.array().min(1).label('Module'),
     type: Joi.array().min(1).label('Type'),
     source: Joi.array().min(1).label('Source'),
     status: Joi.array().min(1).label('Status'),
+    comment: Joi.toString(),
+    priority: Joi.toString(),
   };
 
-  const doSubmit = () => {
-    console.log('submitted');
-  };
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data: ticket } = await getTicket(params.id);
+      setTicket(ticket[0]);
+    };
+    fetchData(params.id);
+  }, []);
 
   const validate = () => {
-    const options = { abortEarly: false };
-    const { error } = Joi.validate(ticket, schema, options);
-    if (!error) return null;
-
-    for (let item of error.details)
-      errors[item.path[0]] = item.message;
-    return errors;
+    // const options = { abortEarly: false };
+    // const { error } = Joi.validate(ticket, schema, options);
+    // if (!error) return null;
+    // for (let item of error.details)
+    //   errors[item.path[0]] = item.message;
+    // return errors;
   };
 
   const validateProperty = ({ name, value }) => {
-    const obj = { [name]: value };
-    const schemaCopy = { [name]: schema[name] };
-    const { error } = Joi.validate(obj, schemaCopy);
-    return error ? error.details[0].message : null;
+    // const obj = { [name]: value };
+    // const schemaCopy = { [name]: schema[name] };
+    // const { error } = Joi.validate(obj, schemaCopy);
+    // return error ? error.details[0].message : null;
   };
 
-  const handleSubmit = (e) => {
+  const handleSave = (e) => {
     e.preventDefault();
-
-    const errors = validate();
-    setErrors({ errors: errors || {} });
-    if (errors) return;
-
-    doSubmit();
+    // const errors = validate();
+    // setErrors({ errors: errors || {} });
+    // if (errors) return;
+    updateTicket(ticket);
+    navigate('/tickets');
   };
 
   const handleChange = ({ target: input }) => {
@@ -89,65 +73,68 @@ const TicketDetails = (props) => {
   };
 
   const handleCancel = (e) => {
-    console.log('cancelled');
-    navigate(-1);
+    navigate('/tickets');
   };
 
   return (
     <div className="container">
       <h1>Ticket details</h1>
       <p>Ticket number # {params.id} </p>
-
-      <form onSubmit={handleSubmit}>
-        {/* <Calendar onChange={handleChange} value={ticket.date} />
-        <Date
+      <form onSubmit={handleSave}>
+        <Input
           name="date"
           value={ticket.date}
           onChange={handleChange}
           error={errors.date}
-        /> */}
+        />
+        <Input
+          name="priority"
+          value={ticket.priority}
+          onChange={handleChange}
+          error={errors.priority}
+        />
         <Input
           name="title"
           value={ticket.title}
           onChange={handleChange}
           error={errors.title}
         />
-        <Select
+        <Input
           name="module"
-          options={ticket.module}
+          value={ticket.module}
           onChange={handleChange}
           error={errors.module}
         />
-        <Select
+        <Input
           name="type"
-          options={ticket.type}
+          value={ticket.type}
           onChange={handleChange}
           error={errors.type}
         />
-        <Select
+        <Input
           name="source"
-          options={ticket.source}
+          value={ticket.source}
           onChange={handleChange}
           error={errors.source}
         />
-        <Select
+        <Input
           name="status"
-          options={ticket.status}
+          value={ticket.status}
           onChange={handleChange}
           error={errors.status}
         />
-        <TextArea
+        <Input
           name="comment"
-          options={ticket.comment}
+          value={ticket.comment}
           onChange={handleChange}
           error={errors.comment}
         />
-        <button disabled={validate()} className="btn btn-primary">
+        <button disabled={validate()} className="btn btn-primary m-2">
           Save
         </button>
         <button
           onClick={handleCancel}
-          className="btn btn-primary right"
+          className="btn btn-primary right m-2"
         >
           Cancel
         </button>

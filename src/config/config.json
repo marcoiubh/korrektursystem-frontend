@@ -1,0 +1,13 @@
+{
+  "ticket": {
+    "_id": "",
+    "title": "",
+    "date": "",
+    "priority": "",
+    "module": "",
+    "type": "",
+    "source": "",
+    "status": "",
+    "comment": ""
+  }
+}

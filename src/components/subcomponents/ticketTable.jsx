@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import Table from './table';
+import Moment from 'react-moment';
 
 const TicketTable = ({ tickets, sortColumn, onEdit, onSort }) => {
   const [columns, setColumns] = useState([
@@ -8,6 +8,9 @@ const TicketTable = ({ tickets, sortColumn, onEdit, onSort }) => {
       key: 'date',
       data: 'date',
       label: 'Date',
+      content: (ticket) => (
+        <Moment parse="YYYY/MM/DD">{ticket.date}</Moment>
+      ),
     },
     {
       key: 'priority',
@@ -43,11 +46,16 @@ const TicketTable = ({ tickets, sortColumn, onEdit, onSort }) => {
       label: 'Status',
     },
     {
+      key: 'comment',
+      data: 'comment',
+      label: 'Comment',
+    },
+    {
       key: 'edit',
       content: (ticket) => (
         <button
           onClick={() => onEdit(ticket)}
-          className="btn btn-primary"
+          className="btn btn-primary m-2"
         >
           Edit
         </button>

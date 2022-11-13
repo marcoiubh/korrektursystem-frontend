@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import TicketTable from './subcomponents/ticketTable';
 import { getTickets } from './util/database';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import config from '../config/config.json';
 
 const Tickets = () => {
   const navigate = useNavigate();
-  const [tickets, setTickets] = useState([]);
+  const [tickets, setTickets] = useState([config.ticket]);
   const [sortColumn, setSortColumn] = useState({
     column: 'title',
     order: 'asc',
@@ -21,8 +21,7 @@ const Tickets = () => {
   }, []);
 
   const handleEdit = (ticket) => {
-    navigate(`/tickets/${ticket.id}`);
-    console.log('edited');
+    navigate(`/tickets/${ticket._id}`);
   };
 
   const handleSort = (e) => {
