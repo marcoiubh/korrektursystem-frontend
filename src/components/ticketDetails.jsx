@@ -129,12 +129,15 @@ const TicketDetails = (props) => {
           onChange={handleChange}
           error={errors.comment}
         />
-        <button disabled={validate()} className="btn btn-primary m-2">
+        <button
+          disabled={validate()}
+          className="btn btn-outline-primary small m-2"
+        >
           Save
         </button>
         <button
           onClick={handleCancel}
-          className="btn btn-primary right m-2"
+          className="btn btn-outline-primary small m-2"
         >
           Cancel
         </button>

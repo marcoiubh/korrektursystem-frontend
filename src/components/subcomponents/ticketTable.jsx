@@ -55,7 +55,7 @@ const TicketTable = ({ tickets, sortColumn, onEdit, onSort }) => {
       content: (ticket) => (
         <button
           onClick={() => onEdit(ticket)}
-          className="btn btn-primary m-2"
+          className="btn btn-outline-primary small m-2"
         >
           Edit
         </button>

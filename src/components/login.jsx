@@ -75,7 +75,10 @@ const Login = (props) => {
           type="password"
           error={errors.password}
         />
-        <button disabled={validate()} className="btn btn-primary">
+        <button
+          disabled={validate()}
+          className="btn btn-outline-primary small"
+        >
           Login
         </button>
       </form>
