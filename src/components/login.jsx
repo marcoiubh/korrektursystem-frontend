@@ -1,21 +1,19 @@
+import { useNavigate } from 'react-router-dom';
 import Joi from 'joi-browser';
 import React, { useState } from 'react';
 import Input from './subcomponents/input';
+import { loginUser } from './services/authenticationService';
 
 const Login = (props) => {
   const [credentials, setCredentials] = useState({
-    username: '',
+    email: '',
     password: '',
   });
   const [errors, setErrors] = useState({});
-
+  const navigate = useNavigate();
   const schema = {
-    username: Joi.string().required().label('Username'),
+    email: Joi.string().required().email().label('E-mail'),
     password: Joi.string().required().label('Password'),
-  };
-
-  const doSubmit = () => {
-    console.log('submitted');
   };
 
   const validate = () => {
@@ -35,14 +33,24 @@ const Login = (props) => {
     return error ? error.details[0].message : null;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const errors = validate();
     setErrors({ errors: errors || {} });
     if (errors) return;
 
-    doSubmit();
+    try {
+      await loginUser(credentials);
+      navigate('/tickets');
+      window.location.reload(false);
+    } catch (ex) {
+      if (ex.response && ex.response.status === 400) {
+        const errorsCopy = { ...errors };
+        errorsCopy.email = ex.response.data;
+        setErrors(errorsCopy);
+      }
+    }
   };
 
   const handleChange = ({ target: input }) => {
@@ -63,10 +71,10 @@ const Login = (props) => {
 
       <form onSubmit={handleSubmit}>
         <Input
-          name="username"
-          value={credentials.username}
+          name="email"
+          value={credentials.email}
           onChange={handleChange}
-          error={errors.username}
+          error={errors.email}
         />
         <Input
           name="password"

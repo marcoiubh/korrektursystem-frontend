@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import TicketTable from './subcomponents/ticketTable';
-import { getTickets } from './util/database';
+import { getTickets } from './services/ticketService';
 import { useNavigate } from 'react-router-dom';
 import config from '../config/config.json';
 

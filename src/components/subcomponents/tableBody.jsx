@@ -14,7 +14,7 @@ const TableBody = ({ data, columns, idProperty }) => {
   };
 
   return (
-    <tbody class="table-group-divider">
+    <tbody className="table-group-divider">
       {data.map((item) => (
         <tr key={item[idProperty]}>
           {columns.map((column) => (

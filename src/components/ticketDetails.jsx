@@ -6,7 +6,11 @@ import Input from './subcomponents/input';
 import Select from './subcomponents/select';
 import TextArea from './subcomponents/textarea';
 import Calendar from 'react-calendar';
-import { getTicket, saveTicket, updateTicket } from './util/database';
+import {
+  getTicket,
+  saveTicket,
+  updateTicket,
+} from './services/ticketService';
 import config from '../config/config.json';
 
 const TicketDetails = (props) => {
@@ -51,12 +55,14 @@ const TicketDetails = (props) => {
     // return error ? error.details[0].message : null;
   };
 
-  const handleSave = (e) => {
+  const handleSave = async (e) => {
     e.preventDefault();
     // const errors = validate();
     // setErrors({ errors: errors || {} });
     // if (errors) return;
-    updateTicket(ticket);
+    const result = await updateTicket(ticket);
+    console.log(`updateTicket: ${typeof result}`);
+    // console.log(`updateTicket: ${JSON.stringify(result)}`);
     navigate('/tickets');
   };
 
