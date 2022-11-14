@@ -14,7 +14,6 @@ function App() {
 
   useEffect(() => {
     const user = getCurrentUser();
-    console.log(`user: ${user}`);
     setUser(user);
   });
 

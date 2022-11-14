@@ -61,8 +61,6 @@ const TicketDetails = (props) => {
     // setErrors({ errors: errors || {} });
     // if (errors) return;
     const result = await updateTicket(ticket);
-    console.log(`updateTicket: ${typeof result}`);
-    // console.log(`updateTicket: ${JSON.stringify(result)}`);
     navigate('/tickets');
   };
 
