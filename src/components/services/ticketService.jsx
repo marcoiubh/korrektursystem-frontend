@@ -1,8 +1,8 @@
 import axios from 'axios';
-import config from '../../config/config.json';
 import { getJwt } from './authenticationService';
-const api = config.backend.development + 'tickets/';
+const api = '/tickets/';
 
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 axios.defaults.headers.common['x-auth-token'] = getJwt();
 
 export const getTickets = () => {

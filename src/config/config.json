@@ -10,9 +10,5 @@
     "status": "",
     "comment": ""
   },
-  "backend": {
-    "production": "https://kms-app-backend.herokuapp.com/",
-    "development": "http://localhost:4000/"
-  },
   "requiresAuthentication": "true"
 }

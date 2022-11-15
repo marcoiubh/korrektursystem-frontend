@@ -1,7 +1,6 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import config from '../../config/config.json';
-const api = config.backend.development + 'authentication/';
+const api = '/authentication/';
 const item = 'token';
 export const loginUser = async ({ email, password }) => {
   const { data: jwt } = await axios.post(api, {
