@@ -2,6 +2,7 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 const api = '/authentication/';
 const item = 'token';
+
 export const loginUser = async ({ email, password }) => {
   const { data: jwt } = await axios.post(api, {
     email,
