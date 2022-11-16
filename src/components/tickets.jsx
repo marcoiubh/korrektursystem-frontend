@@ -24,6 +24,14 @@ const Tickets = () => {
     navigate(`/tickets/${ticket._id}`);
   };
 
+  const handleView = (ticket) => {
+    navigate(`/status/${ticket._id}`);
+  };
+
+  const handleNew = () => {
+    navigate(`/new`);
+  };
+
   const handleSort = (e) => {
     console.log('sorted');
   };
@@ -35,6 +43,8 @@ const Tickets = () => {
         sortColumn={sortColumn}
         onEdit={handleEdit}
         onSort={handleSort}
+        onNew={handleNew}
+        onView={handleView}
       />
     </div>
   );

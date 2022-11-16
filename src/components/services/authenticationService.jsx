@@ -24,6 +24,22 @@ export function getCurrentUser() {
   } catch (error) {}
 }
 
+export function getCurrentRole() {
+  try {
+    const token = getJwt();
+    const { role } = jwtDecode(token);
+    return role;
+  } catch (error) {}
+}
+
+export function ifUserIsProfessor() {
+  return getCurrentRole() === 'professor';
+}
+
+export function ifUserIsStudent() {
+  return getCurrentRole() === 'student';
+}
+
 export function getJwt() {
   return localStorage.getItem(item);
 }

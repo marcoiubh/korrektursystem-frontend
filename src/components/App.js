@@ -14,6 +14,8 @@ import Logout from './logout';
 import { getCurrentUser } from './services/authenticationService';
 import '../css/App.css';
 import PrivateRoutes from './privateRoutes';
+import NewTicket from './newTicket';
+import TicketStatus from './ticketStatus';
 
 function App() {
   const [user, setUser] = useState();
@@ -42,6 +44,8 @@ function App() {
               <Route index element={<Tickets />} />
               <Route path=":id" element={<TicketDetails />} />
             </Route>
+            <Route path="/new" element={<NewTicket />} />
+            <Route path="/status/:id" element={<TicketStatus />} />
             <Route path="/logout" element={<Logout />} />
           </Route>
         </Routes>

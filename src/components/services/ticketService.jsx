@@ -18,3 +18,7 @@ export const getTicket = (id) => {
 export const updateTicket = (ticket) => {
   axios.put(api + ticket._id, ticket);
 };
+
+export const saveTicket = (ticket) => {
+  axios.post(api, ticket);
+};

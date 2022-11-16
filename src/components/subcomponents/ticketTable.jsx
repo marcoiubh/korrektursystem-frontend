@@ -1,16 +1,28 @@
 import React, { useState } from 'react';
 import Table from './table';
 import Moment from 'react-moment';
+import {
+  getCurrentRole,
+  ifUserIsProfessor,
+  ifUserIsStudent,
+} from '../services/authenticationService';
 
-const TicketTable = ({ tickets, sortColumn, onEdit, onSort }) => {
+const TicketTable = ({
+  tickets,
+  sortColumn,
+  onEdit,
+  onSort,
+  onNew,
+  onView,
+}) => {
   const [columns, setColumns] = useState([
     {
       key: 'date',
       data: 'date',
       label: 'Date',
-      content: (ticket) => (
-        <Moment parse="YYYY/MM/DD">{ticket.date}</Moment>
-      ),
+      // content: (ticket) => (
+      //   <Moment format="YYYY/MM/DD">{ticket.date}</Moment>
+      // ),
     },
     {
       key: 'priority',
@@ -46,14 +58,10 @@ const TicketTable = ({ tickets, sortColumn, onEdit, onSort }) => {
       label: 'Status',
     },
     {
-      key: 'comment',
-      data: 'comment',
-      label: 'Comment',
-    },
-    {
       key: 'edit',
       content: (ticket) => (
         <button
+          hidden={ifUserIsStudent()}
           onClick={() => onEdit(ticket)}
           className="btn btn-outline-primary small m-2"
         >
@@ -61,14 +69,36 @@ const TicketTable = ({ tickets, sortColumn, onEdit, onSort }) => {
         </button>
       ),
     },
+    {
+      key: 'view',
+      content: (ticket) => (
+        <button
+          hidden={ifUserIsProfessor()}
+          onClick={() => onView(ticket)}
+          className="btn btn-outline-primary small m-2"
+        >
+          View
+        </button>
+      ),
+    },
   ]);
+
   return (
-    <Table
-      columns={columns}
-      sortColumn={sortColumn}
-      data={tickets}
-      onSort={onSort}
-    />
+    <div>
+      <button
+        hidden={ifUserIsProfessor()}
+        onClick={onNew}
+        className="btn btn-outline-primary"
+      >
+        New Ticket
+      </button>
+      <Table
+        columns={columns}
+        sortColumn={sortColumn}
+        data={tickets}
+        onSort={onSort}
+      />
+    </div>
   );
 };
 
