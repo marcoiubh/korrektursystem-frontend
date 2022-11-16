@@ -5,6 +5,7 @@ import { ifUserIsProfessor } from './services/authenticationService';
 import { ifUserIsStudent } from './services/authenticationService';
 import { getTicket, updateTicket } from './services/ticketService';
 import config from '../config/config.json';
+import TextArea from './subcomponents/textarea';
 
 const TicketDetails = () => {
   const navigate = useNavigate();
@@ -45,72 +46,99 @@ const TicketDetails = () => {
 
   return (
     <div className="container">
-      <h1>Ticket details</h1>
-      <p>Ticket number # {params.id} </p>
+      <div className="gy-3">
+        <h1>Ticket details</h1>
+        <p>Ticket number # {params.id} </p>
+      </div>
       <form onSubmit={handleSave}>
-        <Input
-          disabled={ifUserIsProfessor()}
-          name="date"
-          value={ticket.date}
-          onChange={handleChange}
-        />
-        <Input
-          disabled={ifUserIsProfessor()}
-          name="title"
-          value={ticket.title}
-          onChange={handleChange}
-        />
-        <Input
-          disabled={ifUserIsProfessor()}
-          name="module"
-          value={ticket.module}
-          onChange={handleChange}
-        />
-        <Input
-          disabled={ifUserIsProfessor()}
-          name="type"
-          value={ticket.type}
-          onChange={handleChange}
-        />
-        <Input
-          disabled={ifUserIsProfessor()}
-          name="source"
-          value={ticket.source}
-          onChange={handleChange}
-        />
-        <Input
-          disabled={ifUserIsProfessor()}
-          name="comment"
-          value={ticket.comment}
-          onChange={handleChange}
-        />
-        <Input
-          disabled={ifUserIsStudent()}
-          name="priority"
-          value={ticket.priority}
-          onChange={handleChange}
-        />
-        <Input
-          disabled={ifUserIsStudent()}
-          name="status"
-          value={ticket.status}
-          onChange={handleChange}
-        />
-        <Input
-          disabled={ifUserIsStudent()}
-          name="statement"
-          value={ticket.statement}
-          onChange={handleChange}
-        />
-        <button className="btn btn-outline-primary small m-2">
-          Save
-        </button>
-        <button
-          onClick={handleCancel}
-          className="btn btn-outline-primary small m-2"
-        >
-          Cancel
-        </button>
+        <div className="row g-1">
+          <div className="col-sm-3">
+            <Input
+              disabled={ifUserIsProfessor()}
+              name="date"
+              value={ticket.date}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="col-sm-4">
+            <Input
+              disabled={ifUserIsProfessor()}
+              name="module"
+              value={ticket.module}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="col-sm-5">
+            <Input
+              disabled={ifUserIsProfessor()}
+              name="title"
+              value={ticket.title}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+
+        <div className="row g-1">
+          <div className="col-sm-6 ">
+            <TextArea
+              disabled={ifUserIsProfessor()}
+              name="comment"
+              value={ticket.comment}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="col-sm-6">
+            <Input
+              disabled={ifUserIsProfessor()}
+              name="type"
+              value={ticket.type}
+              onChange={handleChange}
+            />
+            <Input
+              disabled={ifUserIsProfessor()}
+              name="source"
+              value={ticket.source}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+
+        <div className="row g-1">
+          <div className="col-sm-6 ">
+            <TextArea
+              disabled={ifUserIsStudent()}
+              name="statement"
+              value={ticket.statement}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="col-sm-6">
+            <Input
+              disabled={ifUserIsStudent()}
+              name="priority"
+              value={ticket.priority}
+              onChange={handleChange}
+            />
+            <Input
+              disabled={ifUserIsStudent()}
+              name="status"
+              value={ticket.status}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+
+        <div className="row-sm-0">
+          <button className="btn btn-outline-primary small m-1 ">
+            Save
+          </button>
+          <button
+            onClick={handleCancel}
+            className="btn btn-outline-primary small m-1"
+          >
+            Cancel
+          </button>
+        </div>
       </form>
     </div>
   );

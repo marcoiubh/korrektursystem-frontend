@@ -31,7 +31,7 @@ const Login = () => {
     <div className="container">
       <h1>Login</h1>
 
-      <form onSubmit={handleSubmit}>
+      <form className="col-sm-4 mt-lg-5" onSubmit={handleSubmit}>
         <Input
           name="email"
           value={credentials.email}

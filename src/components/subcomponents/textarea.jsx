@@ -2,16 +2,19 @@ import React from 'react';
 
 const TextArea = ({ name, label, error, ...rest }) => {
   return (
-    <div className="form-group">
-      <label htmlFor={name}>{name}</label>
+    <div className="input-group mb-3">
+      <span className="input-group-text" id="basic-addon1">
+        {name}
+      </span>
+      {/* <label htmlFor={name}>{name}</label> */}
       <textarea
         {...rest}
-        placeholder={`Please enter a ${name}`}
-        className="form-control"
+        placeholder={`type a ${name}`}
+        name={name}
         id={name}
-        rows="3"
-      ></textarea>
-
+        className="form-control"
+        rows="4"
+      />
       {error && <div className="alert alert-danger">{error}</div>}
     </div>
   );
