@@ -6,7 +6,6 @@ const TextArea = ({ name, label, error, ...rest }) => {
       <span className="input-group-text" id="basic-addon1">
         {name}
       </span>
-      {/* <label htmlFor={name}>{name}</label> */}
       <textarea
         {...rest}
         placeholder={`type a ${name}`}

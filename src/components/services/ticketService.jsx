@@ -1,8 +1,8 @@
 import axios from 'axios';
 import {
-  getJwt,
   getCurrentRole,
   getCurrentUser,
+  getJwt,
 } from './authenticationService';
 const api = '/tickets/';
 

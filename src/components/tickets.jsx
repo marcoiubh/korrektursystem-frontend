@@ -1,26 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import TicketTable from './subcomponents/ticketTable';
+import _ from 'lodash';
 import { getTickets } from './services/ticketService';
+import { paginate } from './subcomponents/paginate';
 import { useNavigate } from 'react-router-dom';
 import config from '../config/config.json';
-import _ from 'lodash';
-import { paginate } from './subcomponents/paginate';
 import Pagination from './subcomponents/pagination';
+import React, { useState, useEffect } from 'react';
 import SearchBox from './subcomponents/searchBox';
-import { getCurrentUser } from './services/authenticationService';
+import TicketTable from './subcomponents/ticketTable';
 
 const Tickets = () => {
-  const navigate = useNavigate();
   // config.ticket required to avoid uncontrolled component errors
-  const [tickets, setTickets] = useState([config.ticket]);
-  const [sortColumn, setSortColumn] = useState({
-    column: 'title',
-    order: 'asc',
-  });
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(3);
   const [searchQuery, setSearchQuery] = useState('');
+  const [sortColumn, setSortColumn] = useState(config.sortColumn);
+  const [tickets, setTickets] = useState([config.ticket]);
   const [totalCount, setTotalCount] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getPagedData = async () => {
@@ -51,7 +47,6 @@ const Tickets = () => {
   };
 
   const handleView = (ticket) => {
-    // pass sortColumn?
     navigate(`/status/${ticket._id}`);
   };
 

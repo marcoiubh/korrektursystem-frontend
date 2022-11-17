@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import Table from './table';
-import moment from 'moment';
 import {
   ifUserIsProfessor,
   ifUserIsStudent,
 } from '../services/authenticationService';
+import moment from 'moment';
+import React, { useState } from 'react';
+import Table from './table';
 
 const TicketTable = ({
-  tickets,
-  sortColumn,
   onEdit,
-  onSort,
   onNew,
+  onSort,
   onView,
+  sortColumn,
+  tickets,
 }) => {
   const [columns, setColumns] = useState([
     {
@@ -32,9 +32,6 @@ const TicketTable = ({
       key: 'title',
       data: 'title',
       label: 'Title',
-      //   content: (ticket) => (
-      //     <Link to={`/tickets/${ticket._id}`}>{ticket.title}</Link>
-      //   ),
     },
     {
       key: 'student',
@@ -68,9 +65,9 @@ const TicketTable = ({
       key: 'edit',
       content: (ticket) => (
         <button
+          className="btn btn-outline-primary small m-2"
           hidden={ifUserIsStudent()}
           onClick={() => onEdit(ticket)}
-          className="btn btn-outline-primary small m-2"
         >
           Edit
         </button>
@@ -80,9 +77,9 @@ const TicketTable = ({
       key: 'view',
       content: (ticket) => (
         <button
+          className="btn btn-outline-primary small m-2"
           hidden={ifUserIsProfessor()}
           onClick={() => onView(ticket)}
-          className="btn btn-outline-primary small m-2"
         >
           View
         </button>
@@ -93,17 +90,17 @@ const TicketTable = ({
   return (
     <div>
       <button
+        className="btn btn-outline-primary"
         hidden={ifUserIsProfessor()}
         onClick={onNew}
-        className="btn btn-outline-primary"
       >
         New Ticket
       </button>
       <Table
         columns={columns}
-        sortColumn={sortColumn}
         data={tickets}
         onSort={onSort}
+        sortColumn={sortColumn}
       />
     </div>
   );

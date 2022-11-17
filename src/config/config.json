@@ -12,5 +12,25 @@
     "title": "",
     "type": ""
   },
+  "status": ["Pending", "In Progress", "Done"],
+  "priority": ["Critical", "Major", "Medium", "Minor"],
+  "module": [
+    "BSTA01-01",
+    "IOBP02",
+    "IGIS01",
+    "IREN01",
+    "DLBINGE04",
+    "ISPE01"
+  ],
+  "source": ["Script", "Vodcast", "App", "Excercises", "OnlineQuiz"],
+  "type": ["Notice", "Error", "Proposal", "Improvement"],
+  "sortColumn": {
+    "column": "title",
+    "order": "asc"
+  },
+  "credentials": {
+    "email": "",
+    "password": ""
+  },
   "requiresAuthentication": "true"
 }

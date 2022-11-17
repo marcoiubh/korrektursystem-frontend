@@ -13,18 +13,21 @@ import TextArea from './subcomponents/textarea';
 import moment from 'moment';
 import { paginate } from './subcomponents/paginate';
 import Pagination from './subcomponents/pagination';
+import Select from './subcomponents/select';
 
-const TicketDetails = () => {
-  const navigate = useNavigate();
-  const params = useParams();
+const TicketDetailsProfessor = () => {
+  // config.ticket required to avoid uncontrolled component errors
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalCount, setTotalCount] = useState(0);
+  const [priority, setPriority] = useState(config.priority);
+  const [status, setStatus] = useState(config.status);
+  const [ticket, setTicket] = useState(config.ticket);
   const [tickets, setTickets] = useState([config.ticket]);
   const [ticketsPaginated, setTicketsPaginated] = useState([
     config.ticket,
   ]);
-  // config.ticket required to avoid uncontrolled component errors
-  const [ticket, setTicket] = useState(config.ticket);
+  const [totalCount, setTotalCount] = useState(0);
+  const navigate = useNavigate();
+  const params = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -70,6 +73,16 @@ const TicketDetails = () => {
     navigate('/tickets');
   };
 
+  const handleStatus = ({ target: input }) => {
+    // clones existing tickets
+    const ticketCopy = { ...ticket };
+    // associates field values with field names
+    ticketCopy[input.name] = input.value;
+
+    // stores states
+    setTicket(ticketCopy);
+  };
+
   return (
     <div className="container">
       <div className="gy-3">
@@ -91,7 +104,7 @@ const TicketDetails = () => {
               disabled={ifUserIsProfessor()}
               name="module"
               value={ticket.module}
-              onChange={handleChange}
+              onChange={handleStatus}
             />
           </div>
           <div className="col-sm-5">
@@ -118,13 +131,13 @@ const TicketDetails = () => {
               disabled={ifUserIsProfessor()}
               name="type"
               value={ticket.type}
-              onChange={handleChange}
+              onChange={handleStatus}
             />
             <Input
               disabled={ifUserIsProfessor()}
               name="source"
               value={ticket.source}
-              onChange={handleChange}
+              onChange={handleStatus}
             />
           </div>
         </div>
@@ -139,17 +152,19 @@ const TicketDetails = () => {
             />
           </div>
           <div className="col-sm-6">
-            <Input
+            <Select
               disabled={ifUserIsStudent()}
               name="priority"
+              options={priority}
               value={ticket.priority}
-              onChange={handleChange}
+              onChange={handleStatus}
             />
-            <Input
+            <Select
               disabled={ifUserIsStudent()}
               name="status"
+              options={status}
               value={ticket.status}
-              onChange={handleChange}
+              onChange={handleStatus}
             />
           </div>
         </div>
@@ -178,4 +193,4 @@ const TicketDetails = () => {
   );
 };
 
-export default TicketDetails;
+export default TicketDetailsProfessor;

@@ -1,13 +1,11 @@
-import { useNavigate } from 'react-router-dom';
-import React, { useState } from 'react';
-import Input from './subcomponents/input';
 import { loginUser } from './services/authenticationService';
+import { useNavigate } from 'react-router-dom';
+import config from '../config/config.json';
+import Input from './subcomponents/input';
+import React, { useState } from 'react';
 
 const Login = () => {
-  const [credentials, setCredentials] = useState({
-    email: '',
-    password: '',
-  });
+  const [credentials, setCredentials] = useState(config.credentials);
 
   const navigate = useNavigate();
 

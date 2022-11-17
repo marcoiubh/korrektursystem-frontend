@@ -6,13 +6,12 @@ const Input = ({ name, label, error, ...rest }) => {
       <span className="input-group-text" id="basic-addon1">
         {name}
       </span>
-      {/* <label htmlFor={name}>{name}</label> */}
       <input
         {...rest}
-        placeholder={`type a ${name}`}
-        name={name}
-        id={name}
         className="form-control"
+        id={name}
+        name={name}
+        placeholder={`type a ${name}`}
       />
       {error && <div className="alert alert-danger">{error}</div>}
     </div>

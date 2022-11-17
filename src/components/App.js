@@ -1,25 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import {
-  Route,
-  Routes,
-  useNavigate,
-  Navigate,
-} from 'react-router-dom';
-import Home from './home';
-import NavBar from './navbar';
-import Tickets from './tickets';
-import Login from './login';
-import TicketDetails from './ticketDetails';
-import Logout from './logout';
-import { getCurrentUser } from './services/authenticationService';
 import '../css/App.css';
-import PrivateRoutes from './privateRoutes';
+import { getCurrentUser } from './services/authenticationService';
+import { Route, Routes } from 'react-router-dom';
+import Home from './home';
+import Login from './login';
+import Logout from './logout';
+import NavBar from './navbar';
 import NewTicket from './newTicket';
-import TicketStatus from './ticketStatus';
+import PrivateRoutes from './privateRoutes';
+import React, { useState, useEffect } from 'react';
+import TicketDetailsProfessor from './ticketDetailsProfessor';
+import TicketDetailsStudent from './ticketDetailsStudent';
+import Tickets from './tickets';
 
 function App() {
   const [user, setUser] = useState();
-  // const [token, setToken] = useState('sfd');
 
   useEffect(() => {
     const user = getCurrentUser();
@@ -42,10 +36,16 @@ function App() {
             <Route path="/*" element={<Home />} />
             <Route path="/tickets">
               <Route index element={<Tickets />} />
-              <Route path=":id" element={<TicketDetails />} />
+              <Route
+                path=":id"
+                element={<TicketDetailsProfessor />}
+              />
             </Route>
             <Route path="/new" element={<NewTicket />} />
-            <Route path="/status/:id" element={<TicketStatus />} />
+            <Route
+              path="/status/:id"
+              element={<TicketDetailsStudent />}
+            />
             <Route path="/logout" element={<Logout />} />
           </Route>
         </Routes>

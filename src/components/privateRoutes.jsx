@@ -1,5 +1,5 @@
-import { Navigate, Outlet } from 'react-router-dom';
 import { getJwt } from './services/authenticationService';
+import { Navigate, Outlet } from 'react-router-dom';
 const PrivateRoutes = () => {
   // retrieves token from authenticationService
   const token = getJwt();

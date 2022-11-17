@@ -1,26 +1,24 @@
-import React, { useEffect, useState } from 'react';
 import { getTicket, getTickets } from './services/ticketService';
+import { paginate } from './subcomponents/paginate';
 import { useNavigate, useParams } from 'react-router-dom';
 import config from '../config/config.json';
-import moment from 'moment';
 import Input from './subcomponents/input';
-import TextArea from './subcomponents/textarea';
+import moment from 'moment';
 import Pagination from './subcomponents/pagination';
-import { paginate } from './subcomponents/paginate';
-import _ from 'lodash';
+import React, { useEffect, useState } from 'react';
+import TextArea from './subcomponents/textarea';
 
-const TicketStatus = () => {
-  const navigate = useNavigate();
+const TicketDetailsStudent = () => {
+  // config.ticket required to avoid uncontrolled component errors
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalCount, setTotalCount] = useState(0);
+  const [ticket, setTicket] = useState(config.ticket);
   const [tickets, setTickets] = useState([config.ticket]);
   const [ticketsPaginated, setTicketsPaginated] = useState([
     config.ticket,
   ]);
-
+  const [totalCount, setTotalCount] = useState(0);
+  const navigate = useNavigate();
   const params = useParams();
-  // config.ticket required to avoid uncontrolled component errors
-  const [ticket, setTicket] = useState(config.ticket);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -102,11 +100,6 @@ const TicketStatus = () => {
         <div className="col-sm-6">
           <Input
             disabled={true}
-            name="priority"
-            value={ticket.priority}
-          />
-          <Input
-            disabled={true}
             name="status"
             value={ticket.status}
           />
@@ -133,4 +126,4 @@ const TicketStatus = () => {
   );
 };
 
-export default TicketStatus;
+export default TicketDetailsStudent;

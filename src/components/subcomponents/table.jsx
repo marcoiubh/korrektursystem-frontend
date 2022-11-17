@@ -7,8 +7,8 @@ const Table = ({ columns, data, sortColumn, onSort }) => {
     <table className="table table-hover table-striped">
       <TableHeader
         columns={columns}
-        sortColumn={sortColumn}
         onSort={onSort}
+        sortColumn={sortColumn}
       />
       <TableBody columns={columns} data={data} idProperty="_id" />
     </table>
