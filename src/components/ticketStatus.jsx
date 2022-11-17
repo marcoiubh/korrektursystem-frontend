@@ -5,6 +5,7 @@ import config from '../config/config.json';
 
 const TicketStatus = () => {
   const params = useParams();
+  // config.ticket required to avoid uncontrolled component errors
   const [ticket, setTicket] = useState(config.ticket);
 
   useEffect(() => {

@@ -1,34 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Input from './subcomponents/input';
-import {
-  getTicket,
-  saveTicket,
-  updateTicket,
-} from './services/ticketService';
+import { saveTicket } from './services/ticketService';
 import config from '../config/config.json';
 import TextArea from './subcomponents/textarea';
 import '../css/App.css';
+import { getCurrentUser } from './services/authenticationService';
 
-const NewTicket = (props) => {
+const NewTicket = () => {
   const navigate = useNavigate();
-  const params = useParams();
+  // config.ticket required to avoid uncontrolled component errors
   const [ticket, setTicket] = useState(config.ticket);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const { data: ticket } = await getTicket(params.id);
-  //     setTicket(ticket[0]);
-  //   };
-  //   fetchData();
-  // }, []);
 
   const handleSave = async (e) => {
     // prevents the browser to refresh
     e.preventDefault();
+    // add current student to the ticket
+    const ticketCopy = { ...ticket };
+    ticketCopy.student = getCurrentUser();
 
     // ticket gets updated if validation passes
-    await saveTicket(ticket);
+    await saveTicket(ticketCopy);
     navigate('/tickets');
   };
 

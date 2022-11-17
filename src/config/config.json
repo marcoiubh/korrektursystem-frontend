@@ -1,15 +1,16 @@
 {
   "ticket": {
     "_id": "",
-    "title": "",
-    "date": "",
-    "priority": "",
-    "module": "",
-    "type": "",
-    "source": "",
-    "status": "",
     "comment": "",
-    "statement": ""
+    "date": "",
+    "module": "",
+    "priority": "",
+    "source": "",
+    "statement": "",
+    "status": "",
+    "student": "",
+    "title": "",
+    "type": ""
   },
   "requiresAuthentication": "true"
 }

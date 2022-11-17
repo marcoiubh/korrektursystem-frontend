@@ -7,8 +7,14 @@ const api = '/tickets/';
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 axios.defaults.headers.common['x-auth-token'] = getJwt();
 
-export const getTickets = () => {
-  return axios.get(api);
+export const getTickets = (student) => {
+  // stores current student email in the header
+  // as query parameter
+  return axios.get(api, {
+    headers: {
+      student: student,
+    },
+  });
 };
 
 export const getTicket = (id) => {

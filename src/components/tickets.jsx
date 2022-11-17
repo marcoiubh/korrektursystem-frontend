@@ -7,9 +7,11 @@ import _ from 'lodash';
 import { paginate } from './subcomponents/paginate';
 import Pagination from './subcomponents/pagination';
 import SearchBox from './subcomponents/searchBox';
+import { getCurrentUser } from './services/authenticationService';
 
 const Tickets = () => {
   const navigate = useNavigate();
+  // config.ticket required to avoid uncontrolled component errors
   const [tickets, setTickets] = useState([config.ticket]);
   const [sortColumn, setSortColumn] = useState({
     column: 'title',
@@ -22,7 +24,8 @@ const Tickets = () => {
 
   useEffect(() => {
     const getPagedData = async () => {
-      const { data: tickets } = await getTickets();
+      const currentUser = getCurrentUser();
+      const { data: tickets } = await getTickets(currentUser);
       let filtered = tickets;
       if (searchQuery)
         filtered = tickets.filter((m) =>

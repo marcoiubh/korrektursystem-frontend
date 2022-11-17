@@ -10,6 +10,7 @@ import TextArea from './subcomponents/textarea';
 const TicketDetails = () => {
   const navigate = useNavigate();
   const params = useParams();
+  // config.ticket required to avoid uncontrolled component errors
   const [ticket, setTicket] = useState(config.ticket);
 
   useEffect(() => {
