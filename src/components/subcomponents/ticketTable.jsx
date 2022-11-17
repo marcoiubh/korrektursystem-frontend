@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import Table from './table';
-import Moment from 'react-moment';
+import moment from 'moment';
 import {
-  getCurrentRole,
   ifUserIsProfessor,
   ifUserIsStudent,
 } from '../services/authenticationService';
@@ -20,9 +19,9 @@ const TicketTable = ({
       key: 'date',
       data: 'date',
       label: 'Date',
-      // content: (ticket) => (
-      //   <Moment format="YYYY/MM/DD">{ticket.date}</Moment>
-      // ),
+      content: (ticket) => (
+        <span>{moment(ticket.date).format('MMMM Do YYYY')}</span>
+      ),
     },
     {
       key: 'priority',
@@ -36,6 +35,14 @@ const TicketTable = ({
       //   content: (ticket) => (
       //     <Link to={`/tickets/${ticket._id}`}>{ticket.title}</Link>
       //   ),
+    },
+    {
+      key: 'student',
+      label: ifUserIsProfessor() ? 'Student' : undefined,
+
+      content: (ticket) => (
+        <label hidden={ifUserIsStudent()}>{ticket.student}</label>
+      ),
     },
     {
       key: 'module',

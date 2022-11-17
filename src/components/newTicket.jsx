@@ -42,6 +42,9 @@ const NewTicket = () => {
   const divStyle = {
     backgroundColor: 'blue',
   };
+  {
+    /* style={divStyle}  */
+  }
 
   return (
     <div className="container">
@@ -50,21 +53,14 @@ const NewTicket = () => {
       </div>
       <form onSubmit={handleSave}>
         <div className="row g-1">
-          <div style={divStyle} className="col-sm-3">
-            <Input
-              name="date"
-              value={ticket.date}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="col-sm-4">
+          <div className="col-sm-6">
             <Input
               name="module"
               value={ticket.module}
               onChange={handleChange}
             />
           </div>
-          <div className="col-sm-5">
+          <div className="col-sm-6">
             <Input
               name="title"
               value={ticket.title}

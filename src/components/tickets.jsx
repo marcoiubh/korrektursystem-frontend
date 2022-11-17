@@ -24,8 +24,7 @@ const Tickets = () => {
 
   useEffect(() => {
     const getPagedData = async () => {
-      const currentUser = getCurrentUser();
-      const { data: tickets } = await getTickets(currentUser);
+      const { data: tickets } = await getTickets();
       let filtered = tickets;
       if (searchQuery)
         filtered = tickets.filter((m) =>
@@ -52,6 +51,7 @@ const Tickets = () => {
   };
 
   const handleView = (ticket) => {
+    // pass sortColumn?
     navigate(`/status/${ticket._id}`);
   };
 
