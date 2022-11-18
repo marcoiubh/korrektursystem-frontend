@@ -28,20 +28,20 @@ const Tickets = () => {
             m.date.startsWith(searchQuery) ||
             m.module
               .toLowerCase()
-              .startsWith(searchQuery.toLowerCase()) ||
+              .includes(searchQuery.toLowerCase()) ||
             m.source
               .toLowerCase()
-              .startsWith(searchQuery.toLowerCase()) ||
+              .includes(searchQuery.toLowerCase()) ||
             m.status
               .toLowerCase()
-              .startsWith(searchQuery.toLowerCase()) ||
+              .includes(searchQuery.toLowerCase()) ||
             m.student
               .toLowerCase()
-              .startsWith(searchQuery.toLowerCase()) ||
+              .includes(searchQuery.toLowerCase()) ||
             m.title
               .toLowerCase()
-              .startsWith(searchQuery.toLowerCase()) ||
-            m.type.toLowerCase().startsWith(searchQuery.toLowerCase())
+              .includes(searchQuery.toLowerCase()) ||
+            m.type.toLowerCase().includes(searchQuery.toLowerCase())
         );
       const sorted = _.orderBy(
         filtered,
