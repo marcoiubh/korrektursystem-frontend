@@ -54,7 +54,7 @@ const TicketDetailsProfessor = () => {
     e.preventDefault();
 
     // ticket gets updated if validation passes
-    await updateTicket(ticket);
+    updateTicket(ticket);
     navigate('/tickets');
   };
 

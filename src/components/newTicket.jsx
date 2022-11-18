@@ -9,9 +9,10 @@ import Select from './subcomponents/select';
 import TextArea from './subcomponents/textarea';
 
 const NewTicket = () => {
-  // config.ticket required to avoid uncontrolled component errors
+  // TODO: swap config.module to database query for each user
   const [module, setModule] = useState(config.module);
   const [source, setSource] = useState(config.source);
+  // config.ticket required to avoid uncontrolled component errors
   const [ticket, setTicket] = useState(config.ticket);
   const [type, setType] = useState(config.type);
   const navigate = useNavigate();
@@ -56,9 +57,7 @@ const NewTicket = () => {
   const divStyle = {
     backgroundColor: 'blue',
   };
-  {
-    /* style={divStyle}  */
-  }
+  // /* style={divStyle}  */
 
   return (
     <div className="container">

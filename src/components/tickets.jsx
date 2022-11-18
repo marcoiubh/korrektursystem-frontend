@@ -23,8 +23,25 @@ const Tickets = () => {
       const { data: tickets } = await getTickets();
       let filtered = tickets;
       if (searchQuery)
-        filtered = tickets.filter((m) =>
-          m.title.toLowerCase().startsWith(searchQuery.toLowerCase())
+        filtered = tickets.filter(
+          (m) =>
+            m.date.startsWith(searchQuery) ||
+            m.module
+              .toLowerCase()
+              .startsWith(searchQuery.toLowerCase()) ||
+            m.source
+              .toLowerCase()
+              .startsWith(searchQuery.toLowerCase()) ||
+            m.status
+              .toLowerCase()
+              .startsWith(searchQuery.toLowerCase()) ||
+            m.student
+              .toLowerCase()
+              .startsWith(searchQuery.toLowerCase()) ||
+            m.title
+              .toLowerCase()
+              .startsWith(searchQuery.toLowerCase()) ||
+            m.type.toLowerCase().startsWith(searchQuery.toLowerCase())
         );
       const sorted = _.orderBy(
         filtered,
