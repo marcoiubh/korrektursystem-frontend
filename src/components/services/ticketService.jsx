@@ -12,10 +12,13 @@ axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 axios.defaults.headers.common['x-auth-token'] = getJwt();
 
 export const getTickets = () => {
-  const role = getCurrentRole();
-  const email = getCurrentUser();
-  return axios.get(api + '?' + role + '=' + email);
+  return axios.get(api);
 };
+// export const getTickets = () => {
+//   const role = getCurrentRole();
+//   const email = getCurrentUser();
+//   return axios.get(api + '?' + role + '=' + email);
+// };
 
 export const getTicket = (id) => {
   return axios.get(api + id);

@@ -19,7 +19,8 @@ export function logout() {
 export function getCurrentUser() {
   try {
     const token = getJwt();
-    const { name: user } = jwtDecode(token);
+    // get user by email
+    const { email: user } = jwtDecode(token);
     return user;
   } catch (error) {}
 }
