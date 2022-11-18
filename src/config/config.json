@@ -3,6 +3,7 @@
     "email": "",
     "password": ""
   },
+  "dateFormat": "MMMM Do YYYY",
   "module": [
     "BSTA01-01",
     "IOBP02",

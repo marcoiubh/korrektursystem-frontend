@@ -2,6 +2,7 @@ import {
   ifUserIsProfessor,
   ifUserIsStudent,
 } from '../services/authenticationService';
+import config from '../../config/config.json';
 import moment from 'moment';
 import React, { useState } from 'react';
 import Table from './table';
@@ -20,7 +21,7 @@ const TicketTable = ({
       data: 'date',
       label: 'Date',
       content: (ticket) => (
-        <span>{moment(ticket.date).format('MMMM Do YYYY')}</span>
+        <span>{moment(ticket.date).format(config.dateFormat)}</span>
       ),
     },
     {

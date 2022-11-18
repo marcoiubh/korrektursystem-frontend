@@ -95,7 +95,7 @@ const TicketDetailsProfessor = () => {
             <Input
               disabled={ifUserIsProfessor()}
               name="date"
-              value={moment(ticket.date).format('MMMM Do YYYY')}
+              value={moment(ticket.date).format(config.dateFormat)}
               onChange={handleChange}
             />
           </div>

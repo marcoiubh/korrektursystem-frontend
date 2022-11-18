@@ -56,7 +56,7 @@ const TicketDetailsStudent = () => {
           <Input
             disabled={true}
             name="date"
-            value={moment(ticket.date).format('MMMM Do YYYY')}
+            value={moment(ticket.date).format(config.dateFormat)}
           />
         </div>
         <div className="col-sm-4">
