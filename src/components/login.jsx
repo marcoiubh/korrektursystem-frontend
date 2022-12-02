@@ -1,5 +1,4 @@
 import { loginUser } from './services/authenticationService';
-import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import React from 'react';
 import { joiResolver } from '@hookform/resolvers/joi';
@@ -25,9 +24,7 @@ const Login = () => {
     formState: { errors },
   } = useForm({ mode: 'onBlur', resolver: joiResolver(schema) });
 
-  const navigate = useNavigate();
-
-  const handleSend = async (e) => {
+  const handleLogin = async (e) => {
     const credentials = {
       email: e.email,
       password: e.password,
@@ -35,8 +32,7 @@ const Login = () => {
 
     try {
       await loginUser(credentials);
-      navigate('/tickets');
-      window.location.reload(false);
+      window.location = '/tickets';
     } catch (ex) {}
   };
 
@@ -46,7 +42,7 @@ const Login = () => {
 
       <form
         className="col-sm-4 mt-lg-5"
-        onSubmit={handleSubmit(handleSend)}
+        onSubmit={handleSubmit(handleLogin)}
       >
         <div className="input-group col-sm-6  ">
           <span className="input-group-text" id="basic-addon1">
