@@ -2,20 +2,16 @@ import { getTicket, getTickets } from './services/ticketService';
 import { paginate } from './subcomponents/paginate';
 import { useNavigate, useParams } from 'react-router-dom';
 import config from '../config/config.json';
-import Input from './subcomponents/input';
 import moment from 'moment';
 import Pagination from './subcomponents/pagination';
 import React, { useEffect, useState } from 'react';
-import TextArea from './subcomponents/textarea';
 
 const TicketDetailsStudent = () => {
   // config.ticket required to avoid uncontrolled component errors
   const [currentPage, setCurrentPage] = useState(1);
   const [ticket, setTicket] = useState(config.ticket);
   const [tickets, setTickets] = useState([config.ticket]);
-  const [ticketsPaginated, setTicketsPaginated] = useState([
-    config.ticket,
-  ]);
+  const [, setTicketsPaginated] = useState([config.ticket]);
   const [totalCount, setTotalCount] = useState(0);
   const navigate = useNavigate();
   const params = useParams();
@@ -53,56 +49,122 @@ const TicketDetailsStudent = () => {
 
       <div className="row g-1">
         <div className="col-sm-3">
-          <Input
-            disabled={true}
-            name="date"
-            value={moment(ticket.date).format(config.dateFormat)}
-          />
+          <div className="input-group col-sm-6 mb-3">
+            <span className="input-group-text" id="basic-addon1">
+              Date
+            </span>
+            <input
+              disabled
+              type="text"
+              name="date"
+              value={moment(ticket.date).format(config.dateFormat)}
+              className="form-control"
+            />
+          </div>
         </div>
         <div className="col-sm-4">
-          <Input
-            disabled={true}
-            name="module"
-            value={ticket.module}
-          />
+          <div className="input-group col-sm-6 mb-3">
+            <span className="input-group-text" id="basic-addon1">
+              Module
+            </span>
+            <input
+              disabled
+              type="text"
+              name="module"
+              value={ticket.module}
+              className="form-control"
+            />
+          </div>
         </div>
         <div className="col-sm-5">
-          <Input disabled={true} name="title" value={ticket.title} />
+          <div className="input-group col-sm-6 mb-3">
+            <span className="input-group-text" id="basic-addon1">
+              Title
+            </span>
+            <input
+              disabled
+              type="text"
+              name="title"
+              value={ticket.title}
+              className="form-control"
+            />
+          </div>{' '}
         </div>
       </div>
 
       <div className="row g-1">
         <div className="col-sm-6 ">
-          <TextArea
-            disabled={true}
-            name="comment"
-            value={ticket.comment}
-          />
+          <div className="input-group col-sm-6 mb-3">
+            <span className="input-group-text" id="basic-addon1">
+              Comment
+            </span>
+            <textarea
+              disabled
+              type="text"
+              name="comment"
+              value={ticket.comment}
+              className="form-control"
+              rows="4"
+            />
+          </div>
         </div>
         <div className="col-sm-6">
-          <Input disabled={true} name="type" value={ticket.type} />
-          <Input
-            disabled={true}
-            name="source"
-            value={ticket.source}
-          />
+          <div className="input-group col-sm-6 mb-3">
+            <span className="input-group-text" id="basic-addon1">
+              Type
+            </span>
+            <input
+              disabled
+              type="text"
+              name="type"
+              value={ticket.type}
+              className="form-control"
+            />
+          </div>
+          <div className="input-group col-sm-6 mb-3">
+            <span className="input-group-text" id="basic-addon1">
+              Source
+            </span>
+            <input
+              disabled
+              type="text"
+              name="source"
+              value={ticket.source}
+              className="form-control"
+            />
+          </div>
         </div>
       </div>
 
       <div className="row g-1">
         <div className="col-sm-6 ">
-          <TextArea
-            disabled={true}
-            name="statement"
-            value={ticket.statement}
-          />
+          <div className="input-group col-sm-6 mb-3">
+            <span className="input-group-text" id="basic-addon1">
+              Statement
+            </span>
+            <textarea
+              disabled
+              type="text"
+              name="statement"
+              value={ticket.statement}
+              className="form-control"
+              rows="4"
+            />
+          </div>
         </div>
         <div className="col-sm-6">
-          <Input
-            disabled={true}
-            name="status"
-            value={ticket.status}
-          />
+          <div className="input-group col-sm-6 mb-3">
+            <span className="input-group-text" id="basic-addon1">
+              Status
+            </span>
+            <input
+              disabled
+              type="text"
+              name="status"
+              value={ticket.status}
+              className="form-control"
+            />
+          </div>
         </div>
       </div>
 
@@ -115,6 +177,7 @@ const TicketDetailsStudent = () => {
             onPageChange={handlePageChange}
           />
           <button
+            type="button"
             onClick={handleCancel}
             className="btn btn-outline-primary small m-1"
           >

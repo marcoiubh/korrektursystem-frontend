@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './home';
 import Login from './login';
 import Logout from './logout';
-import NavBar from './navbar';
+import NavBar from './subcomponents/navbar';
 import NewTicket from './newTicket';
 import PrivateRoutes from './privateRoutes';
 import React, { useState, useEffect } from 'react';

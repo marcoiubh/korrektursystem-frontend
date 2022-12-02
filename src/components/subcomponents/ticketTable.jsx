@@ -15,7 +15,7 @@ const TicketTable = ({
   sortColumn,
   tickets,
 }) => {
-  const [columns, setColumns] = useState([
+  const [columns] = useState([
     {
       key: 'date',
       data: 'date',

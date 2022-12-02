@@ -1,9 +1,5 @@
 import axios from 'axios';
-import {
-  getCurrentRole,
-  getCurrentUser,
-  getJwt,
-} from './authenticationService';
+import { getJwt } from './authenticationService';
 const api = '/tickets/';
 
 // REACT_APP_ environment variable has been set in .env files
@@ -14,11 +10,6 @@ axios.defaults.headers.common['x-auth-token'] = getJwt();
 export const getTickets = () => {
   return axios.get(api);
 };
-// export const getTickets = () => {
-//   const role = getCurrentRole();
-//   const email = getCurrentUser();
-//   return axios.get(api + '?' + role + '=' + email);
-// };
 
 export const getTicket = (id) => {
   return axios.get(api + id);

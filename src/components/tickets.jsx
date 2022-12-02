@@ -11,7 +11,7 @@ import TicketTable from './subcomponents/ticketTable';
 const Tickets = () => {
   // config.ticket required to avoid uncontrolled component errors
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(3);
+  const [pageSize] = useState(3);
   const [searchQuery, setSearchQuery] = useState('');
   const [sortColumn, setSortColumn] = useState(config.sortColumn);
   const [tickets, setTickets] = useState([config.ticket]);
