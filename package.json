@@ -3,6 +3,9 @@
   "name": "kms-frontend",
   "version": "0.1.0",
   "private": true,
+  "resolutions": {
+    "nth-check": "2.0.1"
+  },
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",
     "@testing-library/jest-dom": "^5.16.5",
