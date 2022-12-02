@@ -44,7 +44,7 @@ const TicketDetailsStudent = () => {
     <div className="container">
       <div className="gy-3">
         <h1>Ticket status</h1>
-        <p>Ticket number # {params.id} </p>
+        <p>Ticket number # {ticket._id} </p>
       </div>
 
       <div className="row g-1">
