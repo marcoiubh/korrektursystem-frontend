@@ -16,7 +16,7 @@ function App() {
   useEffect(() => {
     const user = getCurrentUser();
     setUser(user);
-  }, [user]);
+  }, []);
 
   return (
     <div>
@@ -32,9 +32,12 @@ function App() {
             <Route index element={<Home />} />
             {/* redirects gibberish paths to homepage if logged in */}
             <Route path="/*" element={<Home />} />
-            <Route path="/ticket/*" element={<Ticket />} />
+            <Route
+              path="/ticket/*"
+              element={<Ticket user={user} />}
+            />
 
-            <Route path="/new" element={<NewTicket />} />
+            <Route path="/new" element={<NewTicket user={user} />} />
 
             <Route path="/logout" element={<Logout />} />
           </Route>

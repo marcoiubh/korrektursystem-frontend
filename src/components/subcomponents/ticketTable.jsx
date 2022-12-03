@@ -1,7 +1,4 @@
-import {
-  ifUserIsProfessor,
-  ifUserIsStudent,
-} from '../services/authenticationService';
+import { ifUserIsStudent } from '../services/authenticationService';
 import config from '../../config/config.json';
 import moment from 'moment';
 import React, { useState } from 'react';
@@ -35,7 +32,7 @@ const TicketTable = ({
     },
     {
       key: 'student',
-      label: ifUserIsProfessor() ? 'Student' : undefined,
+      label: ifUserIsStudent() ? undefined : 'Student',
 
       content: (ticket) => (
         <label hidden={ifUserIsStudent()}>{ticket.student}</label>
@@ -78,7 +75,7 @@ const TicketTable = ({
     <div>
       <button
         className="btn btn-outline-primary"
-        hidden={ifUserIsProfessor()}
+        hidden={!ifUserIsStudent()}
         onClick={onNew}
       >
         New Ticket

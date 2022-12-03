@@ -10,21 +10,34 @@ import { getTickets, updateTicket } from '../services/ticketService';
 const Ticket = () => {
   // config.ticket required to avoid uncontrolled component errors
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize] = useState(30);
+  const [pageSize] = useState(4);
   const [searchQuery, setSearchQuery] = useState('');
   const [sortColumn, setSortColumn] = useState(config.sortColumn);
-  const [tickets, setTickets] = useState([config.ticket]);
+  const [allTickets, setAllTickets] = useState([config.ticket]);
+  const [pagedTickets, setPagedTickets] = useState([config.ticket]);
   const [ticket, setTicket] = useState([config.ticket]);
   const [totalCount, setTotalCount] = useState(0);
+
   const navigate = useNavigate();
 
   useEffect(() => {
-    const getPagedData = async () => {
-      const { data: tickets } = await getTickets();
-      let filtered = tickets;
+    const prepareTickets = async () => {
+      let ticketSelection = await fetchTickets();
+      ticketSelection = filterSelection(ticketSelection);
+      setTotalCount(ticketSelection.length);
+      ticketSelection = sortSelection(ticketSelection);
+      setAllTickets(ticketSelection);
+      ticketSelection = pageSelection(ticketSelection);
+      setPagedTickets(ticketSelection);
+    };
+    const fetchTickets = async () => {
+      const { data } = await getTickets();
+      return data;
+    };
+    const filterSelection = (ticketSelection) => {
       if (searchQuery)
-        filtered = tickets.filter(
-          (m) =>
+        return ticketSelection.filter((m) => {
+          return (
             m.date.startsWith(searchQuery) ||
             m.module
               .toLowerCase()
@@ -41,25 +54,32 @@ const Ticket = () => {
             m.title
               .toLowerCase()
               .includes(searchQuery.toLowerCase()) ||
-            m.type.toLowerCase().includes(searchQuery.toLowerCase())
-        );
-      const sorted = _.orderBy(
-        filtered,
+            m.type
+              .toLowerCase()
+              .includes(searchQuery.toLowerCase()) ||
+            m.priority
+              .toLowerCase()
+              .includes(searchQuery.toLowerCase())
+          );
+        });
+      return ticketSelection;
+    };
+    const sortSelection = (ticketSelection) => {
+      return _.orderBy(
+        ticketSelection,
         [sortColumn.column],
         [sortColumn.order]
       );
-      const tickets_paginated = paginate(
-        sorted,
-        currentPage,
-        pageSize
-      );
-      setTotalCount(sorted.length);
-      setTickets(tickets_paginated);
     };
-    getPagedData();
+    const pageSelection = (ticketSelection) => {
+      return paginate(ticketSelection, currentPage, pageSize);
+    };
+    prepareTickets();
   }, [currentPage, pageSize, sortColumn, searchQuery]);
 
+  // EventHandler
   const handleView = (ticket) => {
+    console.log(ticket.title);
     setTicket(ticket);
     navigate(`/ticket/detail`);
   };
@@ -91,6 +111,11 @@ const Ticket = () => {
     setSearchQuery(query);
   };
 
+  const handleOverview = () => {
+    navigate('/ticket/overview');
+  };
+
+  // Rendering
   return (
     <div>
       <Routes>
@@ -98,18 +123,17 @@ const Ticket = () => {
           path="/overview"
           element={
             <TicketOverview
-              data={'data'}
-              searchQuery={searchQuery}
-              onSearch={handleSearch}
-              tickets={tickets}
-              sortColumn={sortColumn}
-              onSort={handleSort}
               onNew={handleNew}
-              onView={handleView}
-              itemsCount={totalCount}
-              pageSize={pageSize}
-              currentPage={currentPage}
               onPageChange={handlePageChange}
+              onSearch={handleSearch}
+              onSort={handleSort}
+              onView={handleView}
+              currentPage={currentPage}
+              pageSize={pageSize}
+              searchQuery={searchQuery}
+              sortColumn={sortColumn}
+              tickets={pagedTickets}
+              totalCount={totalCount}
             />
           }
         />
@@ -117,7 +141,13 @@ const Ticket = () => {
         <Route
           path="/detail"
           element={
-            <TicketDetail ticket={ticket} onSave={handleSave} />
+            <TicketDetail
+              ticket={ticket}
+              tickets={allTickets}
+              totalCount={totalCount}
+              onOverview={handleOverview}
+              onSave={handleSave}
+            />
           }
         />
       </Routes>

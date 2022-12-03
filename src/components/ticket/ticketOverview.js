@@ -4,17 +4,17 @@ import SearchBox from '../subcomponents/searchBox';
 import TicketTable from '../subcomponents/ticketTable';
 
 const TicketOverview = ({
-  searchQuery,
-  onSearch,
-  tickets,
-  sortColumn,
-  onSort,
   onNew,
-  onView,
-  totalCount,
-  pageSize,
-  currentPage,
   onPageChange,
+  onSearch,
+  onSort,
+  onView,
+  currentPage,
+  pageSize,
+  searchQuery,
+  sortColumn,
+  tickets,
+  totalCount,
 }) => {
   return (
     <div>

@@ -1,5 +1,4 @@
 import '../../css/App.css';
-import { getCurrentUser } from '../services/authenticationService';
 import { saveTicket } from '../services/ticketService';
 import { useNavigate } from 'react-router-dom';
 import config from '../../config/config.json';
@@ -8,7 +7,7 @@ import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import Joi from 'joi';
 
-const NewTicket = () => {
+const NewTicket = ({ user }) => {
   // TODO: swap config.module to database query for each user
   const [module] = useState(config.module);
   const [source] = useState(config.source);
@@ -65,7 +64,7 @@ const NewTicket = () => {
     const ticketCopy = Object.assign(ticket, e);
     // stores states
 
-    ticketCopy.student = getCurrentUser();
+    ticketCopy.student = user;
 
     // ticket gets updated if validation passes
     saveTicket(ticketCopy);
