@@ -1,8 +1,8 @@
-import '../css/App.css';
-import { getCurrentUser } from './services/authenticationService';
-import { saveTicket } from './services/ticketService';
+import '../../css/App.css';
+import { getCurrentUser } from '../services/authenticationService';
+import { saveTicket } from '../services/ticketService';
 import { useNavigate } from 'react-router-dom';
-import config from '../config/config.json';
+import config from '../../config/config.json';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
@@ -69,12 +69,12 @@ const NewTicket = () => {
 
     // ticket gets updated if validation passes
     saveTicket(ticketCopy);
-    navigate('/tickets');
+    navigate('/ticket/overview');
     window.location.reload(false);
   };
 
   const handleCancel = (e) => {
-    navigate('/tickets');
+    navigate('/ticket/overview');
   };
 
   const onErrors = (errors) => console.error(errors);

@@ -1,20 +1,20 @@
 import _ from 'lodash';
-import { getTickets } from './services/ticketService';
-import { paginate } from './subcomponents/paginate';
-import { useNavigate } from 'react-router-dom';
-import config from '../config/config.json';
-import Pagination from './subcomponents/pagination';
 import React, { useState, useEffect } from 'react';
-import SearchBox from './subcomponents/searchBox';
-import TicketTable from './subcomponents/ticketTable';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import TicketOverview from './ticketOverview';
+import TicketDetail from './ticketDetail';
+import config from '../../config/config';
+import { paginate } from '../services/paginate';
+import { getTickets, updateTicket } from '../services/ticketService';
 
-const Tickets = () => {
+const Ticket = () => {
   // config.ticket required to avoid uncontrolled component errors
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize] = useState(3);
+  const [pageSize] = useState(30);
   const [searchQuery, setSearchQuery] = useState('');
   const [sortColumn, setSortColumn] = useState(config.sortColumn);
   const [tickets, setTickets] = useState([config.ticket]);
+  const [ticket, setTicket] = useState([config.ticket]);
   const [totalCount, setTotalCount] = useState(0);
   const navigate = useNavigate();
 
@@ -59,12 +59,19 @@ const Tickets = () => {
     getPagedData();
   }, [currentPage, pageSize, sortColumn, searchQuery]);
 
-  const handleEdit = (ticket) => {
-    navigate(`/tickets/${ticket._id}`);
+  const handleView = (ticket) => {
+    setTicket(ticket);
+    navigate(`/ticket/detail`);
   };
 
-  const handleView = (ticket) => {
-    navigate(`/status/${ticket._id}`);
+  const handleSave = async (updates) => {
+    // copy new value into existing values
+    const ticketCopy = Object.assign(ticket, updates);
+    // stores states
+    setTicket(ticketCopy);
+    // ticket gets updated if validation passes
+    updateTicket(ticket);
+    navigate('/ticket/overview');
   };
 
   const handleNew = () => {
@@ -86,24 +93,36 @@ const Tickets = () => {
 
   return (
     <div>
-      <h1>Tickets</h1>
-      <SearchBox value={searchQuery} onChange={handleSearch} />
-      <TicketTable
-        tickets={tickets}
-        sortColumn={sortColumn}
-        onEdit={handleEdit}
-        onSort={handleSort}
-        onNew={handleNew}
-        onView={handleView}
-      />
-      <Pagination
-        itemsCount={totalCount}
-        pageSize={pageSize}
-        currentPage={currentPage}
-        onPageChange={handlePageChange}
-      />
+      <Routes>
+        <Route
+          path="/overview"
+          element={
+            <TicketOverview
+              data={'data'}
+              searchQuery={searchQuery}
+              onSearch={handleSearch}
+              tickets={tickets}
+              sortColumn={sortColumn}
+              onSort={handleSort}
+              onNew={handleNew}
+              onView={handleView}
+              itemsCount={totalCount}
+              pageSize={pageSize}
+              currentPage={currentPage}
+              onPageChange={handlePageChange}
+            />
+          }
+        />
+
+        <Route
+          path="/detail"
+          element={
+            <TicketDetail ticket={ticket} onSave={handleSave} />
+          }
+        />
+      </Routes>
     </div>
   );
 };
 
-export default Tickets;
+export default Ticket;

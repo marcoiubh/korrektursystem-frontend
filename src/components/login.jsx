@@ -32,7 +32,7 @@ const Login = () => {
 
     try {
       await loginUser(credentials);
-      window.location = '/tickets';
+      window.location = '/ticket/overview';
     } catch (ex) {}
   };
 

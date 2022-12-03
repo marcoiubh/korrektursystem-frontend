@@ -5,12 +5,10 @@ import Home from './home';
 import Login from './login';
 import Logout from './logout';
 import NavBar from './subcomponents/navbar';
-import NewTicket from './newTicket';
+import NewTicket from './ticket/newTicket';
 import PrivateRoutes from './privateRoutes';
 import React, { useState, useEffect } from 'react';
-import TicketDetailsProfessor from './ticketDetailsProfessor';
-import TicketDetailsStudent from './ticketDetailsStudent';
-import Tickets from './tickets';
+import Ticket from './ticket/ticket';
 
 function App() {
   const [user, setUser] = useState();
@@ -34,18 +32,10 @@ function App() {
             <Route index element={<Home />} />
             {/* redirects gibberish paths to homepage if logged in */}
             <Route path="/*" element={<Home />} />
-            <Route path="/tickets">
-              <Route index element={<Tickets />} />
-              <Route
-                path=":id"
-                element={<TicketDetailsProfessor />}
-              />
-            </Route>
+            <Route path="/ticket/*" element={<Ticket />} />
+
             <Route path="/new" element={<NewTicket />} />
-            <Route
-              path="/status/:id"
-              element={<TicketDetailsStudent />}
-            />
+
             <Route path="/logout" element={<Logout />} />
           </Route>
         </Routes>

@@ -8,7 +8,6 @@ import React, { useState } from 'react';
 import Table from './table';
 
 const TicketTable = ({
-  onEdit,
   onNew,
   onSort,
   onView,
@@ -63,23 +62,10 @@ const TicketTable = ({
       label: 'Status',
     },
     {
-      key: 'edit',
-      content: (ticket) => (
-        <button
-          className="btn btn-outline-primary small m-2"
-          hidden={ifUserIsStudent()}
-          onClick={() => onEdit(ticket)}
-        >
-          Edit
-        </button>
-      ),
-    },
-    {
       key: 'view',
       content: (ticket) => (
         <button
           className="btn btn-outline-primary small m-2"
-          hidden={ifUserIsProfessor()}
           onClick={() => onView(ticket)}
         >
           View
