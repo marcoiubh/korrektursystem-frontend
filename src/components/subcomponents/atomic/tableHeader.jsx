@@ -22,8 +22,8 @@ const TableHeader = ({ propertyList, sortColumn, onSort }) => {
   const renderSortIcon = (name) => {
     if (name !== sortColumn.property) return null;
     if (sortColumn.order === 'asc')
-      return <i className="fa fa-sort-asc" />;
-    return <i className="fa fa-sort-desc" />;
+      return <i className="fa fa-long-arrow-up" />;
+    return <i className="fa fa-long-arrow-down" />;
   };
 
   return (
