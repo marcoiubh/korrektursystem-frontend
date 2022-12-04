@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import config from '../../config/config.json';
-import moment from 'moment';
 import { ifUserIsStudent } from '../services/authenticationService';
 import Pagination from '../subcomponents/pagination';
 import Request from '../subcomponents/request';
 import Response from '../subcomponents/response';
 import { updateTicket } from '../services/ticketService';
+import Button from '../subcomponents/button';
 
 const TicketDetail = ({
   ticket: propsticket,
@@ -25,8 +24,6 @@ const TicketDetail = ({
     };
     fetchData();
   }, [ticket, tickets, currentPage]);
-
-  useEffect(() => {}, []);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -49,29 +46,10 @@ const TicketDetail = ({
         <p>Ticket number # {ticket._id} </p>
       </div>
 
-      <div
-        className="row g-1"
-        style={{
-          backgroundColor: 'lightgrey',
-        }}
-      >
-        <div
-          className="col-sm-5"
-          style={{
-            backgroundColor: '',
-          }}
-        >
-          <Request
-            date={moment(ticket.date).format(config.dateFormat)}
-            ticket={ticket}
-          />
-          <button
-            type="button"
-            onClick={onOverview}
-            className="btn btn-outline-primary small m-1"
-          >
-            Overview
-          </button>
+      <div className="row g-1">
+        <div className="col-sm-5">
+          <Request ticket={ticket} />
+          <Button label="Overview" onClick={onOverview} />
         </div>
         {!ifUserIsStudent() && (
           <div className="col-sm-5">

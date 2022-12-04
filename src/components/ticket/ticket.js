@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import TicketOverview from './ticketOverview';
@@ -6,6 +5,8 @@ import TicketDetail from './ticketDetail';
 import config from '../../config/config';
 import { paginate } from '../services/paginate';
 import { getTickets } from '../services/ticketService';
+import { search } from '../services/search';
+import { sort } from '../services/sort';
 
 const Ticket = () => {
   // config.ticket required to avoid uncontrolled component errors
@@ -13,67 +14,33 @@ const Ticket = () => {
   const [pageSize] = useState(4);
   const [searchQuery, setSearchQuery] = useState('');
   const [sortColumn, setSortColumn] = useState(config.sortColumn);
-  const [allTickets, setAllTickets] = useState([config.ticket]);
-  const [pagedTickets, setPagedTickets] = useState([config.ticket]);
+  const [tickets, setTickets] = useState([config.ticket]);
+  const [pagedTicketsOnly, setPagedTicketsOnly] = useState([
+    config.ticket,
+  ]);
   const [ticket, setTicket] = useState([config.ticket]);
   const [totalCount, setTotalCount] = useState(0);
-
   const navigate = useNavigate();
 
   useEffect(() => {
     const prepareTickets = async () => {
-      let ticketSelection = await fetchTickets();
-      ticketSelection = filterSelection(ticketSelection);
-      setTotalCount(ticketSelection.length);
-      ticketSelection = sortSelection(ticketSelection);
-      setAllTickets(ticketSelection);
-      ticketSelection = pageSelection(ticketSelection);
-      setPagedTickets(ticketSelection);
+      const fetchedTickets = await fetchTickets();
+      const filteredTickets = search(fetchedTickets, searchQuery);
+      setTotalCount(filteredTickets.length);
+      const sortedTickets = sort(filteredTickets, sortColumn);
+      setTickets(sortedTickets);
+      const paginatedTickets = paginate(
+        sortedTickets,
+        currentPage,
+        pageSize
+      );
+      setPagedTicketsOnly(paginatedTickets);
     };
     const fetchTickets = async () => {
       const { data } = await getTickets();
       return data;
     };
-    const filterSelection = (ticketSelection) => {
-      if (searchQuery)
-        return ticketSelection.filter((m) => {
-          return (
-            m.date.startsWith(searchQuery) ||
-            m.module
-              .toLowerCase()
-              .includes(searchQuery.toLowerCase()) ||
-            m.source
-              .toLowerCase()
-              .includes(searchQuery.toLowerCase()) ||
-            m.status
-              .toLowerCase()
-              .includes(searchQuery.toLowerCase()) ||
-            m.student
-              .toLowerCase()
-              .includes(searchQuery.toLowerCase()) ||
-            m.title
-              .toLowerCase()
-              .includes(searchQuery.toLowerCase()) ||
-            m.type
-              .toLowerCase()
-              .includes(searchQuery.toLowerCase()) ||
-            m.priority
-              .toLowerCase()
-              .includes(searchQuery.toLowerCase())
-          );
-        });
-      return ticketSelection;
-    };
-    const sortSelection = (ticketSelection) => {
-      return _.orderBy(
-        ticketSelection,
-        [sortColumn.column],
-        [sortColumn.order]
-      );
-    };
-    const pageSelection = (ticketSelection) => {
-      return paginate(ticketSelection, currentPage, pageSize);
-    };
+
     prepareTickets();
   }, [currentPage, pageSize, sortColumn, searchQuery]);
 
@@ -121,7 +88,7 @@ const Ticket = () => {
               pageSize={pageSize}
               searchQuery={searchQuery}
               sortColumn={sortColumn}
-              tickets={pagedTickets}
+              tickets={pagedTicketsOnly}
               totalCount={totalCount}
             />
           }
@@ -132,7 +99,7 @@ const Ticket = () => {
           element={
             <TicketDetail
               ticket={ticket}
-              tickets={allTickets}
+              tickets={tickets}
               totalCount={totalCount}
               onOverview={handleOverview}
             />
