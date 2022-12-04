@@ -5,6 +5,7 @@ import Request from '../subcomponents/composite/request';
 import Response from '../subcomponents/composite/response';
 import { updateTicket } from '../services/ticketService';
 import Button from '../subcomponents/atomic/button';
+import { toast } from 'react-toastify';
 
 const TicketDetail = ({
   ticket: propsticket,
@@ -36,7 +37,12 @@ const TicketDetail = ({
     // stores states
     setTicket(ticketCopy);
     // ticket gets updated if validation passes
-    await updateTicket(ticket);
+    try {
+      await updateTicket(ticket);
+      toast.success('Changes has been saved.');
+    } catch (error) {
+      toast.error('An error occured.');
+    }
   };
 
   return (

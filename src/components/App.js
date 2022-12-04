@@ -9,6 +9,8 @@ import NewTicket from './ticket/newTicket';
 import PrivateRoutes from './privateRoutes';
 import React, { useState, useEffect } from 'react';
 import Ticket from './ticket/ticket';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [user, setUser] = useState();
@@ -20,6 +22,7 @@ function App() {
 
   return (
     <div>
+      <ToastContainer />
       <NavBar user={user} />
       <div className="container">
         <Routes>
