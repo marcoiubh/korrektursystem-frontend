@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import config from '../../config/config.json';
+import config from '../../../config/config.json';
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
-import { ResponseSchema } from '../../config/joiSchema';
-import TextAreaHook from './textAreaHook';
-import SelectHook from './SelectHook';
-import Button from './button';
+import { ResponseSchema } from '../../../config/joiSchema';
+import TextAreaHook from '../atomicHooks/textAreaHook';
+import SelectHook from '../atomicHooks/SelectHook';
+import Button from '../atomic/button';
 
 const Response = ({ ticket, onSave }) => {
   const {

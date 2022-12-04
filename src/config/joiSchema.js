@@ -1,4 +1,18 @@
 import Joi from 'joi';
+
+const LoginSchema = Joi.object({
+  email: Joi.string()
+    .email({ tlds: { allow: false } })
+    .required()
+    .messages({
+      'string.empty': 'This is a required field',
+      'string.email': 'A valid email is required',
+    }),
+  password: Joi.string()
+    .required()
+    .messages({ 'string.empty': 'A valid password is required' }),
+});
+
 const ResponseSchema = Joi.object({
   statement: Joi.string().required().messages({
     'string.emtpy': 'This is a required field',
@@ -58,4 +72,4 @@ const NewTicketSchema = Joi.object({
     .messages({ 'string.empty': 'This is a required field' }),
 });
 
-export { ResponseSchema, NewTicketSchema };
+export { LoginSchema, ResponseSchema, NewTicketSchema };

@@ -1,5 +1,5 @@
 import moment from 'moment';
-import config from '../../config/config.json';
+import config from '../../../config/config.json';
 
 const Date = ({ property, obj, disabled, ...rest }) => {
   return (

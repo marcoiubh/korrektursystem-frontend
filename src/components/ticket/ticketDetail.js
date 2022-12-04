@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { ifUserIsStudent } from '../services/authenticationService';
-import Pagination from '../subcomponents/pagination';
-import Request from '../subcomponents/request';
-import Response from '../subcomponents/response';
+import Pagination from '../subcomponents/composite/pagination';
+import Request from '../subcomponents/composite/request';
+import Response from '../subcomponents/composite/response';
 import { updateTicket } from '../services/ticketService';
-import Button from '../subcomponents/button';
+import Button from '../subcomponents/atomic/button';
 
 const TicketDetail = ({
   ticket: propsticket,

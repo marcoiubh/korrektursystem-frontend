@@ -6,10 +6,10 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { NewTicketSchema } from '../../config/joiSchema';
-import SelectHook from '../subcomponents/SelectHook';
-import TextAreaHook from '../subcomponents/textAreaHook';
-import InputHook from '../subcomponents/InputHook';
-import Button from '../subcomponents/button';
+import SelectHook from '../subcomponents/atomicHooks/SelectHook';
+import TextAreaHook from '../subcomponents/atomicHooks/textAreaHook';
+import InputHook from '../subcomponents/atomicHooks/InputHook';
+import Button from '../subcomponents/atomic/button';
 
 const NewTicket = ({ user }) => {
   // config.ticket required to avoid uncontrolled component errors

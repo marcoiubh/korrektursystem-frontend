@@ -1,7 +1,7 @@
-import Pagination from '../subcomponents/pagination';
+import Pagination from '../subcomponents/composite/pagination';
 import React from 'react';
-import SearchBox from '../subcomponents/searchBox';
-import TicketTable from '../subcomponents/ticketTable';
+import SearchBox from '../subcomponents/atomic/searchBox';
+import TicketTable from '../subcomponents/composite/ticketTable';
 
 const TicketOverview = ({
   onNew,

@@ -15,7 +15,7 @@
   "priority": ["Critical", "Major", "Medium", "Minor"],
   "requiresAuthentication": "true",
   "sortColumn": {
-    "column": "date",
+    "property": "date",
     "order": "asc"
   },
   "source": ["Script", "Vodcast", "App", "Excercises", "OnlineQuiz"],
