@@ -5,7 +5,7 @@ import TicketOverview from './ticketOverview';
 import TicketDetail from './ticketDetail';
 import config from '../../config/config';
 import { paginate } from '../services/paginate';
-import { getTickets, updateTicket } from '../services/ticketService';
+import { getTickets } from '../services/ticketService';
 
 const Ticket = () => {
   // config.ticket required to avoid uncontrolled component errors
@@ -79,19 +79,8 @@ const Ticket = () => {
 
   // EventHandler
   const handleView = (ticket) => {
-    console.log(ticket.title);
     setTicket(ticket);
     navigate(`/ticket/detail`);
-  };
-
-  const handleSave = async (updates) => {
-    // copy new value into existing values
-    const ticketCopy = Object.assign(ticket, updates);
-    // stores states
-    setTicket(ticketCopy);
-    // ticket gets updated if validation passes
-    updateTicket(ticket);
-    navigate('/ticket/overview');
   };
 
   const handleNew = () => {
@@ -146,7 +135,6 @@ const Ticket = () => {
               tickets={allTickets}
               totalCount={totalCount}
               onOverview={handleOverview}
-              onSave={handleSave}
             />
           }
         />

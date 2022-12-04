@@ -33,11 +33,22 @@ const Response = ({ ticket, onSave }) => {
   const {
     register,
     handleSubmit,
+    setValue,
+    clearErrors,
     formState: { errors },
   } = useForm({
     mode: 'onBlur',
     resolver: joiResolver(JoiSchema),
   });
+
+  useEffect(() => {
+    setValue('statement', ticket.statement);
+    setValue('priority', ticket.priority);
+    setValue('status', ticket.status);
+    clearErrors();
+  }, [ticket, onSave]);
+
+  useEffect(() => {}, []);
 
   const [priority] = useState(config.priority);
   const [status] = useState(config.status);

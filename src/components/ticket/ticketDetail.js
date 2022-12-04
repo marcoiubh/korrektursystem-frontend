@@ -5,16 +5,16 @@ import { ifUserIsStudent } from '../services/authenticationService';
 import Pagination from '../subcomponents/pagination';
 import Request from '../subcomponents/request';
 import Response from '../subcomponents/response';
+import { updateTicket } from '../services/ticketService';
 
 const TicketDetail = ({
-  ticket: t,
+  ticket: propsticket,
   tickets,
   totalCount,
   onOverview,
-  onSave,
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [ticket, setTicket] = useState(t);
+  const [ticket, setTicket] = useState(propsticket);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,9 +26,20 @@ const TicketDetail = ({
     fetchData();
   }, [ticket, tickets, currentPage]);
 
+  useEffect(() => {}, []);
+
   const handlePageChange = (page) => {
     setCurrentPage(page);
     setTicket(tickets[page - 1]);
+  };
+
+  const handleSave = async (updates) => {
+    // copy new value into existing values
+    const ticketCopy = Object.assign(ticket, updates);
+    // stores states
+    setTicket(ticketCopy);
+    // ticket gets updated if validation passes
+    await updateTicket(ticket);
   };
 
   return (
@@ -62,9 +73,9 @@ const TicketDetail = ({
             Overview
           </button>
         </div>
-        {true && (
+        {!ifUserIsStudent() && (
           <div className="col-sm-5">
-            <Response ticket={ticket} onSave={onSave} />
+            <Response ticket={ticket} onSave={handleSave} />
           </div>
         )}
       </div>
@@ -74,11 +85,6 @@ const TicketDetail = ({
         currentPage={currentPage}
         onPageChange={handlePageChange}
       />
-      {/* {!ifUserIsStudent() && (
-            <button className="btn btn-outline-primary small m-1 ">
-              Save
-            </button>
-          )} */}
     </div>
   );
 };
