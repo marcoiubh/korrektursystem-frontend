@@ -7,6 +7,7 @@ import { paginate } from '../services/paginate';
 import { getTickets } from '../services/ticketService';
 import { search } from '../services/search';
 import { sort } from '../services/sort';
+import { getJwt } from '../services/authenticationService';
 
 const Ticket = () => {
   // config.ticket required to avoid uncontrolled component errors
@@ -43,6 +44,11 @@ const Ticket = () => {
 
     prepareTickets();
   }, [currentPage, pageSize, sortColumn, searchQuery]);
+
+  useEffect(() => {
+    // navigate to login if no token provided on every rerender
+    if (!getJwt()) navigate('/login');
+  });
 
   // EventHandler
   const handleView = (ticket) => {

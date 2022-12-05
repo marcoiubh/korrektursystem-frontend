@@ -4,5 +4,5 @@
 - custom sort
 - date search
 - professor value
-- authentification before navigate!!
+- authentification before navigate -> fixed
 - studentview: hide priority
