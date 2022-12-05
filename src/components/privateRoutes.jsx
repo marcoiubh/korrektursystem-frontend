@@ -1,10 +1,11 @@
 import { getJwt } from './services/authenticationService';
 import { Navigate, Outlet } from 'react-router-dom';
-const PrivateRoutes = () => {
+const PrivateRoutes = ({ user }) => {
   // retrieves token from authenticationService
   const token = getJwt();
-  // children elements are rendered if token is present only
-  // otherwise the user gets redirected to login page
+
+  // children elements are rendered if user is present only
+  // otherwise the client gets redirected to login page
   return token ? <Outlet /> : <Navigate to="/login" />;
 };
 

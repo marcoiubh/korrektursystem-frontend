@@ -33,10 +33,6 @@ export function getCurrentRole() {
   } catch (error) {}
 }
 
-export function ifUserIsProfessor() {
-  return getCurrentRole() === 'professor';
-}
-
 export function ifUserIsStudent() {
   return getCurrentRole() === 'student';
 }

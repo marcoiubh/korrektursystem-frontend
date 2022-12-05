@@ -2,27 +2,17 @@ import { loginUser } from './services/authenticationService';
 import { useForm } from 'react-hook-form';
 import React from 'react';
 import { joiResolver } from '@hookform/resolvers/joi';
-import Joi from 'joi';
+import InputHook from './subcomponents/atomicHooks/InputHook';
+import Button from './subcomponents/atomic/button';
+import { LoginSchema } from '../config/joiSchema';
 
 const Login = () => {
-  const schema = Joi.object({
-    email: Joi.string()
-      .email({ tlds: { allow: false } })
-      .required()
-      .messages({
-        'string.empty': 'This is a required field',
-        'string.email': 'A valid email is required',
-      }),
-    password: Joi.string()
-      .required()
-      .messages({ 'string.empty': 'A valid password is required' }),
-  });
-
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors },
-  } = useForm({ mode: 'onBlur', resolver: joiResolver(schema) });
+  } = useForm({ mode: 'onBlur', resolver: joiResolver(LoginSchema) });
 
   const handleLogin = async (e) => {
     const credentials = {
@@ -32,8 +22,15 @@ const Login = () => {
 
     try {
       await loginUser(credentials);
-      window.location = '/tickets';
-    } catch (ex) {}
+      window.location = '/ticket/overview';
+    } catch (ex) {
+      if (ex.response && ex.response.status === 400) {
+        setError('email', {
+          type: 'custom',
+          message: 'Invalid email or password.',
+        });
+      }
+    }
   };
 
   return (
@@ -44,41 +41,20 @@ const Login = () => {
         className="col-sm-4 mt-lg-5"
         onSubmit={handleSubmit(handleLogin)}
       >
-        <div className="input-group col-sm-6  ">
-          <span className="input-group-text" id="basic-addon1">
-            Email
-          </span>
-          <input
-            type="text"
-            name="email"
-            {...register('email')}
-            className={`form-control ${
-              errors.email ? 'is-invalid' : ''
-            }`}
-          />
-          <div className="invalid-feedback">
-            {errors.email?.message}
-          </div>
-        </div>
-        <div className="input-group col-sm-6  ">
-          <span className="input-group-text" id="basic-addon1">
-            Password
-          </span>
-          <input
-            type="password"
-            name="password"
-            {...register('password')}
-            className={`form-control ${
-              errors.password ? 'is-invalid' : ''
-            }`}
-          />
-          <div className="invalid-feedback">
-            {errors.password?.message}
-          </div>
-        </div>
-        <button className="btn btn-outline-primary small">
-          Login
-        </button>
+        <InputHook
+          property="email"
+          obj=""
+          register={register}
+          errors={errors}
+        />
+        <InputHook
+          property="password"
+          obj=""
+          type="password"
+          register={register}
+          errors={errors}
+        />
+        <Button label="Login" />
       </form>
     </div>
   );
