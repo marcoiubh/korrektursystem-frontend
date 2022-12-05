@@ -20,12 +20,16 @@ const TicketTable = ({
         onClick={onNew}
         hidden={!ifUserIsStudent()}
       />
-      <Table
-        propertyList={propertyList}
-        records={tickets}
-        onSort={onSort}
-        sortColumn={sortColumn}
-      />
+      {tickets.length === 0 ? (
+        <p>No ticket found in the system.</p>
+      ) : (
+        <Table
+          propertyList={propertyList}
+          records={tickets}
+          onSort={onSort}
+          sortColumn={sortColumn}
+        />
+      )}
     </div>
   );
 };

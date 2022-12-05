@@ -38,7 +38,8 @@ const TicketDetail = ({
     setTicket(ticketCopy);
     // ticket gets updated if validation passes
     try {
-      await updateTicket(ticket);
+      const { data: result } = await updateTicket(ticket);
+      console.log(result);
       toast.success('Changes has been saved.');
     } catch (error) {
       toast.error('An error occured.');

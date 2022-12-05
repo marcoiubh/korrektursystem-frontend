@@ -41,7 +41,6 @@ const NewTicket = ({ user }) => {
       await saveTicket(ticketCopy);
       toast.success('Ticket has been created.');
       navigate('/ticket/overview');
-      // window.location.reload(false);
     } catch (error) {
       toast.error('An error occured.');
     }

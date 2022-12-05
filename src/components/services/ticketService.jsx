@@ -8,15 +8,21 @@ const api = '/tickets/';
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 axios.defaults.headers.common['x-auth-token'] = getJwt();
 axios.interceptors.response.use(null, (error) => {
-  const expectedError =
-    error.response &&
-    error.response.status >= 400 &&
-    error.response.status < 500;
-  toast.error(`an error occured: ${error.response.status}`);
+  if (error.response) {
+    switch (error.response.status) {
+      case 400:
+        toast.error(`Invalid email or password.`);
+        break;
+      case 401:
+        toast.error(`Access denied. No token provided.`);
+        break;
+      case 404:
+        toast.error(`Server cannot find the requested resource.`);
+        break;
 
-  if (!expectedError) {
-    console.log('Error: ', error);
-    toast.error('an unexpected error ocurred.');
+      default:
+        toast.error('An unexpected error ocurred.');
+    }
   }
 });
 
@@ -29,7 +35,7 @@ export const getTicket = (id) => {
 };
 
 export const updateTicket = (ticket) => {
-  axios.put(api + ticket._id, ticket);
+  return axios.put(api + ticket._id, ticket);
 };
 
 export const saveTicket = (ticket) => {
