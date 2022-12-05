@@ -4,14 +4,9 @@ const Input = ({ property, obj, disabled, ...rest }) => {
       <span {...rest} className="input-group-text" id="basic-addon1">
         {property}
       </span>
-      <input
-        {...rest}
-        disabled={disabled}
-        value={obj[property]}
-        name={property}
-        id={property}
-        className="form-control"
-      />
+      <label {...rest} id={property} className="form-control">
+        {obj[property]}
+      </label>
     </div>
   );
 };

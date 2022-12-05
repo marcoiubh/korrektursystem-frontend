@@ -21,7 +21,6 @@ const SelectHook = ({
           errors[property] ? 'is-invalid' : ''
         }`}
       >
-        <option>{property}</option>
         {options.map((option) => (
           <option key={option}>{option}</option>
         ))}

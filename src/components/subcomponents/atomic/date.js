@@ -7,14 +7,9 @@ const Date = ({ property, obj, disabled, ...rest }) => {
       <span {...rest} className="input-group-text" id="basic-addon1">
         {property}
       </span>
-      <input
-        {...rest}
-        disabled={disabled}
-        value={moment(obj[property]).format(config.dateFormat)}
-        name={property}
-        id={property}
-        className="form-control"
-      />
+      <label id={property} className="form-control">
+        {moment(obj[property]).format(config.dateFormat)}
+      </label>
     </div>
   );
 };

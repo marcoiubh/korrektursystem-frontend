@@ -4,15 +4,9 @@ const TextArea = ({ property, obj, disabled, ...rest }) => {
       <span {...rest} className="input-group-text" id="basic-addon1">
         {property}
       </span>
-      <textarea
-        {...rest}
-        disabled={disabled}
-        value={obj[property]}
-        name={property}
-        id={property}
-        className="form-control"
-        rows="4"
-      />
+      <label {...rest} id={property} className="form-control">
+        {obj[property]}
+      </label>
     </div>
   );
 };
