@@ -5,4 +5,4 @@
 - date search
 - professor value
 - authentification before navigate -> fixed
-- studentview: hide priority
+- studentview: hide priority -> fixed

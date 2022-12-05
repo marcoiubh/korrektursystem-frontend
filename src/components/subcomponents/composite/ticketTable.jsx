@@ -2,7 +2,7 @@ import { ifUserIsStudent } from '../../services/authenticationService';
 import React from 'react';
 import Table from './table';
 import Button from '../atomic/button';
-import getPropertyList from '../../../config/columnSchema';
+import getPropertyList from '../../../config/propertyList';
 
 const TicketTable = ({
   onNew,
