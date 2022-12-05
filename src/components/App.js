@@ -40,6 +40,15 @@ function App() {
           </Route>
         </Routes>
       </div>
+      <footer className="footer mt-auto py-3 bg-light">
+        <div className="container">
+          <span className="text-muted">
+            {/* Impressum Datenschutzerklärung Login für IU Mitarbeiter */}
+            Copyright © 2022 IU Internationale Hochschule - All rights
+            reserved
+          </span>
+        </div>
+      </footer>
     </div>
   );
 }
