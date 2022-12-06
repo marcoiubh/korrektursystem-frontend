@@ -46,7 +46,7 @@ const TicketDetail = ({
       }
     };
     updateReadStatus();
-  }, []);
+  }, [ticket]);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);

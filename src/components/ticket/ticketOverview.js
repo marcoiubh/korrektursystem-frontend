@@ -1,5 +1,5 @@
 import Pagination from '../subcomponents/composite/pagination';
-import React, { useEffect } from 'react';
+import React from 'react';
 import SearchBox from '../subcomponents/atomic/searchBox';
 import TicketTable from '../subcomponents/composite/ticketTable';
 
