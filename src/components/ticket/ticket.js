@@ -44,7 +44,7 @@ const Ticket = ({ user, onDeleteUser }) => {
     };
 
     prepareTickets();
-  }, [currentPage, pageSize, sortColumn, searchQuery]);
+  }, [currentPage, pageSize, sortColumn, searchQuery, ticket]);
 
   useEffect(() => {
     // if token got deleted for any reason
@@ -79,8 +79,9 @@ const Ticket = ({ user, onDeleteUser }) => {
     setSearchQuery(query);
   };
 
-  const handleOverview = () => {
-    window.location = '/ticket/overview';
+  const handleTicketSeen = (ticketCopy) => {
+    // update ticket state to rerender view label
+    setTicket(ticketCopy);
   };
 
   // Rendering
@@ -114,7 +115,7 @@ const Ticket = ({ user, onDeleteUser }) => {
               ticket={ticket}
               tickets={tickets}
               totalCount={totalCount}
-              onOverview={handleOverview}
+              onTicketSeen={handleTicketSeen}
             />
           }
         />

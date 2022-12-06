@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     const user = getCurrentUser();
     setUser(user);
-  }, []);
+  }, [user]);
 
   const handleDeleteUser = () => {
     setUser({});
