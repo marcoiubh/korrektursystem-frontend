@@ -9,7 +9,7 @@ import { search } from '../services/search';
 import { sort } from '../services/sort';
 import { getJwt } from '../services/authenticationService';
 
-const Ticket = () => {
+const Ticket = ({ onDeleteUser }) => {
   // config.ticket required to avoid uncontrolled component errors
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize] = useState(4);
@@ -37,6 +37,7 @@ const Ticket = () => {
       );
       setPagedTicketsOnly(paginatedTickets);
     };
+
     const fetchTickets = async () => {
       const { data } = await getTickets();
       return data;
@@ -46,8 +47,13 @@ const Ticket = () => {
   }, [currentPage, pageSize, sortColumn, searchQuery]);
 
   useEffect(() => {
-    // navigate to login if no token provided on every rerender
-    if (!getJwt()) navigate('/login');
+    // if token got deleted for any reason
+    if (!getJwt()) {
+      // delete current user
+      onDeleteUser();
+      // navigate user back to login
+      window.location = '/login';
+    }
   });
 
   // EventHandler

@@ -20,6 +20,10 @@ function App() {
     setUser(user);
   }, []);
 
+  const handleDeleteUser = () => {
+    setUser({});
+  };
+
   return (
     <div>
       <ToastContainer />
@@ -33,7 +37,7 @@ function App() {
             <Route path="/*" element={<Home />} />
             <Route
               path="/ticket/*"
-              element={<Ticket user={user} />}
+              element={<Ticket onDeleteUser={handleDeleteUser} />}
             />
             <Route path="/new" element={<NewTicket user={user} />} />
             <Route path="/logout" element={<Logout />} />
