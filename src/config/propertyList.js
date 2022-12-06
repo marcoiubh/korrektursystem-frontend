@@ -12,7 +12,8 @@ const getPropertyList = ({ onView }) => {
           (ifUserIsStudent() && !ticket.readStudent) ||
           (!ifUserIsStudent() && !ticket.readProfessor)
         ) {
-          return <p>NEW</p>;
+          // render notification symbol
+          return <i className="fa fa-commenting"></i>;
         }
       },
     },
