@@ -37,7 +37,9 @@ function App() {
             <Route path="/*" element={<Home />} />
             <Route
               path="/ticket/*"
-              element={<Ticket onDeleteUser={handleDeleteUser} />}
+              element={
+                <Ticket user={user} onDeleteUser={handleDeleteUser} />
+              }
             />
             <Route path="/new" element={<NewTicket user={user} />} />
             <Route path="/logout" element={<Logout />} />

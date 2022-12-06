@@ -9,7 +9,7 @@ import { search } from '../services/search';
 import { sort } from '../services/sort';
 import { getJwt } from '../services/authenticationService';
 
-const Ticket = ({ onDeleteUser }) => {
+const Ticket = ({ user, onDeleteUser }) => {
   // config.ticket required to avoid uncontrolled component errors
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize] = useState(4);
@@ -110,6 +110,7 @@ const Ticket = ({ onDeleteUser }) => {
           path="/detail"
           element={
             <TicketDetail
+              user={user}
               ticket={ticket}
               tickets={tickets}
               totalCount={totalCount}

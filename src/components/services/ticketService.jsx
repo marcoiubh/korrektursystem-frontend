@@ -39,5 +39,5 @@ export const updateTicket = (ticket) => {
 };
 
 export const saveTicket = (ticket) => {
-  axios.post(api, ticket);
+  return axios.post(api, ticket);
 };

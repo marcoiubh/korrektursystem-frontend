@@ -8,6 +8,7 @@ import Button from '../subcomponents/atomic/button';
 import { toast } from 'react-toastify';
 
 const TicketDetail = ({
+  user,
   ticket: propsticket,
   tickets,
   totalCount,
@@ -34,12 +35,10 @@ const TicketDetail = ({
   const handleSave = async (updates) => {
     // copy new value into existing values
     const ticketCopy = Object.assign(ticket, updates);
-    // stores states
-    setTicket(ticketCopy);
-    // ticket gets updated if validation passes
+    ticketCopy.professor = user;
+    ticketCopy.date = Date.now();
     try {
-      const { data: result } = await updateTicket(ticket);
-      console.log(result);
+      await updateTicket(ticketCopy);
       toast.success('Changes has been saved.');
     } catch (error) {
       toast.error('An error occured.');

@@ -33,9 +33,9 @@ const NewTicket = ({ user }) => {
   const handleSave = async (e) => {
     // copy new value into existing values
     const ticketCopy = Object.assign(ticket, e);
-    // stores states
+    // associate student with the new ticket
     ticketCopy.student = user;
-    // ticket gets updated if validation passes
+    ticketCopy.date = Date.now();
 
     try {
       await saveTicket(ticketCopy);
