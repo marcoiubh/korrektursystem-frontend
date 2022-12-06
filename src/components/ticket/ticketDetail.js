@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { ifUserIsStudent } from '../services/authenticationService';
+import {
+  getCurrentRole,
+  ifUserIsStudent,
+} from '../services/authenticationService';
 import Pagination from '../subcomponents/composite/pagination';
 import Request from '../subcomponents/composite/request';
 import Response from '../subcomponents/composite/response';
@@ -27,6 +30,24 @@ const TicketDetail = ({
     fetchData();
   }, [ticket, tickets, currentPage]);
 
+  useEffect(() => {
+    const updateReadStatus = async () => {
+      const ticketCopy = { ...ticket };
+
+      if (getCurrentRole() === 'student')
+        ticketCopy.readStudent = true;
+      else if (getCurrentRole() === 'professor')
+        ticketCopy.readProfessor = true;
+
+      try {
+        await updateTicket(ticketCopy);
+      } catch (error) {
+        toast.error('An error occured.');
+      }
+    };
+    updateReadStatus();
+  }, []);
+
   const handlePageChange = (page) => {
     setCurrentPage(page);
     setTicket(tickets[page - 1]);
@@ -37,6 +58,10 @@ const TicketDetail = ({
     const ticketCopy = Object.assign(ticket, updates);
     ticketCopy.professor = user;
     ticketCopy.date = Date.now();
+
+    // updated ticket has not been read by the student
+    ticketCopy.readStudent = false;
+    ticketCopy.readProfessor = true;
     try {
       await updateTicket(ticketCopy);
       toast.success('Changes has been saved.');

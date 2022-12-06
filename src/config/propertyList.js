@@ -6,6 +6,17 @@ import { ifUserIsStudent } from '../components/services/authenticationService';
 const getPropertyList = ({ onView }) => {
   return [
     {
+      content: (ticket) => {
+        // notification if student or professor did not read ticket yet
+        if (
+          (ifUserIsStudent() && !ticket.readStudent) ||
+          (!ifUserIsStudent() && !ticket.readProfessor)
+        ) {
+          return <p>NEW</p>;
+        }
+      },
+    },
+    {
       name: 'date',
       content: (ticket) => (
         <span>{moment(ticket.date).format(config.dateFormat)}</span>

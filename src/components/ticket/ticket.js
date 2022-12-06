@@ -80,7 +80,7 @@ const Ticket = ({ user, onDeleteUser }) => {
   };
 
   const handleOverview = () => {
-    navigate('/ticket/overview');
+    window.location = '/ticket/overview';
   };
 
   // Rendering

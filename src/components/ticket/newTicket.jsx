@@ -36,6 +36,9 @@ const NewTicket = ({ user }) => {
     // associate student with the new ticket
     ticketCopy.student = user;
     ticketCopy.date = Date.now();
+    // new ticket has not been read by a professor
+    ticketCopy.readProfessor = false;
+    ticketCopy.readStudent = true;
 
     try {
       await saveTicket(ticketCopy);
