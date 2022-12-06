@@ -9,13 +9,6 @@ const Request = ({ ticket }) => {
     <div>
       <div className="row g-1">
         <div className="col-sm-3">
-          {/* TODO: Refactor */}
-          {((!ifUserIsStudent() && !ticket.readProfessor) ||
-            (ifUserIsStudent() && !ticket.readStudent)) && (
-            <i className="fa fa-commenting" />
-          )}
-        </div>
-        <div className="col-sm-3">
           <Date property="date" obj={ticket} disabled={true} />
         </div>
         <div className="col-sm-4">

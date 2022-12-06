@@ -30,6 +30,10 @@ const TicketDetail = ({
       );
     };
 
+    fetchData();
+  }, [ticket, tickets, currentPage]);
+
+  useEffect(() => {
     const updateReadStatus = async () => {
       const ticketCopy = { ...ticket };
 
@@ -48,8 +52,7 @@ const TicketDetail = ({
     };
     if (!ticket.title) window.location = '/ticket/overview';
     else updateReadStatus();
-    fetchData();
-  }, [ticket, currentPage]);
+  }, [ticket]);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
