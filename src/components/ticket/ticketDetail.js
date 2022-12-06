@@ -57,7 +57,7 @@ const TicketDetail = ({
   };
 
   const handleOverview = () => {
-    navigate('/ticket/overview');
+    window.location = '/ticket/overview';
   };
 
   const handleSave = async (updates) => {

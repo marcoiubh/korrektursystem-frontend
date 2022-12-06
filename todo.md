@@ -15,4 +15,3 @@
 - delete user if logged out -> fixed
 - studentview: hide priority -> fixed
 - dark mode
-  TEST
