@@ -45,7 +45,8 @@ const TicketDetail = ({
         toast.error('An error occured.');
       }
     };
-    updateReadStatus();
+    if (!ticket.title) window.location = '/ticket/overview';
+    else updateReadStatus();
   }, [ticket]);
 
   const handlePageChange = (page) => {

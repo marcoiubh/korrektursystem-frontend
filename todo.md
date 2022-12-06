@@ -8,7 +8,7 @@
 - date search
 - ticket config required?
 - joiSchema all rules required?
-- ticket detail empty -> ticket overview
+- ticket detail empty -> ticket overview -> fixed
 - professor value & lastmodified always on top -> fixed
 - authentification before navigate -> fixed
 - delete user if logged out -> fixed
