@@ -28,14 +28,6 @@ const ResponseSchema = Joi.object({
     .messages({
       'any.only': 'This is a required field',
     }),
-  comment: Joi.any(),
-  date: Joi.any(),
-  module: Joi.any(),
-  source: Joi.any(),
-  student: Joi.any(),
-  title: Joi.any(),
-  type: Joi.any(),
-  _id: Joi.any(),
 });
 
 const NewTicketSchema = Joi.object({
@@ -61,9 +53,6 @@ const NewTicketSchema = Joi.object({
     .messages({
       'any.only': 'This is a required field',
     }),
-  _id: Joi.any(),
-  date: Joi.any(),
-  student: Joi.any(),
   title: Joi.string()
     .required()
     .messages({ 'string.empty': 'This is a required field' }),

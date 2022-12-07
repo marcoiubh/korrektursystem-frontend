@@ -2,7 +2,7 @@
 
 - Notification -> read property -> done
 - set unread due to pagination -> done
-- show unread on detail page
+- show unread on detail page -> done
 - auto reload page
 - custom sort with rank[element]
 - date search
