@@ -4,7 +4,7 @@
 - set unread due to pagination -> done
 - show unread on detail page -> done
 - auto reload overview -> done
-- custom sort with rank[element]
+- custom sort for priority, status and type -> done
 - date search
 - ticket config required? -> done
 - joiSchema all rules required? -> done
