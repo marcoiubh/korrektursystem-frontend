@@ -8,6 +8,7 @@ import { getTickets } from '../services/ticketService';
 import { search } from '../services/search';
 import { sort } from '../services/sort';
 import { getJwt } from '../services/authenticationService';
+import useRefresh from '../services/useRefresh';
 
 const Ticket = ({ user, onDeleteUser }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -19,6 +20,7 @@ const Ticket = ({ user, onDeleteUser }) => {
   const [ticket, setTicket] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const navigate = useNavigate();
+  const [time] = useRefresh();
 
   useEffect(() => {
     const prepareTickets = async () => {
@@ -41,7 +43,7 @@ const Ticket = ({ user, onDeleteUser }) => {
     };
 
     prepareTickets();
-  }, [currentPage, pageSize, sortColumn, searchQuery, ticket]);
+  }, [time, currentPage, pageSize, sortColumn, searchQuery, ticket]);
 
   useEffect(() => {
     // if token got deleted for any reason
