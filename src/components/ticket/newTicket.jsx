@@ -13,8 +13,7 @@ import Button from '../subcomponents/atomic/button';
 import { toast } from 'react-toastify';
 
 const NewTicket = ({ user }) => {
-  // config.ticket required to avoid uncontrolled component errors
-  const [ticket, setTicket] = useState(config.ticket);
+  const [ticket, setTicket] = useState({});
   const navigate = useNavigate();
 
   const {

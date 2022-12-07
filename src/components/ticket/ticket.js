@@ -10,16 +10,13 @@ import { sort } from '../services/sort';
 import { getJwt } from '../services/authenticationService';
 
 const Ticket = ({ user, onDeleteUser }) => {
-  // config.ticket required to avoid uncontrolled component errors
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize] = useState(4);
   const [searchQuery, setSearchQuery] = useState('');
   const [sortColumn, setSortColumn] = useState(config.sortColumn);
-  const [tickets, setTickets] = useState([config.ticket]);
-  const [pagedTicketsOnly, setPagedTicketsOnly] = useState([
-    config.ticket,
-  ]);
-  const [ticket, setTicket] = useState([config.ticket]);
+  const [tickets, setTickets] = useState([]);
+  const [pagedTicketsOnly, setPagedTicketsOnly] = useState([]);
+  const [ticket, setTicket] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const navigate = useNavigate();
 

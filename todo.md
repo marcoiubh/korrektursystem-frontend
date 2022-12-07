@@ -7,7 +7,7 @@
 - custom sort with rank[element]
 - date search
 - ticket config required?
-- joiSchema all rules required?
+- joiSchema all rules required? -> done
 - pagination arrows
 - ticket detail empty -> ticket overview -> fixed
 - professor value & lastmodified always on top -> fixed

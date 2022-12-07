@@ -20,19 +20,5 @@
   },
   "source": ["Script", "Vodcast", "App", "Excercises", "OnlineQuiz"],
   "status": ["Pending", "In Progress", "Done"],
-  "ticket": {
-    "_id": "",
-    "comment": "",
-    "date": "",
-    "module": "",
-    "priority": "",
-    "source": "",
-    "statement": "",
-    "status": "",
-    "student": "",
-    "professor": "",
-    "title": "",
-    "type": ""
-  },
   "type": ["Notice", "Error", "Proposal", "Improvement"]
 }
