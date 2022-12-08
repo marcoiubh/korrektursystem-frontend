@@ -20,7 +20,8 @@ const Ticket = ({ user, onDeleteUser }) => {
   const [ticket, setTicket] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const navigate = useNavigate();
-  const [time] = useRefresh();
+  // const [time] = useRefresh();
+  const time = 0;
 
   useEffect(() => {
     const prepareTickets = async () => {

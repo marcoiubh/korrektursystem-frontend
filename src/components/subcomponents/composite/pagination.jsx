@@ -1,6 +1,6 @@
-import React from 'react';
 import _ from 'lodash';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import PageButton from '../atomic/pageButton';
 
 const Pagination = ({
   currentPage,
@@ -8,28 +8,101 @@ const Pagination = ({
   onPageChange,
   pageSize,
 }) => {
-  const pagesCount = Math.ceil(itemsCount / pageSize);
-  if (pagesCount === 1) return null;
-  const pages = _.range(1, pagesCount + 1);
+  const [numberOfPages, setNumberOfPages] = useState(0);
+  const [pages, setPages] = useState([]);
+  const [offset, setOffset] = useState(0);
+  const [min, setMin] = useState(0);
+  const [max, setMax] = useState(0);
+
+  useEffect(() => {
+    const setBoundaries = (left, right) => {
+      if (left < 1) {
+        left = 1;
+        right = 4;
+        setOffset(0);
+      }
+
+      if (right > numberOfPages + 1) {
+        left = numberOfPages - 3;
+        right = numberOfPages;
+        setOffset(0);
+      }
+      setMin(left);
+      setMax(right);
+    };
+
+    const renderButtons = (offset) => {
+      // one page, no button
+      if (numberOfPages === 1) {
+        setBoundaries(1, 1);
+      }
+      // less than 4 pages
+      else if (numberOfPages < 4) {
+        setBoundaries(1, numberOfPages + 1);
+      }
+      // more than maxPageButton pages
+      // page = 1
+      else {
+        if (currentPage <= 2) {
+          setBoundaries(1 + offset, 4 + offset);
+        } else if (currentPage >= numberOfPages - 1) {
+          setBoundaries(
+            numberOfPages - 2 + offset,
+            numberOfPages + 1 + offset
+          );
+        } else {
+          setBoundaries(
+            currentPage - 1 + offset,
+            currentPage + 2 + offset
+          );
+        }
+      }
+      setPages(_.range(min, max));
+    };
+    renderButtons(offset);
+  }, [currentPage, numberOfPages, offset, min, max]);
+
+  useEffect(() => {
+    setNumberOfPages(Math.ceil(itemsCount / pageSize));
+  });
+
+  const handleNext = () => {
+    const newOffset = offset + 1;
+    if (max <= numberOfPages) setOffset(newOffset);
+  };
+
+  const handlePrevious = () => {
+    const newOffset = offset - 1;
+    if (min > 1) setOffset(newOffset);
+  };
 
   return (
     <nav>
       <ul className="pagination">
+        {numberOfPages > 3 && min > 1 && (
+          <PageButton
+            key={'previous'}
+            page={<span>&laquo;</span>}
+            onClick={handlePrevious}
+          />
+        )}
+
         {pages.map((page) => (
-          <li
+          <PageButton
             key={page}
-            className={
-              page === currentPage ? 'page-item active' : 'page-item'
-            }
-          >
-            <Link
-              className="page-link"
-              onClick={() => onPageChange(page)}
-            >
-              {page}
-            </Link>
-          </li>
+            page={page}
+            currentPage={currentPage}
+            onClick={onPageChange}
+          />
         ))}
+
+        {numberOfPages > 3 && max <= numberOfPages && (
+          <PageButton
+            key={'next'}
+            page={<span>&raquo;</span>}
+            onClick={handleNext}
+          />
+        )}
       </ul>
     </nav>
   );
