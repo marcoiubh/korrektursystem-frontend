@@ -10,7 +10,6 @@ const Login = () => {
   const {
     register,
     handleSubmit,
-    setError,
     formState: { errors },
   } = useForm({ mode: 'onBlur', resolver: joiResolver(LoginSchema) });
 
@@ -23,14 +22,7 @@ const Login = () => {
     try {
       await loginUser(credentials);
       window.location = '/ticket/overview';
-    } catch (ex) {
-      if (ex.response && ex.response.status === 400) {
-        setError('email', {
-          type: 'custom',
-          message: 'Invalid email or password.',
-        });
-      }
-    }
+    } catch (ex) {}
   };
 
   return (
