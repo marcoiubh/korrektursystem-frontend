@@ -11,6 +11,7 @@ import React, { useState, useEffect } from 'react';
 import Ticket from './ticket/ticket';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Contact from './contact';
 
 function App() {
   const [user, setUser] = useState();
@@ -42,6 +43,10 @@ function App() {
               }
             />
             <Route path="/new" element={<NewTicket user={user} />} />
+            <Route
+              path="/contact"
+              element={<Contact user={user} />}
+            />
             <Route path="/logout" element={<Logout />} />
           </Route>
         </Routes>

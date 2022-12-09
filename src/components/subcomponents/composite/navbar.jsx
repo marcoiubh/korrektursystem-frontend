@@ -9,6 +9,12 @@ const NavBar = ({ user }) => {
       </NavLink>
       <NavLink
         className="navbar-brand active right"
+        to="/contact"
+      >
+        Issues?
+      </NavLink>
+      <NavLink
+        className="navbar-brand active right"
         to="/ticket/overview"
       >
         Tickets

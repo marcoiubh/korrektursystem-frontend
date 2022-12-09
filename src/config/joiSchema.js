@@ -13,6 +13,23 @@ const LoginSchema = Joi.object({
     .messages({ 'string.empty': 'A valid password is required' }),
 });
 
+const ContactSchema = Joi.object({
+  email: Joi.string()
+    .email({ tlds: { allow: false } })
+    .required()
+    .messages({
+      'string.empty':
+        'This is a required field to retrieve this test email',
+      'string.email': 'A valid email is required',
+    }),
+  issue: Joi.string().required().messages({
+    'string.empty': 'This is a required field',
+  }),
+  description: Joi.string().required().min(10).messages({
+    'string.empty': 'A meaningful description is necessary',
+  }),
+});
+
 const ResponseSchema = Joi.object({
   statement: Joi.string().required().messages({
     'string.emtpy': 'This is a required field',
@@ -61,4 +78,9 @@ const NewTicketSchema = Joi.object({
     .messages({ 'string.empty': 'This is a required field' }),
 });
 
-export { LoginSchema, ResponseSchema, NewTicketSchema };
+export {
+  LoginSchema,
+  ContactSchema,
+  ResponseSchema,
+  NewTicketSchema,
+};
