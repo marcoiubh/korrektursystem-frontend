@@ -1,8 +1,5 @@
 # TODO
 
-- Als Anwender des Systems möchte ich, dass die Anwendung sicher ist, damit meine Daten geschützt werden.
-- Als Anwender möchte ich die Ticket-Anzahl pro Seite anpassen können, um nicht zu viele oder zu wenig auf einen Blick zu sehen.
-
 - styling
 - forward to www
 - token expiration
@@ -10,6 +7,7 @@
 - dark mode
 - refactor pagination
 
+- Als Anwender möchte ich die Ticket-Anzahl pro Seite anpassen können, um nicht zu viele oder zu wenig auf einen Blick zu sehen. -> done
 - Als Dozent möchte ich Benachrichtigungen über neue Tickets bei mir erhalten, um nicht regelmäßig das Ticket-System öffnen zu müssen. -> done
 
 - set up admin mail

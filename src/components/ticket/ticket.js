@@ -12,7 +12,7 @@ import useRefresh from '../services/useRefresh';
 
 const Ticket = ({ user, onDeleteUser }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize] = useState(4);
+  const [pageSize, setPageSize] = useState(4);
   const [searchQuery, setSearchQuery] = useState('');
   const [sortColumn, setSortColumn] = useState(config.sortColumn);
   const [tickets, setTickets] = useState([]);
@@ -84,6 +84,12 @@ const Ticket = ({ user, onDeleteUser }) => {
     setTicket(ticketCopy);
   };
 
+  const handleItemCountChange = (numberOfItems) => {
+    // update number of items per page
+    setCurrentPage(1);
+    setPageSize(numberOfItems);
+  };
+
   // Rendering
   return (
     <div>
@@ -97,6 +103,7 @@ const Ticket = ({ user, onDeleteUser }) => {
               onSearch={handleSearch}
               onSort={handleSort}
               onView={handleView}
+              onItemCountChange={handleItemCountChange}
               currentPage={currentPage}
               pageSize={pageSize}
               searchQuery={searchQuery}
