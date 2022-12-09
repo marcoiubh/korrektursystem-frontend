@@ -5,13 +5,11 @@ import InputHook from './subcomponents/atomicHooks/InputHook';
 import Button from './subcomponents/atomic/button';
 import { ContactSchema } from '../config/joiSchema';
 import TextAreaHook from './subcomponents/atomicHooks/textAreaHook';
-import moment from 'moment';
-import config from '../config/config.json';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { sendEmail } from './services/emailService';
 
-const Contact = ({ user }) => {
+const Contact = () => {
   const navigate = useNavigate();
   const {
     register,
@@ -26,9 +24,6 @@ const Contact = ({ user }) => {
     const issue = {
       issue: e.issue,
       description: e.description,
-      user: user,
-      email: e.email,
-      date: moment(Date.now()).format(config.dateFormat),
     };
 
     try {
@@ -46,14 +41,6 @@ const Contact = ({ user }) => {
         className="col-sm-4 mt-lg-5"
         onSubmit={handleSubmit(handleSend)}
       >
-        {/* for testing purposes only */}
-        <InputHook
-          property="email"
-          placeholder="This field is for testing email functionality only."
-          obj=""
-          register={register}
-          errors={errors}
-        />
         <InputHook
           property="issue"
           obj=""

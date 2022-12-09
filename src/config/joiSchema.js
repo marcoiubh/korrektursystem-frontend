@@ -14,14 +14,6 @@ const LoginSchema = Joi.object({
 });
 
 const ContactSchema = Joi.object({
-  email: Joi.string()
-    .email({ tlds: { allow: false } })
-    .required()
-    .messages({
-      'string.empty':
-        'This is a required field to retrieve this test email',
-      'string.email': 'A valid email is required',
-    }),
   issue: Joi.string().required().messages({
     'string.empty': 'This is a required field',
   }),

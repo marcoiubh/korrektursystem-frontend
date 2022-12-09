@@ -43,10 +43,7 @@ function App() {
               }
             />
             <Route path="/new" element={<NewTicket user={user} />} />
-            <Route
-              path="/contact"
-              element={<Contact user={user} />}
-            />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/logout" element={<Logout />} />
           </Route>
         </Routes>
