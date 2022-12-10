@@ -7,8 +7,8 @@
 - dark mode
 - refactor pagination
 
+- bug: email sent twice when updating -> done
 - implement mail accounts for roles student, professor and server -> done
-
 - Als Anwender möchte ich die Ticket-Anzahl pro Seite anpassen können, um nicht zu viele oder zu wenig auf einen Blick zu sehen. -> done
 - Als Dozent möchte ich Benachrichtigungen über neue Tickets bei mir erhalten, um nicht regelmäßig das Ticket-System öffnen zu müssen. -> done
 
