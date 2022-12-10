@@ -3,14 +3,13 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import TicketOverview from './ticketOverview';
 import TicketDetail from './ticketDetail';
 import config from '../../config/config';
-import { paginate } from '../services/paginate';
-import { getTickets } from '../services/ticketService';
-import { search } from '../services/search';
-import { sort } from '../services/sort';
-import { getJwt } from '../services/authenticationService';
-import useRefresh from '../services/useRefresh';
+import { paginate } from '../../services/paginate';
+import { getTickets } from '../../services/ticketService';
+import { search } from '../../services/search';
+import { sort } from '../../services/sort';
+import useRefresh from '../../services/useRefresh';
 
-const Ticket = ({ user, onDeleteUser }) => {
+const Ticket = ({ user }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(4);
   const [searchQuery, setSearchQuery] = useState('');
@@ -20,8 +19,9 @@ const Ticket = ({ user, onDeleteUser }) => {
   const [ticket, setTicket] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const navigate = useNavigate();
+
+  // auto refresh
   const [time] = useRefresh();
-  // const time = 0;
 
   useEffect(() => {
     const prepareTickets = async () => {
@@ -45,16 +45,6 @@ const Ticket = ({ user, onDeleteUser }) => {
 
     prepareTickets();
   }, [time, currentPage, pageSize, sortColumn, searchQuery, ticket]);
-
-  useEffect(() => {
-    // if token got deleted for any reason
-    if (!getJwt()) {
-      // delete current user
-      onDeleteUser();
-      // navigate user back to login
-      window.location = '/login';
-    }
-  });
 
   // EventHandler
   const handleView = (ticket) => {

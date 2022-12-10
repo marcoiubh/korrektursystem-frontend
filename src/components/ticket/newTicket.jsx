@@ -1,5 +1,5 @@
 import '../../css/App.css';
-import { saveTicket } from '../services/ticketService';
+import { saveTicket } from '../../services/ticketService';
 import { useNavigate } from 'react-router-dom';
 import config from '../../config/config.json';
 import React, { useState, useEffect } from 'react';

@@ -1,4 +1,4 @@
-import { ifUserIsStudent } from '../../services/authenticationService';
+import { ifUserIsStudent } from '../../../services/authenticationService';
 import React from 'react';
 import Table from './table';
 import Button from '../atomic/button';

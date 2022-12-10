@@ -14,7 +14,7 @@ export const loginUser = async ({ email, password }) => {
   localStorage.setItem(item, jwt);
 };
 
-export function logout() {
+export function deleteToken() {
   localStorage.removeItem(item);
 }
 
@@ -39,6 +39,22 @@ export function ifUserIsStudent() {
   return getCurrentRole() === 'student';
 }
 
+export function verifyJwt() {
+  const token = getJwt();
+  if (!token) return null;
+  const { exp } = jwtDecode(token);
+  if (exp * 1000 < Date.now()) {
+    quitSession();
+  }
+  return token;
+}
+
+function quitSession() {
+  deleteToken();
+  window.location = '/expiredSession';
+}
+
 export function getJwt() {
-  return localStorage.getItem(item);
+  const token = localStorage.getItem(item);
+  return token;
 }

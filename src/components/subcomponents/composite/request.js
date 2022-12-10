@@ -1,7 +1,7 @@
 import React from 'react';
 import TextArea from '../atomic/textArea';
 import Input from '../atomic/input';
-import { ifUserIsStudent } from '../../services/authenticationService';
+import { ifUserIsStudent } from '../../../services/authenticationService';
 import Date from '../atomic/date';
 
 const Request = ({ ticket }) => {

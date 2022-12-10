@@ -1,7 +1,7 @@
 import config from './config.json';
 import moment from 'moment';
 import Button from '../components/subcomponents/atomic/button';
-import { ifUserIsStudent } from '../components/services/authenticationService';
+import { ifUserIsStudent } from '../services/authenticationService';
 
 const getPropertyList = ({ onView }) => {
   return [

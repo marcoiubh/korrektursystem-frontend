@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
-import { logout } from './services/authenticationService';
+import { deleteToken } from '../../services/authenticationService';
 
 const Logout = () => {
   useEffect(() => {
-    logout();
+    deleteToken();
     window.location = '/';
   }, []);
   return null;

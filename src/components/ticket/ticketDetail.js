@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react';
 import {
   getCurrentRole,
   ifUserIsStudent,
-} from '../services/authenticationService';
+} from '../../services/authenticationService';
 import Pagination from '../subcomponents/composite/pagination';
 import Request from '../subcomponents/composite/request';
 import Response from '../subcomponents/composite/response';
-import { updateTicket } from '../services/ticketService';
+import { updateTicket } from '../../services/ticketService';
 import Button from '../subcomponents/atomic/button';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
 
 const TicketDetail = ({
   user,
@@ -20,7 +19,6 @@ const TicketDetail = ({
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [ticket, setTicket] = useState(propsticket);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
