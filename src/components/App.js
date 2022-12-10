@@ -12,6 +12,7 @@ import Ticket from './ticket/ticket';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Contact from './contact';
+import Footer from './subcomponents/composite/footer';
 
 function App() {
   const [user, setUser] = useState();
@@ -48,15 +49,7 @@ function App() {
           </Route>
         </Routes>
       </div>
-      <footer className="footer mt-auto py-3 bg-light">
-        <div className="container">
-          <span className="text-muted">
-            {/* Impressum Datenschutzerklärung Login für IU Mitarbeiter */}
-            Copyright © 2022 IU Internationale Hochschule - All rights
-            reserved
-          </span>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

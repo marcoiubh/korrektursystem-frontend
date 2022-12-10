@@ -7,12 +7,7 @@ const NavBar = ({ user }) => {
       <NavLink className="navbar-brand left" to="/">
         korrektursystem.live
       </NavLink>
-      <NavLink
-        className="navbar-brand active right"
-        to="/contact"
-      >
-        Issues?
-      </NavLink>
+
       <NavLink
         className="navbar-brand active right"
         to="/ticket/overview"
