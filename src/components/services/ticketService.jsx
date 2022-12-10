@@ -7,6 +7,8 @@ const api = '/tickets/';
 // value is required as config var in heroku! (no quotes)
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 axios.defaults.headers.common['x-auth-token'] = getJwt();
+
+// TODO: 500 errors
 axios.interceptors.response.use(null, (error) => {
   if (error.response) {
     switch (error.response.status) {

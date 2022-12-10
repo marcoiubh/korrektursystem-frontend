@@ -4,6 +4,8 @@ const api = '/authentication/';
 const item = 'token';
 
 export const loginUser = async ({ email, password }) => {
+  // send credentials in post body -> no caching or logging possible
+  // using https is secure
   const { data: jwt } = await axios.post(api, {
     email,
     password,
