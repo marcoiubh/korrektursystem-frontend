@@ -1,12 +1,13 @@
 # TODO
 
+- bug: ticketdetail page refresh does save the ticket
+- get error message before heading back to login (401)
+- table onclick event
+- set up simplified model of the application
 - styling
-- forward to www
-- token expiration
-- date search
-- dark mode
-- refactor pagination
 
+- forward host domain to subdomain -> done
+- token expiration -> done
 - bug: email sent twice when updating -> done
 - implement mail accounts for roles student, professor and server -> done
 - Als Anwender möchte ich die Ticket-Anzahl pro Seite anpassen können, um nicht zu viele oder zu wenig auf einen Blick zu sehen. -> done

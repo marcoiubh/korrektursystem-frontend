@@ -10,21 +10,9 @@ axios.defaults.headers.common['x-auth-token'] = verifyJwt();
 
 // TODO: 500 errors
 axios.interceptors.response.use(null, (error) => {
+  const { data } = error.response;
   if (error.response) {
-    switch (error.response.status) {
-      case 400:
-        toast.error(`Invalid email or password.`);
-        break;
-      case 401:
-        toast.error(`Access denied. No token provided.`);
-        break;
-      case 404:
-        toast.error(`Server cannot find the requested resource.`);
-        break;
-
-      default:
-        toast.error('An unexpected error ocurred.');
-    }
+    toast.error(data);
   }
 });
 

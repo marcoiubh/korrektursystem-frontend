@@ -13,7 +13,6 @@
     "ISPE01"
   ],
   "priority": ["Critical", "Major", "Medium", "Minor"],
-  "requiresAuthentication": "true",
   "sortColumn": {
     "property": "date",
     "order": "desc"
