@@ -43,6 +43,7 @@ export function verifyJwt() {
   const token = getJwt();
   if (!token) return null;
   const { exp } = jwtDecode(token);
+  if (!exp) quitSession();
   if (exp * 1000 < Date.now()) {
     quitSession();
   }
