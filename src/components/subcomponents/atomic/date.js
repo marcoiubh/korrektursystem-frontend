@@ -1,5 +1,4 @@
-import moment from 'moment';
-import config from '../../../config/config.json';
+import { getFormattedTimestamp } from '../../../services/getFormattedTimestamp';
 
 const Date = ({ property, obj, disabled, ...rest }) => {
   return (
@@ -8,7 +7,7 @@ const Date = ({ property, obj, disabled, ...rest }) => {
         {property}
       </span>
       <label id={property} className="form-control">
-        {moment(obj[property]).format(config.dateFormat)}
+        {getFormattedTimestamp(obj[property])}
       </label>
     </div>
   );

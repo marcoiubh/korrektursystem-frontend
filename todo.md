@@ -1,11 +1,15 @@
 # TODO
 
+- Historie von Changes am Ticket ->
+- joiSchema read from config file
 - bug: ticketdetail page refresh does save the ticket
+- log logins
 - get error message before heading back to login (401)
 - table onclick event
 - set up simplified model of the application
 - styling
 
+- Dozent sieht Student: ist aktuell nur in der Übersicht erkennbar. wird für Detailansicht nachgeholt -> done
 - forward host domain to subdomain -> done
 - token expiration -> done
 - bug: email sent twice when updating -> done

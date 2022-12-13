@@ -33,7 +33,7 @@ const ResponseSchema = Joi.object({
     }),
   status: Joi.string()
     .required()
-    .valid('Pending', 'In Progress', 'Done')
+    .valid('Closed', 'Pending', 'In Progress', 'New')
     .messages({
       'any.only': 'This is a required field',
     }),

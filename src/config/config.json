@@ -18,6 +18,6 @@
     "order": "desc"
   },
   "source": ["Script", "Vodcast", "App", "Excercises", "OnlineQuiz"],
-  "status": ["Done", "In Progress", "Pending"],
+  "status": ["Closed", "Pending", "In Progress", "New"],
   "type": ["Error", "Proposal", "Improvement", "Notice"]
 }

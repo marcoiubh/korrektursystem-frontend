@@ -29,6 +29,9 @@ const Request = ({ ticket }) => {
 
       <div className="row g-1">
         <div className="col-sm-6 ">
+          <TextArea property="student" obj={ticket} disabled={true} />
+        </div>
+        <div className="col-sm-6 ">
           <TextArea property="comment" obj={ticket} disabled={true} />
         </div>
         <div className="col-sm-6">

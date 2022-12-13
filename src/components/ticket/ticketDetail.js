@@ -9,6 +9,8 @@ import Response from '../subcomponents/composite/response';
 import { updateTicket } from '../../services/ticketService';
 import Button from '../subcomponents/atomic/button';
 import { toast } from 'react-toastify';
+import TextArea from '../subcomponents/atomic/textArea';
+import { getFormattedTimestamp } from '../../services/getFormattedTimestamp';
 
 const TicketDetail = ({
   user,
@@ -66,6 +68,11 @@ const TicketDetail = ({
     const ticketCopy = Object.assign(ticket, updates);
     ticketCopy.professor = user;
     ticketCopy.date = Date.now();
+    ticketCopy.history.push(
+      `\n ${getFormattedTimestamp(Date.now())} - ${user} - ${
+        ticket.title
+      } - ${ticket.statement} - ${ticket.status}`
+    );
 
     // updated ticket has not been read by the student
     ticketCopy.readStudent = false;
@@ -85,6 +92,12 @@ const TicketDetail = ({
         <p>Ticket number # {ticket._id} </p>
       </div>
 
+      <Pagination
+        itemsCount={totalCount}
+        pageSize={1}
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
+      />
       <div className="row g-1">
         <div className="col-sm-5">
           <Request ticket={ticket} />
@@ -95,13 +108,10 @@ const TicketDetail = ({
             <Response ticket={ticket} onSave={handleSave} />
           </div>
         )}
+        <div className="col-sm-5">
+          <TextArea property="history" obj={ticket} />
+        </div>
       </div>
-      <Pagination
-        itemsCount={totalCount}
-        pageSize={1}
-        currentPage={currentPage}
-        onPageChange={handlePageChange}
-      />
     </div>
   );
 };

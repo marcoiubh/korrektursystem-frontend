@@ -1,7 +1,6 @@
-import config from './config.json';
-import moment from 'moment';
 import Button from '../components/subcomponents/atomic/button';
 import { ifUserIsStudent } from '../services/authenticationService';
+import { getFormattedTimestamp } from '../services/getFormattedTimestamp';
 
 const getPropertyList = ({ onView }) => {
   return [
@@ -20,7 +19,7 @@ const getPropertyList = ({ onView }) => {
     {
       name: 'date',
       content: (ticket) => (
-        <span>{moment(ticket.date).format(config.dateFormat)}</span>
+        <span>{getFormattedTimestamp(ticket.date)}</span>
       ),
     },
     {

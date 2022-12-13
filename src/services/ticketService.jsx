@@ -10,9 +10,8 @@ axios.defaults.headers.common['x-auth-token'] = verifyJwt();
 
 // TODO: 500 errors
 axios.interceptors.response.use(null, (error) => {
-  const { data } = error.response;
   if (error.response) {
-    toast.error(data);
+    toast.error(error.response.data);
   }
 });
 

@@ -11,6 +11,7 @@ import TextAreaHook from '../subcomponents/atomicHooks/textAreaHook';
 import InputHook from '../subcomponents/atomicHooks/InputHook';
 import Button from '../subcomponents/atomic/button';
 import { toast } from 'react-toastify';
+import { getFormattedTimestamp } from '../../services/getFormattedTimestamp';
 
 const NewTicket = ({ user }) => {
   const [ticket, setTicket] = useState({});
@@ -35,9 +36,17 @@ const NewTicket = ({ user }) => {
     // associate student with the new ticket
     ticketCopy.student = user;
     ticketCopy.date = Date.now();
+    ticketCopy.status = 'New';
     // new ticket has not been read by a professor
     ticketCopy.readProfessor = false;
     ticketCopy.readStudent = true;
+    // instanciate history property as array of strings
+    ticketCopy.history = [];
+    ticketCopy.history.push(
+      `${getFormattedTimestamp(Date.now())} - ${user} - ${
+        ticket.title
+      } - ${ticket.comment} - ${ticket.status}`
+    );
 
     try {
       await saveTicket(ticketCopy);

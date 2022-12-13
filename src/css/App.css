@@ -48,3 +48,7 @@
   align-items: center;
   padding: 10px;
 }
+
+.css-fix {
+  white-space: pre-wrap; /* or pre-line */
+}

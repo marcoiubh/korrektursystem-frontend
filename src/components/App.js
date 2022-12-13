@@ -1,8 +1,5 @@
 import '../css/App.css';
-import {
-  getCurrentUser,
-  verifyJwt,
-} from '../services/authenticationService';
+import { getCurrentUser } from '../services/authenticationService';
 import { Route, Routes } from 'react-router-dom';
 import Home from './home';
 import Login from './administration/login';
