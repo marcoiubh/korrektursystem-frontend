@@ -1,6 +1,7 @@
 # TODO
 
-- Historie von Changes am Ticket ->
+- countdown ticket expired
+- custom http errors (mail could not be sent)
 - joiSchema read from config file
 - bug: ticketdetail page refresh does save the ticket
 - log logins
@@ -9,6 +10,7 @@
 - set up simplified model of the application
 - styling
 
+- Historie von Changes am Ticket -> done
 - Dozent sieht Student: ist aktuell nur in der Übersicht erkennbar. wird für Detailansicht nachgeholt -> done
 - forward host domain to subdomain -> done
 - token expiration -> done
