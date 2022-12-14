@@ -33,12 +33,15 @@ function App() {
             path="/expiredSession"
             element={<ExpiredSession />}
           />
-          <Route path="/*" element={<Login />} />
+          {!user ? (
+            <Route path="/*" element={<Login />} />
+          ) : (
+            <Route path="/*" element={<Home />} />
+          )}
 
           {/* PrivateRoutes handle all sites that require the user to be logged in */}
           <Route element={<PrivateRoutes />}>
             <Route index element={<Home />} />
-            <Route path="/*" element={<Home />} />
             <Route
               path="/ticket/*"
               element={<Ticket user={user} />}

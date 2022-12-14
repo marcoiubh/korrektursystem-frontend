@@ -8,6 +8,7 @@ import { getTickets } from '../../services/ticketService';
 import { search } from '../../services/search';
 import { sort } from '../../services/sort';
 import useRefresh from '../../services/useRefresh';
+import Home from '../home';
 
 const Ticket = ({ user }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -116,6 +117,7 @@ const Ticket = ({ user }) => {
             />
           }
         />
+        <Route path="/*" element={<Home />} />
       </Routes>
     </div>
   );
