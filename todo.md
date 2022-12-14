@@ -1,5 +1,7 @@
 # TODO
 
+- debounce
+- forgot password
 - countdown ticket expired
 - custom http errors (mail could not be sent)
 - joiSchema read from config file
@@ -10,6 +12,7 @@
 - set up simplified model of the application
 - styling
 
+- bug: cors policy avoids log in -> fixed
 - Historie von Changes am Ticket -> done
 - Dozent sieht Student: ist aktuell nur in der Übersicht erkennbar. wird für Detailansicht nachgeholt -> done
 - forward host domain to subdomain -> done
