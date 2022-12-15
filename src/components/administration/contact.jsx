@@ -34,9 +34,9 @@ const Contact = () => {
     } catch (ex) {}
   };
 
-  const debouncedHandleSend = useMemo(
+  const debouncedHandleSubmit = useMemo(
     () =>
-      _.debounce(handleSend, 1000, {
+      _.debounce(handleSubmit, 1000, {
         leading: true,
         trailing: false,
       }),
@@ -49,7 +49,7 @@ const Contact = () => {
 
       <form
         className="col-sm-4 mt-lg-5"
-        onSubmit={handleSubmit(debouncedHandleSend)}
+        onSubmit={debouncedHandleSubmit(handleSend)}
       >
         <InputHook
           property="issue"

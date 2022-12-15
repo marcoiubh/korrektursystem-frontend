@@ -58,9 +58,9 @@ const NewTicket = ({ user }) => {
     }
   };
 
-  const debouncedHandleSave = useMemo(
+  const debouncedHandleSubmit = useMemo(
     () =>
-      _.debounce(handleSave, 1000, {
+      _.debounce(handleSubmit, 1000, {
         leading: true,
         trailing: false,
       }),
@@ -78,7 +78,7 @@ const NewTicket = ({ user }) => {
       <div className="gy-3">
         <h1>New Ticket</h1>
       </div>
-      <form onSubmit={handleSubmit(debouncedHandleSave, onErrors)}>
+      <form onSubmit={debouncedHandleSubmit(handleSave, onErrors)}>
         <div className="row g-1">
           <div className="col-sm-4">
             <SelectHook
