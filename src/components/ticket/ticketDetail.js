@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   getCurrentRole,
   ifUserIsStudent,
@@ -11,6 +11,7 @@ import Button from '../subcomponents/atomic/button';
 import { toast } from 'react-toastify';
 import TextArea from '../subcomponents/atomic/textArea';
 import { getFormattedTimestamp } from '../../services/getFormattedTimestamp';
+import _ from 'lodash';
 
 const TicketDetail = ({
   user,
@@ -85,6 +86,17 @@ const TicketDetail = ({
     }
   };
 
+  // debounce save button to avoid multiple calls when clicking quickly
+  // useMemo keeps the debounce instance after rerendering the component
+  const debouncedHandleSave = useMemo(
+    () =>
+      _.debounce(handleSave, 500, {
+        leading: true,
+        trailing: false,
+      }),
+    []
+  );
+
   return (
     <div className="container">
       <div className="gy-3">
@@ -105,7 +117,7 @@ const TicketDetail = ({
         </div>
         {!ifUserIsStudent() && (
           <div className="col-sm-5">
-            <Response ticket={ticket} onSave={handleSave} />
+            <Response ticket={ticket} onSave={debouncedHandleSave} />
           </div>
         )}
         <div className="col-sm-5">
