@@ -1,27 +1,20 @@
-import { useForm } from 'react-hook-form';
 import React, { useMemo } from 'react';
-import { joiResolver } from '@hookform/resolvers/joi';
+
 import InputHook from '../subcomponents/atomicHooks/InputHook';
 import Button from '../subcomponents/atomic/button';
-import { ContactSchema } from '../../config/joiSchema';
+
 import TextAreaHook from '../subcomponents/atomicHooks/textAreaHook';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { sendEmail } from '../../services/emailService';
 import _ from 'lodash';
+import IssueForm from '../subcomponents/composite/issueForm';
 
 const Contact = () => {
   const navigate = useNavigate();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    mode: 'onBlur',
-    resolver: joiResolver(ContactSchema),
-  });
 
   const handleSend = async (e) => {
+    console.log('send');
     const issue = {
       issue: e.issue,
       description: e.description,
@@ -30,18 +23,13 @@ const Contact = () => {
     try {
       toast.success('Issue has been sent.');
       await sendEmail(issue);
-      // navigate('/ticket/overview');
+      navigate('/ticket/overview');
     } catch (ex) {}
-  };
-
-  const cons = () => {
-    console.log('new');
   };
 
   const debouncedHandleSubmit = useMemo(
     () =>
-      _.debounce(cons, 1000, {
-        //handleSubmit(handleSend)
+      _.debounce(handleSend, 1000, {
         leading: true,
         trailing: false,
       }),
@@ -51,25 +39,7 @@ const Contact = () => {
   return (
     <div className="container">
       <h1>Contact</h1>
-
-      <form
-        className="col-sm-4 mt-lg-5"
-        onSubmit={debouncedHandleSubmit}
-      >
-        <InputHook
-          property="issue"
-          obj=""
-          register={register}
-          errors={errors}
-        />
-        <TextAreaHook
-          property="description"
-          obj=""
-          register={register}
-          errors={errors}
-        />
-        <Button label="Send" />
-      </form>
+      <IssueForm onSubmit={debouncedHandleSubmit} />
     </div>
   );
 };
