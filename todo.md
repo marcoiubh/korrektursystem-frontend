@@ -2,6 +2,8 @@
 
 - debounce
 - forgot password
+- display password
+- download new data only if it has changed
 - countdown ticket expired
 - custom http errors (mail could not be sent)
 - joiSchema read from config file

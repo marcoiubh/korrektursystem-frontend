@@ -11,6 +11,7 @@ import Button from '../subcomponents/atomic/button';
 import { toast } from 'react-toastify';
 import TextArea from '../subcomponents/atomic/textArea';
 import { getFormattedTimestamp } from '../../services/getFormattedTimestamp';
+import _ from 'lodash';
 
 const TicketDetail = ({
   user,
@@ -85,6 +86,11 @@ const TicketDetail = ({
     }
   };
 
+  const debouncedHandleSave = _.debounce(handleSave, 300, {
+    leading: true,
+    trailing: false,
+  });
+
   return (
     <div className="container">
       <div className="gy-3">
@@ -105,7 +111,7 @@ const TicketDetail = ({
         </div>
         {!ifUserIsStudent() && (
           <div className="col-sm-5">
-            <Response ticket={ticket} onSave={handleSave} />
+            <Response ticket={ticket} onSave={debouncedHandleSave} />
           </div>
         )}
         <div className="col-sm-5">
