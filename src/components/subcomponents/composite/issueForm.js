@@ -17,13 +17,13 @@ const IssueForm = ({ onSubmit }) => {
     resolver: joiResolver(ContactSchema),
   });
 
-  const onError = (error) => {
-    console.log(error);
+  const Errors = (error) => {
+    console.error(error);
   };
   return (
     <form
       className="col-sm-4 mt-lg-5"
-      onSubmit={handleSubmit(onSubmit, onError)}
+      onSubmit={handleSubmit(onSubmit, Errors)}
     >
       <InputHook
         property="issue"

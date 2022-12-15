@@ -14,7 +14,6 @@ const Contact = () => {
   const navigate = useNavigate();
 
   const handleSend = async (e) => {
-    console.log('send');
     const issue = {
       issue: e.issue,
       description: e.description,
