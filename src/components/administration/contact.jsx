@@ -36,7 +36,7 @@ const Contact = () => {
 
   const debouncedHandleSubmit = useMemo(
     () =>
-      _.debounce(handleSubmit, 1000, {
+      _.debounce(() => handleSubmit(handleSend), 1000, {
         leading: true,
         trailing: false,
       }),
