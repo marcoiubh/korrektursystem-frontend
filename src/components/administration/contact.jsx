@@ -1,9 +1,4 @@
 import React, { useMemo } from 'react';
-
-import InputHook from '../subcomponents/atomicHooks/InputHook';
-import Button from '../subcomponents/atomic/button';
-
-import TextAreaHook from '../subcomponents/atomicHooks/textAreaHook';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { sendEmail } from '../../services/emailService';

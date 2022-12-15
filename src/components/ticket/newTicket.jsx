@@ -1,14 +1,7 @@
 import '../../css/App.css';
 import { saveTicket } from '../../services/ticketService';
 import { useNavigate } from 'react-router-dom';
-import config from '../../config/config.json';
 import React, { useState, useEffect, useMemo } from 'react';
-import { useForm } from 'react-hook-form';
-import { joiResolver } from '@hookform/resolvers/joi';
-import SelectHook from '../subcomponents/atomicHooks/SelectHook';
-import TextAreaHook from '../subcomponents/atomicHooks/textAreaHook';
-import InputHook from '../subcomponents/atomicHooks/InputHook';
-import Button from '../subcomponents/atomic/button';
 import { toast } from 'react-toastify';
 import { getFormattedTimestamp } from '../../services/getFormattedTimestamp';
 import _ from 'lodash';
