@@ -30,13 +30,18 @@ const Contact = () => {
     try {
       toast.success('Issue has been sent.');
       await sendEmail(issue);
-      navigate('/ticket/overview');
+      // navigate('/ticket/overview');
     } catch (ex) {}
+  };
+
+  const cons = () => {
+    console.log('new');
   };
 
   const debouncedHandleSubmit = useMemo(
     () =>
-      _.debounce(() => handleSubmit(handleSend), 1000, {
+      _.debounce(cons, 1000, {
+        //handleSubmit(handleSend)
         leading: true,
         trailing: false,
       }),
@@ -49,7 +54,7 @@ const Contact = () => {
 
       <form
         className="col-sm-4 mt-lg-5"
-        onSubmit={debouncedHandleSubmit(handleSend)}
+        onSubmit={debouncedHandleSubmit}
       >
         <InputHook
           property="issue"
