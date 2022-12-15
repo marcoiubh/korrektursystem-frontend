@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   getCurrentRole,
   ifUserIsStudent,
@@ -86,16 +86,16 @@ const TicketDetail = ({
     }
   };
 
-  console.log('rerender');
-
-  const cons = () => {
-    console.log('new');
-  };
-
-  const debouncedHandleSave = _.debounce(cons, 1000, {
-    leading: true,
-    trailing: false,
-  });
+  // debounce save button to avoid multiple calls when clicking quickly
+  // useMemo keeps the debounce instance after rerendering the component
+  const debouncedHandleSave = useMemo(
+    () =>
+      _.debounce(handleSave, 500, {
+        leading: true,
+        trailing: false,
+      }),
+    []
+  );
 
   return (
     <div className="container">
