@@ -5,7 +5,6 @@ import config from '../../config/config.json';
 import React, { useState, useEffect, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
-import { NewTicketSchema } from '../../config/joiSchema';
 import SelectHook from '../subcomponents/atomicHooks/SelectHook';
 import TextAreaHook from '../subcomponents/atomicHooks/textAreaHook';
 import InputHook from '../subcomponents/atomicHooks/InputHook';
@@ -13,19 +12,11 @@ import Button from '../subcomponents/atomic/button';
 import { toast } from 'react-toastify';
 import { getFormattedTimestamp } from '../../services/getFormattedTimestamp';
 import _ from 'lodash';
+import NewTicketForm from '../subcomponents/composite/newTicketForm';
 
 const NewTicket = ({ user }) => {
   const [ticket, setTicket] = useState({});
   const navigate = useNavigate();
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    mode: 'onBlur',
-    resolver: joiResolver(NewTicketSchema),
-  });
 
   useEffect(() => {
     setTicket({});
@@ -58,9 +49,9 @@ const NewTicket = ({ user }) => {
     }
   };
 
-  const debouncedHandleSubmit = useMemo(
+  const debouncedHandleSave = useMemo(
     () =>
-      _.debounce(handleSubmit, 1000, {
+      _.debounce(handleSave, 1000, {
         leading: true,
         trailing: false,
       }),
@@ -71,69 +62,16 @@ const NewTicket = ({ user }) => {
     navigate('/ticket/overview');
   };
 
-  const onErrors = (errors) => console.error(errors);
-
   return (
     <div className="container">
       <div className="gy-3">
         <h1>New Ticket</h1>
       </div>
-      <form onSubmit={debouncedHandleSubmit(handleSave, onErrors)}>
-        <div className="row g-1">
-          <div className="col-sm-4">
-            <SelectHook
-              property="module"
-              obj={ticket}
-              options={config.module}
-              register={register}
-              errors={errors}
-            />
-          </div>
-          <div className="col-sm-6">
-            <InputHook
-              property="title"
-              obj={ticket}
-              register={register}
-              errors={errors}
-            />
-          </div>
-        </div>
-
-        <div className="row g-1">
-          <div className="col-sm-6 ">
-            <TextAreaHook
-              property="comment"
-              obj={ticket}
-              register={register}
-              errors={errors}
-            />
-          </div>
-          <div className="col-sm-6">
-            <SelectHook
-              property="type"
-              obj={ticket}
-              options={config.type}
-              register={register}
-              errors={errors}
-            />
-            <SelectHook
-              property="source"
-              obj={ticket}
-              options={config.source}
-              register={register}
-              errors={errors}
-            />
-          </div>
-        </div>
-        <div className="row-sm-0">
-          <Button label="Submit" />
-          <Button
-            label="Cancel"
-            onClick={handleCancel}
-            type="button"
-          />
-        </div>
-      </form>
+      <NewTicketForm
+        ticket={ticket}
+        onSave={debouncedHandleSave}
+        onCancel={handleCancel}
+      />
     </div>
   );
 };
