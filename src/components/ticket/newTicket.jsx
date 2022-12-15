@@ -2,7 +2,7 @@ import '../../css/App.css';
 import { saveTicket } from '../../services/ticketService';
 import { useNavigate } from 'react-router-dom';
 import config from '../../config/config.json';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { NewTicketSchema } from '../../config/joiSchema';
@@ -12,6 +12,7 @@ import InputHook from '../subcomponents/atomicHooks/InputHook';
 import Button from '../subcomponents/atomic/button';
 import { toast } from 'react-toastify';
 import { getFormattedTimestamp } from '../../services/getFormattedTimestamp';
+import _ from 'lodash';
 
 const NewTicket = ({ user }) => {
   const [ticket, setTicket] = useState({});
@@ -57,6 +58,15 @@ const NewTicket = ({ user }) => {
     }
   };
 
+  const debouncedHandleSave = useMemo(
+    () =>
+      _.debounce(handleSave, 1000, {
+        leading: true,
+        trailing: false,
+      }),
+    []
+  );
+
   const handleCancel = (e) => {
     navigate('/ticket/overview');
   };
@@ -68,7 +78,7 @@ const NewTicket = ({ user }) => {
       <div className="gy-3">
         <h1>New Ticket</h1>
       </div>
-      <form onSubmit={handleSubmit(handleSave, onErrors)}>
+      <form onSubmit={handleSubmit(debouncedHandleSave, onErrors)}>
         <div className="row g-1">
           <div className="col-sm-4">
             <SelectHook

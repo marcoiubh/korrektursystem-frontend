@@ -90,7 +90,7 @@ const TicketDetail = ({
   // useMemo keeps the debounce instance after rerendering the component
   const debouncedHandleSave = useMemo(
     () =>
-      _.debounce(handleSave, 500, {
+      _.debounce(handleSave, 1000, {
         leading: true,
         trailing: false,
       }),

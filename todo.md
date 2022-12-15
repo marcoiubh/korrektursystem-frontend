@@ -1,6 +1,5 @@
 # TODO
 
-- debounce
 - forgot password
 - display password
 - download new data only if it has changed
@@ -14,6 +13,7 @@
 - set up simplified model of the application
 - styling
 
+- debounce -> fixed
 - bug: cors policy avoids log in -> fixed
 - Historie von Changes am Ticket -> done
 - Dozent sieht Student: ist aktuell nur in der Übersicht erkennbar. wird für Detailansicht nachgeholt -> done
