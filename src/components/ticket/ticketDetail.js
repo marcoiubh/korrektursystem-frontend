@@ -86,7 +86,13 @@ const TicketDetail = ({
     }
   };
 
-  const debouncedHandleSave = _.debounce(handleSave, 300, {
+  console.log('rerender');
+
+  const cons = () => {
+    console.log('new');
+  };
+
+  const debouncedHandleSave = _.debounce(cons, 1000, {
     leading: true,
     trailing: false,
   });
