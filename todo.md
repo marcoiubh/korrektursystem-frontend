@@ -1,6 +1,6 @@
 # TODO
 
-- debounce
+- debounce -> 
 - forgot password
 - display password
 - download new data only if it has changed
