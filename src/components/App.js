@@ -15,8 +15,10 @@ import Contact from './administration/contact';
 import Footer from './subcomponents/composite/footer';
 import ExpiredSession from './administration/expiredSession';
 import useRefresh from '../services/useRefresh';
+const debug = require('debug')('http');
 
 function App() {
+  debug('test');
   const [time] = useRefresh();
 
   let user = getCurrentUser();
