@@ -1,7 +1,5 @@
 # TODO
 
-- forgot password
-- display password
 - download new data only if it has changed
 - countdown ticket expired
 - custom http errors (mail could not be sent)
@@ -12,7 +10,9 @@
 - table onclick event
 - set up simplified model of the application
 - styling
+- forgot password
 
+- display password -> done
 - debounce -> fixed
 - bug: cors policy avoids log in -> fixed
 - Historie von Changes am Ticket -> done

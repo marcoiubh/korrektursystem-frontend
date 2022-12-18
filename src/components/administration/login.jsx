@@ -1,10 +1,11 @@
 import { loginUser } from '../../services/authenticationService';
 import { useForm } from 'react-hook-form';
-import React from 'react';
+import React, { useState } from 'react';
 import { joiResolver } from '@hookform/resolvers/joi';
 import InputHook from '../subcomponents/atomicHooks/InputHook';
 import Button from '../subcomponents/atomic/button';
 import { LoginSchema } from '../../config/joiSchema';
+import ShowPassword from '../subcomponents/atomic/showPassword';
 
 const Login = () => {
   const {
@@ -12,6 +13,12 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({ mode: 'onBlur', resolver: joiResolver(LoginSchema) });
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleShowPassword = () => {
+    showPassword ? setShowPassword(false) : setShowPassword(true);
+  };
 
   const handleLogin = async (e) => {
     const credentials = {
@@ -42,9 +49,13 @@ const Login = () => {
         <InputHook
           property="password"
           obj=""
-          type="password"
+          type={showPassword ? 'text' : 'password'}
           register={register}
           errors={errors}
+        />
+        <ShowPassword
+          state={showPassword}
+          onClick={handleShowPassword}
         />
         <Button label="Login" />
       </form>
