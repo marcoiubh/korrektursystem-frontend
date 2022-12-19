@@ -82,7 +82,9 @@ const TicketDetail = ({
       await updateTicket(ticketCopy);
       toast.success('Changes has been saved.');
     } catch (error) {
-      toast.error('An error occured.');
+      console.log(error);
+      const { status, statusText } = error.response;
+      toast.error(`Status ${status}, ${statusText}`);
     }
   };
 

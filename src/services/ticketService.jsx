@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { verifyJwt } from './authenticationService';
-import { toast } from 'react-toastify';
+
 const api = '/tickets/';
 
 // REACT_APP_ environment variable has been set in .env files
@@ -8,25 +8,18 @@ const api = '/tickets/';
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 axios.defaults.headers.common['x-auth-token'] = verifyJwt();
 
-// TODO: 500 errors
-axios.interceptors.response.use(null, (error) => {
-  if (error.response) {
-    toast.error(error.response.data);
-  }
-});
-
-export const getTickets = () => {
-  return axios.get(api);
+export const getTickets = async () => {
+  return await axios.get(api);
 };
 
-export const getTicket = (id) => {
-  return axios.get(api + id);
+export const getTicket = async (id) => {
+  return await axios.get(api + id);
 };
 
-export const updateTicket = (ticket) => {
-  return axios.put(api + ticket._id, ticket);
+export const updateTicket = async (ticket) => {
+  return await axios.put(api + ticket._id, ticket);
 };
 
-export const saveTicket = (ticket) => {
-  return axios.post(api, ticket);
+export const saveTicket = async (ticket) => {
+  return await axios.post(api, ticket);
 };

@@ -38,7 +38,8 @@ const NewTicket = ({ user }) => {
       toast.success('Ticket has been created.');
       navigate('/ticket/overview');
     } catch (error) {
-      toast.error('An error occured.');
+      const { status, statusText } = error.response;
+      toast.error(`Status ${status}, ${statusText}`);
     }
   };
 

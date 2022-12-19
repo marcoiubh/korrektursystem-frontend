@@ -6,6 +6,7 @@ import InputHook from '../subcomponents/atomicHooks/InputHook';
 import Button from '../subcomponents/atomic/button';
 import { LoginSchema } from '../../config/joiSchema';
 import ShowPassword from '../subcomponents/atomic/showPassword';
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const {
@@ -29,7 +30,10 @@ const Login = () => {
     try {
       await loginUser(credentials);
       window.location = '/ticket/overview';
-    } catch (ex) {}
+    } catch (error) {
+      const { data: message } = error.response;
+      toast.error(message);
+    }
   };
 
   return (
