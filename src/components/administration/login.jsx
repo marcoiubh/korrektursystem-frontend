@@ -31,8 +31,11 @@ const Login = () => {
       await loginUser(credentials);
       window.location = '/ticket/overview';
     } catch (error) {
-      const { data: message } = error.response;
-      toast.error(message);
+      console.log(error);
+      if (error.response) {
+        const { data: message } = error.response;
+        toast.error(message);
+      }
     }
   };
 

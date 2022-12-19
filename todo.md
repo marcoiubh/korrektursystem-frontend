@@ -1,5 +1,7 @@
 # TODO
 
+- handle User as Object
+
 - download new data only if it has changed
 - countdown ticket expired
 - custom http errors (mail could not be sent)
@@ -11,6 +13,8 @@
 - set up simplified model of the application
 - styling
 - forgot password
+
+// done
 
 - display password -> done
 - debounce -> fixed
