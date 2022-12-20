@@ -1,8 +1,33 @@
 body {
-  margin-left: 10px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
     'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
     'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.app_container {
+  background-color: rgb(54, 51, 58);
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 3rem 100fr 4rem;
+
+  grid-template-areas:
+    'app_navBar'
+    'app_main'
+    'app_foot';
+  row-gap: 10px;
+}
+
+.app_navBar {
+  grid-area: app_navBar;
+  background-color: whitesmoke;
+}
+
+.app_main {
+  grid-area: app_main;
+}
+.app_foot {
+  grid-area: app_foot;
+  background-color: whitesmoke;
 }

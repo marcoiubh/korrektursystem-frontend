@@ -25,10 +25,10 @@ function App() {
   useEffect(() => {}, [time]);
 
   return (
-    <div className="appContainer">
+    <div className="app_container">
       <ToastContainer />
       <NavBar user={user} />
-      <div>
+      <div className="app_main">
         <Routes>
           <Route
             path="/expiredSession"
@@ -53,6 +53,7 @@ function App() {
           </Route>
         </Routes>
       </div>
+
       <Footer />
     </div>
   );

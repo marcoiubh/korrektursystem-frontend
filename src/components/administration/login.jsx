@@ -7,6 +7,7 @@ import Button from '../subcomponents/atomic/button';
 import { LoginSchema } from '../../config/joiSchema';
 import ShowPassword from '../subcomponents/atomic/showPassword';
 import { toast } from 'react-toastify';
+import '../../css/login.css';
 
 const Login = () => {
   const {
@@ -40,19 +41,23 @@ const Login = () => {
   };
 
   return (
-    <div className="container">
-      <h1>Login</h1>
-
-      <form
-        className="col-sm-4 mt-lg-5"
-        onSubmit={handleSubmit(handleLogin)}
-      >
+    <form
+      className="app_main app_login_form"
+      onSubmit={handleSubmit(handleLogin)}
+    >
+      <div className="app_title">
+        <h1>Login</h1>
+      </div>
+      <div className="app_username">
         <InputHook
           property="email"
           obj=""
           register={register}
           errors={errors}
         />
+      </div>
+
+      <div className="app_password">
         <InputHook
           property="password"
           obj=""
@@ -60,13 +65,17 @@ const Login = () => {
           register={register}
           errors={errors}
         />
+      </div>
+      <div className=" app_eye">
         <ShowPassword
           state={showPassword}
           onClick={handleShowPassword}
         />
+      </div>
+      <div className=" app_login">
         <Button label="Login" />
-      </form>
-    </div>
+      </div>
+    </form>
   );
 };
 

@@ -3,7 +3,7 @@ import React from 'react';
 
 const NavBar = ({ user }) => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg  app_navBar">
       <NavLink className="navbar-brand left" to="/">
         korrektursystem.live
       </NavLink>
