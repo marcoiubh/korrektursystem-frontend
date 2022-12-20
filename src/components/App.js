@@ -1,4 +1,3 @@
-import '../css/App.css';
 import { getCurrentUser } from '../services/authenticationService';
 import { Route, Routes } from 'react-router-dom';
 import Home from './home';
@@ -26,10 +25,10 @@ function App() {
   useEffect(() => {}, [time]);
 
   return (
-    <div>
+    <div className="appContainer">
       <ToastContainer />
       <NavBar user={user} />
-      <div className="container">
+      <div>
         <Routes>
           <Route
             path="/expiredSession"

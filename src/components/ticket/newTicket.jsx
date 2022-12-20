@@ -1,4 +1,3 @@
-import '../../css/App.css';
 import { saveTicket } from '../../services/ticketService';
 import { useNavigate } from 'react-router-dom';
 import React, { useState, useEffect, useMemo } from 'react';
