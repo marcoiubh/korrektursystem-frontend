@@ -1,0 +1,50 @@
+.app_navbar {
+  grid-area: app_navbar;
+  background-color: whitesmoke;
+  display: grid;
+  grid-template-columns: 200px 1fr 250px 80px 120px;
+  grid-template-areas: 'app_home . app_user app_tickets app_login_link';
+}
+
+.app_home {
+  grid-area: app_home;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: auto;
+}
+
+.app_user {
+  grid-area: app_user;
+  margin-top: 10px;
+  margin-left: auto;
+  /* margin-right: 20px; */
+}
+
+.app_tickets {
+  grid-area: app_tickets;
+  margin-top: 10px;
+  margin-left: auto;
+  /* margin-right: 20px; */
+}
+
+.app_login_link {
+  grid-area: app_login_link;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.app_navbar_text {
+  color: grey;
+}
+
+a:link,
+a:visited {
+  color: rgb(127, 126, 126);
+  text-decoration: none;
+}
+a:hover,
+a:active {
+  color: rgb(60, 60, 60);
+  text-decoration: none;
+}

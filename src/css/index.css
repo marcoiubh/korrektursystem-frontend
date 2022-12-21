@@ -4,6 +4,7 @@ body {
     'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 13px;
 }
 
 .app_container {
@@ -13,21 +14,21 @@ body {
   grid-template-rows: 3rem 100fr 4rem;
 
   grid-template-areas:
-    'app_navBar'
+    'app_navbar'
     'app_main'
-    'app_foot';
+    'app_footer';
   row-gap: 10px;
 }
 
-.app_navBar {
-  grid-area: app_navBar;
+.app_navbar {
+  grid-area: app_navbar;
   background-color: whitesmoke;
 }
 
 .app_main {
   grid-area: app_main;
 }
-.app_foot {
-  grid-area: app_foot;
+.app_footer {
+  grid-area: app_footer;
   background-color: whitesmoke;
 }

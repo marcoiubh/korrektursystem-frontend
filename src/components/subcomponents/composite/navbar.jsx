@@ -1,29 +1,38 @@
 import { NavLink } from 'react-router-dom';
 import React from 'react';
+import '../../../css/navbar.css';
 
 const NavBar = ({ user }) => {
   return (
-    <nav className="navbar navbar-expand-lg  app_navBar">
-      <NavLink className="navbar-brand left" to="/">
+    <nav className="app_navbar">
+      <NavLink className="app_navbar_text app_home" to="/">
         korrektursystem.live
       </NavLink>
 
       <NavLink
-        className="navbar-brand active right"
+        className="app_navbar_text app_tickets"
         to="/ticket/overview"
       >
         Tickets
       </NavLink>
 
       {user ? (
-        <div>
-          <span className="navbar-brand active ">User: {user}</span>
-          <NavLink className="navbar-brand active " to="/logout">
+        <>
+          <span className="app_navbar_text app_user">
+            User: {user}
+          </span>
+          <NavLink
+            className=" app_navbar_text app_login_link"
+            to="/logout"
+          >
             Logout
           </NavLink>
-        </div>
+        </>
       ) : (
-        <NavLink className="navbar-brand active " to="/login">
+        <NavLink
+          className="app_navbar_text app_login_link"
+          to="/login"
+        >
           Login
         </NavLink>
       )}

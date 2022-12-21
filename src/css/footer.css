@@ -1,0 +1,24 @@
+.app_footer {
+  grid-area: app_footer;
+  background-color: whitesmoke;
+  display: grid;
+  grid-template-columns: auto 1fr 400px;
+  grid-template-areas: 'app_copyright .  app_issues';
+}
+
+.app_copyright {
+  grid-area: app_copyright;
+  margin-top: 15px;
+  margin-left: 20px;
+}
+
+.app_issues {
+  grid-area: app_issues;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.app_footer_text {
+  color: grey;
+}

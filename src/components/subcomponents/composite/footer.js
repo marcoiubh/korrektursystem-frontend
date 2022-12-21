@@ -1,21 +1,19 @@
 import { NavLink } from 'react-router-dom';
 import React from 'react';
+import '../../../css/footer.css';
 
 const Footer = () => {
   return (
-    <footer className="app_foot">
-      <div className="container">
-        <NavLink className="text-muted " to="/contact">
-          Issues
-        </NavLink>
-        <div> </div>
-        <span className="text-muted">
-          {/* Impressum Datenschutzerklärung Login für IU Mitarbeiter */}
-          Copyright © 2022 IU Internationale Hochschule - All rights
-          reserved
-        </span>
-      </div>
-    </footer>
+    <div className="app_footer">
+      <span className="app_footer_text app_copyright">
+        {/* Impressum Datenschutzerklärung Login für IU Mitarbeiter */}
+        Copyright © 2022 IU Internationale Hochschule - All rights
+        reserved
+      </span>
+      <NavLink className="app_footer_text app_issues" to="/contact">
+        Issues
+      </NavLink>
+    </div>
   );
 };
 
