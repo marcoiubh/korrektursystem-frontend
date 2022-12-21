@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   getCurrentRole,
   ifUserIsStudent,
@@ -23,6 +24,7 @@ const TicketDetail = ({
   const [currentPage, setCurrentPage] = useState(1);
   const [ticket, setTicket] = useState(propsticket);
 
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       setCurrentPage(
@@ -78,14 +80,24 @@ const TicketDetail = ({
     // updated ticket has not been read by the student
     ticketCopy.readStudent = false;
     ticketCopy.readProfessor = true;
-    try {
-      await updateTicket(ticketCopy);
-      toast.success('Changes has been saved.');
-    } catch (error) {
-      console.log(error);
-      const { status, statusText } = error.response;
-      toast.error(`Status ${status}, ${statusText}`);
-    }
+
+    const id = toast.loading('Please wait...');
+    await updateTicket(ticketCopy)
+      .then(() => {
+        toast.update(id, {
+          render: 'Changes has been saved.',
+          type: 'success',
+          isLoading: false,
+        });
+        navigate('/ticket/overview');
+      })
+      .catch((err) => {
+        toast.update(id, {
+          render: err.response.data,
+          type: 'error',
+          isLoading: false,
+        });
+      });
   };
 
   // debounce save button to avoid multiple calls when clicking quickly

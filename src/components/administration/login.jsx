@@ -28,16 +28,24 @@ const Login = () => {
       password: e.password,
     };
 
-    try {
-      await loginUser(credentials);
-      window.location = '/ticket/overview';
-    } catch (error) {
-      console.log(error);
-      if (error.response) {
-        const { data: message } = error.response;
-        toast.error(message);
-      }
-    }
+    const id = toast.loading('Please wait...');
+    await loginUser(credentials)
+      .then(() => {
+        toast.update(id, {
+          render: 'You are logged in.',
+          type: 'success',
+          isLoading: false,
+        });
+        window.location = '/ticket/overview';
+      })
+      .catch((err) => {
+        toast.update(id, {
+          render: err.response.data,
+          autoClose: 3000,
+          type: 'error',
+          isLoading: false,
+        });
+      });
   };
 
   return (

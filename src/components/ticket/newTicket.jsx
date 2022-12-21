@@ -32,14 +32,25 @@ const NewTicket = ({ user }) => {
       } - ${ticket.comment} - ${ticket.status}`
     );
 
-    try {
-      await saveTicket(ticketCopy);
-      toast.success('Ticket has been created.');
-      navigate('/ticket/overview');
-    } catch (error) {
-      const { status, statusText } = error.response;
-      toast.error(`Status ${status}, ${statusText}`);
-    }
+    const response = toast.loading('Please wait...');
+    await saveTicket(ticketCopy)
+      .then(() => {
+        toast.update(response, {
+          render: 'Ticket has been created.',
+          type: 'success',
+          isLoading: false,
+        });
+        navigate('/ticket/overview');
+      })
+      .catch((err) => {
+        toast.update(response, {
+          render: err.response.data,
+          closeOnClick: true,
+          autoClose: 3000,
+          type: 'error',
+          isLoading: false,
+        });
+      });
   };
 
   const debouncedHandleSave = useMemo(

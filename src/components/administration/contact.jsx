@@ -15,8 +15,11 @@ const Contact = () => {
     };
 
     try {
-      toast.success('Issue has been sent.');
-      await sendEmail(issue);
+      await toast.promise(sendEmail(issue), {
+        pending: 'sending...',
+        success: 'Issue has been sent.',
+        error: 'Issue could not been sent.',
+      });
       navigate('/ticket/overview');
     } catch (ex) {}
   };

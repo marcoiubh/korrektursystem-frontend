@@ -8,7 +8,7 @@ import NewTicket from './ticket/newTicket';
 import PrivateRoutes from './administration/privateRoutes';
 import React, { useEffect } from 'react';
 import Ticket from './ticket/ticket';
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Contact from './administration/contact';
 import Footer from './subcomponents/composite/footer';
@@ -26,7 +26,19 @@ function App() {
 
   return (
     <div className="app_container">
-      <ToastContainer />
+      <ToastContainer
+        transition={Slide}
+        position="top-right"
+        autoClose={2500}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <NavBar user={user} />
       <div className="app_main">
         <Routes>
