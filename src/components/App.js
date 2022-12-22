@@ -5,7 +5,6 @@ import Login from './administration/login';
 import Logout from './administration/logout';
 import NavBar from './subcomponents/composite/navbar';
 import NewTicket from './ticket/newTicket';
-import PrivateRoutes from './administration/privateRoutes';
 import React, { useEffect } from 'react';
 import Ticket from './ticket/ticket';
 import { ToastContainer, Slide } from 'react-toastify';
@@ -14,10 +13,8 @@ import Issue from './administration/issue';
 import Footer from './subcomponents/composite/footer';
 import ExpiredSession from './administration/expiredSession';
 import useRefresh from '../services/useRefresh';
-const debug = require('debug')('http');
 
 function App() {
-  debug('test');
   const [time] = useRefresh();
 
   let user = getCurrentUser();
@@ -41,20 +38,10 @@ function App() {
       />
       <NavBar user={user} />
       <div>
-        <Routes>
-          <Route
-            path="/expiredSession"
-            element={<ExpiredSession />}
-          />
-          {!user ? (
-            <Route path="/*" element={<Login />} />
-          ) : (
-            <Route path="/*" element={<Home />} />
-          )}
-
-          {/* PrivateRoutes handle all sites that require the user to be logged in */}
-          <Route element={<PrivateRoutes />}>
+        {user ? (
+          <Routes>
             <Route index element={<Home />} />
+            <Route path="/*" element={<Home />} />
             <Route
               path="/ticket/*"
               element={<Ticket user={user} />}
@@ -62,8 +49,16 @@ function App() {
             <Route path="/new" element={<NewTicket user={user} />} />
             <Route path="/issue" element={<Issue />} />
             <Route path="/logout" element={<Logout />} />
-          </Route>
-        </Routes>
+          </Routes>
+        ) : (
+          <Routes>
+            <Route
+              path="/expiredSession"
+              element={<ExpiredSession />}
+            />
+            <Route path="/*" element={<Login />} />
+          </Routes>
+        )}
       </div>
 
       <Footer />
