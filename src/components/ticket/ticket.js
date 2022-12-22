@@ -9,6 +9,7 @@ import { search } from '../../services/search';
 import { sort } from '../../services/sort';
 import useRefresh from '../../services/useRefresh';
 import Home from '../home';
+import { toast } from 'react-toastify';
 
 const Ticket = ({ user }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -40,8 +41,12 @@ const Ticket = ({ user }) => {
     };
 
     const fetchTickets = async () => {
-      const { data } = await getTickets();
-      return data;
+      try {
+        const { data } = await getTickets();
+        return data;
+      } catch (error) {
+        toast.error(error.message, { autoClose: 1000 });
+      }
     };
 
     prepareTickets();
