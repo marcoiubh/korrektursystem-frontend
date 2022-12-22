@@ -3,6 +3,7 @@ import React from 'react';
 import SearchBox from '../subcomponents/atomic/searchBox';
 import TicketTable from '../subcomponents/composite/ticketTable';
 import DropDown from '../subcomponents/atomic/dropdown';
+import '../../css/ticketoverview.css';
 
 const TicketOverview = ({
   onNew,
@@ -19,8 +20,8 @@ const TicketOverview = ({
   onItemCountChange,
 }) => {
   return (
-    <div>
-      <div className="grid-container">
+    <div className=" app_ticketOverview">
+      <div>
         <div>
           <DropDown label={'items'} onClick={onItemCountChange} />
         </div>

@@ -10,7 +10,7 @@ import React, { useEffect } from 'react';
 import Ticket from './ticket/ticket';
 import { ToastContainer, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Contact from './administration/contact';
+import Issue from './administration/issue';
 import Footer from './subcomponents/composite/footer';
 import ExpiredSession from './administration/expiredSession';
 import useRefresh from '../services/useRefresh';
@@ -40,7 +40,7 @@ function App() {
         theme="dark"
       />
       <NavBar user={user} />
-      <div className="app_main">
+      <div>
         <Routes>
           <Route
             path="/expiredSession"
@@ -60,7 +60,7 @@ function App() {
               element={<Ticket user={user} />}
             />
             <Route path="/new" element={<NewTicket user={user} />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/issue" element={<Issue />} />
             <Route path="/logout" element={<Logout />} />
           </Route>
         </Routes>

@@ -40,7 +40,6 @@ const NewTicket = ({ user }) => {
           type: 'success',
           isLoading: false,
         });
-        navigate('/ticket/overview');
       })
       .catch((err) => {
         toast.update(response, {
@@ -51,6 +50,7 @@ const NewTicket = ({ user }) => {
           isLoading: false,
         });
       });
+    navigate('/ticket/overview');
   };
 
   const debouncedHandleSave = useMemo(

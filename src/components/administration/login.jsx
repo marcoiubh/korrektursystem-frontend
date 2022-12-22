@@ -49,41 +49,44 @@ const Login = () => {
   };
 
   return (
-    <form
-      className="app_main app_login_form"
-      onSubmit={handleSubmit(handleLogin)}
-    >
-      <div className="app_title">
-        <h1>Login</h1>
-      </div>
-      <div className="app_username">
-        <InputHook
-          property="email"
-          obj=""
-          register={register}
-          errors={errors}
-        />
-      </div>
-
-      <div className="app_password">
-        <InputHook
-          property="password"
-          obj=""
-          type={showPassword ? 'text' : 'password'}
-          register={register}
-          errors={errors}
-        />
-      </div>
-      <div className=" app_eye">
-        <ShowPassword
-          state={showPassword}
-          onClick={handleShowPassword}
-        />
-      </div>
+    <div className="app_main">
       <div className=" app_login">
-        <Button label="Login" />
+        <form
+          className=" app_login_form"
+          onSubmit={handleSubmit(handleLogin)}
+        >
+          <div className="app_title">
+            <h1>Login</h1>
+          </div>
+          <div className="app_username">
+            <InputHook
+              property="email"
+              obj=""
+              register={register}
+              errors={errors}
+            />
+          </div>
+          <div className="app_password">
+            <InputHook
+              property="password"
+              obj=""
+              type={showPassword ? 'text' : 'password'}
+              register={register}
+              errors={errors}
+            />
+          </div>
+          <div className=" app_eye">
+            <ShowPassword
+              state={showPassword}
+              onClick={handleShowPassword}
+            />
+          </div>
+          <div className=" app_login_button">
+            <Button label="Login" />
+          </div>
+        </form>
       </div>
-    </form>
+    </div>
   );
 };
 

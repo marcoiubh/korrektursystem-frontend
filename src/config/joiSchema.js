@@ -13,8 +13,8 @@ const LoginSchema = Joi.object({
     .messages({ 'string.empty': 'A valid password is required' }),
 });
 
-const ContactSchema = Joi.object({
-  issue: Joi.string().required().messages({
+const IssueSchema = Joi.object({
+  title: Joi.string().required().messages({
     'string.empty': 'This is a required field',
   }),
   description: Joi.string().required().min(10).messages({
@@ -70,9 +70,4 @@ const NewTicketSchema = Joi.object({
     .messages({ 'string.empty': 'This is a required field' }),
 });
 
-export {
-  LoginSchema,
-  ContactSchema,
-  ResponseSchema,
-  NewTicketSchema,
-};
+export { LoginSchema, IssueSchema, ResponseSchema, NewTicketSchema };

@@ -11,7 +11,7 @@ body {
   background-color: rgb(54, 51, 58);
   height: 100vh;
   display: grid;
-  grid-template-rows: 3rem 100fr 4rem;
+  grid-template-rows: 3rem 1fr 4rem;
 
   grid-template-areas:
     'app_navbar'
@@ -25,9 +25,10 @@ body {
   background-color: whitesmoke;
 }
 
-.app_main {
+/* .app_main {
   grid-area: app_main;
-}
+} */
+
 .app_footer {
   grid-area: app_footer;
   background-color: whitesmoke;

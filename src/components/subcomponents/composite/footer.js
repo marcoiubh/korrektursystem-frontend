@@ -10,7 +10,7 @@ const Footer = () => {
         Copyright © 2022 IU Internationale Hochschule - All rights
         reserved
       </span>
-      <NavLink className="app_footer_text app_issues" to="/contact">
+      <NavLink className="app_footer_text app_issues" to="/issue">
         Issues
       </NavLink>
     </div>

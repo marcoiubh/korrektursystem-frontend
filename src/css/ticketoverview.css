@@ -1,10 +1,16 @@
-.app_login {
+/* .app_ticketOverview {
   grid-area: app_main;
   display: grid;
-  grid-template-columns: 2fr 400px 1fr;
-  grid-template-areas: '. app_login_form .';
-}
+  height: 100%;
+  width: 100%;
+  grid-template-rows: 40px auto;
+  grid-template-columns: 200px 400px auto 200px;
+  grid-template-areas:
+    'app_pagination app_create app_search app_items'
+    'app_table app_table app_table app_table';
+} */
 
+/*
 .app_login_form {
   background-color: whitesmoke;
   margin-top: 40px;
@@ -20,7 +26,7 @@
     ' app_title .'
     ' app_username .'
     ' app_password app_eye'
-    ' app_login_button .'
+    ' app_login .'
     ' . .';
 }
 .app_username {
@@ -42,8 +48,8 @@
   margin-top: 5px;
   color: rgb(101, 104, 101);
 }
-.app_login_button {
-  grid-area: app_login_button;
+.app_login {
+  grid-area: app_login;
   margin-left: 25px;
 }
 
@@ -63,8 +69,10 @@
 .input-group,
 .input-group-text {
   font-size: 13px !important;
-  /* color: rgb(101, 104, 101) !important; */
+
 }
 .form-control {
   color: rgb(101, 104, 101) !important;
 }
+
+*/

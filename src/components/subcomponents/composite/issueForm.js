@@ -5,7 +5,7 @@ import Button from '../atomic/button';
 
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
-import { ContactSchema } from '../../../config/joiSchema';
+import { IssueSchema } from '../../../config/joiSchema';
 
 const IssueForm = ({ onSubmit }) => {
   const {
@@ -14,7 +14,7 @@ const IssueForm = ({ onSubmit }) => {
     formState: { errors },
   } = useForm({
     mode: 'onBlur',
-    resolver: joiResolver(ContactSchema),
+    resolver: joiResolver(IssueSchema),
   });
 
   const Errors = (error) => {
@@ -26,7 +26,7 @@ const IssueForm = ({ onSubmit }) => {
       onSubmit={handleSubmit(onSubmit, Errors)}
     >
       <InputHook
-        property="issue"
+        property="title"
         obj=""
         register={register}
         errors={errors}

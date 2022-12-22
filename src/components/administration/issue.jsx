@@ -5,23 +5,33 @@ import { sendEmail } from '../../services/emailService';
 import _ from 'lodash';
 import IssueForm from '../subcomponents/composite/issueForm';
 
-const Contact = () => {
+const Issue = () => {
   const navigate = useNavigate();
 
   const handleSend = async (e) => {
     const issue = {
-      issue: e.issue,
+      title: e.title,
       description: e.description,
     };
 
-    try {
-      await toast.promise(sendEmail(issue), {
-        pending: 'sending...',
-        success: 'Issue has been sent.',
-        error: 'Issue could not been sent.',
+    const id = toast.loading('Please wait...');
+    await sendEmail(issue)
+      .then((res) => {
+        toast.update(id, {
+          render: res.data,
+          type: 'success',
+          isLoading: false,
+        });
+        navigate('/ticket/overview');
+      })
+      .catch((err) => {
+        toast.update(id, {
+          render: err.response.data,
+          autoClose: 3000,
+          type: 'error',
+          isLoading: false,
+        });
       });
-      navigate('/ticket/overview');
-    } catch (ex) {}
   };
 
   const debouncedHandleSubmit = useMemo(
@@ -41,4 +51,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Issue;
