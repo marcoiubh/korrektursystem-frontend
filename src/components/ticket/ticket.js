@@ -10,6 +10,7 @@ import { sort } from '../../services/sort';
 import useRefresh from '../../services/useRefresh';
 import Home from '../home';
 import { toast } from 'react-toastify';
+import { quitSession } from '../../services/authenticationService';
 
 const Ticket = ({ user }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -45,7 +46,8 @@ const Ticket = ({ user }) => {
         const { data } = await getTickets();
         return data;
       } catch (error) {
-        toast.error(error.message, { autoClose: 1000 });
+        if (error) toast.error(error.message, { autoClose: 1000 });
+        if (error.response.status === 401) quitSession();
       }
     };
 

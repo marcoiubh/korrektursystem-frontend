@@ -41,18 +41,7 @@ export function ifUserIsStudent() {
   return getCurrentRole() === 'student';
 }
 
-export function verifyJwt() {
-  const token = getJwt();
-  if (!token) return null;
-  const { exp } = jwtDecode(token);
-  if (!exp) quitSession();
-  if (exp * 1000 < Date.now()) {
-    quitSession();
-  }
-  return token;
-}
-
-function quitSession() {
+export function quitSession() {
   deleteToken();
   window.location = '/expiredSession';
 }
