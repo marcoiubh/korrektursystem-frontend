@@ -7,33 +7,29 @@ import _ from 'lodash';
 import NewTicketForm from '../subcomponents/composite/newTicketForm';
 
 const NewTicket = ({ user }) => {
-  const [ticket, setTicket] = useState({});
+  let ticket = {};
   const navigate = useNavigate();
 
-  useEffect(() => {
-    setTicket({});
-  }, []);
-
-  const handleSave = async (e) => {
+  const handleSave = async (inputValues) => {
     // copy new value into existing values
-    const ticketCopy = Object.assign(ticket, e);
+    ticket = inputValues;
     // associate student with the new ticket
-    ticketCopy.student = user;
-    ticketCopy.date = Date.now();
-    ticketCopy.status = 'New';
+    ticket.student = user;
+    ticket.date = Date.now();
+    ticket.status = 'New';
     // new ticket has not been read by a professor
-    ticketCopy.readProfessor = false;
-    ticketCopy.readStudent = true;
+    ticket.readProfessor = false;
+    ticket.readStudent = true;
     // instanciate history property as array of strings
-    ticketCopy.history = [];
-    ticketCopy.history.push(
+    ticket.history = [];
+    ticket.history.push(
       `${getFormattedTimestamp(Date.now())} - ${user} - ${
         ticket.title
       } - ${ticket.comment} - ${ticket.status}`
     );
 
     const response = toast.loading('Please wait...');
-    await saveTicket(ticketCopy)
+    await saveTicket(ticket)
       .then(() => {
         toast.update(response, {
           render: 'Ticket has been created.',
@@ -62,7 +58,7 @@ const NewTicket = ({ user }) => {
     []
   );
 
-  const handleCancel = (e) => {
+  const handleCancel = () => {
     navigate('/ticket/overview');
   };
 
