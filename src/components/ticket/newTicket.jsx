@@ -1,6 +1,6 @@
 import { saveTicket } from '../../services/ticketService';
 import { useNavigate } from 'react-router-dom';
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { toast } from 'react-toastify';
 import { getFormattedTimestamp } from '../../services/getFormattedTimestamp';
 import _ from 'lodash';

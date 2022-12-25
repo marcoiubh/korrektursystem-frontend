@@ -15,11 +15,9 @@ import ExpiredSession from './administration/expiredSession';
 import useRefresh from '../services/useRefresh';
 
 function App() {
-  const [time] = useRefresh();
+  useRefresh();
 
   let user = getCurrentUser();
-
-  useEffect(() => {}, [time]);
 
   return (
     <div className="app_container">

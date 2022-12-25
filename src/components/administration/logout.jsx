@@ -1,12 +1,7 @@
-import { useEffect } from 'react';
 import { deleteToken } from '../../services/authenticationService';
 
 const Logout = () => {
-  useEffect(() => {
-    deleteToken();
-    window.location = '/';
-  }, []);
-  return null;
+  deleteToken();
 };
 
 export default Logout;
