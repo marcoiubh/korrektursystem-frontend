@@ -6,6 +6,7 @@ import { ResponseSchema } from '../../../config/joiSchema';
 import TextAreaHook from '../atomicHooks/textAreaHook';
 import SelectHook from '../atomicHooks/SelectHook';
 import Button from '../atomic/button';
+import '../../../css/response.css';
 
 const Response = ({ ticket, onSave }) => {
   const {
@@ -31,31 +32,37 @@ const Response = ({ ticket, onSave }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSave, onError)}>
-      <div className="row g-1">
+    <form
+      className="response_form"
+      onSubmit={handleSubmit(onSave, onError)}
+    >
+      <div className="response_statement">
         <TextAreaHook
           property="statement"
           obj={ticket}
           register={register}
           errors={errors}
         />
-        <div className="col-sm-6 mb-3">
-          <SelectHook
-            property="priority"
-            obj={ticket}
-            options={config.priority}
-            register={register}
-            errors={errors}
-          />
-
-          <SelectHook
-            property="status"
-            obj={ticket}
-            options={config.status}
-            register={register}
-            errors={errors}
-          />
-        </div>
+      </div>
+      <div className="response_priority">
+        <SelectHook
+          property="priority"
+          obj={ticket}
+          options={config.priority}
+          register={register}
+          errors={errors}
+        />
+      </div>
+      <div className="response_status">
+        <SelectHook
+          property="status"
+          obj={ticket}
+          options={config.status}
+          register={register}
+          errors={errors}
+        />
+      </div>
+      <div className="response_save">
         <Button label="Save" />
       </div>
     </form>

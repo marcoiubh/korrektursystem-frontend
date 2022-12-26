@@ -90,7 +90,7 @@ const Ticket = ({ user }) => {
 
   // Rendering
   return (
-    <div>
+    <>
       <Routes>
         <Route
           path="/overview"
@@ -126,7 +126,7 @@ const Ticket = ({ user }) => {
         />
         <Route path="/*" element={<Home />} />
       </Routes>
-    </div>
+    </>
   );
 };
 

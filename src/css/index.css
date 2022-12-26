@@ -8,7 +8,8 @@ body {
 }
 
 .app_container {
-  background-color: rgb(54, 51, 58);
+  /* background-color: rgb(54, 51, 58); */
+  background-color: rgb(255, 255, 255);
   height: 100vh;
   display: grid;
   grid-template-rows: 3rem 1fr 4rem;
@@ -24,10 +25,6 @@ body {
   grid-area: app_navbar;
   background-color: whitesmoke;
 }
-
-/* .app_main {
-  grid-area: app_main;
-} */
 
 .app_footer {
   grid-area: app_footer;

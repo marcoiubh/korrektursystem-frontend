@@ -10,9 +10,9 @@ import Response from '../subcomponents/composite/response';
 import { updateTicket } from '../../services/ticketService';
 import Button from '../subcomponents/atomic/button';
 import { toast } from 'react-toastify';
-import TextArea from '../subcomponents/atomic/textArea';
 import { getFormattedTimestamp } from '../../services/getFormattedTimestamp';
 import _ from 'lodash';
+import '../../css/ticketDetail.css';
 
 const TicketDetail = ({
   user,
@@ -112,32 +112,32 @@ const TicketDetail = ({
   );
 
   return (
-    <div className="container">
-      <div className="gy-3">
-        <h1>Ticket status</h1>
-        <p>Ticket number # {ticket._id} </p>
+    <div className="ticketDetail">
+      <div className="ticketDetail_pagination">
+        <Pagination
+          itemsCount={totalCount}
+          pageSize={1}
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+        />
       </div>
 
-      <Pagination
-        itemsCount={totalCount}
-        pageSize={1}
-        currentPage={currentPage}
-        onPageChange={handlePageChange}
-      />
-      <div className="row g-1">
-        <div className="col-sm-5">
-          <Request ticket={ticket} />
-          <Button label="Overview" onClick={handleOverview} />
-        </div>
-        {!ifUserIsStudent() && (
-          <div className="col-sm-5">
-            <Response ticket={ticket} onSave={debouncedHandleSave} />
-          </div>
-        )}
-        <div className="col-sm-5">
-          <TextArea property="history" obj={ticket} />
-        </div>
+      <div className="ticketDetail_overview">
+        <Button label="Overview" onClick={handleOverview} />
       </div>
+
+      <h1 className="ticketDetail_title">Ticket status</h1>
+      <p className="ticketDetail_id">Ticket number # {ticket._id} </p>
+
+      <div className="request">
+        <Request ticket={ticket} />
+      </div>
+
+      {!ifUserIsStudent() && (
+        <div className="response">
+          <Response ticket={ticket} onSave={debouncedHandleSave} />
+        </div>
+      )}
     </div>
   );
 };

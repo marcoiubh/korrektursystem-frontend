@@ -7,7 +7,7 @@ const SelectHook = ({
   ...rest
 }) => {
   return (
-    <div className="input-group mb-3">
+    <div className="input-group">
       <span className="input-group-text" id="basic-addon1">
         {property}
       </span>

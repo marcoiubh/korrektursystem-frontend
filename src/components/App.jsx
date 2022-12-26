@@ -35,29 +35,25 @@ function App() {
         theme="dark"
       />
       <NavBar user={user} />
-      <div>
-        {user ? (
-          <Routes>
-            <Route index element={<Home />} />
-            <Route path="/*" element={<Home />} />
-            <Route
-              path="/ticket/*"
-              element={<Ticket user={user} />}
-            />
-            <Route path="/new" element={<NewTicket user={user} />} />
-            <Route path="/issue" element={<Issue />} />
-            <Route path="/logout" element={<Logout />} />
-          </Routes>
-        ) : (
-          <Routes>
-            <Route
-              path="/expiredSession"
-              element={<ExpiredSession />}
-            />
-            <Route path="/*" element={<Login />} />
-          </Routes>
-        )}
-      </div>
+
+      {user ? (
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="/*" element={<Home />} />
+          <Route path="/ticket/*" element={<Ticket user={user} />} />
+          <Route path="/new" element={<NewTicket user={user} />} />
+          <Route path="/issue" element={<Issue />} />
+          <Route path="/logout" element={<Logout />} />
+        </Routes>
+      ) : (
+        <Routes>
+          <Route
+            path="/expiredSession"
+            element={<ExpiredSession />}
+          />
+          <Route path="/*" element={<Login />} />
+        </Routes>
+      )}
 
       <Footer />
     </div>

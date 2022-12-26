@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { sendEmail } from '../../services/emailService';
 import _ from 'lodash';
 import IssueForm from '../subcomponents/composite/issueForm';
+import '../../css/issue.css';
 
 const Issue = () => {
   const navigate = useNavigate();
@@ -44,8 +45,7 @@ const Issue = () => {
   );
 
   return (
-    <div className="container">
-      <h1>Contact</h1>
+    <div className="issue">
       <IssueForm onSubmit={debouncedHandleSubmit} />
     </div>
   );

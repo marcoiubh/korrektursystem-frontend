@@ -1,0 +1,38 @@
+.response {
+  grid-area: response;
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: auto;
+  grid-template-areas: 'response_form';
+}
+
+.response_form {
+  grid-area: response_form;
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-rows: 40px auto;
+  grid-template-columns: 300px 300px;
+  grid-template-areas:
+    'response_priority  response_status'
+    'response_statement response_statement'
+    'response_save .';
+}
+
+.response_priority {
+  grid-area: response_priority;
+  margin-left: 25px;
+}
+.response_status {
+  grid-area: response_status;
+  margin-left: 25px;
+}
+.response_statement {
+  grid-area: response_statement;
+  margin-left: 25px;
+}
+.response_save {
+  grid-area: response_save;
+  margin-left: 25px;
+}

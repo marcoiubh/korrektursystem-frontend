@@ -1,0 +1,47 @@
+.request {
+  grid-area: request;
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-rows: 40px 40px 40px auto auto;
+  grid-template-columns: 400px 300px;
+  grid-template-areas:
+    'request_date  request_title'
+    'request_student request_module'
+    'request_type  request_source'
+    'request_comment request_comment'
+    'request_history request_history';
+}
+
+.request_date {
+  grid-area: request_date;
+  margin-left: 25px;
+}
+.request_title {
+  grid-area: request_title;
+  margin-left: 25px;
+}
+.request_student {
+  grid-area: request_student;
+  margin-left: 25px;
+}
+.request_module {
+  grid-area: request_module;
+  margin-left: 25px;
+}
+.request_type {
+  grid-area: request_type;
+  margin-left: 25px;
+}
+.request_source {
+  grid-area: request_source;
+  margin-left: 25px;
+}
+.request_comment {
+  grid-area: request_comment;
+  margin-left: 25px;
+}
+.request_history {
+  grid-area: request_history;
+  margin-left: 25px;
+}

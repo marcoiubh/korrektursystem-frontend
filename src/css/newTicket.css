@@ -1,0 +1,26 @@
+.ticketDetail {
+  grid-area: app_main;
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-rows: 40px auto;
+  grid-template-columns: 200px 400px auto 200px;
+  grid-template-areas:
+    'ticketDetail_pagination ticketDetail_overview . .'
+    'ticketDetail_main ticketDetail_main ticketDetail_main ticketDetail_main';
+}
+
+.ticketDetail_pagination {
+  grid-area: ticketDetail_pagination;
+  margin-left: 25px;
+}
+.ticketDetail_overview {
+  grid-area: ticketDetail_overview;
+  margin-left: 25px;
+}
+
+.ticketDetail_main {
+  grid-area: app_table;
+  margin-left: 25px;
+  width: 100%;
+}

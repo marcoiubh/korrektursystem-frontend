@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { getFormattedTimestamp } from '../../services/getFormattedTimestamp';
 import _ from 'lodash';
 import NewTicketForm from '../subcomponents/composite/newTicketForm';
+import '../../css/newTicket.css';
 
 const NewTicket = ({ user }) => {
   let ticket = {};
@@ -63,8 +64,8 @@ const NewTicket = ({ user }) => {
   };
 
   return (
-    <div className="container">
-      <div className="gy-3">
+    <div className="newTicket">
+      <div className="newTicket_main">
         <h1>New Ticket</h1>
       </div>
       <NewTicketForm

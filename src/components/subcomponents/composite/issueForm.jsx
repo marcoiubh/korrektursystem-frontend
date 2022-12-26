@@ -7,6 +7,8 @@ import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { IssueSchema } from '../../../config/joiSchema';
 
+import '../../../css/issue.css';
+
 const IssueForm = ({ onSubmit }) => {
   const {
     register,
@@ -22,22 +24,31 @@ const IssueForm = ({ onSubmit }) => {
   };
   return (
     <form
-      className="col-sm-4 mt-lg-5"
+      className="issue_form"
       onSubmit={handleSubmit(onSubmit, Errors)}
     >
-      <InputHook
-        property="title"
-        obj=""
-        register={register}
-        errors={errors}
-      />
-      <TextAreaHook
-        property="description"
-        obj=""
-        register={register}
-        errors={errors}
-      />
-      <Button label="Send" />
+      <div className="issue_form_title">
+        <h1>Contact</h1>
+      </div>
+      <div className="issue_input_title">
+        <InputHook
+          property="title"
+          obj=""
+          register={register}
+          errors={errors}
+        />
+      </div>
+      <div className="issue_input_description">
+        <TextAreaHook
+          property="description"
+          obj=""
+          register={register}
+          errors={errors}
+        />
+      </div>
+      <div className="issue_button">
+        <Button label="Send" />
+      </div>
     </form>
   );
 };

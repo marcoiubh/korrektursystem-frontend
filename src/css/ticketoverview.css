@@ -1,4 +1,4 @@
-/* .app_ticketOverview {
+.app_ticketOverview {
   grid-area: app_main;
   display: grid;
   height: 100%;
@@ -8,71 +8,26 @@
   grid-template-areas:
     'app_pagination app_create app_search app_items'
     'app_table app_table app_table app_table';
-} */
-
-/*
-.app_login_form {
-  background-color: whitesmoke;
-  margin-top: 40px;
-  height: 70%;
-  border-radius: 10px 10px 10px 10px;
-  box-shadow: 3px 6px 15px -3px rgb(109, 105, 105);
-  grid-area: app_login_form;
-  display: grid;
-  grid-template-rows: 1fr 110px 65px 65px 65px 1fr;
-  grid-template-columns: 7fr 1fr;
-  grid-template-areas:
-    ' . .'
-    ' app_title .'
-    ' app_username .'
-    ' app_password app_eye'
-    ' app_login .'
-    ' . .';
 }
-.app_username {
-  grid-area: app_username;
+
+.app_pagination {
+  grid-area: app_pagination;
   margin-left: 25px;
 }
-.app_password {
-  grid-area: app_password;
+.app_create {
+  grid-area: app_create;
   margin-left: 25px;
 }
-.app_title {
-  grid-area: app_title;
-  margin-left: 25px;
-  margin-bottom: 40px;
-}
-.app_eye {
-  grid-area: app_eye;
-  margin-left: 10px;
-  margin-top: 5px;
-  color: rgb(101, 104, 101);
-}
-.app_login {
-  grid-area: app_login;
+.app_search {
+  grid-area: app_search;
   margin-left: 25px;
 }
-
-.btn:hover,
-.btn:focus {
-  color: rgb(255, 255, 255) !important;
-  border-color: rgb(51, 54, 58) !important;
-  background: rgb(144, 153, 165) !important;
+.app_items {
+  grid-area: app_items;
+  margin-left: 25px;
 }
-.btn {
-  font-size: 13px !important;
-  color: rgb(51, 54, 58) !important;
-  border-color: rgb(51, 54, 58) !important;
+.app_table {
+  grid-area: app_table;
+  margin-left: 25px;
+  width: 100%;
 }
-
-.form-control,
-.input-group,
-.input-group-text {
-  font-size: 13px !important;
-
-}
-.form-control {
-  color: rgb(101, 104, 101) !important;
-}
-
-*/
