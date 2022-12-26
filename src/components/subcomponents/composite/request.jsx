@@ -27,7 +27,7 @@ const Request = ({ ticket }) => {
       </div>
 
       <div className="request_student">
-        <TextArea property="student" obj={ticket} disabled={true} />
+        <Input property="student" obj={ticket} disabled={true} />
       </div>
       <div className="request_comment">
         <TextArea property="comment" obj={ticket} disabled={true} />

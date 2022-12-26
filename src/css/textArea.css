@@ -1,0 +1,28 @@
+.textArea_main {
+  border-radius: 6px;
+  border: 1px solid lightgrey;
+  overflow: hidden;
+  color: rgb(72, 72, 72);
+  font-size: 13px;
+}
+
+.textArea_label {
+  display: inline-block;
+  width: 80px;
+  background-color: rgb(192, 198, 209);
+}
+
+.textArea_text_frame {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  margin-left: 12px;
+}
+
+.textArea_text {
+  height: 80px;
+  width: 90%;
+  margin-left: 12px;
+  resize: none;
+  border: none;
+  outline: none;
+}

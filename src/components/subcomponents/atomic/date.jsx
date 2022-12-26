@@ -1,12 +1,13 @@
 import { getFormattedTimestamp } from '../../../services/getFormattedTimestamp';
+import '../../../css/date.css';
 
 const Date = ({ property, obj, disabled, ...rest }) => {
   return (
-    <div className="input-group mb-3">
-      <span {...rest} className="input-group-text" id="basic-addon1">
-        {property}
-      </span>
-      <label id={property} className="form-control">
+    <div className="date_main">
+      <div {...rest} className="date_label">
+        <div className="date_text_frame">{property}</div>
+      </div>
+      <label id={property} className="date_text">
         {getFormattedTimestamp(obj[property])}
       </label>
     </div>

@@ -1,10 +1,12 @@
+import '../../../css/input.css';
+
 const Input = ({ property, obj, disabled, ...rest }) => {
   return (
-    <div className="input-group">
-      <span {...rest} className="input-group-text" id="basic-addon1">
-        {property}
-      </span>
-      <label {...rest} id={property} className="form-control">
+    <div className="input_main">
+      <div {...rest} className="input_label">
+        <div className="input_text_frame">{property}</div>
+      </div>
+      <label {...rest} id={property} className="input_text">
         {obj[property]}
       </label>
     </div>

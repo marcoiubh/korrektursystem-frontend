@@ -4,10 +4,11 @@
   height: 100%;
   width: 100%;
   grid-template-rows: 40px auto;
-  grid-template-columns: 200px 600px auto 200px;
+  grid-template-columns: 200px 550px auto 200px;
   grid-template-areas:
-    'ticketDetail_pagination ticketDetail_overview ticketDetail_id ticketDetail_id'
+    'ticketDetail_pagination ticketDetail_overview . .'
     'ticketDetail_title ticketDetail_title . .'
+    'ticketDetail_id ticketDetail_id . .'
     'request request response response';
 }
 

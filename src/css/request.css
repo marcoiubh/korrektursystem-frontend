@@ -3,8 +3,9 @@
   display: grid;
   height: 100%;
   width: 100%;
-  grid-template-rows: 40px 40px 40px auto auto;
+  grid-template-rows: 35px 35px 35px 100px 100px;
   grid-template-columns: 400px 300px;
+  grid-gap: 10px 10px;
   grid-template-areas:
     'request_date  request_title'
     'request_student request_module'
@@ -39,9 +40,11 @@
 }
 .request_comment {
   grid-area: request_comment;
+  overflow: scroll;
   margin-left: 25px;
 }
 .request_history {
   grid-area: request_history;
+  overflow: scroll;
   margin-left: 25px;
 }

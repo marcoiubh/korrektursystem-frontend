@@ -1,21 +1,18 @@
-import { Link } from 'react-router-dom';
+import '../../../css/button.css';
+
 const PageButton = ({ page, currentPage, onClick, ...rest }) => {
   return (
-    <li
+    <button
+      {...rest}
       className={
-        page === currentPage ? 'page-item active' : 'page-item'
+        page === currentPage
+          ? 'pagebutton pagebutton_active'
+          : 'pagebutton'
       }
+      onClick={() => onClick(page)}
     >
-      {
-        <Link
-          {...rest}
-          className="page-link"
-          onClick={() => onClick(page)}
-        >
-          {page}
-        </Link>
-      }
-    </li>
+      {page}
+    </button>
   );
 };
 

@@ -9,6 +9,8 @@ import { joiResolver } from '@hookform/resolvers/joi';
 import { NewTicketSchema } from '../../../config/joiSchema';
 import SelectHook from '../atomicHooks/SelectHook';
 
+import '../../../css/newTicket.css';
+
 const NewTicketForm = ({ ticket, onSave, onCancel }) => {
   const {
     register,
@@ -23,55 +25,62 @@ const NewTicketForm = ({ ticket, onSave, onCancel }) => {
     console.error(error);
   };
   return (
-    <form onSubmit={handleSubmit(onSave, onErrors)}>
-      <div className="row g-1">
-        <div className="col-sm-4">
-          <SelectHook
-            property="module"
-            obj={ticket}
-            options={config.module}
-            register={register}
-            errors={errors}
-          />
-        </div>
-        <div className="col-sm-6">
-          <InputHook
-            property="title"
-            obj={ticket}
-            register={register}
-            errors={errors}
-          />
-        </div>
+    <form
+      className="newTicket_form"
+      onSubmit={handleSubmit(onSave, onErrors)}
+    >
+      <div className="newTicket_headline">
+        <h1>New Ticket</h1>
+      </div>
+      <div className="newTicket_module">
+        <SelectHook
+          property="module"
+          obj={ticket}
+          options={config.module}
+          register={register}
+          errors={errors}
+        />
+      </div>
+      <div className="newTicket_title">
+        <InputHook
+          property="title"
+          obj={ticket}
+          register={register}
+          errors={errors}
+        />
       </div>
 
-      <div className="row g-1">
-        <div className="col-sm-6 ">
-          <TextAreaHook
-            property="comment"
-            obj={ticket}
-            register={register}
-            errors={errors}
-          />
-        </div>
-        <div className="col-sm-6">
-          <SelectHook
-            property="type"
-            obj={ticket}
-            options={config.type}
-            register={register}
-            errors={errors}
-          />
-          <SelectHook
-            property="source"
-            obj={ticket}
-            options={config.source}
-            register={register}
-            errors={errors}
-          />
-        </div>
+      <div className="newTicket_comment">
+        <TextAreaHook
+          property="comment"
+          obj={ticket}
+          register={register}
+          errors={errors}
+        />
       </div>
-      <div className="row-sm-0">
+      <div className="newTicket_type">
+        <SelectHook
+          property="type"
+          obj={ticket}
+          options={config.type}
+          register={register}
+          errors={errors}
+        />
+      </div>
+      <div className="newTicket_source">
+        <SelectHook
+          property="source"
+          obj={ticket}
+          options={config.source}
+          register={register}
+          errors={errors}
+        />
+      </div>
+
+      <div className="newTicket_save">
         <Button label="Submit" />
+      </div>
+      <div className="newTicket_cancel">
         <Button label="Cancel" onClick={onCancel} type="button" />
       </div>
     </form>

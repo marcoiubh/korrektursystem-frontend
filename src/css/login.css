@@ -47,25 +47,3 @@
   grid-area: app_login_button;
   margin-left: 25px;
 }
-
-.btn:hover,
-.btn:focus {
-  color: rgb(255, 255, 255) !important;
-  border-color: rgb(51, 54, 58) !important;
-  background: rgb(144, 153, 165) !important;
-}
-.btn {
-  font-size: 13px !important;
-  color: rgb(51, 54, 58) !important;
-  border-color: rgb(51, 54, 58) !important;
-}
-
-.form-control,
-.input-group,
-.input-group-text {
-  font-size: 13px !important;
-  /* color: rgb(101, 104, 101) !important; */
-}
-.form-control {
-  color: rgb(101, 104, 101) !important;
-}

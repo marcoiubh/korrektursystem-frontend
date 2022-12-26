@@ -1,10 +1,10 @@
+import '../../../css/button.css';
+
 const Button = ({ label, ...rest }) => {
   return (
-    <div className="input-group">
-      <button {...rest} className="btn btn-outline-primary small">
-        {label}
-      </button>
-    </div>
+    <button {...rest} className="button">
+      {label}
+    </button>
   );
 };
 

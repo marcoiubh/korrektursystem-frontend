@@ -1,3 +1,5 @@
+import '../../../css/select.css';
+
 const SelectHook = ({
   property,
   obj,
@@ -7,17 +9,17 @@ const SelectHook = ({
   ...rest
 }) => {
   return (
-    <div className="input-group">
-      <span className="input-group-text" id="basic-addon1">
-        {property}
-      </span>
+    <div className="select_main">
+      <div className="select_label">
+        <div className="select_text_frame">{property}</div>
+      </div>
       <select
         {...rest}
         name={property}
         id={property}
         defaultValue={obj[property]}
         {...register(property)}
-        className={`form-select ${
+        className={`select_text ${
           errors[property] ? 'is-invalid' : ''
         }`}
       >

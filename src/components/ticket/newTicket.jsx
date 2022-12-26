@@ -64,16 +64,11 @@ const NewTicket = ({ user }) => {
   };
 
   return (
-    <div className="newTicket">
-      <div className="newTicket_main">
-        <h1>New Ticket</h1>
-      </div>
-      <NewTicketForm
-        ticket={ticket}
-        onSave={debouncedHandleSave}
-        onCancel={handleCancel}
-      />
-    </div>
+    <NewTicketForm
+      ticket={ticket}
+      onSave={debouncedHandleSave}
+      onCancel={handleCancel}
+    />
   );
 };
 

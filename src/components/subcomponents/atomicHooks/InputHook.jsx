@@ -1,16 +1,18 @@
+import '../../../css/input.css';
+
 const InputHook = ({ property, obj, register, errors, ...rest }) => {
   return (
-    <div className="input-group">
-      <span className="input-group-text" id="basic-addon1">
-        {property}
-      </span>
+    <div className="input_main">
+      <div className="input_label">
+        <div className="input_text_frame">{property}</div>
+      </div>
       <input
         {...rest}
         name={property}
         id={property}
         defaultValue={obj[property]}
         {...register(property)}
-        className={`form-control ${
+        className={`input_text ${
           errors[property] ? 'is-invalid' : ''
         }`}
       />

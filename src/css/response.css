@@ -12,8 +12,9 @@
   display: grid;
   height: 100%;
   width: 100%;
-  grid-template-rows: 40px auto;
+  grid-template-rows: 35px auto;
   grid-template-columns: 300px 300px;
+  grid-gap: 10px 10px;
   grid-template-areas:
     'response_priority  response_status'
     'response_statement response_statement'
@@ -30,6 +31,7 @@
 }
 .response_statement {
   grid-area: response_statement;
+  overflow: scroll;
   margin-left: 25px;
 }
 .response_save {

@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import React, { useState, useEffect } from 'react';
 import PageButton from '../atomic/pageButton';
+import '../../../css/pagination.css';
 
 const Pagination = ({
   currentPage,
@@ -77,34 +78,32 @@ const Pagination = ({
   };
 
   return (
-    <nav>
-      <ul className="pagination">
-        {numberOfPages > 3 && min > 1 && (
-          <PageButton
-            key={'previous'}
-            page={<span>&laquo;</span>}
-            onClick={handlePrevious}
-          />
-        )}
+    <div className="app_pagination">
+      {numberOfPages > 3 && min > 1 && (
+        <PageButton
+          key={'previous'}
+          page={<span>&laquo;</span>}
+          onClick={handlePrevious}
+        />
+      )}
 
-        {pages.map((page) => (
-          <PageButton
-            key={page}
-            page={page}
-            currentPage={currentPage}
-            onClick={onPageChange}
-          />
-        ))}
+      {pages.map((page) => (
+        <PageButton
+          key={page}
+          page={page}
+          currentPage={currentPage}
+          onClick={onPageChange}
+        />
+      ))}
 
-        {numberOfPages > 3 && max <= numberOfPages && (
-          <PageButton
-            key={'next'}
-            page={<span>&raquo;</span>}
-            onClick={handleNext}
-          />
-        )}
-      </ul>
-    </nav>
+      {numberOfPages > 3 && max <= numberOfPages && (
+        <PageButton
+          key={'next'}
+          page={<span>&raquo;</span>}
+          onClick={handleNext}
+        />
+      )}
+    </div>
   );
 };
 
