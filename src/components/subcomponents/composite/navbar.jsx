@@ -4,39 +4,28 @@ import '../../../css/navbar.css';
 
 const NavBar = ({ user }) => {
   return (
-    <nav className="app_navbar">
-      <NavLink className="app_navbar_text app_home" to="/">
+    <div className="app_navbar">
+      <NavLink className=" app_home" to="/">
         korrektursystem.live
       </NavLink>
 
-      <NavLink
-        className="app_navbar_text app_tickets"
-        to="/ticket/overview"
-      >
+      <NavLink className="app_tickets" to="/ticket/overview">
         Tickets
       </NavLink>
 
       {user ? (
         <>
-          <span className="app_navbar_text app_user">
-            User: {user}
-          </span>
-          <NavLink
-            className=" app_navbar_text app_login_link"
-            to="/logout"
-          >
+          <span className="app_user">User: {user}</span>
+          <NavLink className="app_login_link" to="/logout">
             Logout
           </NavLink>
         </>
       ) : (
-        <NavLink
-          className="app_navbar_text app_login_link"
-          to="/login"
-        >
+        <NavLink className="app_login_link" to="/login">
           Login
         </NavLink>
       )}
-    </nav>
+    </div>
   );
 };
 

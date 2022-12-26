@@ -1,10 +1,11 @@
 import React from 'react';
 import TableBody from '../atomic/tableBody';
 import TableHeader from '../atomic/tableHeader.jsx';
+import '../../../css/ticketTable.css';
 
 const Table = ({ propertyList, records, sortColumn, onSort }) => {
   return (
-    <table className="table table-hover table-striped">
+    <table className="ticketTable">
       <TableHeader
         propertyList={propertyList}
         onSort={onSort}

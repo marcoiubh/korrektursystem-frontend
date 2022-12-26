@@ -8,7 +8,7 @@ const TicketTable = ({ onSort, onView, sortColumn, tickets }) => {
   return (
     <>
       {tickets.length === 0 ? (
-        <p>No ticket found in the system.</p>
+        <p>Currently no tickets available.</p>
       ) : (
         <Table
           propertyList={propertyList}

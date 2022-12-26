@@ -1,0 +1,27 @@
+.ticketTable {
+  margin-top: 25px;
+  border-collapse: separate;
+  border-spacing: 0 5px;
+  width: 95%;
+}
+
+.ticketTable td {
+  color: lightgrey;
+  padding: 5px 15px;
+}
+.header {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #5f656d;
+  color: lightgrey;
+}
+
+.body {
+  background-color: #5f656d;
+  padding-top: 3px;
+}
+
+.body:hover {
+  background-color: #35363b;
+}

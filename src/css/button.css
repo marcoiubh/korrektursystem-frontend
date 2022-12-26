@@ -5,30 +5,29 @@
   min-width: 30px;
   border-radius: 6px;
   border: 1px solid;
-  background-color: white;
+  background-color: #242629;
   font-size: 13px;
-  color: rgb(51, 54, 58);
-  border-color: rgb(51, 54, 58);
+  color: lightgrey;
+  border-color: lightgrey;
 }
 
 .button:hover,
 .button:focus {
   color: rgb(255, 255, 255);
-  border-color: rgb(51, 54, 58);
-  background: rgb(144, 153, 165);
 }
 
 .pagebutton {
+  color: rgb(200, 200, 200);
+  background-color: #242629;
   height: 40px;
   width: auto;
   text-decoration: none;
   min-width: 30px;
   border: none;
-  background-color: white;
   font-size: 13px;
-  color: rgb(51, 54, 58);
 }
 
 .pagebutton_active {
-  color: rgb(46, 91, 224);
+  color: rgb(255, 255, 255);
+  font-size: 15px;
 }

@@ -6,12 +6,14 @@
 }
 
 .app_login_form {
-  background-color: whitesmoke;
+  background-color: #5f656d;
   margin-top: 40px;
   height: 70%;
   min-height: 350px;
   border-radius: 10px 10px 10px 10px;
-  box-shadow: 3px 6px 15px -3px rgb(109, 105, 105);
+  border: 1px solid;
+  border-color: lightgrey;
+  /* box-shadow: 3px 6px 15px -3px #5f656d; */
   grid-area: app_login_form;
   display: grid;
   grid-template-rows: 1fr 110px 65px 65px 65px 1fr;
@@ -41,9 +43,11 @@
   grid-area: app_eye;
   margin-left: 10px;
   margin-top: 5px;
-  color: rgb(101, 104, 101);
+  color: black;
 }
 .app_login_button {
   grid-area: app_login_button;
   margin-left: 25px;
+  background-color: #5f656d;
+  width: 100px;
 }

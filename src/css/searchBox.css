@@ -1,0 +1,11 @@
+.searchBox {
+  background-color: #242629;
+  height: 40px;
+  width: 300px;
+  outline: none;
+  border-radius: 6px;
+  border: 1px solid;
+  border-color: lightgrey;
+  color: lightgrey;
+  font-size: 13px;
+}

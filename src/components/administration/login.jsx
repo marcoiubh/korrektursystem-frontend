@@ -80,9 +80,8 @@ const Login = () => {
             onClick={handleShowPassword}
           />
         </div>
-        <div className=" app_login_button">
-          <Button label="Login" />
-        </div>
+
+        <Button label="Login" color="app_login_button" />
       </form>
     </div>
   );
