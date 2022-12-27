@@ -8,14 +8,6 @@ import '../../../css/request.css';
 const Request = ({ ticket }) => {
   return (
     <>
-      {/* TODO: Refactor */}
-      {((!ifUserIsStudent() && !ticket.readProfessor) ||
-        (ifUserIsStudent() && !ticket.readStudent)) && (
-        <div className="">
-          <i className="fa fa-commenting" />
-        </div>
-      )}
-
       <div className="request_date">
         <Date property="date" obj={ticket} disabled={true} />
       </div>

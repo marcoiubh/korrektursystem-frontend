@@ -11,13 +11,14 @@ import useRefresh from '../../services/useRefresh';
 import Home from '../home';
 import { toast } from 'react-toastify';
 import { quitSession } from '../../services/authenticationService';
+import { markNewTickets } from '../../services/markNewTickets';
 
 const Ticket = ({ user }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(4);
   const [searchQuery, setSearchQuery] = useState('');
   const [sortColumn, setSortColumn] = useState(config.sortColumn);
-  const [tickets, setTickets] = useState([]);
+  const [tickets, setTickets] = useState([{ mark: false }]);
   const [pagedTicketsOnly, setPagedTicketsOnly] = useState([]);
   const [ticket, setTicket] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
@@ -32,9 +33,11 @@ const Ticket = ({ user }) => {
       const filteredTickets = search(fetchedTickets, searchQuery);
       setTotalCount(filteredTickets.length);
       const sortedTickets = sort(filteredTickets, sortColumn);
-      setTickets(sortedTickets);
+
+      const markedTickets = markNewTickets(sortedTickets, user);
+      setTickets(markedTickets);
       const paginatedTickets = paginate(
-        sortedTickets,
+        markedTickets,
         currentPage,
         pageSize
       );
@@ -116,7 +119,7 @@ const Ticket = ({ user }) => {
           path="/detail"
           element={
             <TicketDetail
-              user={user}
+              user={user.email}
               ticket={ticket}
               tickets={tickets}
               totalCount={totalCount}

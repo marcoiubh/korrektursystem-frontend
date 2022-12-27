@@ -58,3 +58,11 @@ td.title {
 .tableBody:hover {
   background-color: #35363b;
 }
+
+.mark {
+  background-color: rgb(75, 121, 75) !important;
+}
+
+.nomark {
+  background-color: #5f656d;
+}

@@ -22,9 +22,15 @@ export function deleteToken() {
 
 export function getCurrentUser() {
   try {
+    let user = {};
     const token = getJwt();
     // get user by email
-    const { email: user } = jwtDecode(token);
+    const { email } = jwtDecode(token);
+    const { role } = jwtDecode(token);
+    user = {
+      email: email,
+      role: role,
+    };
     return user;
   } catch (error) {}
 }

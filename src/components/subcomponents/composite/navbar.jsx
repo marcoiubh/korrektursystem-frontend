@@ -15,7 +15,7 @@ const NavBar = ({ user }) => {
 
       {user ? (
         <>
-          <span className="app_user">User: {user}</span>
+          <span className="app_user">User: {user.email}</span>
           <NavLink className="app_login_link" to="/logout">
             Logout
           </NavLink>

@@ -5,18 +5,18 @@ import '../css/ticketTable.css';
 
 const getPropertyList = ({ onView }) => {
   return [
-    {
-      content: (ticket) => {
-        // notification if student or professor did not read ticket yet
-        if (
-          (ifUserIsStudent() && !ticket.readStudent) ||
-          (!ifUserIsStudent() && !ticket.readProfessor)
-        ) {
-          // render notification symbol
-          return <i className="fa fa-commenting"></i>;
-        }
-      },
-    },
+    // {
+    //   content: (ticket) => {
+    //     // notification if student or professor did not read ticket yet
+    //     if (
+    //       (ifUserIsStudent() && !ticket.readStudent) ||
+    //       (!ifUserIsStudent() && !ticket.readProfessor)
+    //     ) {
+    //       // render notification symbol
+    //       return <i className="fa fa-commenting"></i>;
+    //     }
+    //   },
+    // },
     {
       name: 'date',
       content: (ticket) => (

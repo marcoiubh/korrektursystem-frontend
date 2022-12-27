@@ -15,7 +15,7 @@ const NewTicket = ({ user }) => {
     // copy new value into existing values
     ticket = inputValues;
     // associate student with the new ticket
-    ticket.student = user;
+    ticket.student = user.email;
     ticket.date = Date.now();
     ticket.status = 'New';
     // new ticket has not been read by a professor
@@ -24,7 +24,7 @@ const NewTicket = ({ user }) => {
     // instanciate history property as array of strings
     ticket.history = [];
     ticket.history.push(
-      `${getFormattedTimestamp(Date.now())} - ${user} - ${
+      `${getFormattedTimestamp(Date.now())} - ${user.email} - ${
         ticket.title
       } - ${ticket.comment} - ${ticket.status}`
     );

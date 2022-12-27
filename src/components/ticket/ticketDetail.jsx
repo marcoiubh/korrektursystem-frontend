@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  getCurrentRole,
-  ifUserIsStudent,
-} from '../../services/authenticationService';
+import { ifUserIsStudent } from '../../services/authenticationService';
 import Pagination from '../subcomponents/composite/pagination';
 import Request from '../subcomponents/composite/request';
 import Response from '../subcomponents/composite/response';
@@ -40,11 +37,11 @@ const TicketDetail = ({
     const updateReadStatus = async () => {
       const ticketCopy = { ...ticket };
 
-      if (getCurrentRole() === 'student')
-        ticketCopy.readStudent = true;
-      else if (getCurrentRole() === 'professor')
+      if (user.role === 'student') ticketCopy.readStudent = true;
+      else if (user.role === 'professor')
         ticketCopy.readProfessor = true;
 
+      console.log(ticketCopy.readProfessor, ticketCopy.readStudent);
       try {
         await updateTicket(ticketCopy);
         // update state of ticket in parent component to rerender read label in ticket overview
@@ -69,10 +66,10 @@ const TicketDetail = ({
   const handleSave = async (updates) => {
     // copy new value into existing values
     const ticketCopy = Object.assign(ticket, updates);
-    ticketCopy.professor = user;
+    ticketCopy.professor = user.email;
     ticketCopy.date = Date.now();
     ticketCopy.history.push(
-      `\n ${getFormattedTimestamp(Date.now())} - ${user} - ${
+      `\n ${getFormattedTimestamp(Date.now())} - ${user.email} - ${
         ticket.title
       } - ${ticket.statement} - ${ticket.status}`
     );
@@ -133,11 +130,11 @@ const TicketDetail = ({
         <Request ticket={ticket} />
       </div>
 
-      {!ifUserIsStudent() && (
+      {user.role === 'professor' ? (
         <div className="response">
           <Response ticket={ticket} onSave={debouncedHandleSave} />
         </div>
-      )}
+      ) : null}
     </div>
   );
 };
