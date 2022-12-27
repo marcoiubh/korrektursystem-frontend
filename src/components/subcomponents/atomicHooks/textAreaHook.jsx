@@ -1,6 +1,7 @@
 const TextAreaHook = ({
   property,
   obj,
+  text_background,
   register,
   errors,
   ...rest
@@ -16,7 +17,7 @@ const TextAreaHook = ({
         id={property}
         defaultValue={obj[property]}
         {...register(property)}
-        className={`textArea_text ${
+        className={`textArea_text ${text_background} ${
           errors[property] ? 'is-invalid' : ''
         }`}
         rows="4"

@@ -6,15 +6,15 @@
 }
 
 .issue_form {
-  background-color: whitesmoke;
+  background-color: #5f656d;
   margin-top: 40px;
   height: 70%;
   min-height: 350px;
   border-radius: 10px 10px 10px 10px;
-  box-shadow: 3px 6px 15px -3px rgb(109, 105, 105);
+  /* box-shadow: 3px 6px 15px -3px rgb(109, 105, 105); */
   grid-area: issue_form;
   display: grid;
-  grid-template-rows: 1fr 110px 45px 100px 65px 1fr;
+  grid-template-rows: 1fr 60px 45px 140px 65px 1fr;
   grid-template-columns: 7fr 1fr;
   grid-template-areas:
     ' . .'
@@ -41,4 +41,13 @@
 .issue_button {
   grid-area: issue_button;
   margin-left: 25px;
+  background-color: #5f656d;
+  width: 100px;
+}
+
+.issue_label_background {
+  background-color: #35363b;
+}
+.issue_text_background {
+  background-color: #5f656d;
 }

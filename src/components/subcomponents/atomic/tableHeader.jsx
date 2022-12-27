@@ -33,7 +33,7 @@ const TableHeader = ({ propertyList, sortColumn, onSort }) => {
       <tr>
         {propertyList.map(({ name }, index) => (
           <th
-            className="header"
+            className={`header ${name}`}
             key={index}
             onClick={() => raiseSort(name)}
           >

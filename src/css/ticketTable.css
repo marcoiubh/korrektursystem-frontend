@@ -1,27 +1,60 @@
 .ticketTable {
-  margin-top: 25px;
   border-collapse: separate;
   border-spacing: 0 5px;
+  table-layout: fixed;
   width: 95%;
+  margin-top: 25px;
 }
 
+.ticketTable th,
 .ticketTable td {
   color: lightgrey;
+  width: 50px;
   padding: 5px 15px;
 }
+
+th.date {
+  width: 80px;
+}
+
+th.student {
+  width: 60px;
+}
+
+th.status,
+th.type {
+  width: 50px;
+}
+
+th.source {
+  width: 50px;
+}
+
+.doNotDisplay {
+  display: none;
+}
+
+th.title,
+td.title {
+  width: 50px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .header {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #5f656d;
   color: lightgrey;
 }
 
-.body {
+.tableBody {
+  margin-top: 25px;
   background-color: #5f656d;
   padding-top: 3px;
 }
 
-.body:hover {
+.tableBody:hover {
   background-color: #35363b;
 }

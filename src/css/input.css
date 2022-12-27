@@ -8,7 +8,7 @@
 
 .input_label {
   display: inline-block;
-  width: 80px;
+  width: 90px;
   background-color: #35363b;
 }
 
@@ -19,7 +19,7 @@
 }
 
 .input_text {
-  background-color: #242629;
+  color: lightgrey;
   margin-left: 12px;
   border: none;
   outline: none;

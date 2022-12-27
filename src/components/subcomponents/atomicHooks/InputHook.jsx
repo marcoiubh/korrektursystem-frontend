@@ -1,9 +1,17 @@
 import '../../../css/input.css';
 
-const InputHook = ({ property, obj, register, errors, ...rest }) => {
+const InputHook = ({
+  property,
+  obj,
+  label_background,
+  text_background,
+  register,
+  errors,
+  ...rest
+}) => {
   return (
     <div className="input_main">
-      <div className="input_label">
+      <div className={`input_label ${label_background}`}>
         <div className="input_text_frame">{property}</div>
       </div>
       <input
@@ -12,7 +20,7 @@ const InputHook = ({ property, obj, register, errors, ...rest }) => {
         id={property}
         defaultValue={obj[property]}
         {...register(property)}
-        className={`input_text ${
+        className={`input_text ${text_background} ${
           errors[property] ? 'is-invalid' : ''
         }`}
       />

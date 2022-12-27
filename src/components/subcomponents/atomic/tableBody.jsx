@@ -14,9 +14,11 @@ const TableBody = ({ records, propertyList }) => {
   return (
     <tbody>
       {records.map((record, index) => (
-        <tr className="body" key={index}>
+        <tr className="tableBody" key={index}>
           {propertyList.map((property, index) => (
-            <td key={index}>{renderCell(record, property)}</td>
+            <td className={property.name} key={index}>
+              {renderCell(record, property)}
+            </td>
           ))}
         </tr>
       ))}
