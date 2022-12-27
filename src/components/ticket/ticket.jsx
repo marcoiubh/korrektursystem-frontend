@@ -119,7 +119,7 @@ const Ticket = ({ user }) => {
           path="/detail"
           element={
             <TicketDetail
-              user={user.email}
+              user={user}
               ticket={ticket}
               tickets={tickets}
               totalCount={totalCount}

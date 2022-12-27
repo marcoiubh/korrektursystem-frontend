@@ -41,7 +41,6 @@ const TicketDetail = ({
       else if (user.role === 'professor')
         ticketCopy.readProfessor = true;
 
-      console.log(ticketCopy.readProfessor, ticketCopy.readStudent);
       try {
         await updateTicket(ticketCopy);
         // update state of ticket in parent component to rerender read label in ticket overview
