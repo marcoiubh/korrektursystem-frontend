@@ -6,10 +6,6 @@ const TicketTable = ({ onSort, onClick, sortColumn, tickets }) => {
   const propertyList = getPropertyList();
 
   return (
-    <>
-      {tickets.length === 0 ? (
-        <p>Currently no tickets available.</p>
-      ) : (
         <Table
           propertyList={propertyList}
           records={tickets}
@@ -17,8 +13,6 @@ const TicketTable = ({ onSort, onClick, sortColumn, tickets }) => {
           sortColumn={sortColumn}
           onClick={onClick}
         />
-      )}
-    </>
   );
 };
 

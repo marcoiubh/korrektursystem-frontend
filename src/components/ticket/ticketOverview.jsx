@@ -50,12 +50,18 @@ const TicketOverview = ({
         />
       </div>
       <div className="app_table">
-        <TicketTable
-          tickets={tickets}
-          sortColumn={sortColumn}
-          onSort={onSort}
-          onClick={onClick}
-        />
+        {tickets.length === 0 ? (
+          <p className="no_tickets">
+            Currently no tickets available.
+          </p>
+        ) : (
+          <TicketTable
+            tickets={tickets}
+            sortColumn={sortColumn}
+            onSort={onSort}
+            onClick={onClick}
+          />
+        )}
       </div>
     </div>
   );
