@@ -47,6 +47,7 @@ td.title {
   padding-bottom: 12px;
   text-align: left;
   color: lightgrey;
+  cursor: pointer;
 }
 
 .tableBody {
@@ -57,6 +58,7 @@ td.title {
 
 .tableBody:hover {
   background-color: #35363b;
+  cursor: pointer;
 }
 
 .mark {

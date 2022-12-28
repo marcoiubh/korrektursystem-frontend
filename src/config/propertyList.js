@@ -3,20 +3,8 @@ import { ifUserIsStudent } from '../services/authenticationService';
 import { getFormattedTimestamp } from '../services/getFormattedTimestamp';
 import '../css/ticketTable.css';
 
-const getPropertyList = ({ onView }) => {
+const getPropertyList = () => {
   return [
-    // {
-    //   content: (ticket) => {
-    //     // notification if student or professor did not read ticket yet
-    //     if (
-    //       (ifUserIsStudent() && !ticket.readStudent) ||
-    //       (!ifUserIsStudent() && !ticket.readProfessor)
-    //     ) {
-    //       // render notification symbol
-    //       return <i className="fa fa-commenting"></i>;
-    //     }
-    //   },
-    // },
     {
       name: 'date',
       content: (ticket) => (
@@ -53,11 +41,6 @@ const getPropertyList = ({ onView }) => {
 
       content: (ticket) => (
         <label hidden={ifUserIsStudent()}>{ticket.priority}</label>
-      ),
-    },
-    {
-      content: (ticket) => (
-        <Button label="View" onClick={() => onView(ticket)} />
       ),
     },
   ];

@@ -103,7 +103,7 @@ const Ticket = ({ user }) => {
               onPageChange={handlePageChange}
               onSearch={handleSearch}
               onSort={handleSort}
-              onView={handleView}
+              onClick={handleView}
               onItemCountChange={handleItemCountChange}
               currentPage={currentPage}
               pageSize={pageSize}

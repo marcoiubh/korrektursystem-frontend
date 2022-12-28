@@ -3,7 +3,13 @@ import TableBody from '../atomic/tableBody';
 import TableHeader from '../atomic/tableHeader.jsx';
 import '../../../css/ticketTable.css';
 
-const Table = ({ propertyList, records, sortColumn, onSort }) => {
+const Table = ({
+  propertyList,
+  records,
+  sortColumn,
+  onSort,
+  onClick,
+}) => {
   return (
     <table className="ticketTable">
       <TableHeader
@@ -11,7 +17,11 @@ const Table = ({ propertyList, records, sortColumn, onSort }) => {
         onSort={onSort}
         sortColumn={sortColumn}
       />
-      <TableBody propertyList={propertyList} records={records} />
+      <TableBody
+        propertyList={propertyList}
+        records={records}
+        onClick={onClick}
+      />
     </table>
   );
 };

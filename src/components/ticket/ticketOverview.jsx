@@ -14,7 +14,7 @@ const TicketOverview = ({
   onPageChange,
   onSearch,
   onSort,
-  onView,
+  onClick,
   currentPage,
   pageSize,
   searchQuery,
@@ -54,7 +54,7 @@ const TicketOverview = ({
           tickets={tickets}
           sortColumn={sortColumn}
           onSort={onSort}
-          onView={onView}
+          onClick={onClick}
         />
       </div>
     </div>

@@ -2,8 +2,8 @@ import React from 'react';
 import Table from './table';
 import getPropertyList from '../../../config/propertyList';
 
-const TicketTable = ({ onSort, onView, sortColumn, tickets }) => {
-  const propertyList = getPropertyList({ onView });
+const TicketTable = ({ onSort, onClick, sortColumn, tickets }) => {
+  const propertyList = getPropertyList();
 
   return (
     <>
@@ -15,6 +15,7 @@ const TicketTable = ({ onSort, onView, sortColumn, tickets }) => {
           records={tickets}
           onSort={onSort}
           sortColumn={sortColumn}
+          onClick={onClick}
         />
       )}
     </>
