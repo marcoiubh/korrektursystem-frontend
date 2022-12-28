@@ -23,8 +23,9 @@ function App() {
     <div className="app_container">
       <ToastContainer
         transition={Slide}
+        limit={1}
         position="top-right"
-        autoClose={2500}
+        autoClose={1500}
         hideProgressBar
         newestOnTop={false}
         closeOnClick

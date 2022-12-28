@@ -8,8 +8,10 @@ import { LoginSchema } from '../../config/joiSchema';
 import ShowPassword from '../subcomponents/atomic/showPassword';
 import { toast } from 'react-toastify';
 import '../../css/login.css';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -28,23 +30,18 @@ const Login = () => {
       password: e.password,
     };
 
-    const id = toast.loading('Please wait...');
-    await loginUser(credentials)
-      .then(() => {
-        toast.update(id, {
-          render: 'You are logged in.',
-          type: 'success',
-          isLoading: false,
-        });
-        window.location = '/ticket/overview';
+    await toast
+      .promise(loginUser(credentials), {
+        pending: 'Please wait...',
+        success: 'You are logged in.',
+        error: {
+          render({ data: error }) {
+            return error.response.data;
+          },
+        },
       })
-      .catch((err) => {
-        toast.update(id, {
-          render: err.response.data,
-          autoClose: 3000,
-          type: 'error',
-          isLoading: false,
-        });
+      .then(() => {
+        navigate('/ticket/overview');
       });
   };
 

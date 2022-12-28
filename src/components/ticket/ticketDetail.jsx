@@ -77,22 +77,18 @@ const TicketDetail = ({
     ticketCopy.readStudent = false;
     ticketCopy.readProfessor = true;
 
-    const id = toast.loading('Please wait...');
-    await updateTicket(ticketCopy)
-      .then(() => {
-        toast.update(id, {
-          render: 'Changes has been saved.',
-          type: 'success',
-          isLoading: false,
-        });
-        navigate('/ticket/overview');
+    await toast
+      .promise(updateTicket(ticketCopy), {
+        pending: 'Please wait...',
+        success: 'Changes has been saved.',
+        error: {
+          render({ data: error }) {
+            return error.response.data;
+          },
+        },
       })
-      .catch((err) => {
-        toast.update(id, {
-          render: err.response.data,
-          type: 'error',
-          isLoading: false,
-        });
+      .then(() => {
+        navigate('/ticket/overview');
       });
   };
 

@@ -29,25 +29,19 @@ const NewTicket = ({ user }) => {
       } - ${ticket.comment} - ${ticket.status}`
     );
 
-    const response = toast.loading('Please wait...');
-    await saveTicket(ticket)
-      .then(() => {
-        toast.update(response, {
-          render: 'Ticket has been created.',
-          type: 'success',
-          isLoading: false,
-        });
+    await toast
+      .promise(saveTicket(ticket), {
+        pending: 'Please wait...',
+        success: 'Ticket has been created.',
+        error: {
+          render({ data: error }) {
+            return error.response.data;
+          },
+        },
       })
-      .catch((err) => {
-        toast.update(response, {
-          render: err.response.data,
-          closeOnClick: true,
-          autoClose: 3000,
-          type: 'error',
-          isLoading: false,
-        });
+      .then(() => {
+        navigate('/ticket/overview');
       });
-    navigate('/ticket/overview');
   };
 
   const debouncedHandleSave = useMemo(

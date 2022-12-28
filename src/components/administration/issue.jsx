@@ -15,23 +15,18 @@ const Issue = () => {
       description: e.description,
     };
 
-    const id = toast.loading('Please wait...');
-    await sendEmail(issue)
-      .then((res) => {
-        toast.update(id, {
-          render: res.data,
-          type: 'success',
-          isLoading: false,
-        });
-        navigate('/ticket/overview');
+    await toast
+      .promise(sendEmail(issue), {
+        pending: 'Please wait...',
+        success: 'Email has been sent.',
+        error: {
+          render({ data: error }) {
+            return error.response.data;
+          },
+        },
       })
-      .catch((err) => {
-        toast.update(id, {
-          render: err.response.data,
-          autoClose: 3000,
-          type: 'error',
-          isLoading: false,
-        });
+      .then(() => {
+        navigate('/ticket/overview');
       });
   };
 
