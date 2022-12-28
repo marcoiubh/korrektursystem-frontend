@@ -1,15 +1,14 @@
 .date_main {
-  border-radius: 6px;
-  border: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
   overflow: hidden;
-  color: lightgrey;
   font-size: 13px;
 }
 
 .date_label {
+  color: #35363b;
   display: inline-block;
-  width: 80px;
-  background-color: #35363b;
+  width: 90px;
+  font-weight: bold;
 }
 
 .date_text_frame {

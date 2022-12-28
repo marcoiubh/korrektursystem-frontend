@@ -11,6 +11,7 @@
   height: 70%;
   min-height: 350px;
   border-radius: 10px 10px 10px 10px;
+  border: 1px solid lightgrey;
   /* box-shadow: 3px 6px 15px -3px rgb(109, 105, 105); */
   grid-area: issue_form;
   display: grid;

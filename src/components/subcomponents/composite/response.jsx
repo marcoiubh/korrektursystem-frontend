@@ -33,9 +33,11 @@ const Response = ({ ticket, onSave }) => {
 
   return (
     <form
-      className="response_form"
+      className="response-form"
       onSubmit={handleSubmit(onSave, onError)}
     >
+      <p className="response_header">Professor response</p>
+
       <div className="response_statement">
         <TextAreaHook
           property="statement"

@@ -1,24 +1,43 @@
 .response {
   grid-area: response;
+  background-color: #5f656d;
+  border-radius: 6px;
+  margin-left: 25px;
   display: grid;
   height: 100%;
   width: 100%;
-  grid-template-columns: auto;
-  grid-template-areas: 'response_form';
+  grid-template-columns: 600px;
+  grid-gap: 10px 10px;
+  grid-template-areas: 'response-form';
 }
 
-.response_form {
-  grid-area: response_form;
+.response-form {
+  grid-area: response-form;
+  background-color: #5f656d;
+  border-radius: 6px;
+  margin-left: 25px;
   display: grid;
   height: 100%;
   width: 100%;
-  grid-template-rows: 35px auto;
-  grid-template-columns: 300px 300px;
+  grid-template-rows: 25px 35px 35px 110px 35px 35px 110px;
+  grid-template-columns: 280px 280px;
   grid-gap: 10px 10px;
   grid-template-areas:
+    '. .'
+    'response_header response_header'
     'response_priority  response_status'
     'response_statement response_statement'
-    'response_save .';
+    'response_save  .'
+    '. .'
+    '. .';
+}
+
+.response_header {
+  grid-area: response_header;
+  margin-left: 25px;
+  border-bottom: 1px solid rgb(4, 4, 116);
+  font-size: 13px;
+  color: #35363b;
 }
 
 .response_priority {

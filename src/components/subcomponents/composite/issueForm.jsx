@@ -34,8 +34,6 @@ const IssueForm = ({ onSubmit }) => {
         <InputHook
           property="title"
           obj=""
-          label_background="issue_label_background"
-          text_background="issue_text_background"
           register={register}
           errors={errors}
         />
@@ -44,7 +42,6 @@ const IssueForm = ({ onSubmit }) => {
         <TextAreaHook
           property="description"
           obj=""
-          text_background="issue_text_background"
           register={register}
           errors={errors}
         />

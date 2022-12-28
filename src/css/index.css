@@ -1,15 +1,7 @@
-body {
-  /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman',
-    serif; */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 13px;
-}
-
 .app_container {
   color: lightgrey;
   min-height: 100vh;
-  background-color: #242629;
+  min-width: 100%;
   display: grid;
   grid-template-rows: 3rem auto 4rem;
 

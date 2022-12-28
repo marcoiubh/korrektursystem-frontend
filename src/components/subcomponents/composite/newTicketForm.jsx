@@ -26,55 +26,56 @@ const NewTicketForm = ({ ticket, onSave, onCancel }) => {
   };
   return (
     <form
-      className="newTicket_form"
+      className="newTicket"
       onSubmit={handleSubmit(onSave, onErrors)}
     >
       <div className="newTicket_headline">
         <h1>New Ticket</h1>
       </div>
-      <div className="newTicket_module">
-        <SelectHook
-          property="module"
-          obj={ticket}
-          options={config.module}
-          register={register}
-          errors={errors}
-        />
-      </div>
-      <div className="newTicket_title">
-        <InputHook
-          property="title"
-          obj={ticket}
-          register={register}
-          errors={errors}
-        />
-      </div>
-
-      <div className="newTicket_comment">
-        <TextAreaHook
-          property="comment"
-          obj={ticket}
-          register={register}
-          errors={errors}
-        />
-      </div>
-      <div className="newTicket_type">
-        <SelectHook
-          property="type"
-          obj={ticket}
-          options={config.type}
-          register={register}
-          errors={errors}
-        />
-      </div>
-      <div className="newTicket_source">
-        <SelectHook
-          property="source"
-          obj={ticket}
-          options={config.source}
-          register={register}
-          errors={errors}
-        />
+      <div className="newTicket_form">
+        <div className="newTicket_module">
+          <SelectHook
+            property="module"
+            obj={ticket}
+            options={config.module}
+            register={register}
+            errors={errors}
+          />
+        </div>
+        <div className="newTicket_title">
+          <InputHook
+            property="title"
+            obj={ticket}
+            register={register}
+            errors={errors}
+          />
+        </div>
+        <div className="newTicket_comment">
+          <TextAreaHook
+            property="comment"
+            obj={ticket}
+            register={register}
+            errors={errors}
+          />
+        </div>
+        <div className="newTicket_type">
+          <SelectHook
+            property="type"
+            obj={ticket}
+            options={config.type}
+            register={register}
+            errors={errors}
+          />
+        </div>
+        <div className="newTicket_source">
+          <SelectHook
+            property="source"
+            obj={ticket}
+            options={config.source}
+            register={register}
+            errors={errors}
+          />
+        </div>
       </div>
 
       <div className="newTicket_save">

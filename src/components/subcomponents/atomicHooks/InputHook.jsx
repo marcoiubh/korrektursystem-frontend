@@ -11,7 +11,7 @@ const InputHook = ({
 }) => {
   return (
     <div className="input_main">
-      <div className={`input_label ${label_background}`}>
+      <div className="input_label">
         <div className="input_text_frame">{property}</div>
       </div>
       <input

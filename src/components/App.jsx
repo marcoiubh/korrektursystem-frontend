@@ -5,7 +5,7 @@ import Login from './administration/login';
 import Logout from './administration/logout';
 import NavBar from './subcomponents/composite/navbar';
 import NewTicket from './ticket/newTicket';
-import React, { useEffect } from 'react';
+import React from 'react';
 import Ticket from './ticket/ticket';
 import { ToastContainer, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,6 +15,8 @@ import ExpiredSession from './administration/expiredSession';
 import useRefresh from '../services/useRefresh';
 
 function App() {
+  document.body.style.backgroundColor = '#242629';
+
   useRefresh();
 
   let user = getCurrentUser();

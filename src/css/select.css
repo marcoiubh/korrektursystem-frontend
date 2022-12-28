@@ -1,15 +1,14 @@
 .select_main {
-  border-radius: 6px;
-  border: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
   overflow: hidden;
-  color: lightgrey;
   font-size: 13px;
 }
 
 .select_label {
-  display: inline-block;
+  color: #35363b;
   width: 90px;
-  background-color: #35363b;
+  font-weight: bold;
+  display: inline-block;
 }
 
 .select_text_frame {
@@ -20,8 +19,8 @@
 
 .select_text {
   color: lightgrey;
-  background-color: #242629;
-  width: 90%;
+  background-color: transparent;
+  /* width: 90%; */
   margin-left: 12px;
   resize: none;
   border: none;

@@ -4,6 +4,7 @@
   display: grid;
   grid-template-columns: auto 1fr 400px;
   grid-template-areas: 'app_copyright .  app_issues';
+  font-size: 13px;
 }
 
 .app_copyright {

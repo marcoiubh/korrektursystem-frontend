@@ -8,6 +8,7 @@ import '../../../css/request.css';
 const Request = ({ ticket }) => {
   return (
     <>
+      <p className="request_header">Student request</p>
       <div className="request_date">
         <Date property="date" obj={ticket} disabled={true} />
       </div>

@@ -1,15 +1,13 @@
 .textArea_main {
-  border-radius: 6px;
-  border: 1px solid lightgrey;
-  overflow: hidden;
-  color: lightgrey;
+  border-bottom: 1px solid lightgrey;
   font-size: 13px;
 }
 
 .textArea_label {
+  color: #35363b;
   display: inline-block;
   width: 90px;
-  background-color: #35363b;
+  font-weight: bold;
 }
 
 .textArea_text_frame {
@@ -19,12 +17,23 @@
 }
 
 .textArea_text {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: transparent;
   color: lightgrey;
-  background-color: #242629;
   height: 80px;
   width: 90%;
   margin-left: 12px;
   resize: none;
   border: none;
   outline: none;
+}
+
+.textArea_text::-webkit-scrollbar {
+  /* -webkit-appearance: none; */
+  width: 3px;
+}
+
+.textArea_text::-webkit-scrollbar-thumb {
+  background-color: rgba(4, 4, 116, 0.5);
 }

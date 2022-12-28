@@ -13,6 +13,7 @@
 }
 
 .drop-menu a {
+  font-size: 11px;
   color: lightgrey;
   padding: 12px 16px;
   text-decoration: none;

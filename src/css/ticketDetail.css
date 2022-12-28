@@ -3,13 +3,13 @@
   display: grid;
   height: 100%;
   width: 100%;
-  grid-template-rows: 40px auto;
-  grid-template-columns: 200px 550px auto 200px;
+  grid-template-rows: 40px 40px 40px 500px;
+  grid-template-columns: 200px 100px 100px 200px 50px 300px 300px;
   grid-template-areas:
-    'ticketDetail_pagination ticketDetail_overview . .'
-    'ticketDetail_title ticketDetail_title . .'
-    'ticketDetail_id ticketDetail_id . .'
-    'request request response response';
+    'ticketDetail_pagination ticketDetail_overview . . . . .'
+    'ticketDetail_title ticketDetail_title . . . . .'
+    'ticketDetail_id ticketDetail_id ticketDetail_id . . . .'
+    'request request request request . response response';
 }
 
 .ticketDetail_pagination {
@@ -31,4 +31,6 @@
 .ticketDetail_id {
   grid-area: ticketDetail_id;
   margin-left: 25px;
+  margin-top: 10px;
+  font-size: 13px;
 }

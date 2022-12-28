@@ -4,6 +4,7 @@
   display: grid;
   grid-template-columns: 200px 1fr 250px 80px 120px;
   grid-template-areas: 'app_home . app_user app_tickets app_login_link';
+  font-size: 13px;
 }
 
 .app_home {

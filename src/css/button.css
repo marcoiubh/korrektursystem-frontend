@@ -2,10 +2,10 @@
   height: 40px;
   width: auto;
   text-decoration: none;
+  font-weight: bold;
   min-width: 30px;
-  border-radius: 6px;
-  border: 1px solid;
-  background-color: #242629;
+  border: hidden;
+  background-color: transparent;
   font-size: 13px;
   color: lightgrey;
   border-color: lightgrey;

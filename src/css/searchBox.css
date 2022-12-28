@@ -1,11 +1,13 @@
 .searchBox {
-  background-color: #242629;
+  background-color: transparent;
   height: 40px;
   width: 300px;
   outline: none;
-  border-radius: 6px;
-  border: 1px solid;
-  border-color: lightgrey;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom: 1px solid lightgrey;
+
   color: lightgrey;
   font-size: 13px;
 }

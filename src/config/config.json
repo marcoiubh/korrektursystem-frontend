@@ -3,7 +3,7 @@
     "email": "",
     "password": ""
   },
-  "dateFormat": "LLLL",
+  "dateFormat": "lll",
   "module": [
     "BSTA01-01",
     "IOBP02",
@@ -13,6 +13,10 @@
     "ISPE01"
   ],
   "priority": ["Critical", "Major", "Medium", "Minor"],
+  "table_properties": {
+    "student": null,
+    "professor": null
+  },
   "sortColumn": {
     "property": "date",
     "order": "desc"

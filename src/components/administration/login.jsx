@@ -58,7 +58,6 @@ const Login = () => {
           <InputHook
             property="email"
             obj=""
-            text_background="app_text_background"
             register={register}
             errors={errors}
           />
@@ -67,7 +66,6 @@ const Login = () => {
           <InputHook
             property="password"
             obj=""
-            text_background="app_text_background"
             type={showPassword ? 'text' : 'password'}
             register={register}
             errors={errors}
