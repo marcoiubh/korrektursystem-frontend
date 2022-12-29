@@ -1,13 +1,16 @@
 import React from 'react';
 import TextArea from '../atomic/textArea';
 import Input from '../atomic/input';
-import { ifUserIsStudent } from '../../../services/authenticationService';
 import Date from '../atomic/date';
 import '../../../css/request.css';
 
 const Request = ({ ticket }) => {
   return (
-    <>
+    <div
+      className={`request-form ${
+        ticket.mark ? 'ticketDetail_mark' : null
+      }`}
+    >
       <p className="request_header">Student request</p>
       <div className="request_date">
         <Date property="date" obj={ticket} disabled={true} />
@@ -33,7 +36,7 @@ const Request = ({ ticket }) => {
       <div className="request_history">
         <TextArea property="history" obj={ticket} />
       </div>
-    </>
+    </div>
   );
 };
 

@@ -33,7 +33,9 @@ const ResponseForm = ({ ticket, onSave }) => {
 
   return (
     <form
-      className="response-form"
+      className={`response-form ${
+        ticket.mark ? 'ticketDetail_mark' : null
+      }`}
       onSubmit={handleSubmit(onSave, onError)}
     >
       <p className="response_header">Professor response</p>

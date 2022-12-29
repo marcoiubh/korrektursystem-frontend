@@ -1,5 +1,15 @@
 .request {
   grid-area: request;
+  margin-top: 10px;
+  display: grid;
+  border-radius: 6px;
+  height: 100%;
+  grid-template-columns: 600px;
+  grid-template-areas: 'request-form';
+}
+
+.request-form {
+  grid-area: request-form;
   background-color: #435760;
   border-radius: 6px;
   margin-top: 10px;

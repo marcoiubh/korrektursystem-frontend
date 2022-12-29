@@ -135,9 +135,7 @@ const TicketDetail = ({
         </div>
       ) : (
         <div className="response">
-          <div className="response-form">
-            <Response ticket={ticket} />
-          </div>
+          <Response ticket={ticket} />
         </div>
       )}
     </div>

@@ -13,6 +13,8 @@
 
 // done
 
+- mark ticket detail view -> done
+- professor response view -> fixed
 - contact /login panel height -> done
 - label click htmlfor -> done
 - table onclick event -> done

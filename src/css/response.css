@@ -2,6 +2,7 @@
   grid-area: response;
   margin-top: 10px;
   display: grid;
+  border-radius: 6px;
   height: 100%;
   grid-template-columns: 600px;
   grid-template-areas: 'response-form';
@@ -11,7 +12,7 @@
   grid-area: response-form;
   background-color: #435760;
   border-radius: 6px;
-  margin-left: 25px;
+  margin-top: 10px;
   display: grid;
   height: 100%;
   width: 100%;
