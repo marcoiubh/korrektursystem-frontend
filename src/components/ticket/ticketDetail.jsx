@@ -68,9 +68,9 @@ const TicketDetail = ({
     ticketCopy.professor = user.email;
     ticketCopy.date = Date.now();
     ticketCopy.history.push(
-      `\n ${getFormattedTimestamp(Date.now())} - ${user.email} - ${
+      `\n${getFormattedTimestamp(Date.now())} : ${user.email} - ${
         ticket.title
-      } - ${ticket.statement} - ${ticket.status}`
+      } - ${ticket.status}`
     );
 
     // updated ticket has not been read by the student
@@ -88,7 +88,7 @@ const TicketDetail = ({
         },
       })
       .then(() => {
-        navigate('/ticket/overview');
+        window.location = '/ticket/overview';
       });
   };
 

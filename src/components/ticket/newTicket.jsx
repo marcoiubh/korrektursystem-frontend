@@ -24,9 +24,9 @@ const NewTicket = ({ user }) => {
     // instanciate history property as array of strings
     ticket.history = [];
     ticket.history.push(
-      `${getFormattedTimestamp(Date.now())} - ${user.email} - ${
+      `\n${getFormattedTimestamp(Date.now())} : ${user.email} - ${
         ticket.title
-      } - ${ticket.comment} - ${ticket.status}`
+      } - ${ticket.status}`
     );
 
     await toast

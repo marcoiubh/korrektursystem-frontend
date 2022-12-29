@@ -13,6 +13,8 @@
 
 // done
 
+- line break history -> fixed
+- hide first select option -> fixed
 - notification position tuning -> done
 - role dependend columns -> done
 - mark ticket detail view -> done

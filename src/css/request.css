@@ -69,6 +69,7 @@
 }
 .request_history {
   grid-area: request_history;
+  white-space: pre-wrap;
   overflow: scroll;
   margin-left: 25px;
 }
