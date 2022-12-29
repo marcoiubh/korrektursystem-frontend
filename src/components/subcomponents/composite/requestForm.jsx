@@ -11,7 +11,7 @@ import SelectHook from '../atomicHooks/SelectHook';
 
 import '../../../css/newTicket.css';
 
-const NewTicketForm = ({ ticket, onSave, onCancel }) => {
+const RequestForm = ({ ticket, onSave, onCancel }) => {
   const {
     register,
     handleSubmit,
@@ -88,4 +88,4 @@ const NewTicketForm = ({ ticket, onSave, onCancel }) => {
   );
 };
 
-export default NewTicketForm;
+export default RequestForm;

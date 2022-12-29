@@ -18,7 +18,6 @@ const Request = ({ ticket }) => {
       <div className="request_title">
         <Input property="title" obj={ticket} disabled={true} />
       </div>
-
       <div className="request_student">
         <Input property="student" obj={ticket} disabled={true} />
       </div>
@@ -31,28 +30,6 @@ const Request = ({ ticket }) => {
       <div className="request_source">
         <Input property="source" obj={ticket} disabled={true} />{' '}
       </div>
-
-      {/* {ifUserIsStudent() ? (
-        <>
-          <div className="">
-            <TextArea
-              property="statement"
-              obj={ticket}
-              disabled={true}
-              hidden={!ifUserIsStudent()}
-            />
-          </div>
-          <div className="">
-            <Input
-              property="status"
-              obj={ticket}
-              disabled={true}
-              hidden={!ifUserIsStudent()}
-            />
-          </div>
-        </>
-      ) : null} */}
-
       <div className="request_history">
         <TextArea property="history" obj={ticket} />
       </div>

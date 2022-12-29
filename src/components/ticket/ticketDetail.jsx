@@ -3,13 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { ifUserIsStudent } from '../../services/authenticationService';
 import Pagination from '../subcomponents/composite/pagination';
 import Request from '../subcomponents/composite/request';
-import Response from '../subcomponents/composite/response';
+import ResponseForm from '../subcomponents/composite/responseForm';
 import { updateTicket } from '../../services/ticketService';
 import Button from '../subcomponents/atomic/button';
 import { toast } from 'react-toastify';
 import { getFormattedTimestamp } from '../../services/getFormattedTimestamp';
 import _ from 'lodash';
 import '../../css/ticketDetail.css';
+import Response from '../subcomponents/composite/response';
 
 const TicketDetail = ({
   user,
@@ -125,11 +126,20 @@ const TicketDetail = ({
         <Request ticket={ticket} />
       </div>
 
-      {/* {user.role === 'professor' ? ( */}
-      <div className="response">
-        <Response ticket={ticket} onSave={debouncedHandleSave} />
-      </div>
-      {/* ) : null} */}
+      {user.role === 'professor' ? (
+        <div className="response">
+          <ResponseForm
+            ticket={ticket}
+            onSave={debouncedHandleSave}
+          />
+        </div>
+      ) : (
+        <div className="response">
+          <div className="response-form">
+            <Response ticket={ticket} />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

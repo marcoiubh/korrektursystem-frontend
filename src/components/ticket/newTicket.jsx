@@ -4,7 +4,7 @@ import React, { useMemo } from 'react';
 import { toast } from 'react-toastify';
 import { getFormattedTimestamp } from '../../services/getFormattedTimestamp';
 import _ from 'lodash';
-import NewTicketForm from '../subcomponents/composite/newTicketForm';
+import RequestForm from '../subcomponents/composite/requestForm';
 import '../../css/newTicket.css';
 
 const NewTicket = ({ user }) => {
@@ -58,7 +58,7 @@ const NewTicket = ({ user }) => {
   };
 
   return (
-    <NewTicketForm
+    <RequestForm
       ticket={ticket}
       onSave={debouncedHandleSave}
       onCancel={handleCancel}
