@@ -18,7 +18,7 @@ const IssueSchema = Joi.object({
     'string.empty': 'This is a required field',
   }),
   description: Joi.string().required().min(10).messages({
-    'string.empty': 'A meaningful description is necessary',
+    'string.empty': 'This is a required field',
   }),
 });
 
