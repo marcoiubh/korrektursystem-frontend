@@ -17,7 +17,7 @@ const NewTicketForm = ({ ticket, onSave, onCancel }) => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    mode: 'onBlur',
+    mode: 'onChange',
     resolver: joiResolver(NewTicketSchema),
   });
 

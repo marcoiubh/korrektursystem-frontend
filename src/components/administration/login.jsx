@@ -16,7 +16,10 @@ const Login = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ mode: 'onBlur', resolver: joiResolver(LoginSchema) });
+  } = useForm({
+    mode: 'onChange',
+    resolver: joiResolver(LoginSchema),
+  });
 
   const [showPassword, setShowPassword] = useState(false);
 

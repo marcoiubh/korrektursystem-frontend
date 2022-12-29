@@ -16,7 +16,7 @@ const Response = ({ ticket, onSave }) => {
     clearErrors,
     formState: { errors },
   } = useForm({
-    mode: 'onBlur',
+    mode: 'onChange',
     resolver: joiResolver(ResponseSchema),
   });
 

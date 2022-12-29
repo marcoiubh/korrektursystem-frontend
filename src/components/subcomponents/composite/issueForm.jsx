@@ -15,7 +15,7 @@ const IssueForm = ({ onSubmit }) => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    mode: 'onBlur',
+    mode: 'onChange',
     resolver: joiResolver(IssueSchema),
   });
 
