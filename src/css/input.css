@@ -25,6 +25,13 @@
   outline: none;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: lightgrey;
+  -webkit-box-shadow: 0 0 0px 40rem #435760 inset;
+}
+
 .input_error {
   margin-left: 100px;
   color: darkred;
