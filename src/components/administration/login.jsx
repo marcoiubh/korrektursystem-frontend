@@ -46,7 +46,7 @@ const Login = () => {
   };
 
   return (
-    <div className=" app_login">
+    <div className="app_login">
       <form
         className=" app_login_form"
         onSubmit={handleSubmit(handleLogin)}

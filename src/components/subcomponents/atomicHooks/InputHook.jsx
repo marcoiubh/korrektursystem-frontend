@@ -15,7 +15,9 @@ const InputHook = ({
         {errors[property]?.message}
       </div>
       <div className="input_label">
-        <div className="input_text_frame">{property}</div>
+        <label className="input_text_frame" htmlFor={property}>
+          {property}
+        </label>
       </div>
       <input
         {...rest}
