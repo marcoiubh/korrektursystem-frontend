@@ -125,11 +125,11 @@ const TicketDetail = ({
         <Request ticket={ticket} />
       </div>
 
-      {user.role === 'professor' ? (
-        <div className="response">
-          <Response ticket={ticket} onSave={debouncedHandleSave} />
-        </div>
-      ) : null}
+      {/* {user.role === 'professor' ? ( */}
+      <div className="response">
+        <Response ticket={ticket} onSave={debouncedHandleSave} />
+      </div>
+      {/* ) : null} */}
     </div>
   );
 };

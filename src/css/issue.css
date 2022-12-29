@@ -15,7 +15,7 @@
   /* box-shadow: 3px 6px 15px -3px rgb(109, 105, 105); */
   grid-area: issue_form;
   display: grid;
-  grid-template-rows: 1fr 60px 45px 140px 65px 1fr;
+  grid-template-rows: 1fr 60px 65px 140px 65px 1fr;
   grid-template-columns: 7fr 1fr;
   grid-template-areas:
     ' . .'

@@ -1,3 +1,4 @@
 .home {
   grid-area: app_main;
+  margin-left: 25px;
 }
