@@ -1,4 +1,5 @@
 .app_container {
+  --toastify-color-dark: #435760;
   color: lightgrey;
   min-height: 100vh;
   min-width: 100%;
