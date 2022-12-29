@@ -1,4 +1,5 @@
 import Joi from 'joi';
+import config from '../config/config.json';
 
 const LoginSchema = Joi.object({
   email: Joi.string()
@@ -29,39 +30,37 @@ const ResponseSchema = Joi.object({
     'string.emtpy': 'This is a required field',
   }),
   priority: Joi.required()
-    .valid('Critical', 'Major', 'Medium', 'Minor')
+    .valid(...config.priority)
     .messages({
+      'any.required': 'This is a required field',
       'any.only': 'This is a required field',
     }),
   status: Joi.string()
     .required()
-    .valid('Closed', 'Pending', 'In Progress', 'New')
+    .valid(...config.status)
     .messages({
+      'any.required': 'This is a required field',
       'any.only': 'This is a required field',
     }),
 });
 
 const NewTicketSchema = Joi.object({
   source: Joi.required()
-    .valid('Script', 'Vodcast', 'App', 'Excercises', 'OnlineQuiz')
+    .valid(...config.source)
     .messages({
+      'any.required': 'This is a required field',
       'any.only': 'This is a required field',
     }),
   type: Joi.required()
-    .valid('Notice', 'Error', 'Proposal', 'Improvement')
+    .valid(...config.type)
     .messages({
+      'any.required': 'This is a required field',
       'any.only': 'This is a required field',
     }),
   module: Joi.required()
-    .valid(
-      'BSTA01-01',
-      'IOBP02',
-      'IGIS01',
-      'IREN01',
-      'DLBINGE04',
-      'ISPE01'
-    )
+    .valid(...config.module)
     .messages({
+      'any.required': 'This is a required field',
       'any.only': 'This is a required field',
     }),
   title: Joi.string().max(20).required().messages({
