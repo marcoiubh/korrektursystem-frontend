@@ -7,7 +7,7 @@
   border-right-style: hidden;
   border-left-style: hidden;
   border-bottom: 1px solid lightgrey;
-
+  border-radius: 0;
   color: lightgrey;
   font-size: 13px;
 }
