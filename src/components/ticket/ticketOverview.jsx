@@ -4,10 +4,8 @@ import SearchBox from '../subcomponents/atomic/searchBox';
 import TicketTable from '../subcomponents/composite/ticketTable';
 import DropDown from '../subcomponents/atomic/dropdown';
 import { ifUserIsStudent } from '../../services/authenticationService';
-
-import Button from '../subcomponents/atomic/button';
-
 import '../../css/ticketOverview.css';
+import Button from '../subcomponents/atomic/button';
 
 const TicketOverview = ({
   onNew,
@@ -24,7 +22,7 @@ const TicketOverview = ({
   onItemCountChange,
 }) => {
   return (
-    <div className=" app_ticketOverview">
+    <div className="app_ticketOverview">
       <div className="app_items">
         <DropDown
           label={'Results per page'}
