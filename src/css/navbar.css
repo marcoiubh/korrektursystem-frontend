@@ -8,7 +8,7 @@
 }
 
 .app_home {
-  margin-top: 10px;
+  margin-top: 15px;
   grid-area: app_home;
   margin-left: 20px;
   margin-right: auto;
@@ -16,19 +16,19 @@
 
 .app_user {
   grid-area: app_user;
-  margin-top: 10px;
+  margin-top: 15px;
   margin-left: auto;
 }
 
 .app_tickets {
   grid-area: app_tickets;
-  margin-top: 10px;
+  margin-top: 15px;
   margin-left: auto;
 }
 
 .app_login_link {
   grid-area: app_login_link;
-  margin-top: 10px;
+  margin-top: 15px;
   margin-left: auto;
   margin-right: 20px;
 }

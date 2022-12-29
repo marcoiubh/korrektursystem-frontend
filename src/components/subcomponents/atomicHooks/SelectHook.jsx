@@ -10,6 +10,9 @@ const SelectHook = ({
 }) => {
   return (
     <div className="select_main">
+      <div className={errors[property] ? 'select_error' : 'no_error'}>
+        {errors[property]?.message}
+      </div>
       <div className="select_label">
         <div className="select_text_frame">{property}</div>
       </div>
@@ -28,9 +31,6 @@ const SelectHook = ({
           <option key={option}>{option}</option>
         ))}
       </select>
-      <div className="invalid-feedback">
-        {errors[property]?.message}
-      </div>
     </div>
   );
 };

@@ -24,3 +24,13 @@
   border: none;
   outline: none;
 }
+
+.input_error {
+  margin-left: 100px;
+  color: darkred;
+  font-weight: 600;
+}
+
+.no_error {
+  height: 20px;
+}

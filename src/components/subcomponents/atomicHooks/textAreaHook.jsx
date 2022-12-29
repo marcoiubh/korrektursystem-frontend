@@ -1,3 +1,5 @@
+import '../../../css/textArea.css';
+
 const TextAreaHook = ({
   property,
   obj,
@@ -8,6 +10,11 @@ const TextAreaHook = ({
 }) => {
   return (
     <div className="textArea_main">
+      <div
+        className={errors[property] ? 'textArea_error' : 'no_error'}
+      >
+        {errors[property]?.message}
+      </div>
       <div className="textArea_label">
         <div className="textArea_text_frame">{property}</div>
       </div>
@@ -22,9 +29,6 @@ const TextAreaHook = ({
         }`}
         rows="4"
       />
-      <div className="invalid-feedback">
-        {errors[property]?.message}
-      </div>
     </div>
   );
 };

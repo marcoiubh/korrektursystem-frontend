@@ -29,6 +29,16 @@
   outline: none;
 }
 
+.textArea_error {
+  margin-left: 100px;
+  color: darkred;
+  font-weight: 600;
+}
+
+.no_error {
+  height: 20px;
+}
+
 .textArea_text::-webkit-scrollbar {
   /* -webkit-appearance: none; */
   width: 3px;
