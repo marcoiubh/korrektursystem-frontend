@@ -13,6 +13,8 @@
 
 // done
 
+- notification position tuning -> done
+- role dependend columns -> done
 - mark ticket detail view -> done
 - professor response view -> fixed
 - contact /login panel height -> done

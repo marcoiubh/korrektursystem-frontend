@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ifUserIsStudent } from '../../services/authenticationService';
 import Pagination from '../subcomponents/composite/pagination';
 import Request from '../subcomponents/composite/request';
 import ResponseForm from '../subcomponents/composite/responseForm';

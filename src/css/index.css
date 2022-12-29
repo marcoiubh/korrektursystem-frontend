@@ -11,3 +11,8 @@
     'app_footer';
   row-gap: 10px;
 }
+
+.Toastify__toast-container--top-right {
+  position: fixed !important;
+  top: 55px !important;
+}
