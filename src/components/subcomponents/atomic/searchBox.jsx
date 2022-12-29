@@ -1,9 +1,9 @@
-import React from 'react';
+import '../../../css/searchBox.css';
 
 const SearchBox = ({ value, onChange }) => {
   return (
     <input
-      className="form-control my-3"
+      className="searchBox"
       name="query"
       onChange={(e) => onChange(e.currentTarget.value)}
       placeholder="Search..."

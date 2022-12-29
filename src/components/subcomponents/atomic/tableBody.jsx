@@ -1,7 +1,8 @@
 import _ from 'lodash';
 import React from 'react';
+import '../../../css/ticketTable.css';
 
-const TableBody = ({ records, propertyList }) => {
+const TableBody = ({ records, propertyList, onClick }) => {
   // conditional statement to render buttons
   // column.content is a function that returns a component
   const renderCell = (record, property) => {
@@ -11,11 +12,17 @@ const TableBody = ({ records, propertyList }) => {
   };
 
   return (
-    <tbody className="table-group-divider">
+    <tbody>
       {records.map((record, index) => (
-        <tr key={index}>
+        <tr
+          className={`tableBody ${record.mark ? 'mark' : 'nomark'}`}
+          key={index}
+          onClick={() => onClick(record)}
+        >
           {propertyList.map((property, index) => (
-            <td key={index}>{renderCell(record, property)}</td>
+            <td className={property.name} key={index}>
+              {renderCell(record, property)}
+            </td>
           ))}
         </tr>
       ))}

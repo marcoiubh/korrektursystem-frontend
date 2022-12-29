@@ -1,0 +1,60 @@
+.response {
+  grid-area: response;
+  background-color: #5f656d;
+  border-radius: 6px;
+  margin-top: 10px;
+  margin-left: 25px;
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: 600px;
+  grid-gap: 10px 10px;
+  grid-template-areas: 'response-form';
+}
+
+.response-form {
+  grid-area: response-form;
+  background-color: #5f656d;
+  border-radius: 6px;
+  margin-left: 25px;
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-rows: 25px 35px 65px 110px 35px 35px 110px;
+  grid-template-columns: 285px 285px;
+  grid-gap: 10px 10px;
+  grid-template-areas:
+    '. .'
+    'response_header response_header'
+    'response_priority  response_status'
+    'response_statement response_statement'
+    'response_save  .'
+    '. .'
+    '. .';
+}
+
+.response_header {
+  grid-area: response_header;
+  margin-left: 25px;
+  border-bottom: 1px solid rgb(4, 4, 116);
+  font-size: 13px;
+  color: #35363b;
+}
+
+.response_priority {
+  grid-area: response_priority;
+  margin-left: 25px;
+}
+.response_status {
+  grid-area: response_status;
+  margin-left: 25px;
+}
+.response_statement {
+  grid-area: response_statement;
+  overflow: scroll;
+  margin-left: 25px;
+}
+.response_save {
+  grid-area: response_save;
+  margin-left: 25px;
+}

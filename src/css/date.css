@@ -1,0 +1,22 @@
+.date_main {
+  border-bottom: 1px solid lightgrey;
+  overflow: hidden;
+  font-size: 13px;
+}
+
+.date_label {
+  color: #35363b;
+  display: inline-block;
+  width: 90px;
+  font-weight: bold;
+}
+
+.date_text_frame {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  margin-left: 12px;
+}
+
+.date_text {
+  margin-left: 12px;
+}

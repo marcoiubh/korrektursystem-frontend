@@ -1,0 +1,36 @@
+.ticketDetail {
+  grid-area: app_main;
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-rows: 40px 40px 40px 500px;
+  grid-template-columns: 200px 100px 100px 200px 50px 300px 300px;
+  grid-template-areas:
+    'ticketDetail_pagination ticketDetail_overview . . . . .'
+    'ticketDetail_title ticketDetail_title . . . . .'
+    'ticketDetail_id ticketDetail_id ticketDetail_id . . . .'
+    'request request request request . response response';
+}
+
+.ticketDetail_pagination {
+  grid-area: ticketDetail_pagination;
+  margin-left: 25px;
+}
+.ticketDetail_overview {
+  grid-area: ticketDetail_overview;
+  margin-left: 25px;
+}
+.ticketDetail_save {
+  grid-area: ticketDetail_save;
+  margin-left: 25px;
+}
+.ticketDetail_title {
+  grid-area: ticketDetail_title;
+  margin-left: 25px;
+}
+.ticketDetail_id {
+  grid-area: ticketDetail_id;
+  margin-left: 25px;
+  margin-top: 10px;
+  font-size: 13px;
+}

@@ -1,0 +1,56 @@
+.app_login {
+  grid-area: app_main;
+  display: grid;
+  grid-template-columns: 2fr 400px 1fr;
+  grid-template-areas: '. app_login_form .';
+}
+
+.app_login_form {
+  background-color: #5f656d;
+  margin-top: 40px;
+  height: 350px;
+  border-radius: 10px 10px 10px 10px;
+  border: 1px solid lightgrey;
+
+  grid-area: app_login_form;
+  display: grid;
+  grid-template-rows: 1fr 110px 65px 65px 65px 1fr;
+  grid-template-columns: 7fr 1fr;
+  grid-template-areas:
+    ' . .'
+    ' app_title .'
+    ' app_username .'
+    ' app_password app_eye'
+    ' app_login_button .'
+    ' . .';
+}
+.app_username {
+  grid-area: app_username;
+  margin-left: 25px;
+}
+.app_password {
+  grid-area: app_password;
+  margin-left: 25px;
+}
+.app_title {
+  grid-area: app_title;
+  margin-left: 25px;
+  margin-bottom: 40px;
+}
+.app_eye {
+  grid-area: app_eye;
+  margin-left: 10px;
+  margin-top: 25px;
+  color: black;
+}
+.app_login_button {
+  grid-area: app_login_button;
+  margin-top: 5px;
+  margin-left: 5px;
+  background-color: #5f656d;
+  width: 100px;
+}
+
+.app_text_background {
+  background-color: #5f656d;
+}

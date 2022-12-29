@@ -1,4 +1,7 @@
 import React from 'react';
+import '../../../css/ticketTable.css';
+import SortIconDown from './sortIconDown';
+import SortIconUp from './sortIconUp';
 
 const TableHeader = ({ propertyList, sortColumn, onSort }) => {
   const raiseSort = (name) => {
@@ -21,9 +24,8 @@ const TableHeader = ({ propertyList, sortColumn, onSort }) => {
 
   const renderSortIcon = (name) => {
     if (name !== sortColumn.property) return null;
-    if (sortColumn.order === 'asc')
-      return <i className="fa fa-long-arrow-up" />;
-    return <i className="fa fa-long-arrow-down" />;
+    if (sortColumn.order === 'asc') return <SortIconUp />;
+    return <SortIconDown />;
   };
 
   return (
@@ -31,7 +33,7 @@ const TableHeader = ({ propertyList, sortColumn, onSort }) => {
       <tr>
         {propertyList.map(({ name }, index) => (
           <th
-            // className="clickable"
+            className={`header ${name}`}
             key={index}
             onClick={() => raiseSort(name)}
           >

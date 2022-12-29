@@ -1,0 +1,36 @@
+.input_main {
+  border-bottom: 1px solid lightgrey;
+  overflow: hidden;
+  font-size: 13px;
+}
+
+.input_label {
+  color: #35363b;
+  display: inline-block;
+  width: 90px;
+  font-weight: bold;
+}
+
+.input_text_frame {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  margin-left: 12px;
+}
+
+.input_text {
+  background-color: transparent;
+  color: lightgrey;
+  margin-left: 12px;
+  border: none;
+  outline: none;
+}
+
+.input_error {
+  margin-left: 100px;
+  color: darkred;
+  font-weight: 600;
+}
+
+.no_error {
+  height: 20px;
+}

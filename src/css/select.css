@@ -1,0 +1,38 @@
+.select_main {
+  border-bottom: 1px solid lightgrey;
+  overflow: hidden;
+  font-size: 13px;
+}
+
+.select_label {
+  color: #35363b;
+  width: 90px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.select_text_frame {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  margin-left: 12px;
+}
+
+.select_text {
+  color: lightgrey;
+  background-color: transparent;
+  /* width: 90%; */
+  margin-left: 12px;
+  resize: none;
+  border: none;
+  outline: none;
+}
+
+.select_error {
+  margin-left: 100px;
+  color: darkred;
+  font-weight: 600;
+}
+
+.no_error {
+  height: 20px;
+}

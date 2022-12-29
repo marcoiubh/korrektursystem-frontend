@@ -1,0 +1,66 @@
+.newTicket {
+  grid-area: app_main;
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-rows: 40px 60px auto;
+  grid-template-columns: 200px 100px 100px 200px auto;
+  grid-template-areas:
+    ' . newTicket_save newTicket_cancel . .'
+    ' newTicket_headline newTicket_headline . . .'
+    ' newTicket_form newTicket_form newTicket_form newTicket_form .';
+}
+
+.newTicket_form {
+  grid-area: newTicket_form;
+  background-color: #5f656d;
+  border-radius: 6px;
+  margin-left: 25px;
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-rows: 25px 65px 65px 110px;
+  grid-template-columns: 280px 280px;
+  grid-gap: 10px 10px;
+  grid-template-areas:
+    '. . '
+    'newTicket_title   newTicket_module '
+    'newTicket_type  newTicket_source '
+    'newTicket_comment  newTicket_comment ';
+}
+
+.newTicket_save {
+  grid-area: newTicket_save;
+  margin-left: 25px;
+}
+.newTicket_cancel {
+  grid-area: newTicket_cancel;
+  margin-left: 25px;
+}
+
+.newTicket_headline {
+  grid-area: newTicket_headline;
+  margin-left: 25px;
+  width: 100%;
+}
+
+.newTicket_title {
+  grid-area: newTicket_title;
+  margin-left: 25px;
+}
+.newTicket_module {
+  grid-area: newTicket_module;
+  margin-left: 25px;
+}
+.newTicket_type {
+  grid-area: newTicket_type;
+  margin-left: 25px;
+}
+.newTicket_source {
+  grid-area: newTicket_source;
+  margin-left: 25px;
+}
+.newTicket_comment {
+  grid-area: newTicket_comment;
+  margin-left: 25px;
+}

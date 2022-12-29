@@ -1,0 +1,54 @@
+.issue {
+  grid-area: app_main;
+  display: grid;
+  grid-template-columns: 2fr 400px 1fr;
+  grid-template-areas: '. issue_form .';
+}
+
+.issue_form {
+  background-color: #5f656d;
+  margin-top: 40px;
+  height: 70%;
+  min-height: 350px;
+  border-radius: 10px 10px 10px 10px;
+  border: 1px solid lightgrey;
+  /* box-shadow: 3px 6px 15px -3px rgb(109, 105, 105); */
+  grid-area: issue_form;
+  display: grid;
+  grid-template-rows: 1fr 60px 65px 140px 65px 1fr;
+  grid-template-columns: 7fr 1fr;
+  grid-template-areas:
+    ' . .'
+    ' issue_form_title .'
+    ' issue_input_title .'
+    ' issue_input_description .'
+    ' issue_button .'
+    ' . .';
+}
+
+.issue_form_title {
+  grid-area: issue_form_title;
+  margin-bottom: 40px;
+  margin-left: 25px;
+}
+.issue_input_title {
+  grid-area: issue_input_title;
+  margin-left: 25px;
+}
+.issue_input_description {
+  grid-area: issue_input_description;
+  margin-left: 25px;
+}
+.issue_button {
+  grid-area: issue_button;
+  margin-left: 25px;
+  background-color: #5f656d;
+  width: 100px;
+}
+
+.issue_label_background {
+  background-color: #35363b;
+}
+.issue_text_background {
+  background-color: #5f656d;
+}

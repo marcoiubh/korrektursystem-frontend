@@ -1,0 +1,33 @@
+.button {
+  height: 40px;
+  width: auto;
+  text-decoration: none;
+  font-weight: bold;
+  min-width: 30px;
+  border: hidden;
+  background-color: transparent;
+  font-size: 13px;
+  color: lightgrey;
+  border-color: lightgrey;
+}
+
+.button:hover,
+.button:focus {
+  color: rgb(255, 255, 255);
+}
+
+.pagebutton {
+  color: rgb(200, 200, 200);
+  background-color: #242629;
+  height: 40px;
+  width: auto;
+  text-decoration: none;
+  min-width: 30px;
+  border: none;
+  font-size: 13px;
+}
+
+.pagebutton_active {
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+}

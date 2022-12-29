@@ -1,0 +1,64 @@
+.request {
+  grid-area: request;
+  background-color: #5f656d;
+  border-radius: 6px;
+  margin-top: 10px;
+  margin-left: 25px;
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-rows: 25px 35px 35px 35px 35px 110px 110px;
+  grid-template-columns: 285px 285px;
+  grid-gap: 10px 10px;
+  grid-template-areas:
+    '. .'
+    'request_header request_header'
+    'request_date  request_title'
+    'request_student request_module'
+    'request_type  request_source'
+    'request_comment request_comment'
+    'request_history request_history';
+}
+
+.request_header {
+  grid-area: request_header;
+  margin-left: 25px;
+  border-bottom: 1px solid rgb(4, 4, 116);
+  font-size: 13px;
+  color: #35363b;
+}
+
+.request_date {
+  grid-area: request_date;
+  margin-left: 25px;
+}
+.request_title {
+  grid-area: request_title;
+  margin-left: 25px;
+}
+.request_student {
+  grid-area: request_student;
+  margin-left: 25px;
+}
+.request_module {
+  grid-area: request_module;
+  margin-left: 25px;
+}
+.request_type {
+  grid-area: request_type;
+  margin-left: 25px;
+}
+.request_source {
+  grid-area: request_source;
+  margin-left: 25px;
+}
+.request_comment {
+  grid-area: request_comment;
+  overflow: scroll;
+  margin-left: 25px;
+}
+.request_history {
+  grid-area: request_history;
+  overflow: scroll;
+  margin-left: 25px;
+}

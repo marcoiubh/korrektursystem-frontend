@@ -7,13 +7,19 @@ import Button from '../subcomponents/atomic/button';
 import { LoginSchema } from '../../config/joiSchema';
 import ShowPassword from '../subcomponents/atomic/showPassword';
 import { toast } from 'react-toastify';
+import '../../css/login.css';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ mode: 'onBlur', resolver: joiResolver(LoginSchema) });
+  } = useForm({
+    mode: 'onChange',
+    resolver: joiResolver(LoginSchema),
+  });
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -27,44 +33,55 @@ const Login = () => {
       password: e.password,
     };
 
-    try {
-      await loginUser(credentials);
-      window.location = '/ticket/overview';
-    } catch (error) {
-      console.log(error);
-      if (error.response) {
-        const { data: message } = error.response;
-        toast.error(message);
-      }
-    }
+    await toast
+      .promise(loginUser(credentials), {
+        pending: 'Please wait...',
+        success: 'You are logged in.',
+        error: {
+          render({ data: error }) {
+            return error.response.data;
+          },
+        },
+      })
+      .then(() => {
+        navigate('/ticket/overview');
+      });
   };
 
   return (
-    <div className="container">
-      <h1>Login</h1>
-
+    <div className="app_login">
       <form
-        className="col-sm-4 mt-lg-5"
+        className=" app_login_form"
         onSubmit={handleSubmit(handleLogin)}
       >
-        <InputHook
-          property="email"
-          obj=""
-          register={register}
-          errors={errors}
-        />
-        <InputHook
-          property="password"
-          obj=""
-          type={showPassword ? 'text' : 'password'}
-          register={register}
-          errors={errors}
-        />
-        <ShowPassword
-          state={showPassword}
-          onClick={handleShowPassword}
-        />
-        <Button label="Login" />
+        <div className="app_title">
+          <h1>Login</h1>
+        </div>
+        <div className="app_username">
+          <InputHook
+            property="email"
+            obj=""
+            register={register}
+            errors={errors}
+          />
+        </div>
+        <div className="app_password">
+          <InputHook
+            property="password"
+            obj=""
+            type={showPassword ? 'text' : 'password'}
+            register={register}
+            errors={errors}
+          />
+        </div>
+        <div className=" app_eye">
+          <ShowPassword
+            state={showPassword}
+            onClick={handleShowPassword}
+          />
+        </div>
+
+        <Button label="Login" color="app_login_button" />
       </form>
     </div>
   );

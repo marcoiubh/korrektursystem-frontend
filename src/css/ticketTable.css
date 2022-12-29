@@ -1,0 +1,71 @@
+.ticketTable {
+  border-collapse: separate;
+  border-spacing: 0 5px;
+  table-layout: fixed;
+  width: 95%;
+  margin-top: 25px;
+  font-size: 13px;
+}
+
+.ticketTable th,
+.ticketTable td {
+  color: lightgrey;
+  width: 50px;
+  padding: 15px 15px;
+}
+
+th.date {
+  width: 80px;
+}
+
+th.student {
+  width: 60px;
+}
+
+th.status,
+th.type {
+  width: 50px;
+}
+
+th.source {
+  width: 50px;
+}
+
+.doNotDisplay {
+  display: none;
+}
+
+th.title,
+td.title {
+  width: 50px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.header {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  color: lightgrey;
+  cursor: pointer;
+}
+
+.tableBody {
+  margin-top: 25px;
+  background-color: #5f656d;
+  padding-top: 3px;
+}
+
+.tableBody:hover {
+  background-color: #35363b;
+  cursor: pointer;
+}
+
+.mark {
+  background-color: rgb(75, 121, 75) !important;
+}
+
+.nomark {
+  background-color: #5f656d;
+}

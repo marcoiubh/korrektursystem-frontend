@@ -1,46 +1,47 @@
-import '../../css/App.css';
 import { saveTicket } from '../../services/ticketService';
 import { useNavigate } from 'react-router-dom';
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { toast } from 'react-toastify';
 import { getFormattedTimestamp } from '../../services/getFormattedTimestamp';
 import _ from 'lodash';
 import NewTicketForm from '../subcomponents/composite/newTicketForm';
+import '../../css/newTicket.css';
 
 const NewTicket = ({ user }) => {
-  const [ticket, setTicket] = useState({});
+  let ticket = {};
   const navigate = useNavigate();
 
-  useEffect(() => {
-    setTicket({});
-  }, []);
-
-  const handleSave = async (e) => {
+  const handleSave = async (inputValues) => {
     // copy new value into existing values
-    const ticketCopy = Object.assign(ticket, e);
+    ticket = inputValues;
     // associate student with the new ticket
-    ticketCopy.student = user;
-    ticketCopy.date = Date.now();
-    ticketCopy.status = 'New';
+    ticket.student = user.email;
+    ticket.date = Date.now();
+    ticket.status = 'New';
     // new ticket has not been read by a professor
-    ticketCopy.readProfessor = false;
-    ticketCopy.readStudent = true;
+    ticket.readProfessor = false;
+    ticket.readStudent = true;
     // instanciate history property as array of strings
-    ticketCopy.history = [];
-    ticketCopy.history.push(
-      `${getFormattedTimestamp(Date.now())} - ${user} - ${
+    ticket.history = [];
+    ticket.history.push(
+      `${getFormattedTimestamp(Date.now())} - ${user.email} - ${
         ticket.title
       } - ${ticket.comment} - ${ticket.status}`
     );
 
-    try {
-      await saveTicket(ticketCopy);
-      toast.success('Ticket has been created.');
-      navigate('/ticket/overview');
-    } catch (error) {
-      const { status, statusText } = error.response;
-      toast.error(`Status ${status}, ${statusText}`);
-    }
+    await toast
+      .promise(saveTicket(ticket), {
+        pending: 'Please wait...',
+        success: 'Ticket has been created.',
+        error: {
+          render({ data: error }) {
+            return error.response.data;
+          },
+        },
+      })
+      .then(() => {
+        navigate('/ticket/overview');
+      });
   };
 
   const debouncedHandleSave = useMemo(
@@ -52,21 +53,16 @@ const NewTicket = ({ user }) => {
     []
   );
 
-  const handleCancel = (e) => {
+  const handleCancel = () => {
     navigate('/ticket/overview');
   };
 
   return (
-    <div className="container">
-      <div className="gy-3">
-        <h1>New Ticket</h1>
-      </div>
-      <NewTicketForm
-        ticket={ticket}
-        onSave={debouncedHandleSave}
-        onCancel={handleCancel}
-      />
-    </div>
+    <NewTicketForm
+      ticket={ticket}
+      onSave={debouncedHandleSave}
+      onCancel={handleCancel}
+    />
   );
 };
 
