@@ -23,6 +23,7 @@
   appearance: none;
 }
 .select_text {
+  width: 60%;
   color: lightgrey;
   background-color: transparent;
 
