@@ -20,7 +20,7 @@ const IssueSchema = Joi.object({
   }),
   description: Joi.string().required().min(10).messages({
     'string.empty': 'This is a required field',
-    'string.min': 'Minimum: 10 characters',
+    'string.min': '10 characters min',
   }),
 });
 
