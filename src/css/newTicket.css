@@ -4,7 +4,7 @@
   height: 100%;
   width: 100%;
   grid-template-rows: 40px 60px auto;
-  grid-template-columns: 200px 100px 100px 200px auto;
+  grid-template-columns: 220px 100px 100px 220px auto;
   grid-template-areas:
     ' . newTicket_save newTicket_cancel . .'
     ' newTicket_headline newTicket_headline . . .'
@@ -20,7 +20,7 @@
   height: 100%;
   width: 100%;
   grid-template-rows: 25px 65px 65px 110px;
-  grid-template-columns: 280px 280px;
+  grid-template-columns: 300px 300px;
   grid-gap: 10px 10px;
   grid-template-areas:
     '. . '

@@ -4,7 +4,7 @@
   display: grid;
   border-radius: 6px;
   height: 100%;
-  grid-template-columns: 600px;
+  grid-template-columns: 640px;
   grid-template-areas: 'request-form';
 }
 
@@ -18,7 +18,7 @@
   height: 100%;
   width: 100%;
   grid-template-rows: 25px 35px 35px 35px 35px 110px 110px;
-  grid-template-columns: 285px 285px;
+  grid-template-columns: 300px 300px;
   grid-gap: 10px 10px;
   grid-template-areas:
     '. .'

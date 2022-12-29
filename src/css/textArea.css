@@ -40,7 +40,6 @@
 }
 
 .textArea_text::-webkit-scrollbar {
-  /* -webkit-appearance: none; */
   width: 3px;
 }
 
