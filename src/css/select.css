@@ -17,10 +17,15 @@
   margin-left: 12px;
 }
 
+.select_main select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
 .select_text {
   color: lightgrey;
   background-color: transparent;
-  /* width: 90%; */
+
   margin-left: 12px;
   resize: none;
   border: none;

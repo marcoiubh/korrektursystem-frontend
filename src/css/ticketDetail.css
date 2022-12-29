@@ -4,7 +4,7 @@
   height: 100%;
   width: 100%;
   grid-template-rows: 40px 40px 40px 500px;
-  grid-template-columns: 200px 100px 100px 200px 50px 300px 300px;
+  grid-template-columns: 220px 100px 100px 220px 50px 320px 320px;
   grid-template-areas:
     'ticketDetail_pagination ticketDetail_overview . . . . .'
     'ticketDetail_title ticketDetail_title . . . . .'

@@ -14,7 +14,9 @@ const SelectHook = ({
         {errors[property]?.message}
       </div>
       <div className="select_label">
-        <label className="select_text_frame" htmlFor={property}>{property}</label>
+        <label className="select_text_frame" htmlFor={property}>
+          {property}
+        </label>
       </div>
       <select
         {...rest}
@@ -26,7 +28,7 @@ const SelectHook = ({
           errors[property] ? 'is-invalid' : ''
         }`}
       >
-        <option>{property}</option>
+        <option></option>
         {options.map((option) => (
           <option key={option}>{option}</option>
         ))}
