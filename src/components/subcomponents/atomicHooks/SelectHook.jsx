@@ -14,7 +14,7 @@ const SelectHook = ({
         {errors[property]?.message}
       </div>
       <div className="select_label">
-        <div className="select_text_frame">{property}</div>
+        <label className="select_text_frame" htmlFor={property}>{property}</label>
       </div>
       <select
         {...rest}

@@ -16,7 +16,9 @@ const TextAreaHook = ({
         {errors[property]?.message}
       </div>
       <div className="textArea_label">
-        <div className="textArea_text_frame">{property}</div>
+        <label className="textArea_text_frame" htmlFor={property}>
+          {property}
+        </label>
       </div>
       <textarea
         {...rest}

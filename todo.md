@@ -1,7 +1,5 @@
 # TODO
 
-- handle User as Object
-
 - download new data only if it has changed
 - countdown ticket expired
 - custom http errors (mail could not be sent)
@@ -9,13 +7,15 @@
 - bug: ticketdetail page refresh does save the ticket
 - log logins
 - get error message before heading back to login (401)
-- table onclick event
 - set up simplified model of the application
 - styling
 - forgot password
 
 // done
 
+- label click htmlfor -> done
+- table onclick event -> done
+- handle User as Object -> done
 - display password -> done
 - debounce -> fixed
 - bug: cors policy avoids log in -> fixed
