@@ -6,7 +6,7 @@
 }
 
 .issue_form {
-  background-color: #5f656d;
+  background-color: #435760;
   margin-top: 40px;
   height: 400px;
   border-radius: 10px 10px 10px 10px;
@@ -41,13 +41,5 @@
 .issue_button {
   grid-area: issue_button;
   margin-left: 25px;
-  background-color: #5f656d;
   width: 100px;
-}
-
-.issue_label_background {
-  background-color: #35363b;
-}
-.issue_text_background {
-  background-color: #5f656d;
 }
