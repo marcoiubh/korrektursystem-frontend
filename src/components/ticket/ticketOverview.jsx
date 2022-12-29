@@ -4,7 +4,7 @@ import SearchBox from '../subcomponents/atomic/searchBox';
 import TicketTable from '../subcomponents/composite/ticketTable';
 import DropDown from '../subcomponents/atomic/dropdown';
 import { ifUserIsStudent } from '../../services/authenticationService';
-import '../../css/ticketOverview.css';
+import './ticketOverview.css';
 import Button from '../subcomponents/atomic/button';
 
 const TicketOverview = ({
