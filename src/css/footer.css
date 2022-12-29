@@ -1,6 +1,10 @@
 .app_footer {
   grid-area: app_footer;
   background-color: #35363b;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   display: grid;
   grid-template-columns: auto 1fr 400px;
   grid-template-areas: 'app_copyright .  app_issues';
@@ -12,6 +16,7 @@
   grid-area: app_copyright;
   margin-top: 35px;
   margin-left: 40vw;
+  margin-bottom: 10px;
 }
 
 .app_issues {
