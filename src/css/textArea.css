@@ -3,6 +3,10 @@
   font-size: 13px;
 }
 
+.textArea_main:focus-within label {
+  color: lightgrey;
+}
+
 .textArea_label {
   color: #35363b;
   display: inline-block;

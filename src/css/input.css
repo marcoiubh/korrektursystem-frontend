@@ -4,6 +4,10 @@
   font-size: 13px;
 }
 
+.input_main:focus-within label {
+  color: lightgrey;
+}
+
 .input_label {
   color: #35363b;
   display: inline-block;

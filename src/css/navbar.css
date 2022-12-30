@@ -39,7 +39,10 @@ a:visited {
   text-decoration: none;
 }
 a:hover,
-a:active {
+a:active,
+a:focus {
   color: rgb(255, 255, 255) !important;
   text-decoration: none;
+  font-size: 14px;
+  outline: none;
 }

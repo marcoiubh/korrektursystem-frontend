@@ -4,8 +4,12 @@
   font-size: 13px;
 }
 
+.select_main:focus-within label {
+  color: lightgrey;
+}
+
 .select_label {
-  color: #35363b;
+  color: var(--label);
   width: 90px;
   font-weight: bold;
   display: inline-block;
