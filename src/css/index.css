@@ -1,3 +1,11 @@
+:root {
+  --label: #35363b;
+  --background: #ffffff;
+  --panel: #fffffff;
+  --navbar: white;
+  --footer: white;
+}
+
 .app_container {
   --toastify-color-dark: #435760;
   color: lightgrey;
