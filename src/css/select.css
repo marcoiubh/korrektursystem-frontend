@@ -1,15 +1,15 @@
 .select_main {
-  border-bottom: 1px solid lightgrey;
+  border-bottom: 1px solid var(--text-bright);
   overflow: hidden;
   font-size: 13px;
 }
 
 .select_main:focus-within label {
-  color: lightgrey;
+  color: var(--text-bright);
 }
 
 .select_label {
-  color: var(--label);
+  color: var(--text-dark);
   width: 90px;
   font-weight: bold;
   display: inline-block;
@@ -28,7 +28,7 @@
 }
 .select_text {
   width: 60%;
-  color: lightgrey;
+  color: var(--text-bright);
   background-color: transparent;
 
   margin-left: 12px;
@@ -39,7 +39,7 @@
 
 .select_error {
   margin-left: 100px;
-  color: darkred;
+  color: var(--error);
   font-weight: 600;
 }
 

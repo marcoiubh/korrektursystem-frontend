@@ -1,15 +1,15 @@
 .input_main {
-  border-bottom: 1px solid lightgrey;
+  border-bottom: 1px solid var(--text-bright);
   overflow: hidden;
   font-size: 13px;
 }
 
 .input_main:focus-within label {
-  color: lightgrey;
+  color: var(--text-bright);
 }
 
 .input_label {
-  color: #35363b;
+  color: var(--text-dark);
   display: inline-block;
   width: 90px;
   font-weight: bold;
@@ -23,7 +23,7 @@
 
 .input_text {
   background-color: transparent;
-  color: lightgrey;
+  color: var(--text-bright);
   margin-left: 12px;
   border: none;
   outline: none;
@@ -32,13 +32,13 @@
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
-  -webkit-text-fill-color: lightgrey;
-  -webkit-box-shadow: 0 0 0px 40rem #435760 inset;
+  -webkit-text-fill-color: var(--text-bright);
+  -webkit-box-shadow: 0 0 0px 40rem var(--panel) inset;
 }
 
 .input_error {
   margin-left: 100px;
-  color: darkred;
+  color: var(--error);
   font-weight: 600;
 }
 

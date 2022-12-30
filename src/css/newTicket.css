@@ -13,7 +13,7 @@
 
 .newTicket_form {
   grid-area: newTicket_form;
-  background-color: #435760;
+  background-color: var(--panel);
   border-radius: 6px;
   margin-left: 25px;
   display: grid;

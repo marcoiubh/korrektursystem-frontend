@@ -1,11 +1,11 @@
 .date_main {
-  border-bottom: 1px solid lightgrey;
+  border-bottom: 1px solid var(--text-bright);
   overflow: hidden;
   font-size: 13px;
 }
 
 .date_label {
-  color: #35363b;
+  color: var(--text-dark);
   display: inline-block;
   width: 90px;
   font-weight: bold;

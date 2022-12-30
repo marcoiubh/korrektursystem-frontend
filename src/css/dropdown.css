@@ -6,7 +6,7 @@
 .drop-menu {
   display: none;
   position: absolute;
-  background-color: #435760;
+  background-color: var(--panel);
   width: 115px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -14,14 +14,14 @@
 
 .drop-menu a {
   font-size: 11px;
-  color: lightgrey;
+  color: var(--text-bright);
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
 
 .drop-menu a:hover {
-  background-color: #35363b;
+  background-color: var(--select);
 }
 
 .drop:hover .drop-menu {

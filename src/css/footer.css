@@ -1,6 +1,6 @@
 .app_footer {
   grid-area: app_footer;
-  background-color: #35363b;
+  background-color: var(--footer);
   position: fixed;
   left: 0;
   bottom: 0;

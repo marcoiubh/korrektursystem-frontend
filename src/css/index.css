@@ -1,14 +1,19 @@
 :root {
-  --label: #35363b;
-  --background: #ffffff;
-  --panel: #fffffff;
-  --navbar: white;
-  --footer: white;
+  --text-dark: #35363b;
+  --text-bright: lightgrey;
+  --text-focus: white;
+  --background: #435760;
+  --panel: #435760;
+  --navbar: #35363b;
+  --footer: #35363b;
+  --select: #35363b;
+  --error: darkred;
+  --new: rgb(75, 121, 75);
 }
 
 .app_container {
-  --toastify-color-dark: #435760;
-  color: lightgrey;
+  --toastify-color-dark: var(--panel);
+  color: var(--text-bright);
   min-height: 100vh;
   min-width: 100%;
   display: grid;

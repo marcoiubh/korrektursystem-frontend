@@ -6,11 +6,11 @@
 }
 
 .app_login_form {
-  background-color: #435760;
+  background-color: var(--panel);
   margin-top: 40px;
   height: 350px;
   border-radius: 10px 10px 10px 10px;
-  border: 1px solid lightgrey;
+  border: 1px solid var(--text-bright);
 
   grid-area: app_login_form;
   display: grid;
@@ -41,12 +41,11 @@
   grid-area: app_eye;
   margin-left: 10px;
   margin-top: 25px;
-  color: black;
+  color: var(--text-dark);
 }
 .app_login_button {
   grid-area: app_login_button;
   margin-top: 5px;
   margin-left: 5px;
-  /* background-color: #5f656d; */
   width: 100px;
 }

@@ -1,6 +1,6 @@
 .app_navbar {
   grid-area: app_navbar;
-  background-color: #35363b;
+  background-color: var(--navbar);
   display: grid;
   grid-template-columns: 200px 1fr 250px 80px 120px;
   grid-template-areas: 'app_home . app_user app_tickets app_login_link';
@@ -35,13 +35,13 @@
 
 a:link,
 a:visited {
-  color: lightgrey;
+  color: var(--text-bright);
   text-decoration: none;
 }
 a:hover,
 a:active,
 a:focus {
-  color: rgb(255, 255, 255) !important;
+  color: var(--text-focus) !important;
   text-decoration: none;
   font-size: 14px;
   outline: none;

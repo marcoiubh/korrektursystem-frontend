@@ -9,7 +9,7 @@
 
 .ticketTable th,
 .ticketTable td {
-  color: lightgrey;
+  color: var(--text-bright);
   width: 50px;
   padding: 15px 15px;
 }
@@ -47,25 +47,25 @@ td.title {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  color: lightgrey;
+  color: var(--text-bright);
   cursor: pointer;
 }
 
 .tableBody {
   margin-top: 25px;
-  background-color: #435760;
+  background-color: var(--panel);
   padding-top: 3px;
 }
 
 .tableBody:hover {
-  background-color: #35363b;
+  background-color: var(--select);
   cursor: pointer;
 }
 
 .mark {
-  background-color: rgb(75, 121, 75) !important;
+  background-color: var(--new) !important;
 }
 
 .nomark {
-  background-color: #435760;
+  background-color: var(--panel);
 }

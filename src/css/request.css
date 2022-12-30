@@ -10,7 +10,7 @@
 
 .request-form {
   grid-area: request-form;
-  background-color: #435760;
+  background-color: var(--panel);
   border-radius: 6px;
   margin-top: 10px;
   margin-left: 25px;
@@ -33,9 +33,9 @@
 .request_header {
   grid-area: request_header;
   margin-left: 25px;
-  border-bottom: 1px solid rgb(4, 4, 116);
+  border-bottom: 1px solid var(--text-bright);
   font-size: 13px;
-  color: #35363b;
+  color: var(--text-bright);
 }
 
 .request_date {

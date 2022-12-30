@@ -6,8 +6,16 @@
   border-top-style: hidden;
   border-right-style: hidden;
   border-left-style: hidden;
-  border-bottom: 1px solid lightgrey;
+  border-bottom: 1px solid var(--text-bright);
   border-radius: 0;
-  color: lightgrey;
+  color: var(--text-bright);
   font-size: 13px;
+}
+
+/* TODO */
+.searchBox:-webkit-autofill,
+.searchBox:-webkit-autofill:hover,
+.searchBox:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--text-bright);
+  -webkit-box-shadow: 0 0 0px 40rem var(--background) inset;
 }

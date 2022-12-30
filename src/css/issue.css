@@ -6,11 +6,11 @@
 }
 
 .issue_form {
-  background-color: #435760;
+  background-color: var(--panel);
   margin-top: 40px;
   height: 400px;
   border-radius: 10px 10px 10px 10px;
-  border: 1px solid lightgrey;
+  border: 1px solid var(--text-bright);
   /* box-shadow: 3px 6px 15px -3px rgb(109, 105, 105); */
   grid-area: issue_form;
   display: grid;
