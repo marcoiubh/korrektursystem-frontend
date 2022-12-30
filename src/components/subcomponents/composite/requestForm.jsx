@@ -33,15 +33,6 @@ const RequestForm = ({ ticket, onSave, onCancel }) => {
         <h1>New Ticket</h1>
       </div>
       <div className="newTicket_form">
-        <div className="newTicket_module">
-          <SelectHook
-            property="module"
-            obj={ticket}
-            options={config.module}
-            register={register}
-            errors={errors}
-          />
-        </div>
         <div className="newTicket_title">
           <InputHook
             property="title"
@@ -50,10 +41,11 @@ const RequestForm = ({ ticket, onSave, onCancel }) => {
             errors={errors}
           />
         </div>
-        <div className="newTicket_comment">
-          <TextAreaHook
-            property="comment"
+        <div className="newTicket_module">
+          <SelectHook
+            property="module"
             obj={ticket}
+            options={config.module}
             register={register}
             errors={errors}
           />
@@ -72,6 +64,14 @@ const RequestForm = ({ ticket, onSave, onCancel }) => {
             property="source"
             obj={ticket}
             options={config.source}
+            register={register}
+            errors={errors}
+          />
+        </div>
+        <div className="newTicket_comment">
+          <TextAreaHook
+            property="comment"
+            obj={ticket}
             register={register}
             errors={errors}
           />

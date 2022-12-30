@@ -40,14 +40,6 @@ const ResponseForm = ({ ticket, onSave }) => {
     >
       <p className="response_header">Professor response</p>
 
-      <div className="response_statement">
-        <TextAreaHook
-          property="statement"
-          obj={ticket}
-          register={register}
-          errors={errors}
-        />
-      </div>
       <div className="response_priority">
         <SelectHook
           property="priority"
@@ -62,6 +54,14 @@ const ResponseForm = ({ ticket, onSave }) => {
           property="status"
           obj={ticket}
           options={config.status}
+          register={register}
+          errors={errors}
+        />
+      </div>
+      <div className="response_statement">
+        <TextAreaHook
+          property="statement"
+          obj={ticket}
           register={register}
           errors={errors}
         />
