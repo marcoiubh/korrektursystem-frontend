@@ -20,6 +20,13 @@ const TicketDetail = ({
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [ticket, setTicket] = useState(propsticket);
+  let historyEntry = () => {
+    return `${getFormattedTimestamp(Date.now())} : ${user.email} - ${
+      ticket.status
+    }
+  ${ticket.statement}
+  ______________________________\n`;
+  };
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -67,11 +74,7 @@ const TicketDetail = ({
     const ticketCopy = Object.assign(ticket, updates);
     ticketCopy.professor = user.email;
     ticketCopy.date = Date.now();
-    ticketCopy.history.push(
-      `\n${getFormattedTimestamp(Date.now())} : ${user.email} - ${
-        ticket.title
-      } - ${ticket.status}`
-    );
+    ticketCopy.history.push(historyEntry());
 
     // updated ticket has not been read by the student
     ticketCopy.readStudent = false;
