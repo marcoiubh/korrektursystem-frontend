@@ -12,7 +12,11 @@
 }
 
 .button:hover,
-.button:focus {
+.button:focus,
+.pagebutton_active:hover,
+.pagebutton_active:focus,
+.pagebutton:hover,
+.pagebutton:focus {
   outline: none;
   color: rgb(255, 255, 255);
   font-size: 14px;
