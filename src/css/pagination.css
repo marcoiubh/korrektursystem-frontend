@@ -1,3 +1,17 @@
-.app_pagination {
+.pagination {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 25px 90px 25px;
+  grid-template-areas: 'pagination__previous pagination__button pagination__next';
+}
+
+.pagination__previous {
+  grid-area: pagination__previous;
+}
+.pagination__button {
+  grid-area: pagination__button;
   display: inline-block;
+}
+.pagination__next {
+  grid-area: pagination__next;
 }

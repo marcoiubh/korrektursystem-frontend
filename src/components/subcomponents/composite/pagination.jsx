@@ -78,30 +78,36 @@ const Pagination = ({
   };
 
   return (
-    <div className="app_pagination">
+    <div className="pagination">
       {numberOfPages > 3 && min > 1 && (
-        <PageButton
-          key={'previous'}
-          page={<span>&laquo;</span>}
-          onClick={handlePrevious}
-        />
+        <div className="pagination__previous">
+          <PageButton
+            key={'previous'}
+            page={<span>&laquo;</span>}
+            onClick={handlePrevious}
+          />
+        </div>
       )}
 
-      {pages.map((page) => (
-        <PageButton
-          key={page}
-          page={page}
-          currentPage={currentPage}
-          onClick={onPageChange}
-        />
-      ))}
+      <div className="pagination__button">
+        {pages.map((page) => (
+          <PageButton
+            key={page}
+            page={page}
+            currentPage={currentPage}
+            onClick={onPageChange}
+          />
+        ))}
+      </div>
 
       {numberOfPages > 3 && max <= numberOfPages && (
-        <PageButton
-          key={'next'}
-          page={<span>&raquo;</span>}
-          onClick={handleNext}
-        />
+        <div className="pagination__next">
+          <PageButton
+            key={'next'}
+            page={<span>&raquo;</span>}
+            onClick={handleNext}
+          />
+        </div>
       )}
     </div>
   );
