@@ -1,5 +1,5 @@
-.expiredSession {
-  grid-area: app_main;
+.expired-session {
+  grid-area: main;
   text-align: center;
   padding-top: 10%;
 }

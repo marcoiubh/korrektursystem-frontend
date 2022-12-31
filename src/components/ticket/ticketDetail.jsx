@@ -108,7 +108,7 @@ const TicketDetail = ({
 
   return (
     <div className="ticketDetail">
-      <div className="ticketDetail_pagination">
+      <div className="ticketDetail__pagination">
         <Pagination
           itemsCount={totalCount}
           pageSize={1}
@@ -117,12 +117,14 @@ const TicketDetail = ({
         />
       </div>
 
-      <div className="ticketDetail_overview">
+      <div className="ticketDetail__overview">
         <Button label="Overview" onClick={handleOverview} />
       </div>
 
-      <h1 className="ticketDetail_title">Ticket status</h1>
-      <p className="ticketDetail_id">Ticket number # {ticket._id} </p>
+      <h1 className="ticketDetail__title">Ticket status</h1>
+      <p className="ticketDetail__id">
+        Ticket number # {ticket._id}{' '}
+      </p>
 
       <div className="request">
         <Request ticket={ticket} />

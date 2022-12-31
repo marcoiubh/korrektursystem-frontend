@@ -1,50 +1,50 @@
-.app_login {
-  grid-area: app_main;
+.login {
+  grid-area: main;
   display: grid;
   grid-template-columns: 2fr 400px 1fr;
-  grid-template-areas: '. app_login_form .';
+  grid-template-areas: '. login__form .';
 }
 
-.app_login_form {
+.login__form {
   background-color: var(--panel);
   margin-top: 40px;
   height: 350px;
   border-radius: 10px 10px 10px 10px;
   border: 1px solid var(--text-bright);
 
-  grid-area: app_login_form;
+  grid-area: login__form;
   display: grid;
   grid-template-rows: 1fr 110px 65px 65px 65px 1fr;
   grid-template-columns: 7fr 1fr;
   grid-template-areas:
     ' . .'
-    ' app_title .'
-    ' app_username .'
-    ' app_password app_eye'
-    ' app_login_button .'
+    ' login__form__heading .'
+    ' login__form__username .'
+    ' login__form__password login__form__eye'
+    ' login__form__button .'
     ' . .';
 }
-.app_username {
-  grid-area: app_username;
+.login__form__username {
+  grid-area: login__form__username;
   margin-left: 25px;
 }
-.app_password {
-  grid-area: app_password;
+.login__form__password {
+  grid-area: login__form__password;
   margin-left: 25px;
 }
-.app_title {
-  grid-area: app_title;
+.login__form__heading {
+  grid-area: login__form__heading;
   margin-left: 25px;
   margin-bottom: 40px;
 }
-.app_eye {
-  grid-area: app_eye;
+.login__form__eye {
+  grid-area: login__form__eye;
   margin-left: 10px;
   margin-top: 25px;
   color: var(--text-dark);
 }
-.app_login_button {
-  grid-area: app_login_button;
+.login__form__button {
+  grid-area: login__form__button;
   margin-top: 5px;
   margin-left: 5px;
   width: 100px;

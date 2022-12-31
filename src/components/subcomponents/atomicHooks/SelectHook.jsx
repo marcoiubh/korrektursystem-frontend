@@ -9,12 +9,18 @@ const SelectHook = ({
   ...rest
 }) => {
   return (
-    <div className="select_main">
-      <div className={errors[property] ? 'select_error' : 'no_error'}>
+    <div className="select">
+      <div
+        className={
+          errors[property]
+            ? 'select__error'
+            : 'select__error--no-error'
+        }
+      >
         {errors[property]?.message}
       </div>
-      <div className="select_label">
-        <label className="select_text_frame" htmlFor={property}>
+      <div className="select__label">
+        <label className="select__text-frame" htmlFor={property}>
           {property}
         </label>
       </div>
@@ -24,7 +30,7 @@ const SelectHook = ({
         id={property}
         defaultValue={obj[property]}
         {...register(property)}
-        className={`select_text ${
+        className={`select__text ${
           errors[property] ? 'is-invalid' : ''
         }`}
       >

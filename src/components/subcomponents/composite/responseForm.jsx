@@ -33,14 +33,14 @@ const ResponseForm = ({ ticket, onSave }) => {
 
   return (
     <form
-      className={`response-form ${
+      className={`response__form ${
         ticket.mark ? 'ticketDetail_mark' : null
       }`}
       onSubmit={handleSubmit(onSave, onError)}
     >
-      <p className="response_header">Professor response</p>
+      <p className="response__form__heading">Professor response</p>
 
-      <div className="response_priority">
+      <div className="response__form__priority">
         <SelectHook
           property="priority"
           obj={ticket}
@@ -49,7 +49,7 @@ const ResponseForm = ({ ticket, onSave }) => {
           errors={errors}
         />
       </div>
-      <div className="response_status">
+      <div className="response__form__status">
         <SelectHook
           property="status"
           obj={ticket}
@@ -58,7 +58,7 @@ const ResponseForm = ({ ticket, onSave }) => {
           errors={errors}
         />
       </div>
-      <div className="response_statement">
+      <div className="response__form__statement">
         <TextAreaHook
           property="statement"
           obj={ticket}
@@ -66,7 +66,7 @@ const ResponseForm = ({ ticket, onSave }) => {
           errors={errors}
         />
       </div>
-      <div className="response_save">
+      <div className="response__form__save">
         <Button label="Save" />
       </div>
     </form>

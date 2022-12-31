@@ -1,7 +1,7 @@
 import React from 'react';
 import TableBody from '../atomic/tableBody';
 import TableHeader from '../atomic/tableHeader.jsx';
-import '../../../css/ticketTable.css';
+import '../../../css/table.css';
 
 const Table = ({
   propertyList,
@@ -11,7 +11,7 @@ const Table = ({
   onClick,
 }) => {
   return (
-    <table className="ticketTable">
+    <table className="table">
       <TableHeader
         propertyList={propertyList}
         onSort={onSort}

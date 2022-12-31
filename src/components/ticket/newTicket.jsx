@@ -5,7 +5,6 @@ import { toast } from 'react-toastify';
 import { getFormattedTimestamp } from '../../services/getFormattedTimestamp';
 import _ from 'lodash';
 import RequestForm from '../subcomponents/composite/requestForm';
-import '../../css/newTicket.css';
 
 const NewTicket = ({ user }) => {
   let ticket = {};

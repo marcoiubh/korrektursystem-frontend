@@ -4,24 +4,24 @@ import '../../../css/navbar.css';
 
 const NavBar = ({ user }) => {
   return (
-    <div className="app_navbar">
-      <NavLink className=" app_home" to="/">
+    <div className="navbar">
+      <NavLink className="navbar__home" to="/">
         korrektursystem.live
       </NavLink>
 
-      <NavLink className="app_tickets" to="/ticket/overview">
+      <NavLink className="navbar__tickets" to="/ticket/overview">
         Tickets
       </NavLink>
 
       {user ? (
         <>
-          <span className="app_user">User: {user.email}</span>
-          <NavLink className="app_login_link" to="/logout">
+          <span className="navbar__user">User: {user.email}</span>
+          <NavLink className="navbar__login" to="/logout">
             Logout
           </NavLink>
         </>
       ) : (
-        <NavLink className="app_login_link" to="/login">
+        <NavLink className="navbar__login" to="/login">
           Login
         </NavLink>
       )}

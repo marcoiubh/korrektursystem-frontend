@@ -10,12 +10,16 @@ const InputHook = ({
   ...rest
 }) => {
   return (
-    <div className="input_main">
-      <div className={errors[property] ? 'input_error' : 'no_error'}>
+    <div className="input">
+      <div
+        className={
+          errors[property] ? 'input__error' : 'input__error--no-error'
+        }
+      >
         {errors[property]?.message}
       </div>
-      <div className="input_label">
-        <label className="input_text_frame" htmlFor={property}>
+      <div className="input__label">
+        <label className="input__text-frame" htmlFor={property}>
           {property}
         </label>
       </div>
@@ -25,7 +29,7 @@ const InputHook = ({
         id={property}
         defaultValue={obj[property]}
         {...register(property)}
-        className={`input_text ${
+        className={`input__text ${
           errors[property] ? 'is-invalid' : ''
         }`}
       />

@@ -1,4 +1,4 @@
-.ticketTable {
+.table {
   border-collapse: separate;
   border-spacing: 0 5px;
   table-layout: fixed;
@@ -7,8 +7,8 @@
   font-size: 13px;
 }
 
-.ticketTable th,
-.ticketTable td {
+.table th,
+.table td {
   color: var(--text-bright);
   width: 50px;
   padding: 15px 15px;
@@ -31,10 +31,6 @@ th.source {
   width: 50px;
 }
 
-.doNotDisplay {
-  display: none;
-}
-
 th.title,
 td.title {
   width: 50px;
@@ -43,7 +39,7 @@ td.title {
   text-overflow: ellipsis;
 }
 
-.header {
+.table__header {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
@@ -51,21 +47,21 @@ td.title {
   cursor: pointer;
 }
 
-.tableBody {
+.table__body {
   margin-top: 25px;
   background-color: var(--panel);
   padding-top: 3px;
 }
 
-.tableBody:hover {
+.table__body:hover {
   background-color: var(--select);
   cursor: pointer;
 }
 
-.mark {
+.table__row--mark {
   background-color: var(--new) !important;
 }
 
-.nomark {
+.table__row--no-mark {
   background-color: var(--panel);
 }

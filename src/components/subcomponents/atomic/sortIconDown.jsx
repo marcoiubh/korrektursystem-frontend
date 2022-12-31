@@ -1,7 +1,7 @@
-import '../../../css/sortIconDown.css';
+import '../../../css/sorticon.css';
 
 const SortIconDown = () => {
-  return <i className="sortIconDown fa fa-long-arrow-down" />;
+  return <i className="sorticon fa fa-long-arrow-down" />;
 };
 
 export default SortIconDown;

@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import React from 'react';
-import '../../../css/ticketTable.css';
+import '../../../css/table.css';
 
 const TableBody = ({ records, propertyList, onClick }) => {
   // conditional statement to render buttons
@@ -15,7 +15,9 @@ const TableBody = ({ records, propertyList, onClick }) => {
     <tbody>
       {records.map((record, index) => (
         <tr
-          className={`tableBody ${record.mark ? 'mark' : 'nomark'}`}
+          className={`table__body ${
+            record.mark ? 'table__row--mark' : 'table__row--no-mark'
+          }`}
           key={index}
           onClick={() => onClick(record)}
         >

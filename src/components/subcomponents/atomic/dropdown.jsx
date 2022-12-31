@@ -3,38 +3,22 @@ import '../../../css/dropdown.css';
 
 const DropDown = ({ label, onClick, ...rest }) => {
   return (
-    <div className="drop">
+    <div className="dropdown">
       <button className="button">{label}</button>
-      <div className="drop-menu">
-        <Link
-          {...rest}
-          className="drop-item"
-          onClick={() => onClick(4)}
-        >
+      <div className="dropdown__menu">
+        <Link {...rest} onClick={() => onClick(4)}>
           4
         </Link>
 
-        <Link
-          {...rest}
-          className=" drop-item"
-          onClick={() => onClick(8)}
-        >
+        <Link {...rest} onClick={() => onClick(8)}>
           8
         </Link>
 
-        <Link
-          {...rest}
-          className=" drop-item"
-          onClick={() => onClick(20)}
-        >
+        <Link {...rest} onClick={() => onClick(20)}>
           20
         </Link>
 
-        <Link
-          {...rest}
-          className=" drop-item"
-          onClick={() => onClick(10000000)}
-        >
+        <Link {...rest} onClick={() => onClick(10000000)}>
           All
         </Link>
       </div>

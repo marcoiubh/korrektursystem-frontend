@@ -9,14 +9,14 @@ const TextAreaHook = ({
   ...rest
 }) => {
   return (
-    <div className="textArea_main">
+    <div className="textArea">
       <div
-        className={errors[property] ? 'textArea_error' : 'no_error'}
+        className={errors[property] ? 'textArea__error' : 'textArea__error--no-error'}
       >
         {errors[property]?.message}
       </div>
-      <div className="textArea_label">
-        <label className="textArea_text_frame" htmlFor={property}>
+      <div className="textArea__label">
+        <label className="textArea__text-frame" htmlFor={property}>
           {property}
         </label>
       </div>
@@ -26,7 +26,7 @@ const TextAreaHook = ({
         id={property}
         defaultValue={obj[property]}
         {...register(property)}
-        className={`textArea_text ${
+        className={`textArea__text ${
           errors[property] ? 'is-invalid' : ''
         }`}
         rows="4"

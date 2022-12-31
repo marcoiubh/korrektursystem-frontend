@@ -22,7 +22,7 @@ function App() {
   let user = getCurrentUser();
 
   return (
-    <div className="app_container">
+    <div className="container">
       <ToastContainer
         transition={Slide}
         limit={1}

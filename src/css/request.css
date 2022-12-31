@@ -5,11 +5,11 @@
   border-radius: 6px;
   height: 100%;
   grid-template-columns: 640px;
-  grid-template-areas: 'request-form';
+  grid-template-areas: 'request__form';
 }
 
-.request-form {
-  grid-area: request-form;
+.request__form {
+  grid-area: request__form;
   background-color: var(--panel);
   border-radius: 6px;
   margin-top: 10px;
@@ -22,53 +22,52 @@
   grid-gap: 10px 10px;
   grid-template-areas:
     '. .'
-    'request_header request_header'
-    'request_date  request_title'
-    'request_student request_module'
-    'request_type  request_source'
-    'request_comment request_comment'
-    'request_history request_history';
+    'request__form__heading request__form__heading'
+    'request__form__date  request__form__title'
+    'request__form__student request__form__module'
+    'request__form__type  request__form__source'
+    'request__form__comment request__form__comment'
+    'request__form__history request__form__history';
 }
 
-.request_header {
-  grid-area: request_header;
+.request__form__heading {
+  grid-area: request__form__heading;
   margin-left: 25px;
-  border-bottom: 1px solid var(--text-bright);
-  font-size: 13px;
+  font-size: 15px;
   color: var(--text-bright);
 }
 
-.request_date {
-  grid-area: request_date;
+.request__form__date {
+  grid-area: request__form__date;
   margin-left: 25px;
 }
-.request_title {
-  grid-area: request_title;
+.request__form__title {
+  grid-area: request__form__title;
   margin-left: 25px;
 }
-.request_student {
-  grid-area: request_student;
+.request__form__student {
+  grid-area: request__form__student;
   margin-left: 25px;
 }
-.request_module {
-  grid-area: request_module;
+.request__form__module {
+  grid-area: request__form__module;
   margin-left: 25px;
 }
-.request_type {
-  grid-area: request_type;
+.request__form__type {
+  grid-area: request__form__type;
   margin-left: 25px;
 }
-.request_source {
-  grid-area: request_source;
+.request__form__source {
+  grid-area: request__form__source;
   margin-left: 25px;
 }
-.request_comment {
-  grid-area: request_comment;
+.request__form__comment {
+  grid-area: request__form__comment;
   overflow: scroll;
   margin-left: 25px;
 }
-.request_history {
-  grid-area: request_history;
+.request__form__history {
+  grid-area: request__form__history;
   white-space: pre-wrap;
   overflow: scroll;
   margin-left: 25px;

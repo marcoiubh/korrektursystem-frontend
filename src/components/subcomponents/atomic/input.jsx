@@ -2,11 +2,11 @@ import '../../../css/input.css';
 
 const Input = ({ property, obj, disabled, ...rest }) => {
   return (
-    <div className="input_main">
-      <div {...rest} className="input_label">
-        <div className="input_text_frame">{property}</div>
+    <div className="input">
+      <div {...rest} className="input__label">
+        <div className="input__text-frame">{property}</div>
       </div>
-      <label {...rest} id={property} className="input_text">
+      <label {...rest} id={property} className="input__text">
         {obj[property]}
       </label>
     </div>

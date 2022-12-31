@@ -1,4 +1,4 @@
-.app_footer {
+.footer {
   grid-area: app_footer;
   background-color: var(--footer);
   position: fixed;
@@ -11,7 +11,7 @@
   font-size: 13px;
 }
 
-.app_copyright {
+.footer__copyright {
   font-size: 11px;
   grid-area: app_copyright;
   margin-top: 35px;
@@ -19,7 +19,7 @@
   margin-bottom: 10px;
 }
 
-.app_issues {
+.footer__issues {
   grid-area: app_issues;
   margin-top: 15px;
   margin-left: auto;

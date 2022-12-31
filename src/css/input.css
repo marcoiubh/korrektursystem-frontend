@@ -1,27 +1,27 @@
-.input_main {
+.input {
   border-bottom: 1px solid var(--text-bright);
   overflow: hidden;
   font-size: 13px;
 }
 
-.input_main:focus-within label {
+.input:focus-within label {
   color: var(--text-bright);
 }
 
-.input_label {
+.input__label {
   color: var(--text-dark);
   display: inline-block;
   width: 90px;
   font-weight: bold;
 }
 
-.input_text_frame {
+.input__text-frame {
   margin-top: 6px;
   margin-bottom: 6px;
   margin-left: 12px;
 }
 
-.input_text {
+.input__text {
   background-color: transparent;
   color: var(--text-bright);
   margin-left: 12px;
@@ -36,12 +36,12 @@ input:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 40rem var(--panel) inset;
 }
 
-.input_error {
+.input__error {
   margin-left: 100px;
   color: var(--error);
   font-weight: 600;
 }
 
-.no_error {
-  height: 20px;
+.input__error--no-error {
+  height: 17px;
 }

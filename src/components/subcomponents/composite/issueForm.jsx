@@ -24,13 +24,13 @@ const IssueForm = ({ onSubmit }) => {
   };
   return (
     <form
-      className="issue_form"
+      className="issue__form"
       onSubmit={handleSubmit(onSubmit, Errors)}
     >
-      <div className="issue_form_title">
+      <div className="issue__form__heading">
         <h1>Contact</h1>
       </div>
-      <div className="issue_input_title">
+      <div className="issue__form__issue">
         <InputHook
           property="title"
           obj=""
@@ -38,7 +38,7 @@ const IssueForm = ({ onSubmit }) => {
           errors={errors}
         />
       </div>
-      <div className="issue_input_description">
+      <div className="issue__form__description">
         <TextAreaHook
           property="description"
           obj=""
@@ -47,7 +47,7 @@ const IssueForm = ({ onSubmit }) => {
         />
       </div>
 
-      <Button label="Send" color="issue_button" />
+      <Button label="Send" color="issue__form__button" />
     </form>
   );
 };

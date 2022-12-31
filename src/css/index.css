@@ -1,3 +1,12 @@
+* {
+  font-size: 13px;
+  font-family: 'PT Sans';
+}
+
+h1 {
+  font-size: 30px;
+}
+
 :root {
   --text-dark: #35363b;
   --text-bright: lightgrey;
@@ -11,22 +20,35 @@
   --new: rgb(75, 121, 75);
 }
 
-.app_container {
+.container {
   --toastify-color-dark: var(--panel);
   color: var(--text-bright);
   min-height: 100vh;
   min-width: 100%;
   display: grid;
   grid-template-rows: 3rem auto 4rem;
-
   grid-template-areas:
-    'app_navbar'
-    'app_main'
-    'app_footer';
+    'navbar'
+    'main'
+    'footer';
   row-gap: 10px;
 }
 
 .Toastify__toast-container--top-right {
   position: fixed !important;
   top: 55px !important;
+}
+
+a:link,
+a:visited {
+  color: var(--text-bright);
+  text-decoration: none;
+}
+a:hover,
+a:active,
+a:focus {
+  color: var(--text-focus) !important;
+  text-decoration: none;
+  font-size: 14px;
+  outline: none;
 }

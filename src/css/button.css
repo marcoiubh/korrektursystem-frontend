@@ -12,27 +12,8 @@
 
 .button:hover,
 .button:focus,
-.pagebutton_active:hover,
-.pagebutton_active:focus,
-.pagebutton:hover,
-.pagebutton:focus {
+.button--active {
   outline: none;
   color: var(--text-focus);
   font-size: 14px;
-}
-
-.pagebutton {
-  color: var(--text-bright);
-  background-color: transparent;
-  height: 40px;
-  width: auto;
-  text-decoration: none;
-  min-width: 30px;
-  border: none;
-  font-size: 13px;
-}
-
-.pagebutton_active {
-  color: var(--text-focus);
-  font-size: 15px;
 }

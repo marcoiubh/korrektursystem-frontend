@@ -1,22 +1,22 @@
-.date_main {
+.timestamp {
   border-bottom: 1px solid var(--text-bright);
   overflow: hidden;
   font-size: 13px;
 }
 
-.date_label {
+.timestamp__label {
   color: var(--text-dark);
   display: inline-block;
   width: 90px;
   font-weight: bold;
 }
 
-.date_text_frame {
+.timestamp__text-frame {
   margin-top: 6px;
   margin-bottom: 6px;
   margin-left: 12px;
 }
 
-.date_text {
+.timestamp__text {
   margin-left: 12px;
 }

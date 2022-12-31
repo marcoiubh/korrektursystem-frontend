@@ -1,26 +1,26 @@
-.textArea_main {
+.textArea {
   border-bottom: 1px solid var(--text-bright);
   font-size: 13px;
 }
 
-.textArea_main:focus-within label {
+.textArea:focus-within label {
   color: var(--text-bright);
 }
 
-.textArea_label {
+.textArea__label {
   color: #35363b;
   display: inline-block;
   width: 90px;
   font-weight: bold;
 }
 
-.textArea_text_frame {
+.textArea__text-frame {
   margin-top: 6px;
   margin-bottom: 6px;
   margin-left: 12px;
 }
 
-.textArea_text {
+.textArea__text {
   overflow-y: scroll;
   overflow-x: hidden;
   background-color: transparent;
@@ -33,20 +33,20 @@
   outline: none;
 }
 
-.textArea_error {
+.textArea__error {
   margin-left: 100px;
   color: var(--error);
   font-weight: 600;
 }
 
-.no_error {
-  height: 20px;
+.textArea__error--no-error {
+  height: 17px;
 }
 
-.textArea_text::-webkit-scrollbar {
+.textArea__text::-webkit-scrollbar {
   width: 3px;
 }
 
-.textArea_text::-webkit-scrollbar-thumb {
+.textArea__text::-webkit-scrollbar-thumb {
   background-color: var(--text-bright);
 }

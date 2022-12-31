@@ -1,20 +1,21 @@
-.newTicket {
-  grid-area: app_main;
+.requestForm {
+  grid-area: main;
   display: grid;
   height: 100%;
   width: 100%;
   grid-template-rows: 40px 60px auto;
   grid-template-columns: 220px 100px 100px 220px auto;
   grid-template-areas:
-    ' . newTicket_save newTicket_cancel . .'
-    ' newTicket_headline newTicket_headline . . .'
-    ' newTicket_form newTicket_form newTicket_form newTicket_form .';
+    ' . requestForm__save requestForm__cancel . .'
+    ' requestForm__heading requestForm__heading . . .'
+    ' requestForm__form requestForm__form requestForm__form requestForm__form .';
 }
 
-.newTicket_form {
-  grid-area: newTicket_form;
+.requestForm__form {
+  grid-area: requestForm__form;
   background-color: var(--panel);
   border-radius: 6px;
+  margin-top: 10px;
   margin-left: 25px;
   display: grid;
   height: 100%;
@@ -24,43 +25,43 @@
   grid-gap: 10px 10px;
   grid-template-areas:
     '. . '
-    'newTicket_title   newTicket_module '
-    'newTicket_type  newTicket_source '
-    'newTicket_comment  newTicket_comment ';
+    'requestForm__form__title   requestForm__form__module '
+    'requestForm__form__type  requestForm__form__source '
+    'requestForm__form__comment  requestForm__form__comment ';
 }
 
-.newTicket_save {
-  grid-area: newTicket_save;
+.requestForm__save {
+  grid-area: requestForm__save;
   margin-left: 25px;
 }
-.newTicket_cancel {
-  grid-area: newTicket_cancel;
+.requestForm__cancel {
+  grid-area: requestForm__cancel;
   margin-left: 25px;
 }
 
-.newTicket_headline {
-  grid-area: newTicket_headline;
+.requestForm__heading {
+  grid-area: requestForm__heading;
   margin-left: 25px;
   width: 100%;
 }
 
-.newTicket_title {
-  grid-area: newTicket_title;
+.requestForm__form__title {
+  grid-area: requestForm__form__title;
   margin-left: 25px;
 }
-.newTicket_module {
-  grid-area: newTicket_module;
+.requestForm__form__module {
+  grid-area: requestForm__form__module;
   margin-left: 25px;
 }
-.newTicket_type {
-  grid-area: newTicket_type;
+.requestForm__form__type {
+  grid-area: requestForm__form__type;
   margin-left: 25px;
 }
-.newTicket_source {
-  grid-area: newTicket_source;
+.requestForm__form__source {
+  grid-area: requestForm__form__source;
   margin-left: 25px;
 }
-.newTicket_comment {
-  grid-area: newTicket_comment;
+.requestForm__form__comment {
+  grid-area: requestForm__form__comment;
   margin-left: 25px;
 }

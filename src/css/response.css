@@ -5,11 +5,11 @@
   border-radius: 6px;
   height: 100%;
   grid-template-columns: 600px;
-  grid-template-areas: 'response-form';
+  grid-template-areas: 'response__form';
 }
 
-.response-form {
-  grid-area: response-form;
+.response__form {
+  grid-area: response__form;
   background-color: var(--panel);
   border-radius: 6px;
   margin-top: 10px;
@@ -21,36 +21,35 @@
   grid-gap: 10px 10px;
   grid-template-areas:
     '. .'
-    'response_header response_header'
-    'response_priority  response_status'
-    'response_statement response_statement'
-    'response_save  .'
+    'response__form__heading response__form__heading'
+    'response__form__priority  response__form__status'
+    'response__form__statement response__form__statement'
+    'response__form__save  .'
     '. .'
     '. .';
 }
 
-.response_header {
-  grid-area: response_header;
+.response__form__heading {
+  grid-area: response__form__heading;
   margin-left: 25px;
-  border-bottom: 1px solid var(--text-bright);
-  font-size: 13px;
+  font-size: 15px;
   color: var(--text-bright);
 }
 
-.response_priority {
-  grid-area: response_priority;
+.response__form__priority {
+  grid-area: response__form__priority;
   margin-left: 25px;
 }
-.response_status {
-  grid-area: response_status;
+.response__form__status {
+  grid-area: response__form__status;
   margin-left: 25px;
 }
-.response_statement {
-  grid-area: response_statement;
+.response__form__statement {
+  grid-area: response__form__statement;
   overflow: scroll;
   margin-left: 25px;
 }
-.response_save {
-  grid-area: response_save;
+.response__form__save {
+  grid-area: response__form__save;
   margin-left: 25px;
 }

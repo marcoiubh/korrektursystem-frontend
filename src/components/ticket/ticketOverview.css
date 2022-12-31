@@ -1,38 +1,38 @@
-.app_ticketOverview {
-  grid-area: app_main;
+.ticketoverview {
+  grid-area: main;
   display: grid;
   height: 100%;
   width: 100%;
   grid-template-rows: 40px auto;
   grid-template-columns: 200px 400px auto 200px;
   grid-template-areas:
-    'app_pagination app_create app_search app_items'
-    'app_table app_table app_table app_table';
+    'ticketoverview__pagination ticketoverview__create ticketoverview__search ticketoverview__results-per-page'
+    'ticketoverview__table ticketoverview__table ticketoverview__table ticketoverview__table';
 }
 
-.app_pagination {
-  grid-area: app_pagination;
+.ticketoverview__pagination {
+  grid-area: ticketoverview__pagination;
   margin-left: 25px;
 }
-.app_create {
-  grid-area: app_create;
+.ticketoverview__create {
+  grid-area: ticketoverview__create;
   margin-left: 25px;
 }
-.app_search {
-  grid-area: app_search;
+.ticketoverview__search {
+  grid-area: ticketoverview__search;
   margin-left: 25px;
 }
-.app_items {
-  grid-area: app_items;
+.ticketoverview__results-per-page {
+  grid-area: ticketoverview__results-per-page;
   margin-left: 25px;
 }
-.app_table {
-  grid-area: app_table;
+.ticketoverview__table {
+  grid-area: ticketoverview__table;
   margin-left: 25px;
   width: 100%;
 }
 
-.no_tickets {
+.ticketoverview--no-tickets {
   text-align: center;
   padding-top: 10%;
 }

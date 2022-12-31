@@ -26,14 +26,14 @@ const RequestForm = ({ ticket, onSave, onCancel }) => {
   };
   return (
     <form
-      className="newTicket"
+      className="requestForm"
       onSubmit={handleSubmit(onSave, onErrors)}
     >
-      <div className="newTicket_headline">
+      <div className="requestForm__heading">
         <h1>New Ticket</h1>
       </div>
-      <div className="newTicket_form">
-        <div className="newTicket_title">
+      <div className="requestForm__form">
+        <div className="requestForm__form__title">
           <InputHook
             property="title"
             obj={ticket}
@@ -41,7 +41,7 @@ const RequestForm = ({ ticket, onSave, onCancel }) => {
             errors={errors}
           />
         </div>
-        <div className="newTicket_module">
+        <div className="requestForm__form__module">
           <SelectHook
             property="module"
             obj={ticket}
@@ -50,7 +50,7 @@ const RequestForm = ({ ticket, onSave, onCancel }) => {
             errors={errors}
           />
         </div>
-        <div className="newTicket_type">
+        <div className="requestForm__form__type">
           <SelectHook
             property="type"
             obj={ticket}
@@ -59,7 +59,7 @@ const RequestForm = ({ ticket, onSave, onCancel }) => {
             errors={errors}
           />
         </div>
-        <div className="newTicket_source">
+        <div className="requestForm__form__source">
           <SelectHook
             property="source"
             obj={ticket}
@@ -68,7 +68,7 @@ const RequestForm = ({ ticket, onSave, onCancel }) => {
             errors={errors}
           />
         </div>
-        <div className="newTicket_comment">
+        <div className="requestForm__form__comment">
           <TextAreaHook
             property="comment"
             obj={ticket}
@@ -78,10 +78,10 @@ const RequestForm = ({ ticket, onSave, onCancel }) => {
         </div>
       </div>
 
-      <div className="newTicket_save">
+      <div className="requestForm__save">
         <Button label="Submit" />
       </div>
-      <div className="newTicket_cancel">
+      <div className="requestForm__cancel">
         <Button label="Cancel" onClick={onCancel} type="button" />
       </div>
     </form>

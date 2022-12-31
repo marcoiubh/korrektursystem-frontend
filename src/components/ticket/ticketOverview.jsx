@@ -22,8 +22,8 @@ const TicketOverview = ({
   onItemCountChange,
 }) => {
   return (
-    <div className="app_ticketOverview">
-      <div className="app_pagination">
+    <div className="ticketoverview">
+      <div className="ticketoverview__pagination">
         <Pagination
           itemsCount={totalCount}
           pageSize={pageSize}
@@ -31,25 +31,25 @@ const TicketOverview = ({
           onPageChange={onPageChange}
         />
       </div>
-      <div className="app_create">
+      <div className="ticketoverview__create">
         <Button
           label="Create Ticket"
           onClick={onNew}
           hidden={!ifUserIsStudent()}
         />
       </div>
-      <div className="app_search">
+      <div className="ticketoverview__search">
         <SearchBox value={searchQuery} onChange={onSearch} />
       </div>
-      <div className="app_items">
+      <div className="ticketoverview__results-per-page">
         <DropDown
           label={'Results per page'}
           onClick={onItemCountChange}
         />
       </div>
-      <div className="app_table">
+      <div className="ticketoverview__table">
         {tickets.length === 0 ? (
-          <p className="no_tickets">
+          <p className="ticketoverview--no-tickets">
             Currently no tickets available.
           </p>
         ) : (

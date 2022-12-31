@@ -1,9 +1,9 @@
-.drop {
+.dropdown {
   position: relative;
   display: inline-block;
 }
 
-.drop-menu {
+.dropdown__menu {
   display: none;
   position: absolute;
   background-color: var(--panel);
@@ -12,7 +12,7 @@
   z-index: 1;
 }
 
-.drop-menu a {
+.dropdown__menu a {
   font-size: 11px;
   color: var(--text-bright);
   padding: 12px 16px;
@@ -20,10 +20,10 @@
   display: block;
 }
 
-.drop-menu a:hover {
+.dropdown__menu a:hover {
   background-color: var(--select);
 }
 
-.drop:hover .drop-menu {
+.dropdown:hover .dropdown__menu {
   display: block;
 }

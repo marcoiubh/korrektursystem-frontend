@@ -1,6 +1,5 @@
 import { ifUserIsStudent } from '../services/authenticationService';
 import { getFormattedTimestamp } from '../services/getFormattedTimestamp';
-import '../css/ticketTable.css';
 
 const getPropertyList = () => {
   const student = [

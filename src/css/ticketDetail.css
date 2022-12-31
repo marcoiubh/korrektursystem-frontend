@@ -1,39 +1,39 @@
 .ticketDetail {
-  grid-area: app_main;
+  grid-area: main;
   display: grid;
   height: 100%;
   width: 100%;
   grid-template-rows: 40px 40px 40px 500px;
   grid-template-columns: 220px 100px 100px 220px 50px 320px 320px;
   grid-template-areas:
-    'ticketDetail_pagination ticketDetail_overview . . . . .'
-    'ticketDetail_title ticketDetail_title . . . . .'
-    'ticketDetail_id ticketDetail_id ticketDetail_id . . . .'
+    'ticketDetail__pagination ticketDetail__overview . . . . .'
+    'ticketDetail__title ticketDetail__title . . . . .'
+    'ticketDetail__id ticketDetail__id ticketDetail__id . . . .'
     'request request request request . response response';
 }
 
-.ticketDetail_pagination {
-  grid-area: ticketDetail_pagination;
+.ticketDetail__pagination {
+  grid-area: ticketDetail__pagination;
   margin-left: 25px;
 }
-.ticketDetail_overview {
-  grid-area: ticketDetail_overview;
+.ticketDetail__overview {
+  grid-area: ticketDetail__overview;
   margin-left: 25px;
 }
-.ticketDetail_save {
-  grid-area: ticketDetail_save;
+.ticketDetail__save {
+  grid-area: ticketDetail__save;
   margin-left: 25px;
 }
-.ticketDetail_title {
-  grid-area: ticketDetail_title;
+.ticketDetail__title {
+  grid-area: ticketDetail__title;
   margin-left: 25px;
 }
-.ticketDetail_id {
-  grid-area: ticketDetail_id;
+.ticketDetail__id {
+  grid-area: ticketDetail__id;
   margin-left: 25px;
-  margin-top: 10px;
+  margin-top: 20px;
   font-size: 13px;
 }
-.ticketDetail_mark {
+.ticketDetail__mark {
   background-color: var(--new);
 }

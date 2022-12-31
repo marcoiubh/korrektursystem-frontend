@@ -1,4 +1,4 @@
-.searchBox {
+.search {
   background-color: transparent;
   height: 40px;
   width: 300px;
@@ -13,9 +13,9 @@
 }
 
 /* TODO */
-.searchBox:-webkit-autofill,
-.searchBox:-webkit-autofill:hover,
-.searchBox:-webkit-autofill:focus {
+.search:-webkit-autofill,
+.search:-webkit-autofill:hover,
+.search:-webkit-autofill:focus {
   -webkit-text-fill-color: var(--text-bright);
   -webkit-box-shadow: 0 0 0px 40rem var(--background) inset;
 }

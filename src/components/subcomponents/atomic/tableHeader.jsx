@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../css/ticketTable.css';
+import '../../../css/table.css';
 import SortIconDown from './sortIconDown';
 import SortIconUp from './sortIconUp';
 
@@ -33,7 +33,7 @@ const TableHeader = ({ propertyList, sortColumn, onSort }) => {
       <tr>
         {propertyList.map(({ name }, index) => (
           <th
-            className={`header ${name}`}
+            className={`table__header ${name}`}
             key={index}
             onClick={() => raiseSort(name)}
           >

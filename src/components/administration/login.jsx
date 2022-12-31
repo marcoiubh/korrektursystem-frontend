@@ -49,15 +49,15 @@ const Login = () => {
   };
 
   return (
-    <div className="app_login">
+    <div className="login">
       <form
-        className=" app_login_form"
+        className="login__form"
         onSubmit={handleSubmit(handleLogin)}
       >
-        <div className="app_title">
+        <div className="login__form__heading">
           <h1>Login</h1>
         </div>
-        <div className="app_username">
+        <div className="login__form__username">
           <InputHook
             property="email"
             obj=""
@@ -65,7 +65,7 @@ const Login = () => {
             errors={errors}
           />
         </div>
-        <div className="app_password">
+        <div className="login__form__password">
           <InputHook
             property="password"
             obj=""
@@ -74,14 +74,14 @@ const Login = () => {
             errors={errors}
           />
         </div>
-        <div className=" app_eye">
+        <div className="login__form__eye">
           <ShowPassword
             state={showPassword}
             onClick={handleShowPassword}
           />
         </div>
 
-        <Button label="Login" color="app_login_button" />
+        <Button label="Login" color="login__form__button" />
       </form>
     </div>
   );
