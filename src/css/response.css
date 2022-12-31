@@ -11,6 +11,8 @@
 .response__form {
   grid-area: response__form;
   background-color: var(--panel);
+  border: 1px solid var(--text-bright);
+  max-height: 480px;
   border-radius: 6px;
   margin-top: 10px;
   display: grid;

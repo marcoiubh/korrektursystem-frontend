@@ -1,7 +1,6 @@
 .requestForm {
   grid-area: main;
   display: grid;
-  height: 100%;
   width: 100%;
   grid-template-rows: 40px 60px auto;
   grid-template-columns: 220px 100px 100px 220px auto;
@@ -14,11 +13,12 @@
 .requestForm__form {
   grid-area: requestForm__form;
   background-color: var(--panel);
+  border: 1px solid var(--text-bright);
+  max-height: 365px;
   border-radius: 6px;
   margin-top: 10px;
   margin-left: 25px;
   display: grid;
-  height: 100%;
   width: 100%;
   grid-template-rows: 25px 65px 65px 110px;
   grid-template-columns: 300px 300px;
