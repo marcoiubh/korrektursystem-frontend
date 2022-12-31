@@ -40,7 +40,7 @@
 .login__form__eye {
   grid-area: login__form__eye;
   margin-left: 10px;
-  margin-top: 25px;
+  margin-top: 20px;
   color: var(--text-dark);
 }
 .login__form__button {
