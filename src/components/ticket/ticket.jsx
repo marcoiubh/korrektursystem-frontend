@@ -99,6 +99,7 @@ const Ticket = ({ user }) => {
           path="/overview"
           element={
             <TicketOverview
+              user={user}
               onNew={handleNew}
               onPageChange={handlePageChange}
               onSearch={handleSearch}

@@ -3,11 +3,11 @@ import React from 'react';
 import SearchBox from '../subcomponents/atomic/searchBox';
 import TicketTable from '../subcomponents/composite/ticketTable';
 import DropDown from '../subcomponents/atomic/dropdown';
-import { ifUserIsStudent } from '../../services/authenticationService';
 import './ticketOverview.css';
 import Button from '../subcomponents/atomic/button';
 
 const TicketOverview = ({
+  user,
   onNew,
   onPageChange,
   onSearch,
@@ -35,7 +35,7 @@ const TicketOverview = ({
         <Button
           label="Create Ticket"
           onClick={onNew}
-          hidden={!ifUserIsStudent()}
+          hidden={user.role === 'professor'}
         />
       </div>
       <div className="ticketoverview__search">
