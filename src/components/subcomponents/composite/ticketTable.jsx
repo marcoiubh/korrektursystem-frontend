@@ -9,10 +9,7 @@ const TicketTable = ({
   sortColumn,
   tickets,
 }) => {
-  let propertyList = [];
-  if (user.role === 'student')
-    propertyList = config.table_properties.student;
-  else propertyList = config.table_properties.professor;
+  const propertyList = config.table_properties[user.role];
 
   return (
     <Table
