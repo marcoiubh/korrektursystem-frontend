@@ -1,18 +1,13 @@
 # TODO
 
-- download new data only if it has changed
 - countdown ticket expired
 - custom http errors (mail could not be sent)
-- joiSchema read from config file
-- bug: ticketdetail page refresh does save the ticket
-- log logins
 - get error message before heading back to login (401)
 - set up simplified model of the application
-- styling
-- forgot password
 
 // done
 
+- table schema based on config.json -> done
 - line break history -> fixed
 - hide first select option -> fixed
 - notification position tuning -> done
