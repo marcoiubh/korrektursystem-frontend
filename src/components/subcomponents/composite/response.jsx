@@ -7,7 +7,7 @@ const Response = ({ ticket }) => {
   return (
     <div
       className={`response__form ${
-        ticket.mark ? 'ticketDetail_mark' : null
+        ticket.mark ? 'ticketDetail__mark' : null
       }`}
     >
       <p className="response__form__heading">Professor response</p>
