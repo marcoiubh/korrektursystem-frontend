@@ -54,6 +54,7 @@ const TicketOverview = ({
           </p>
         ) : (
           <TicketTable
+            user={user}
             tickets={tickets}
             sortColumn={sortColumn}
             onSort={onSort}

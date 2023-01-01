@@ -14,8 +14,24 @@
   ],
   "priority": ["Critical", "Major", "Medium", "Minor"],
   "table_properties": {
-    "student": null,
-    "professor": null
+    "student": [
+      "date",
+      "title",
+      "module",
+      "type",
+      "source",
+      "status"
+    ],
+    "professor": [
+      "date",
+      "priority",
+      "student",
+      "title",
+      "module",
+      "type",
+      "source",
+      "status"
+    ]
   },
   "sortColumn": {
     "property": "date",

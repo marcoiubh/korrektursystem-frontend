@@ -1,18 +1,27 @@
 import React from 'react';
 import Table from './table';
-import getPropertyList from '../../../config/propertyList';
+import config from '../../../config/config.json';
 
-const TicketTable = ({ onSort, onClick, sortColumn, tickets }) => {
-  const propertyList = getPropertyList();
+const TicketTable = ({
+  user,
+  onSort,
+  onClick,
+  sortColumn,
+  tickets,
+}) => {
+  let propertyList = [];
+  if (user.role === 'student')
+    propertyList = config.table_properties.student;
+  else propertyList = config.table_properties.professor;
 
   return (
-        <Table
-          propertyList={propertyList}
-          records={tickets}
-          onSort={onSort}
-          sortColumn={sortColumn}
-          onClick={onClick}
-        />
+    <Table
+      propertyList={propertyList}
+      records={tickets}
+      onSort={onSort}
+      sortColumn={sortColumn}
+      onClick={onClick}
+    />
   );
 };
 

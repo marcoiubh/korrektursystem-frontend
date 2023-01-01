@@ -31,7 +31,7 @@ const TableHeader = ({ propertyList, sortColumn, onSort }) => {
   return (
     <thead>
       <tr>
-        {propertyList.map(({ name }, index) => (
+        {propertyList.map((name, index) => (
           <th
             className={`table__header ${name}`}
             key={index}
