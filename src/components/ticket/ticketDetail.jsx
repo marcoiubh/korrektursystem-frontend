@@ -20,11 +20,11 @@ const TicketDetail = ({
   const [currentPage, setCurrentPage] = useState(1);
   const [ticket, setTicket] = useState(propsticket);
   let historyEntry = () => {
-    return `${getFormattedTimestamp(Date.now())} : ${user.email} - ${
+    return `____________________________________________________________________________________________________________\n  
+    ${getFormattedTimestamp(Date.now())} : ${user.email} - ${
       ticket.status
-    }
-  ${ticket.statement}
-  ______________________________\n`;
+    } 
+    ${ticket.statement}\n`;
   };
 
   const navigate = useNavigate();
