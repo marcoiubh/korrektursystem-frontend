@@ -80,11 +80,6 @@ const Ticket = ({ user }) => {
     setSearchQuery(query);
   };
 
-  const handleTicketSeen = (ticketCopy) => {
-    // update ticket state to rerender view label
-    setTicket(ticketCopy);
-  };
-
   const handleItemCountChange = (numberOfItems) => {
     // update number of items per page
     setCurrentPage(1);
@@ -124,7 +119,6 @@ const Ticket = ({ user }) => {
               ticket={ticket}
               tickets={tickets}
               totalCount={totalCount}
-              onTicketSeen={handleTicketSeen}
             />
           }
         />

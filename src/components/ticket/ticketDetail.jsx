@@ -16,7 +16,6 @@ const TicketDetail = ({
   ticket: propsticket,
   tickets,
   totalCount,
-  onTicketSeen,
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [ticket, setTicket] = useState(propsticket);
@@ -50,8 +49,6 @@ const TicketDetail = ({
 
       try {
         await updateTicket(ticketCopy);
-        // update state of ticket in parent component to rerender read label in ticket overview
-        onTicketSeen(ticketCopy);
       } catch (error) {
         toast.error('An error occured.');
       }
