@@ -34,7 +34,7 @@ const ResponseForm = ({ ticket, onSave }) => {
   return (
     <form
       className={`response__form ${
-        ticket.mark ? 'ticketDetail_mark' : null
+        ticket.mark ? 'ticketDetail__mark' : null
       }`}
       onSubmit={handleSubmit(onSave, onError)}
     >
