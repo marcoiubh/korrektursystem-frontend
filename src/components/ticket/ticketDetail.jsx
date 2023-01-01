@@ -80,19 +80,15 @@ const TicketDetail = ({
     ticketCopy.readStudent = false;
     ticketCopy.readProfessor = true;
 
-    await toast
-      .promise(updateTicket(ticketCopy), {
-        pending: 'Please wait...',
-        success: 'Changes has been saved.',
-        error: {
-          render({ data: error }) {
-            return error.response.data;
-          },
+    await toast.promise(updateTicket(ticketCopy), {
+      pending: 'Please wait...',
+      success: 'Changes has been saved.',
+      error: {
+        render({ data: error }) {
+          return error.response.data;
         },
-      })
-      .then(() => {
-        window.location = '/ticket/overview';
-      });
+      },
+    });
   };
 
   // debounce save button to avoid multiple calls when clicking quickly
