@@ -10,25 +10,20 @@ const NewTicket = ({ user }) => {
   let ticket = {};
   const navigate = useNavigate();
 
-  let historyEntry = () => {
-    return `${getFormattedTimestamp(Date.now())} : ${user.email} - ${
-      ticket.status
-    }\n`;
-  };
-
   const handleSave = async (inputValues) => {
-    // copy new value into existing values
-    ticket = inputValues;
-    // associate student with the new ticket
-    ticket.student = user.email;
-    ticket.date = Date.now();
-    ticket.status = 'New';
-    // new ticket has not been read by a professor
-    ticket.readProfessor = false;
-    ticket.readStudent = true;
-    // instanciate history property as array of strings
-    ticket.history = [];
-    ticket.history.push(historyEntry());
+    ticket = {
+      ...inputValues,
+      // associate student with the new ticket
+      student: user.email,
+      date: Date.now(),
+      status: 'New',
+      // new ticket has not been read by a professor
+      readProfessor: false,
+      readStudent: true,
+      history: `${getFormattedTimestamp(Date.now())} : ${
+        user.email
+      } \n`,
+    };
 
     await toast
       .promise(saveTicket(ticket), {
