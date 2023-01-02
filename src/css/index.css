@@ -1,6 +1,10 @@
 * {
   font-size: 13px;
   font-family: 'PT Sans';
+  /* Disable text select for all elements */
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 h1 {

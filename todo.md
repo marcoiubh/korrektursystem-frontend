@@ -5,6 +5,7 @@
 
 // done
 
+- disable text select for all elements -> done
 - countdown ticket expired -> done
 - table schema based on config.json -> done
 - line break history -> fixed
