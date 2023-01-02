@@ -4,6 +4,7 @@
     "password": ""
   },
   "dateFormat": "lll",
+  "timeFormat": "mm:ss",
   "module": [
     "BSTA01-01",
     "IOBP02",

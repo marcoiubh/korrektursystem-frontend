@@ -1,12 +1,11 @@
 # TODO
 
-- countdown ticket expired
 - custom http errors (mail could not be sent)
 - get error message before heading back to login (401)
-- set up simplified model of the application
 
 // done
 
+- countdown ticket expired -> done
 - table schema based on config.json -> done
 - line break history -> fixed
 - hide first select option -> fixed

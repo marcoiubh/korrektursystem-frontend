@@ -7,8 +7,8 @@
   width: 100%;
   height: 45px;
   display: grid;
-  grid-template-columns: 200px 1fr 250px 80px 120px;
-  grid-template-areas: 'navbar__home . navbar__user navbar__tickets navbar__login';
+  grid-template-columns: 200px 1fr 250px 60px 80px 120px;
+  grid-template-areas: 'navbar__home .  navbar__user navbar__ttl navbar__tickets navbar__login';
   font-size: 13px;
 }
 
@@ -25,6 +25,12 @@
   margin-left: auto;
 }
 
+.navbar__ttl {
+  grid-area: navbar__ttl;
+  margin-top: 15px;
+  margin-left: auto;
+}
+
 .navbar__tickets {
   grid-area: navbar__tickets;
   margin-top: 15px;
@@ -37,4 +43,3 @@
   margin-left: auto;
   margin-right: 20px;
 }
-

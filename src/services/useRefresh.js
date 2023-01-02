@@ -5,7 +5,7 @@ export default function useRefresh() {
 
   // auto refresh every 2 seconds
   useEffect(() => {
-    const interval = setInterval(() => setTime(Date.now()), 2000);
+    const interval = setInterval(() => setTime(Date.now()), 1000);
     return () => {
       clearInterval(interval);
     };
