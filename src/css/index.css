@@ -1,6 +1,6 @@
 * {
   font-size: 13px;
-  font-family: 'PT Sans';
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   /* Disable text select for all elements */
   -webkit-user-select: none;
   -ms-user-select: none;
