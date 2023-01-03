@@ -7,7 +7,6 @@ import { paginate } from '../../services/paginate';
 import { getTickets } from '../../services/ticketService';
 import { search } from '../../services/search';
 import { sort } from '../../services/sort';
-import useRefresh from '../../services/useRefresh';
 import Home from '../home';
 import { toast } from 'react-toastify';
 import { quitSession } from '../../services/authenticationService';
@@ -46,13 +45,21 @@ const Ticket = ({ user, time }) => {
         const { data } = await getTickets();
         return data;
       } catch (error) {
-        if (error) toast.error(error.message, { autoClose: 1000 });
+        if (error) toast.error(error.message);
         if (error.response.status === 401) quitSession();
       }
     };
 
     prepareTickets();
-  }, [time, currentPage, pageSize, sortColumn, searchQuery, ticket]);
+  }, [
+    time,
+    user,
+    currentPage,
+    pageSize,
+    sortColumn,
+    searchQuery,
+    ticket,
+  ]);
 
   // EventHandler
   const handleView = (ticket) => {
