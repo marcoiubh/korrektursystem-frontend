@@ -43,6 +43,7 @@ const TicketOverview = ({
         <DropDown
           label={'Results per page'}
           onClick={onItemCountChange}
+          options={[4, 8, 12, 16, 'All']}
         />
       </div>
       <div className="ticketoverview__table">

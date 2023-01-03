@@ -1,26 +1,24 @@
-import { Link } from 'react-router-dom';
 import '../../../css/dropdown.css';
 
-const DropDown = ({ label, onClick, ...rest }) => {
+const DropDown = ({ label, onClick, options }) => {
   return (
     <div className="dropdown">
       <button className="button">{label}</button>
       <div className="dropdown__menu">
-        <Link {...rest} onClick={() => onClick(4)}>
-          4
-        </Link>
-
-        <Link {...rest} onClick={() => onClick(8)}>
-          8
-        </Link>
-
-        <Link {...rest} onClick={() => onClick(20)}>
-          20
-        </Link>
-
-        <Link {...rest} onClick={() => onClick(10000000)}>
-          All
-        </Link>
+        {options.map((option) => {
+          if (typeof option == 'string') {
+            label = option;
+            option = Infinity;
+          } else {
+            label = option;
+            option = option;
+          }
+          return (
+            <p key={option} onClick={() => onClick(option)}>
+              {label}
+            </p>
+          );
+        })}
       </div>
     </div>
   );
