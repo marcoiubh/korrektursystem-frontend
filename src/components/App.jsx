@@ -7,7 +7,7 @@ import NavBar from './subcomponents/composite/navbar';
 import NewTicket from './ticket/newTicket';
 import React from 'react';
 import Ticket from './ticket/ticket';
-import { ToastContainer, Slide } from 'react-toastify';
+import { toast, ToastContainer, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Issue from './administration/issue';
 import Footer from './subcomponents/composite/footer';
@@ -18,6 +18,8 @@ function App() {
   document.body.style.backgroundColor = '#242629';
 
   const time = useRefresh();
+
+  toast.clearWaitingQueue();
 
   let user = getCurrentUser();
 
