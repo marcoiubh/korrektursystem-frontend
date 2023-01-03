@@ -69,13 +69,13 @@ const TicketDetail = ({
   const handleSave = async (updates) => {
     // copy new value into existing values
     const ticketCopy = Object.assign(ticket, updates);
-    ticketCopy.professor = user.email;
     ticketCopy.date = Date.now();
-    ticketCopy.history.push(historyEntry());
 
     // updated ticket has not been read by the student
     ticketCopy.readStudent = false;
     ticketCopy.readProfessor = true;
+
+    ticketCopy.history.push(historyEntry());
 
     await toast.promise(updateTicket(ticketCopy), {
       pending: 'Please wait...',
