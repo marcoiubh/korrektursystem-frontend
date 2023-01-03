@@ -1,6 +1,6 @@
 const ShowPassword = ({ state, onClick }) => {
   let classes = 'fa fa-solid fa-eye';
-  state ? (classes += '-slash') : void 0;
+  if (state) classes += '-slash';
 
   return <i onClick={onClick} className={classes} />;
 };
