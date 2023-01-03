@@ -1,4 +1,4 @@
-import { getFormattedTimestamp } from '../../../services/getFormattedTimestamp';
+import { getFormattedDate } from '../../../services/getFormattedTimestamp';
 import '../../../css/timestamp.css';
 
 const Timestamp = ({ property, obj, disabled, ...rest }) => {
@@ -8,7 +8,7 @@ const Timestamp = ({ property, obj, disabled, ...rest }) => {
         <div className="timestamp__text-frame">{property}</div>
       </div>
       <label id={property} className="timestamp__text">
-        {getFormattedTimestamp(obj[property])}
+        {getFormattedDate(obj[property])}
       </label>
     </div>
   );

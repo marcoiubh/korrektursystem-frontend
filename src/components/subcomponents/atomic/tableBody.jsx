@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React from 'react';
 import '../../../css/table.css';
-import { getFormattedTimestamp } from '../../../services/getFormattedTimestamp';
+import { getFormattedDate } from '../../../services/getFormattedTimestamp';
 
 const TableBody = ({ records, propertyList, onClick }) => {
   // conditional statement to render buttons
@@ -9,7 +9,7 @@ const TableBody = ({ records, propertyList, onClick }) => {
   const renderCell = (record, property) => {
     // if (property.content) return property.content(record);
     if (property === 'date')
-      return getFormattedTimestamp(record.date);
+      return getFormattedDate(record.date);
     // lodash get method returns single records column by column
     return _.get(record, property);
   };

@@ -2,7 +2,7 @@ import { saveTicket } from '../../services/ticketService';
 import { useNavigate } from 'react-router-dom';
 import React, { useMemo } from 'react';
 import { toast } from 'react-toastify';
-import { getFormattedTimestamp } from '../../services/getFormattedTimestamp';
+import { getFormattedDate } from '../../services/getFormattedTimestamp';
 import _ from 'lodash';
 import RequestForm from '../subcomponents/composite/requestForm';
 
@@ -20,9 +20,7 @@ const NewTicket = ({ user }) => {
       // new ticket has not been read by a professor
       readProfessor: false,
       readStudent: true,
-      history: `${getFormattedTimestamp(Date.now())} : ${
-        user.email
-      } \n`,
+      history: `${getFormattedDate(Date.now())} : ${user.email} \n`,
     };
 
     await toast

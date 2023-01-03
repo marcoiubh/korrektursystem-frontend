@@ -15,7 +15,7 @@ const NavBar = ({ user }) => {
 
       {user ? (
         <>
-          <span className="navbar__ttl">{user.timeToLive}</span>
+          <span className="navbar__ttl">{user.timeToLogout}</span>
           <span className="navbar__user">User: {user.email}</span>
           <NavLink className="navbar__login" to="/logout">
             Logout

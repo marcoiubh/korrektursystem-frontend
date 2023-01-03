@@ -1,8 +1,6 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import {
-  getFormattedTimeToLive,
-} from './getFormattedTimestamp';
+import { getFormattedTime } from './getFormattedTimestamp';
 const api = '/authentication/';
 const item = 'token';
 
@@ -28,16 +26,16 @@ export function getCurrentUser() {
     let user = {};
     const token = getJwt();
 
-    const { email } = jwtDecode(token);
-    const { role } = jwtDecode(token);
-    const { exp } = jwtDecode(token);
-
-    const ttl = getFormattedTimeToLive(exp * 1000 - Date.now());
-
+    const { email, role, exp } = jwtDecode(token);
+    const expInSeconds = exp * 1000;
+    const now = Date.now();
+    let timeToLogout = '00:00';
+    if (expInSeconds > now)
+      timeToLogout = getFormattedTime(expInSeconds - now);
     user = {
       email: email,
       role: role,
-      timeToLive: ttl,
+      timeToLogout: timeToLogout,
     };
     return user;
   } catch (error) {}

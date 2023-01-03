@@ -6,7 +6,7 @@ import ResponseForm from '../subcomponents/composite/responseForm';
 import { updateTicket } from '../../services/ticketService';
 import Button from '../subcomponents/atomic/button';
 import { toast } from 'react-toastify';
-import { getFormattedTimestamp } from '../../services/getFormattedTimestamp';
+import { getFormattedDate } from '../../services/getFormattedTimestamp';
 import _ from 'lodash';
 import '../../css/ticketDetail.css';
 import Response from '../subcomponents/composite/response';
@@ -21,7 +21,7 @@ const TicketDetail = ({
   const [ticket, setTicket] = useState(propsticket);
   let historyEntry = () => {
     return `____________________________________________________________________________________________________________\n  
-    ${getFormattedTimestamp(Date.now())} : ${user.email} - ${
+    ${getFormattedDate(Date.now())} : ${user.email} - ${
       ticket.status
     } 
     ${ticket.statement}\n`;
