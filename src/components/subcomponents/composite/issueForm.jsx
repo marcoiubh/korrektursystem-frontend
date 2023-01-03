@@ -19,13 +19,13 @@ const IssueForm = ({ onSubmit }) => {
     resolver: joiResolver(IssueSchema),
   });
 
-  const Errors = (error) => {
+  const onErrors = (error) => {
     console.error(error);
   };
   return (
     <form
       className="issue__form"
-      onSubmit={handleSubmit(onSubmit, Errors)}
+      onSubmit={handleSubmit(onSubmit, onErrors)}
     >
       <div className="issue__form__heading">
         <h1>Contact</h1>
@@ -47,7 +47,9 @@ const IssueForm = ({ onSubmit }) => {
         />
       </div>
 
-      <Button label="Send" color="issue__form__button" />
+      <div className="issue__form__button">
+        <Button label="Send" />
+      </div>
     </form>
   );
 };

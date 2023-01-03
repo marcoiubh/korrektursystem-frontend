@@ -9,10 +9,10 @@ import '../../css/issue.css';
 const Issue = () => {
   const navigate = useNavigate();
 
-  const handleSend = async (e) => {
+  const handleSend = async (inputValues) => {
     const issue = {
-      title: e.title,
-      description: e.description,
+      title: inputValues.title,
+      description: inputValues.description,
     };
 
     await toast
@@ -30,7 +30,7 @@ const Issue = () => {
       });
   };
 
-  const debouncedHandleSubmit = useMemo(
+  const debouncedHandleSend = useMemo(
     () =>
       _.debounce(handleSend, 1000, {
         leading: true,
@@ -41,7 +41,7 @@ const Issue = () => {
 
   return (
     <div className="issue">
-      <IssueForm onSubmit={debouncedHandleSubmit} />
+      <IssueForm onSubmit={debouncedHandleSend} />
     </div>
   );
 };
