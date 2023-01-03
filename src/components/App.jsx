@@ -48,7 +48,9 @@ function App() {
             path="/ticket/*"
             element={<Ticket user={user} time={time} />}
           />
-          <Route path="/new" element={<NewTicket user={user} />} />
+          {user.role === 'student' ? (
+            <Route path="/new" element={<NewTicket user={user} />} />
+          ) : null}
           <Route path="/issue" element={<Issue />} />
         </Routes>
       ) : (
