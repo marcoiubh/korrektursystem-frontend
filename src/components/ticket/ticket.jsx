@@ -13,7 +13,7 @@ import { toast } from 'react-toastify';
 import { quitSession } from '../../services/authenticationService';
 import { markNewTickets } from '../../services/markNewTickets';
 
-const Ticket = ({ user }) => {
+const Ticket = ({ user, time }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(4);
   const [searchQuery, setSearchQuery] = useState('');
@@ -23,9 +23,6 @@ const Ticket = ({ user }) => {
   const [ticket, setTicket] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const navigate = useNavigate();
-
-  // auto refresh
-  const [time] = useRefresh();
 
   useEffect(() => {
     const prepareTickets = async () => {

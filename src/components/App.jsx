@@ -17,7 +17,7 @@ import useRefresh from '../services/useRefresh';
 function App() {
   document.body.style.backgroundColor = '#242629';
 
-  useRefresh();
+  const time = useRefresh();
 
   let user = getCurrentUser();
 
@@ -43,7 +43,10 @@ function App() {
         <Routes>
           <Route index element={<Home />} />
           <Route path="/*" element={<Home />} />
-          <Route path="/ticket/*" element={<Ticket user={user} />} />
+          <Route
+            path="/ticket/*"
+            element={<Ticket user={user} time={time} />}
+          />
           <Route path="/new" element={<NewTicket user={user} />} />
           <Route path="/issue" element={<Issue />} />
           <Route path="/logout" element={<Logout />} />
