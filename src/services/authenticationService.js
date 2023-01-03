@@ -41,18 +41,6 @@ export function getCurrentUser() {
   } catch (error) {}
 }
 
-export function getCurrentRole() {
-  try {
-    const token = getJwt();
-    const { role } = jwtDecode(token);
-    return role;
-  } catch (error) {}
-}
-
-export function ifUserIsStudent() {
-  return getCurrentRole() === 'student';
-}
-
 export function quitSession() {
   deleteToken();
   window.location = '/expiredSession';
