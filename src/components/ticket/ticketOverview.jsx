@@ -31,13 +31,11 @@ const TicketOverview = ({
           onPageChange={onPageChange}
         />
       </div>
-      <div className="ticketoverview__create">
-        <Button
-          label="Create Ticket"
-          onClick={onNew}
-          hidden={user.role === 'professor'}
-        />
-      </div>
+      {user.role === 'student' ? (
+        <div className="ticketoverview__create">
+          <Button label="Create Ticket" onClick={onNew} />
+        </div>
+      ) : null}
       <div className="ticketoverview__search">
         <SearchBox value={searchQuery} onChange={onSearch} />
       </div>
