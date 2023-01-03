@@ -1,7 +1,7 @@
 .pagination {
   display: grid;
   width: 100%;
-  grid-template-columns: 25px 90px 25px;
+  grid-template-columns: 25px 120px 25px;
   grid-template-areas: 'pagination__previous pagination__button pagination__next';
 }
 
@@ -10,7 +10,8 @@
 }
 .pagination__button {
   grid-area: pagination__button;
-  display: inline-block;
+  display: flex;
+  justify-content: space-evenly;
 }
 .pagination__next {
   grid-area: pagination__next;

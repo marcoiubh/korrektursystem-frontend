@@ -82,7 +82,6 @@ const Pagination = ({
       {numberOfPages > 3 && min > 1 && (
         <div className="pagination__previous">
           <PageButton
-            key={'previous'}
             page={<span>&laquo;</span>}
             onClick={handlePrevious}
           />
@@ -103,7 +102,6 @@ const Pagination = ({
       {numberOfPages > 3 && max <= numberOfPages && (
         <div className="pagination__next">
           <PageButton
-            key={'next'}
             page={<span>&raquo;</span>}
             onClick={handleNext}
           />
