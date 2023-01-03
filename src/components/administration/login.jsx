@@ -27,10 +27,10 @@ const Login = () => {
     showPassword ? setShowPassword(false) : setShowPassword(true);
   };
 
-  const handleLogin = async (e) => {
+  const handleLogin = async (inputValues) => {
     const credentials = {
-      email: e.email,
-      password: e.password,
+      email: inputValues.email,
+      password: inputValues.password,
     };
 
     await toast
