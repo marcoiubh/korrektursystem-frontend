@@ -67,6 +67,10 @@ const Pagination = ({
     setNumberOfPages(Math.ceil(itemsCount / pageSize));
   });
 
+  useEffect(() => {
+    setOffset(0);
+  }, [currentPage]);
+
   const handleNext = () => {
     const newOffset = offset + 1;
     if (max <= numberOfPages) setOffset(newOffset);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import TicketOverview from './ticketOverview';
 import TicketDetail from './ticketDetail';
@@ -11,9 +11,15 @@ import Home from '../home';
 import { toast } from 'react-toastify';
 import { quitSession } from '../../services/authenticationService';
 import { markNewTickets } from '../../services/markNewTickets';
+import { updateTicket } from '../../services/ticketService';
+
+import { getFormattedDate } from '../../services/getFormattedTimestamp';
+
+import _ from 'lodash';
 
 const Ticket = ({ user, time }) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [currentDetailPage, setCurrentDetailPage] = useState(1);
   const [pageSize, setPageSize] = useState(4);
   const [searchQuery, setSearchQuery] = useState('');
   const [sortColumn, setSortColumn] = useState(config.sortColumn);
@@ -21,6 +27,7 @@ const Ticket = ({ user, time }) => {
   const [pagedTicketsOnly, setPagedTicketsOnly] = useState([]);
   const [ticket, setTicket] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -51,19 +58,23 @@ const Ticket = ({ user, time }) => {
     };
 
     prepareTickets();
-  }, [
-    time,
-    user,
-    currentPage,
-    pageSize,
-    sortColumn,
-    searchQuery,
-    ticket,
-  ]);
+  }, [time, user, ticket, pageSize, sortColumn, searchQuery]);
+
+  let historyEntry = () => {
+    return `____________________________________________________________________________________________________________\n  
+    ${getFormattedDate(Date.now())} : ${user.email} - ${
+      ticket.status
+    } 
+    ${ticket.statement}\n`;
+  };
 
   // EventHandler
   const handleView = (ticket) => {
     setTicket(ticket);
+    setCurrentDetailPage(
+      // get index of the current ticket to determine page number
+      tickets.map((t) => t._id).indexOf(ticket._id) + 1
+    );
     navigate(`/ticket/detail`);
   };
 
@@ -92,6 +103,70 @@ const Ticket = ({ user, time }) => {
     setPageSize(resultsPerPage);
   };
 
+  const handleOverview = () => {
+    navigate('/ticket/overview');
+  };
+
+  const handleDetailPageChange = (page) => {
+    setCurrentDetailPage(page);
+    setTicket(tickets[page - 1]);
+  };
+
+  const handleSave = async (updates) => {
+    // copy new value into existing values
+    const ticketCopy = Object.assign(ticket, updates);
+    console.log(ticketCopy);
+    ticketCopy.date = Date.now();
+
+    // updated ticket has not been read by the student
+    ticketCopy.readStudent = false;
+    ticketCopy.readProfessor = true;
+
+    // ticketCopy.history.push(historyEntry());
+    // setTicket(ticketCopy);
+
+    await toast
+      .promise(updateTicket(ticketCopy), {
+        pending: 'Please wait...',
+        success: 'Changes has been saved.',
+        error: {
+          render({ data: error }) {
+            return error.response.data;
+          },
+        },
+      })
+      .then(() => {});
+  };
+
+  // debounce save button to avoid multiple calls when clicking quickly
+  // useMemo keeps the debounce instance after rerendering the component
+  const debouncedHandleSave = useMemo(
+    () =>
+      _.debounce(handleSave, 1000, {
+        leading: true,
+        trailing: false,
+      }),
+    []
+  );
+
+  // console.log(currentDetailPage);
+  // useEffect(() => {
+  //   const updateReadStatus = async () => {
+  //     const ticketCopy = { ...ticket };
+
+  //     if (user.role === 'student') ticketCopy.readStudent = true;
+  //     else if (user.role === 'professor')
+  //       ticketCopy.readProfessor = true;
+
+  //     try {
+  //       await updateTicket(ticketCopy);
+  //     } catch (error) {
+  //       toast.error('An error occured.');
+  //     }
+  //   };
+  //   if (!ticket.title) window.location = '/ticket/overview';
+  //   else updateReadStatus();
+  // }, [ticket]);
   // Rendering
   return (
     <>
@@ -123,8 +198,11 @@ const Ticket = ({ user, time }) => {
             <TicketDetail
               user={user}
               ticket={ticket}
-              tickets={tickets}
               totalCount={totalCount}
+              onOverview={handleOverview}
+              onPageChange={handleDetailPageChange}
+              currentDetailPage={currentDetailPage}
+              onSave={debouncedHandleSave}
             />
           }
         />
