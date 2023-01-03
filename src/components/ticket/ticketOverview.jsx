@@ -19,7 +19,7 @@ const TicketOverview = ({
   sortColumn,
   tickets,
   totalCount,
-  onItemCountChange,
+  onResultsPerPage,
 }) => {
   return (
     <div className="ticketoverview">
@@ -42,7 +42,7 @@ const TicketOverview = ({
       <div className="ticketoverview__results-per-page">
         <DropDown
           label={'Results per page'}
-          onClick={onItemCountChange}
+          onClick={onResultsPerPage}
           options={[4, 8, 12, 16, 'All']}
         />
       </div>

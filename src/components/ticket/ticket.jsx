@@ -84,10 +84,12 @@ const Ticket = ({ user, time }) => {
     setSearchQuery(query);
   };
 
-  const handleItemCountChange = (numberOfItems) => {
+  const handleResultsPerPage = (resultsPerPage) => {
     // update number of items per page
+    if (typeof resultsPerPage == 'string') resultsPerPage = Infinity;
+
     setCurrentPage(1);
-    setPageSize(numberOfItems);
+    setPageSize(resultsPerPage);
   };
 
   // Rendering
@@ -104,7 +106,7 @@ const Ticket = ({ user, time }) => {
               onSearch={handleSearch}
               onSort={handleSort}
               onClick={handleView}
-              onItemCountChange={handleItemCountChange}
+              onResultsPerPage={handleResultsPerPage}
               currentPage={currentPage}
               pageSize={pageSize}
               searchQuery={searchQuery}

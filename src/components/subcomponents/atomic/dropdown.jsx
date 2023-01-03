@@ -5,20 +5,11 @@ const DropDown = ({ label, onClick, options }) => {
     <div className="dropdown">
       <button className="button">{label}</button>
       <div className="dropdown__menu">
-        {options.map((option) => {
-          if (typeof option == 'string') {
-            label = option;
-            option = Infinity;
-          } else {
-            label = option;
-            option = option;
-          }
-          return (
-            <p key={option} onClick={() => onClick(option)}>
-              {label}
-            </p>
-          );
-        })}
+        {options.map((option) => (
+          <p key={option} onClick={() => onClick(option)}>
+            {option}
+          </p>
+        ))}
       </div>
     </div>
   );
