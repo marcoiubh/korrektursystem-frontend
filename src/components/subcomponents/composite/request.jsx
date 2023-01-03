@@ -1,6 +1,6 @@
 import React from 'react';
 import TextArea from '../atomic/textArea';
-import Input from '../atomic/input';
+import Label from '../atomic/label';
 import Timestamp from '../atomic/timestamp';
 import '../../../css/request.css';
 
@@ -16,22 +16,22 @@ const Request = ({ ticket }) => {
         <Timestamp property="date" obj={ticket} disabled={true} />
       </div>
       <div className="request__form__module">
-        <Input property="module" obj={ticket} disabled={true} />
+        <Label property="module" obj={ticket} />
       </div>
       <div className="request__form__title">
-        <Input property="title" obj={ticket} disabled={true} />
+        <Label property="title" obj={ticket} />
       </div>
       <div className="request__form__student">
-        <Input property="student" obj={ticket} disabled={true} />
+        <Label property="student" obj={ticket} />
       </div>
       <div className="request__form__comment">
-        <TextArea property="comment" obj={ticket} disabled={true} />
+        <TextArea property="comment" obj={ticket} />
       </div>
       <div className="request__form__type">
-        <Input property="type" obj={ticket} disabled={true} />
+        <Label property="type" obj={ticket} />
       </div>
       <div className="request__form__source">
-        <Input property="source" obj={ticket} disabled={true} />{' '}
+        <Label property="source" obj={ticket} />
       </div>
       <div className="request__form__history">
         <TextArea property="history" obj={ticket} />

@@ -1,6 +1,6 @@
 import React from 'react';
 import TextArea from '../atomic/textArea';
-import Input from '../atomic/input';
+import Label from '../atomic/label';
 import '../../../css/response.css';
 
 const Response = ({ ticket }) => {
@@ -15,10 +15,10 @@ const Response = ({ ticket }) => {
         <TextArea property="statement" obj={ticket} disabled={true} />
       </div>
       <div className="response__form__priority">
-        <Input property="priority" obj={ticket} disabled={true} />{' '}
+        <Label property="priority" obj={ticket} />
       </div>
       <div className="response__form__status">
-        <Input property="status" obj={ticket} disabled={true} />
+        <Label property="status" obj={ticket} />
       </div>
     </div>
   );
