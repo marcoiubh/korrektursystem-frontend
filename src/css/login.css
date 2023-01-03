@@ -46,6 +46,6 @@
 .login__form__button {
   grid-area: login__form__button;
   margin-top: 5px;
-  margin-left: 5px;
+  margin-left: 25px;
   width: 100px;
 }

@@ -81,7 +81,9 @@ const Login = () => {
           />
         </div>
 
-        <Button label="Login" color="login__form__button" />
+        <div className="login__form__button">
+          <Button label="Login" />
+        </div>
       </form>
     </div>
   );

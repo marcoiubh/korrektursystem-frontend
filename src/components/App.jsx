@@ -2,7 +2,6 @@ import { getCurrentUser } from '../services/authenticationService';
 import { Route, Routes } from 'react-router-dom';
 import Home from './home';
 import Login from './administration/login';
-import Logout from './administration/logout';
 import NavBar from './subcomponents/composite/navbar';
 import NewTicket from './ticket/newTicket';
 import React from 'react';
@@ -51,7 +50,6 @@ function App() {
           />
           <Route path="/new" element={<NewTicket user={user} />} />
           <Route path="/issue" element={<Issue />} />
-          <Route path="/logout" element={<Logout />} />
         </Routes>
       ) : (
         <Routes>

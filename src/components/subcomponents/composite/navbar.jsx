@@ -1,6 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import React from 'react';
 import '../../../css/navbar.css';
+import Button from '../atomic/button';
+import { deleteToken } from '../../../services/authenticationService';
 
 const NavBar = ({ user }) => {
   return (
@@ -17,9 +19,10 @@ const NavBar = ({ user }) => {
         <>
           <span className="navbar__ttl">{user.timeToLogout}</span>
           <span className="navbar__user">User: {user.email}</span>
-          <NavLink className="navbar__login" to="/logout">
-            Logout
-          </NavLink>
+
+          <div className="navbar__logout">
+            <Button label="Logout" onClick={deleteToken} />
+          </div>
         </>
       ) : (
         <NavLink className="navbar__login" to="/login">
