@@ -1,11 +1,11 @@
 import { getFormattedDate } from '../../../services/getFormattedTimestamp';
 import '../../../css/timestamp.css';
 
-const Timestamp = ({ property, obj, disabled, ...rest }) => {
+const Timestamp = ({ property, obj }) => {
   return (
     <div className="timestamp">
-      <div {...rest} className="timestamp__label">
-        <div className="timestamp__text-frame">{property}</div>
+      <div className="timestamp__label">
+        <span className="timestamp__text-frame">{property}</span>
       </div>
       <label id={property} className="timestamp__text">
         {getFormattedDate(obj[property])}

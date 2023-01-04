@@ -13,7 +13,7 @@ const Request = ({ ticket }) => {
     >
       <p className="request__form__heading">Student request</p>
       <div className="request__form__date">
-        <Timestamp property="date" obj={ticket} disabled={true} />
+        <Timestamp property="date" obj={ticket} />
       </div>
       <div className="request__form__module">
         <Label property="module" obj={ticket} />
