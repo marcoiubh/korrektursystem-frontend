@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Pagination from '../subcomponents/composite/Pagination';
-import RequestLabel from '../subcomponents/composite/RequestLabel';
-import ResponseForm from '../subcomponents/composite/ResponseForm';
+import Pagination from '../subcomponents/composite/pagination';
+import RequestLabel from '../subcomponents/composite/requestLabel';
+import ResponseForm from '../subcomponents/composite/responseForm';
 import { updateTicket } from '../../services/ticketService';
-import Button from '../subcomponents/atomic/Button';
+import Button from '../subcomponents/atomic/button';
 import { toast } from 'react-toastify';
 import { getFormattedDate } from '../../services/getFormattedTimestamp';
 import _ from 'lodash';
 import '../../css/ticketDetail.css';
-import ResponseLabel from '../subcomponents/composite/ResponseLabel';
+import ResponseLabel from '../subcomponents/composite/responseLabel';
 
 const TicketDetail = ({
   user,

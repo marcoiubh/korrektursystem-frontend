@@ -1,13 +1,13 @@
 import React from 'react';
-import InputForm from '../atomic/InputForm';
-import TextAreaForm from '../atomic/TextAreaForm';
-import Button from '../atomic/Button';
+import InputForm from '../atomic/inputForm';
+import TextAreaForm from '../atomic/textAreaForm';
+import Button from '../atomic/button';
 import config from '../../../config/config.json';
 
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { RequestSchema } from '../../../config/joiSchema';
-import SelectForm from '../atomic/SelectForm';
+import SelectForm from '../atomic/selectForm';
 
 import '../../../css/newTicket.css';
 

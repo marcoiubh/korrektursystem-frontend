@@ -1,7 +1,7 @@
 import React from 'react';
-import InputForm from '../atomic/InputForm';
-import TextAreaForm from '../atomic/TextAreaForm';
-import Button from '../atomic/Button';
+import InputForm from '../atomic/inputForm';
+import TextAreaForm from '../atomic/textAreaForm';
+import Button from '../atomic/button';
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { IssueSchema } from '../../../config/joiSchema';

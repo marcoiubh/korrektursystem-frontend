@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { sendEmail } from '../../services/emailService';
 import _ from 'lodash';
-import IssueForm from '../subcomponents/composite/IssueForm';
+import IssueForm from '../subcomponents/composite/issueForm';
 import '../../css/issue.css';
 
 const Issue = () => {

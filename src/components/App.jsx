@@ -1,16 +1,16 @@
 import { getCurrentUser } from '../services/authenticationService';
 import { Route, Routes } from 'react-router-dom';
-import Home from './Home';
-import Login from './administration/Login';
-import NavBar from './subcomponents/composite/Navbar';
-import NewTicket from './ticket/NewTicket';
+import Home from './home';
+import Login from './administration/login';
+import NavBar from './subcomponents/composite/navbar';
+import NewTicket from './ticket/newTicket';
 import React from 'react';
-import TicketController from './ticket/TicketController';
+import TicketController from './ticket/ticketController';
 import { toast, ToastContainer, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Issue from './administration/Issue';
-import Footer from './subcomponents/composite/Footer';
-import ExpiredSession from './administration/ExpiredSession';
+import Issue from './administration/issue';
+import Footer from './subcomponents/composite/footer';
+import ExpiredSession from './administration/expiredSession';
 import useRefresh from '../services/useRefresh';
 
 function App() {

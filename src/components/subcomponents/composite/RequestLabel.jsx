@@ -1,7 +1,7 @@
 import React from 'react';
-import TextAreaLabel from '../atomic/TextAreaLabel';
-import InputLabel from '../atomic/InputLabel';
-import TimeStampLabel from '../atomic/TimeStampLabel';
+import TextAreaLabel from '../atomic/textAreaLabel';
+import InputLabel from '../atomic/inputLabel';
+import TimeStampLabel from '../atomic/timeStampLabel';
 import '../../../css/request.css';
 
 const RequestLabel = ({ ticket }) => {

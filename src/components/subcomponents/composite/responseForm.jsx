@@ -3,9 +3,9 @@ import config from '../../../config/config.json';
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { ResponseSchema } from '../../../config/joiSchema';
-import TextAreaForm from '../atomic/TextAreaForm';
-import SelectForm from '../atomic/SelectForm';
-import Button from '../atomic/Button';
+import TextAreaForm from '../atomic/textAreaForm';
+import SelectForm from '../atomic/selectForm';
+import Button from '../atomic/button';
 import '../../../css/response.css';
 
 const ResponseForm = ({ ticket, onSave }) => {

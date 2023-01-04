@@ -1,10 +1,10 @@
-import Pagination from '../subcomponents/composite/Pagination';
+import Pagination from '../subcomponents/composite/pagination';
 import React from 'react';
-import SearchBox from '../subcomponents/atomic/SearchBox';
-import TicketTable from '../subcomponents/composite/TicketTable';
-import DropDown from '../subcomponents/atomic/DropDown';
+import SearchBox from '../subcomponents/atomic/searchBox';
+import TicketTable from '../subcomponents/composite/ticketTable';
+import DropDown from '../subcomponents/atomic/dropDown';
 import './ticketOverview.css';
-import Button from '../subcomponents/atomic/Button';
+import Button from '../subcomponents/atomic/button';
 
 const TicketOverview = ({
   user,
