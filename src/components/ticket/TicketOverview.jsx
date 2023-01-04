@@ -3,7 +3,7 @@ import React from 'react';
 import SearchBox from '../subcomponents/atomic/SearchBox';
 import TicketTable from '../subcomponents/composite/TicketTable';
 import DropDown from '../subcomponents/atomic/DropDown';
-import './ticketOverview.css';
+import '../../css/ticketOverview.css';
 import Button from '../subcomponents/atomic/Button';
 
 const TicketOverview = ({
