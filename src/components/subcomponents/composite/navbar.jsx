@@ -17,8 +17,8 @@ const NavBar = ({ user }) => {
 
       {user ? (
         <>
-          <span className="navbar__ttl">{user.timeToLogout}</span>
           <span className="navbar__user">User: {user.email}</span>
+          <span className="navbar__ttl">{user.timeToLogout}</span>
 
           <div className="navbar__logout">
             <Button label="Logout" onClick={deleteToken} />
