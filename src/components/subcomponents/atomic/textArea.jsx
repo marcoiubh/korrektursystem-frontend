@@ -4,7 +4,7 @@ const TextArea = ({ property, obj }) => {
   return (
     <div className="textArea">
       <div className="textArea__label">
-        <div className="textArea__text-frame">{property}</div>
+        <span className="textArea__text-frame">{property}</span>
       </div>
       <label id={property} className="textArea__text">
         {obj[property]}
