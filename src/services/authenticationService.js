@@ -5,14 +5,11 @@ const api = '/authentication/';
 const item = 'token';
 
 export const loginUser = async ({ email, password }) => {
-  // send credentials in post body -> no caching or logging possible
-  // using https is secure
   const response = await axios.post(api, {
     email,
     password,
   });
 
-  // access local storage of the browser
   localStorage.setItem(item, response.data);
   return response;
 };
