@@ -17,8 +17,10 @@ const TicketDetail = ({
   tickets,
   totalCount,
 }) => {
-  const [currentPage, setCurrentPage] = useState(1);
   const [ticket, _setTicket] = useState(propsticket);
+  const [currentPage, setCurrentPage] = useState(
+    tickets.map((t) => t._id).indexOf(ticket._id) + 1
+  );
   const ticketRef = useRef(ticket);
 
   const setTicket = (ticket) => {
@@ -35,16 +37,6 @@ const TicketDetail = ({
   };
 
   const navigate = useNavigate();
-  useEffect(() => {
-    const fetchData = async () => {
-      setCurrentPage(
-        // get index of the current ticket to determine page number
-        tickets.map((t) => t._id).indexOf(ticket._id) + 1
-      );
-    };
-
-    fetchData();
-  }, [tickets]);
 
   useEffect(() => {
     const updateReadStatus = async () => {
@@ -87,19 +79,15 @@ const TicketDetail = ({
     newTicket.readProfessor = true;
     newTicket.history.push(historyEntry());
 
-    await toast
-      .promise(updateTicket(newTicket), {
-        pending: 'Please wait...',
-        success: 'Changes has been saved.',
-        error: {
-          render({ data: error }) {
-            return error.response.data;
-          },
+    await toast.promise(updateTicket(newTicket), {
+      pending: 'Please wait...',
+      success: 'Changes has been saved.',
+      error: {
+        render({ data: error }) {
+          return error.response.data;
         },
-      })
-      .then(() => {
-        navigate('/ticket/overview');
-      });
+      },
+    });
   };
 
   // debounce save button to avoid multiple calls when clicking quickly
