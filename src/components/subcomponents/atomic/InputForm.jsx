@@ -1,6 +1,6 @@
 import '../../../css/input.css';
 
-const InputHook = ({
+const InputForm = ({
   property,
   obj,
   label_background,
@@ -37,4 +37,4 @@ const InputHook = ({
   );
 };
 
-export default InputHook;
+export default InputForm;

@@ -1,6 +1,6 @@
 import '../../../css/select.css';
 
-const SelectHook = ({
+const SelectForm = ({
   property,
   obj,
   options,
@@ -43,4 +43,4 @@ const SelectHook = ({
   );
 };
 
-export default SelectHook;
+export default SelectForm;

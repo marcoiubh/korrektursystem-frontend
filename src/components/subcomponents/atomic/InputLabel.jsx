@@ -1,6 +1,6 @@
 import '../../../css/input.css';
 
-const Label = ({ property, obj }) => {
+const InputLabel = ({ property, obj }) => {
   return (
     <div className="input">
       <div className="input__label">
@@ -13,4 +13,4 @@ const Label = ({ property, obj }) => {
   );
 };
 
-export default Label;
+export default InputLabel;

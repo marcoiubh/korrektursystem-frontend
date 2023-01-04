@@ -1,13 +1,13 @@
 import React from 'react';
-import InputHook from '../atomicHooks/InputHook';
-import TextAreaHook from '../atomicHooks/textAreaHook';
+import InputForm from '../atomic/InputForm';
+import TextAreaForm from '../atomic/TextAreaForm';
 import Button from '../atomic/button';
 import config from '../../../config/config.json';
 
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { NewTicketSchema } from '../../../config/joiSchema';
-import SelectHook from '../atomicHooks/SelectHook';
+import SelectForm from '../atomic/SelectForm';
 
 import '../../../css/newTicket.css';
 
@@ -34,7 +34,7 @@ const RequestForm = ({ ticket, onSave, onCancel }) => {
       </div>
       <div className="requestForm__form">
         <div className="requestForm__form__title">
-          <InputHook
+          <InputForm
             property="title"
             obj={ticket}
             register={register}
@@ -42,7 +42,7 @@ const RequestForm = ({ ticket, onSave, onCancel }) => {
           />
         </div>
         <div className="requestForm__form__module">
-          <SelectHook
+          <SelectForm
             property="module"
             obj={ticket}
             options={config.module}
@@ -51,7 +51,7 @@ const RequestForm = ({ ticket, onSave, onCancel }) => {
           />
         </div>
         <div className="requestForm__form__type">
-          <SelectHook
+          <SelectForm
             property="type"
             obj={ticket}
             options={config.type}
@@ -60,7 +60,7 @@ const RequestForm = ({ ticket, onSave, onCancel }) => {
           />
         </div>
         <div className="requestForm__form__source">
-          <SelectHook
+          <SelectForm
             property="source"
             obj={ticket}
             options={config.source}
@@ -69,7 +69,7 @@ const RequestForm = ({ ticket, onSave, onCancel }) => {
           />
         </div>
         <div className="requestForm__form__comment">
-          <TextAreaHook
+          <TextAreaForm
             property="comment"
             obj={ticket}
             register={register}

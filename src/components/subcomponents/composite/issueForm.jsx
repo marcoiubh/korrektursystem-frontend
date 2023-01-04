@@ -1,6 +1,6 @@
 import React from 'react';
-import InputHook from '../atomicHooks/InputHook';
-import TextAreaHook from '../atomicHooks/textAreaHook';
+import InputForm from '../atomic/InputForm';
+import TextAreaForm from '../atomic/TextAreaForm';
 import Button from '../atomic/button';
 
 import { useForm } from 'react-hook-form';
@@ -31,7 +31,7 @@ const IssueForm = ({ onSubmit }) => {
         <h1>Contact</h1>
       </div>
       <div className="issue__form__issue">
-        <InputHook
+        <InputForm
           property="title"
           obj=""
           register={register}
@@ -39,7 +39,7 @@ const IssueForm = ({ onSubmit }) => {
         />
       </div>
       <div className="issue__form__description">
-        <TextAreaHook
+        <TextAreaForm
           property="description"
           obj=""
           register={register}

@@ -1,6 +1,6 @@
 import '../../../css/textArea.css';
 
-const TextAreaHook = ({
+const TextAreaForm = ({
   property,
   obj,
   text_background,
@@ -11,7 +11,11 @@ const TextAreaHook = ({
   return (
     <div className="textArea">
       <div
-        className={errors[property] ? 'textArea__error' : 'textArea__error--no-error'}
+        className={
+          errors[property]
+            ? 'textArea__error'
+            : 'textArea__error--no-error'
+        }
       >
         {errors[property]?.message}
       </div>
@@ -35,4 +39,4 @@ const TextAreaHook = ({
   );
 };
 
-export default TextAreaHook;
+export default TextAreaForm;

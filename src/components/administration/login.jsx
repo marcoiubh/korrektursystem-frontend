@@ -2,7 +2,7 @@ import { loginUser } from '../../services/authenticationService';
 import { useForm } from 'react-hook-form';
 import React, { useState } from 'react';
 import { joiResolver } from '@hookform/resolvers/joi';
-import InputHook from '../subcomponents/atomicHooks/InputHook';
+import InputForm from '../subcomponents/atomic/InputForm';
 import Button from '../subcomponents/atomic/button';
 import { LoginSchema } from '../../config/joiSchema';
 import ShowPassword from '../subcomponents/atomic/showPassword';
@@ -58,7 +58,7 @@ const Login = () => {
           <h1>Login</h1>
         </div>
         <div className="login__form__username">
-          <InputHook
+          <InputForm
             property="email"
             obj=""
             register={register}
@@ -66,7 +66,7 @@ const Login = () => {
           />
         </div>
         <div className="login__form__password">
-          <InputHook
+          <InputForm
             property="password"
             obj=""
             type={showPassword ? 'text' : 'password'}

@@ -1,6 +1,6 @@
 import '../../../css/textArea.css';
 
-const TextArea = ({ property, obj }) => {
+const TextAreaLabel = ({ property, obj }) => {
   return (
     <div className="textArea">
       <div className="textArea__label">
@@ -13,4 +13,4 @@ const TextArea = ({ property, obj }) => {
   );
 };
 
-export default TextArea;
+export default TextAreaLabel;

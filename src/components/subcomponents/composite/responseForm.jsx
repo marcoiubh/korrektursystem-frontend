@@ -3,8 +3,8 @@ import config from '../../../config/config.json';
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { ResponseSchema } from '../../../config/joiSchema';
-import TextAreaHook from '../atomicHooks/textAreaHook';
-import SelectHook from '../atomicHooks/SelectHook';
+import TextAreaForm from '../atomic/TextAreaForm';
+import SelectForm from '../atomic/SelectForm';
 import Button from '../atomic/button';
 import '../../../css/response.css';
 
@@ -41,7 +41,7 @@ const ResponseForm = ({ ticket, onSave }) => {
       <p className="response__form__heading">Professor response</p>
 
       <div className="response__form__priority">
-        <SelectHook
+        <SelectForm
           property="priority"
           obj={ticket}
           options={config.priority}
@@ -50,7 +50,7 @@ const ResponseForm = ({ ticket, onSave }) => {
         />
       </div>
       <div className="response__form__status">
-        <SelectHook
+        <SelectForm
           property="status"
           obj={ticket}
           options={config.status}
@@ -59,7 +59,7 @@ const ResponseForm = ({ ticket, onSave }) => {
         />
       </div>
       <div className="response__form__statement">
-        <TextAreaHook
+        <TextAreaForm
           property="statement"
           obj={ticket}
           register={register}
