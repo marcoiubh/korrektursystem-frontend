@@ -6,7 +6,6 @@ const Footer = () => {
   return (
     <div className="footer">
       <span className="footer__copyright">
-        {/* Impressum Datenschutzerklärung Login für IU Mitarbeiter */}
         Copyright © 2022 IU Internationale Hochschule - All rights
         reserved
       </span>
