@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import TicketOverview from './ticketOverview';
 import TicketDetail from './ticketDetail';
@@ -25,7 +25,7 @@ const Ticket = ({ user, time }) => {
   const [sortColumn, setSortColumn] = useState(config.sortColumn);
   const [tickets, setTickets] = useState([{ mark: false }]);
   const [pagedTicketsOnly, setPagedTicketsOnly] = useState([]);
-  const [ticket, setTicket] = useState([]);
+  const [ticket, _setTicket] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
 
   const navigate = useNavigate();
@@ -58,15 +58,14 @@ const Ticket = ({ user, time }) => {
     };
 
     prepareTickets();
-  }, [
-    time,
-    user,
-    ticket,
-    currentDetailPage,
-    pageSize,
-    sortColumn,
-    searchQuery,
-  ]);
+  }, [time, currentPage, pageSize, sortColumn, searchQuery]);
+
+  const ticketRef = useRef(ticket);
+
+  const setTicket = (ticket) => {
+    ticketRef.current = ticket;
+    _setTicket(ticket);
+  };
 
   let historyEntry = () => {
     return `____________________________________________________________________________________________________________\n  
@@ -83,6 +82,7 @@ const Ticket = ({ user, time }) => {
       // get index of the current ticket to determine page number
       tickets.map((t) => t._id).indexOf(ticket._id) + 1
     );
+    updateReadStatus(ticket);
     navigate(`/ticket/detail`);
   };
 
@@ -118,33 +118,32 @@ const Ticket = ({ user, time }) => {
   const handleDetailPageChange = (page) => {
     setCurrentDetailPage(page);
     setTicket(tickets[page - 1]);
+    updateReadStatus(ticketRef.current);
   };
 
-  const handleSave = async (updates) => {
-    console.log('udates', updates);
+  const handleSave = async (update) => {
     // copy new value into existing values
-    const ticketCopy = Object.assign(ticket, updates);
-    console.log(ticketCopy);
+    const ticketCopy = {
+      ...ticketRef.current,
+      ...update,
+    };
     ticketCopy.date = Date.now();
 
     // updated ticket has not been read by the student
     ticketCopy.readStudent = false;
     ticketCopy.readProfessor = true;
 
-    // ticketCopy.history.push(historyEntry());
-    // setTicket(ticketCopy);
+    ticketCopy.history.push(historyEntry());
 
-    await toast
-      .promise(updateTicket(ticketCopy), {
-        pending: 'Please wait...',
-        success: 'Changes has been saved.',
-        error: {
-          render({ data: error }) {
-            return error.response.data;
-          },
+    await toast.promise(updateTicket(ticketCopy), {
+      pending: 'Please wait...',
+      success: 'Changes has been saved.',
+      error: {
+        render({ data: error }) {
+          return error.response.data;
         },
-      })
-      .then(() => {});
+      },
+    });
   };
 
   // debounce save button to avoid multiple calls when clicking quickly
@@ -158,24 +157,21 @@ const Ticket = ({ user, time }) => {
     []
   );
 
-  // console.log(currentDetailPage);
-  // useEffect(() => {
-  //   const updateReadStatus = async () => {
-  //     const ticketCopy = { ...ticket };
+  const updateReadStatus = async (ticket) => {
+    if (!ticket.title) window.location = '/ticket/overview';
+    const ticketCopy = { ...ticket };
 
-  //     if (user.role === 'student') ticketCopy.readStudent = true;
-  //     else if (user.role === 'professor')
-  //       ticketCopy.readProfessor = true;
+    if (user.role === 'student') ticketCopy.readStudent = true;
+    else if (user.role === 'professor')
+      ticketCopy.readProfessor = true;
 
-  //     try {
-  //       await updateTicket(ticketCopy);
-  //     } catch (error) {
-  //       toast.error('An error occured.');
-  //     }
-  //   };
-  //   if (!ticket.title) window.location = '/ticket/overview';
-  //   else updateReadStatus();
-  // }, [ticket]);
+    try {
+      await updateTicket(ticketCopy);
+    } catch (error) {
+      toast.error('An error occured.');
+    }
+  };
+
   // Rendering
   return (
     <>
