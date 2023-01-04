@@ -89,9 +89,9 @@ const Pagination = ({
       )}
 
       <div className="pagination__button">
-        {pages.map((page, index) => (
+        {pages.map((page) => (
           <PageButton
-            key={index}
+            key={page}
             page={page}
             currentPage={currentPage}
             onClick={onPageChange}
