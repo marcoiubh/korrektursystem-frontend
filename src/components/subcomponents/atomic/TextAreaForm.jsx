@@ -3,7 +3,6 @@ import '../../../css/textArea.css';
 const TextAreaForm = ({
   property,
   obj,
-  text_background,
   register,
   errors,
   ...rest
@@ -30,10 +29,7 @@ const TextAreaForm = ({
         id={property}
         defaultValue={obj[property]}
         {...register(property)}
-        className={`textArea__text ${
-          errors[property] ? 'is-invalid' : ''
-        }`}
-        rows="4"
+        className="textArea__text"
       />
     </div>
   );
