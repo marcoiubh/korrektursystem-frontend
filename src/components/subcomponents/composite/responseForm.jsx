@@ -12,8 +12,7 @@ const ResponseForm = ({ ticket, onSave }) => {
   const {
     register,
     handleSubmit,
-    setValue,
-    clearErrors,
+    reset,
     formState: { errors },
   } = useForm({
     mode: 'onChange',
@@ -21,11 +20,12 @@ const ResponseForm = ({ ticket, onSave }) => {
   });
 
   useEffect(() => {
-    setValue('statement', ticket.statement);
-    setValue('priority', ticket.priority);
-    setValue('status', ticket.status);
-    clearErrors();
-  }, [setValue, clearErrors, ticket]);
+    let defaultValues = {};
+    defaultValues.statement = ticket.statement;
+    defaultValues.priority = ticket.priority;
+    defaultValues.status = ticket.status;
+    reset({ ...defaultValues });
+  }, [ticket]);
 
   const onError = () => {
     console.error(errors);
