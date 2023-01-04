@@ -1,14 +1,6 @@
 import '../../../css/input.css';
 
-const InputForm = ({
-  property,
-  obj,
-  label_background,
-  text_background,
-  register,
-  errors,
-  ...rest
-}) => {
+const InputForm = ({ property, obj, register, errors, ...rest }) => {
   return (
     <div className="input">
       <div
@@ -27,11 +19,9 @@ const InputForm = ({
         {...rest}
         name={property}
         id={property}
-        defaultValue={obj[property]}
+        value={obj[property]}
         {...register(property)}
-        className={`input__text ${
-          errors[property] ? 'is-invalid' : ''
-        }`}
+        className="input__text"
       />
     </div>
   );

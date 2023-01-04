@@ -43,5 +43,5 @@ input:-webkit-autofill:focus {
 }
 
 .input__error--no-error {
-  height: 17px;
+  height: 15px;
 }
