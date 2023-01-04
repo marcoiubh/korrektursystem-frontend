@@ -6,7 +6,7 @@ import config from '../../../config/config.json';
 
 import { useForm } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
-import { NewTicketSchema } from '../../../config/joiSchema';
+import { RequestSchema } from '../../../config/joiSchema';
 import SelectForm from '../atomic/SelectForm';
 
 import '../../../css/newTicket.css';
@@ -18,7 +18,7 @@ const RequestForm = ({ ticket, onSave, onCancel }) => {
     formState: { errors },
   } = useForm({
     mode: 'onChange',
-    resolver: joiResolver(NewTicketSchema),
+    resolver: joiResolver(RequestSchema),
   });
 
   const onErrors = (error) => {

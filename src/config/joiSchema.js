@@ -44,7 +44,7 @@ const ResponseSchema = Joi.object({
     }),
 });
 
-const NewTicketSchema = Joi.object({
+const RequestSchema = Joi.object({
   source: Joi.required()
     .valid(...config.source)
     .messages({
@@ -72,4 +72,4 @@ const NewTicketSchema = Joi.object({
     .messages({ 'string.empty': 'This is a required field' }),
 });
 
-export { LoginSchema, IssueSchema, ResponseSchema, NewTicketSchema };
+export { LoginSchema, IssueSchema, ResponseSchema, RequestSchema };
