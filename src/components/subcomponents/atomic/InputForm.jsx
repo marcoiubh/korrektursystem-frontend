@@ -19,7 +19,7 @@ const InputForm = ({ property, obj, register, errors, ...rest }) => {
         {...rest}
         name={property}
         id={property}
-        value={obj[property]}
+        defaultValue={obj[property]}
         {...register(property)}
         className="input__text"
       />

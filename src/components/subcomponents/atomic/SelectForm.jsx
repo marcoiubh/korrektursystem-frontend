@@ -28,7 +28,7 @@ const SelectForm = ({
         {...rest}
         name={property}
         id={property}
-        value={obj[property]}
+        defaultValue={obj[property]}
         {...register(property)}
         className="select__text"
       >
