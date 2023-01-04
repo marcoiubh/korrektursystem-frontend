@@ -4,26 +4,8 @@ import SortIconDown from './sortIconDown';
 import SortIconUp from './sortIconUp';
 
 const TableHeader = ({ propertyList, sortColumn, onSort }) => {
-  const raiseSort = (name) => {
-    // ignore view button column
-    if (!name) return null;
-    // shallow copy of sortColumn object
-    const newSortColumn = { ...sortColumn };
-    // if the same column was pressed, change orientation
-    if (newSortColumn.property === name)
-      newSortColumn.order =
-        sortColumn.order === 'asc' ? 'desc' : 'asc';
-    // change sortColumn otherwise
-    else {
-      newSortColumn.property = name;
-      newSortColumn.order = 'asc';
-    }
-    // finally call onSort event
-    onSort(newSortColumn);
-  };
-
-  const renderSortIcon = (name) => {
-    if (name !== sortColumn.property) return null;
+  const renderSortIcon = (property) => {
+    if (property !== sortColumn.property) return null;
     if (sortColumn.order === 'asc') return <SortIconUp />;
     return <SortIconDown />;
   };
@@ -31,14 +13,14 @@ const TableHeader = ({ propertyList, sortColumn, onSort }) => {
   return (
     <thead>
       <tr>
-        {propertyList.map((name, index) => (
+        {propertyList.map((property, index) => (
           <th
-            className={`table__header ${name}`}
+            className={`table__header ${property}`}
             key={index}
-            onClick={() => raiseSort(name)}
+            onClick={() => onSort(property)}
           >
-            {name}
-            {renderSortIcon(name)}
+            {property}
+            {renderSortIcon(property)}
           </th>
         ))}
       </tr>

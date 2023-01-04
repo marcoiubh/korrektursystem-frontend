@@ -71,8 +71,19 @@ const Ticket = ({ user, time }) => {
     navigate(`/new`);
   };
 
-  const handleSort = (sortColumn) => {
-    setSortColumn(sortColumn);
+  const handleSort = (property) => {
+    // shallow copy of sortColumn object
+    const newSortColumn = { ...sortColumn };
+    // if the same column was pressed, change orientation
+    if (newSortColumn.property === property)
+      newSortColumn.order =
+        sortColumn.order === 'asc' ? 'desc' : 'asc';
+    // change sortColumn otherwise
+    else {
+      newSortColumn.property = property;
+      newSortColumn.order = 'asc';
+    }
+    setSortColumn(newSortColumn);
   };
 
   const handlePageChange = (page) => {
