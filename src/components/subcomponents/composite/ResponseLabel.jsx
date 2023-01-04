@@ -1,6 +1,6 @@
 import React from 'react';
-import TextAreaLabel from '../atomic/textAreaLabel';
-import InputLabel from '../atomic/inputLabel';
+import TextAreaLabel from '../atomic/TextAreaLabel';
+import InputLabel from '../atomic/InputLabel';
 import '../../../css/response.css';
 
 const ResponseLabel = ({ ticket }) => {
