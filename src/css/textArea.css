@@ -1,6 +1,7 @@
 .textArea {
   border-bottom: 1px solid var(--text-bright);
   font-size: 13px;
+  min-height: 100px;
 }
 
 .textArea:focus-within label {

@@ -12,7 +12,7 @@ const Response = ({ ticket }) => {
     >
       <p className="response__form__heading">Professor response</p>
       <div className="response__form__statement">
-        <TextArea property="statement" obj={ticket} disabled={true} />
+        <TextArea property="statement" obj={ticket} />
       </div>
       <div className="response__form__priority">
         <Label property="priority" obj={ticket} />

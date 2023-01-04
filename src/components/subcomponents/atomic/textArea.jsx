@@ -1,6 +1,6 @@
 import '../../../css/textArea.css';
 
-const TextArea = ({ property, obj, disabled, ...rest }) => {
+const TextArea = ({ property, obj }) => {
   return (
     <div className="textArea">
       <div className="textArea__label">
