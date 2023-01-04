@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Pagination from '../subcomponents/composite/Pagination';
 import RequestLabel from '../subcomponents/composite/RequestLabel';
@@ -18,7 +18,14 @@ const TicketDetail = ({
   totalCount,
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [ticket, setTicket] = useState(propsticket);
+  const [ticket, _setTicket] = useState(propsticket);
+  const ticketRef = useRef(ticket);
+
+  const setTicket = (ticket) => {
+    ticketRef.current = ticket;
+    _setTicket(ticket);
+  };
+
   let historyEntry = () => {
     return `____________________________________________________________________________________________________________\n  
     ${getFormattedDate(Date.now())} : ${user.email} - ${
@@ -37,7 +44,7 @@ const TicketDetail = ({
     };
 
     fetchData();
-  }, [ticket, tickets, currentPage]);
+  }, [tickets]);
 
   useEffect(() => {
     const updateReadStatus = async () => {
@@ -66,26 +73,33 @@ const TicketDetail = ({
     navigate('/ticket/overview');
   };
 
-  const handleSave = async (updates) => {
+  const handleSave = async (update) => {
     // copy new value into existing values
-    const ticketCopy = Object.assign(ticket, updates);
-    ticketCopy.date = Date.now();
+    const newTicket = {
+      // useRef makes it possible to access state within the handler
+      ...ticketRef.current,
+      ...update,
+    };
 
+    newTicket.date = Date.now();
     // updated ticket has not been read by the student
-    ticketCopy.readStudent = false;
-    ticketCopy.readProfessor = true;
+    newTicket.readStudent = false;
+    newTicket.readProfessor = true;
+    newTicket.history.push(historyEntry());
 
-    ticketCopy.history.push(historyEntry());
-
-    await toast.promise(updateTicket(ticketCopy), {
-      pending: 'Please wait...',
-      success: 'Changes has been saved.',
-      error: {
-        render({ data: error }) {
-          return error.response.data;
+    await toast
+      .promise(updateTicket(newTicket), {
+        pending: 'Please wait...',
+        success: 'Changes has been saved.',
+        error: {
+          render({ data: error }) {
+            return error.response.data;
+          },
         },
-      },
-    });
+      })
+      .then(() => {
+        navigate('/ticket/overview');
+      });
   };
 
   // debounce save button to avoid multiple calls when clicking quickly
