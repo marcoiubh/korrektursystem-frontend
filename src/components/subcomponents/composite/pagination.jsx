@@ -41,8 +41,7 @@ const Pagination = ({
       else if (numberOfPages < 4) {
         setBoundaries(1, numberOfPages + 1);
       }
-      // more than maxPageButton pages
-      // page = 1
+      // more than 3 pages
       else {
         if (currentPage <= 2) {
           setBoundaries(1 + offset, 4 + offset);
