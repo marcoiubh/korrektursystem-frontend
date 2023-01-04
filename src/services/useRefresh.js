@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react';
 
 export default function useRefresh() {
-  const [time, setTime] = useState(Date.now());
+  const [time, setTime] = useState(0);
 
-  // auto refresh every 2 seconds
+  // auto refresh every second
   useEffect(() => {
-    const interval = setInterval(() => setTime(Date.now()), 1000);
+    const interval = setInterval(
+      () => setTime((prevTime) => prevTime + 1),
+      1000
+    );
     return () => {
       clearInterval(interval);
     };
   });
-  return [time, setTime];
+  return time;
 }
