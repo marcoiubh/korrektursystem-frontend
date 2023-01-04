@@ -1,7 +1,7 @@
 # TODO
 
-- custom http errors (mail could not be sent)
-- get error message before heading back to login (401)
+- fix: update ticket
+-
 
 // done
 
