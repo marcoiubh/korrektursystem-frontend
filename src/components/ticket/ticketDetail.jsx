@@ -8,6 +8,7 @@ import Response from '../subcomponents/composite/response';
 const TicketDetail = ({
   user,
   ticket,
+  setTicket,
   totalCount,
   onOverview,
   onPageChange,
@@ -38,7 +39,11 @@ const TicketDetail = ({
 
       {user.role === 'professor' ? (
         <div className="response">
-          <ResponseForm ticket={ticket} onSave={onSave} />
+          <ResponseForm
+            ticket={ticket}
+            onSave={onSave}
+            setTicket={setTicket}
+          />
         </div>
       ) : (
         <div className="response">

@@ -58,7 +58,15 @@ const Ticket = ({ user, time }) => {
     };
 
     prepareTickets();
-  }, [time, user, ticket, pageSize, sortColumn, searchQuery]);
+  }, [
+    time,
+    user,
+    ticket,
+    currentDetailPage,
+    pageSize,
+    sortColumn,
+    searchQuery,
+  ]);
 
   let historyEntry = () => {
     return `____________________________________________________________________________________________________________\n  
@@ -113,6 +121,7 @@ const Ticket = ({ user, time }) => {
   };
 
   const handleSave = async (updates) => {
+    console.log('udates', updates);
     // copy new value into existing values
     const ticketCopy = Object.assign(ticket, updates);
     console.log(ticketCopy);
@@ -203,6 +212,7 @@ const Ticket = ({ user, time }) => {
               onPageChange={handleDetailPageChange}
               currentDetailPage={currentDetailPage}
               onSave={debouncedHandleSave}
+              setTicket={setTicket}
             />
           }
         />

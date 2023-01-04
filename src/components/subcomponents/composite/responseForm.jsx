@@ -8,7 +8,7 @@ import SelectHook from '../atomicHooks/SelectHook';
 import Button from '../atomic/button';
 import '../../../css/response.css';
 
-const ResponseForm = ({ ticket, onSave }) => {
+const ResponseForm = ({ ticket, setTicket, onSave }) => {
   const {
     register,
     handleSubmit,
@@ -36,7 +36,7 @@ const ResponseForm = ({ ticket, onSave }) => {
       className={`response__form ${
         ticket.mark ? 'ticketDetail__mark' : null
       }`}
-      onSubmit={handleSubmit(onSave, onError)}
+      onSubmit={handleSubmit(() => setTicket(ticket))}
     >
       <p className="response__form__heading">Professor response</p>
 
