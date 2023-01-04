@@ -11,7 +11,7 @@ import React, { useEffect } from 'react';
 import Ticket from './ticket/ticket';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Contact from './administration/Contact.jsx';
+import Contact from './administration/contact';
 import Footer from './subcomponents/composite/footer';
 import ExpiredSession from './administration/expiredSession';
 import useRefresh from '../services/useRefresh';
