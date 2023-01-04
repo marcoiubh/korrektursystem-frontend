@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../../css/table.css';
-import SortIconDown from './sortIconDown';
-import SortIconUp from './sortIconUp';
+import SortIconDown from './SortIconDown';
+import SortIconUp from './SortIconUp';
 
 const TableHeader = ({ propertyList, sortColumn, onSort }) => {
   const renderSortIcon = (property) => {

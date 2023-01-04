@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import React from 'react';
 import '../../../css/navbar.css';
-import Button from '../atomic/button';
+import Button from '../atomic/Button';
 import { deleteToken } from '../../../services/authenticationService';
 
 const NavBar = ({ user }) => {

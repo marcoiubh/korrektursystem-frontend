@@ -1,6 +1,6 @@
 import React from 'react';
-import TableBody from '../atomic/tableBody';
-import TableHeader from '../atomic/tableHeader.jsx';
+import TableBody from '../atomic/TableBody';
+import TableHeader from '../atomic/TableHeader.jsx';
 import '../../../css/table.css';
 
 const Table = ({

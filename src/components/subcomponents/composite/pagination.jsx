@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import React, { useState, useEffect } from 'react';
-import PageButton from '../atomic/pageButton';
+import PageButton from '../atomic/PageButton';
 import '../../../css/pagination.css';
 
 const Pagination = ({

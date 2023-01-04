@@ -1,5 +1,5 @@
 import React from 'react';
-import Table from './table';
+import Table from './Table';
 import config from '../../../config/config.json';
 
 const TicketTable = ({

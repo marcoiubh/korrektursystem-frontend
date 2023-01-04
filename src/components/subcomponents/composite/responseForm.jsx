@@ -5,7 +5,7 @@ import { joiResolver } from '@hookform/resolvers/joi';
 import { ResponseSchema } from '../../../config/joiSchema';
 import TextAreaForm from '../atomic/TextAreaForm';
 import SelectForm from '../atomic/SelectForm';
-import Button from '../atomic/button';
+import Button from '../atomic/Button';
 import '../../../css/response.css';
 
 const ResponseForm = ({ ticket, onSave }) => {

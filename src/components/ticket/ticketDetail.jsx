@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Pagination from '../subcomponents/composite/pagination';
-import Request from '../subcomponents/composite/request';
-import ResponseForm from '../subcomponents/composite/responseForm';
+import Pagination from '../subcomponents/composite/Pagination';
+import RequestLabel from '../subcomponents/composite/RequestLabel';
+import ResponseForm from '../subcomponents/composite/ResponseForm';
 import { updateTicket } from '../../services/ticketService';
-import Button from '../subcomponents/atomic/button';
+import Button from '../subcomponents/atomic/Button';
 import { toast } from 'react-toastify';
 import { getFormattedDate } from '../../services/getFormattedTimestamp';
 import _ from 'lodash';
 import '../../css/ticketDetail.css';
-import Response from '../subcomponents/composite/response';
+import ResponseLabel from '../subcomponents/composite/ResponseLabel';
 
 const TicketDetail = ({
   user,
@@ -120,7 +120,7 @@ const TicketDetail = ({
       </p>
 
       <div className="request">
-        <Request ticket={ticket} />
+        <RequestLabel ticket={ticket} />
       </div>
 
       {user.role === 'professor' ? (
@@ -132,7 +132,7 @@ const TicketDetail = ({
         </div>
       ) : (
         <div className="response">
-          <Response ticket={ticket} />
+          <ResponseLabel ticket={ticket} />
         </div>
       )}
     </div>

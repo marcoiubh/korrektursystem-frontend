@@ -4,7 +4,7 @@ import InputLabel from '../atomic/InputLabel';
 import TimestampLabel from '../atomic/TimestampLabel';
 import '../../../css/request.css';
 
-const Request = ({ ticket }) => {
+const RequestLabel = ({ ticket }) => {
   return (
     <div
       className={`request__form ${
@@ -40,4 +40,4 @@ const Request = ({ ticket }) => {
   );
 };
 
-export default Request;
+export default RequestLabel;

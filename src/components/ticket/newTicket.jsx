@@ -4,7 +4,7 @@ import React, { useMemo } from 'react';
 import { toast } from 'react-toastify';
 import { getFormattedDate } from '../../services/getFormattedTimestamp';
 import _ from 'lodash';
-import RequestForm from '../subcomponents/composite/requestForm';
+import RequestForm from '../subcomponents/composite/RequestForm';
 
 const NewTicket = ({ user }) => {
   let ticket = {};

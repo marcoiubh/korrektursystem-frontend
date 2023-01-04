@@ -3,7 +3,7 @@ import TextAreaLabel from '../atomic/TextAreaLabel';
 import InputLabel from '../atomic/InputLabel';
 import '../../../css/response.css';
 
-const Response = ({ ticket }) => {
+const ResponseLabel = ({ ticket }) => {
   return (
     <div
       className={`response__form ${
@@ -24,4 +24,4 @@ const Response = ({ ticket }) => {
   );
 };
 
-export default Response;
+export default ResponseLabel;
