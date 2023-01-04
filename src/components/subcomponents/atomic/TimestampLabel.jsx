@@ -1,7 +1,7 @@
 import { getFormattedDate } from '../../../services/getFormattedTimestamp';
 import '../../../css/timestamp.css';
 
-const TimestampLabel = ({ property, obj }) => {
+const TimeStampLabel = ({ property, obj }) => {
   return (
     <div className="timestamp">
       <div className="timestamp__label">
@@ -14,4 +14,4 @@ const TimestampLabel = ({ property, obj }) => {
   );
 };
 
-export default TimestampLabel;
+export default TimeStampLabel;

@@ -1,7 +1,7 @@
 import React from 'react';
 import TextAreaLabel from '../atomic/TextAreaLabel';
 import InputLabel from '../atomic/InputLabel';
-import TimestampLabel from '../atomic/TimestampLabel';
+import TimeStampLabel from '../atomic/TimeStampLabel';
 import '../../../css/request.css';
 
 const RequestLabel = ({ ticket }) => {
@@ -13,7 +13,7 @@ const RequestLabel = ({ ticket }) => {
     >
       <p className="request__form__heading">Student request</p>
       <div className="request__form__date">
-        <TimestampLabel property="date" obj={ticket} />
+        <TimeStampLabel property="date" obj={ticket} />
       </div>
       <div className="request__form__module">
         <InputLabel property="module" obj={ticket} />
