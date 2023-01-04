@@ -28,11 +28,9 @@ const SelectForm = ({
         {...rest}
         name={property}
         id={property}
-        defaultValue={obj[property]}
+        value={obj[property]}
         {...register(property)}
-        className={`select__text ${
-          errors[property] ? 'is-invalid' : ''
-        }`}
+        className="select__text"
       >
         <option></option>
         {options.map((option) => (
