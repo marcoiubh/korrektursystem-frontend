@@ -21,7 +21,6 @@ h1 {
 }
 
 .container {
-  --toastify-color-dark: var(--panel);
   color: var(--text-bright);
   min-height: 100vh;
   min-width: 100%;
@@ -35,6 +34,7 @@ h1 {
 }
 
 .Toastify__toast-container--top-right {
+  --toastify-color-dark: var(--panel);
   position: fixed !important;
   top: 55px !important;
 }
