@@ -5,7 +5,7 @@ import Login from './administration/login';
 import NavBar from './subcomponents/composite/navbar';
 import NewTicket from './ticket/newTicket';
 import React from 'react';
-import TicketController from './ticket/ticketController';
+import TicketController from './ticket/ticketcontroller';
 import { toast, ToastContainer, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Issue from './administration/issue';
