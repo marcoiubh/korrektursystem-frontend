@@ -1,6 +1,6 @@
 import { getCurrentUser } from '../services/authenticationService';
 import { Route, Routes } from 'react-router-dom';
-import Home from './Home';
+import Home from './home';
 import Login from './administration/Login';
 import NavBar from './subcomponents/composite/Navbar';
 import NewTicket from './ticket/NewTicket';

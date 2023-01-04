@@ -7,7 +7,7 @@ import { paginate } from '../../services/paginate';
 import { getTickets } from '../../services/ticketService';
 import { search } from '../../services/search';
 import { sort } from '../../services/sort';
-import Home from '../Home';
+import Home from '../home';
 import { toast } from 'react-toastify';
 import { quitSession } from '../../services/authenticationService';
 import { markNewTickets } from '../../services/markNewTickets';
