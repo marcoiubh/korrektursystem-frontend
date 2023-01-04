@@ -1,8 +1,4 @@
 {
-  "credentials": {
-    "email": "",
-    "password": ""
-  },
   "dateFormat": "lll",
   "timeFormat": "mm:ss",
   "module": [
