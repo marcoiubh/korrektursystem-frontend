@@ -29,10 +29,7 @@ export function sortBasedOnArray(data, sortArray, property, order) {
   });
 
   // sort array based on numerical values
-  data.sort(function (a, b) {
-    if (order === 'asc') return b[property] - a[property];
-    else return a[property] - b[property];
-  });
+  data = _.orderBy(data, property, order);
 
   // convert numerical values back to strings
   data.forEach((i) => {
