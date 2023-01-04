@@ -4,12 +4,9 @@ import '../../../css/table.css';
 import { getFormattedDate } from '../../../services/getFormattedTimestamp';
 
 const TableBody = ({ records, propertyList, onClick }) => {
-  // conditional statement to render buttons
-  // column.content is a function that returns a component
   const renderCell = (record, property) => {
     // if (property.content) return property.content(record);
-    if (property === 'date')
-      return getFormattedDate(record.date);
+    if (property === 'date') return getFormattedDate(record.date);
     // lodash get method returns single records column by column
     return _.get(record, property);
   };
