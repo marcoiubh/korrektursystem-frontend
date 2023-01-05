@@ -28,14 +28,6 @@ const TicketDetail = ({
     _setTicket(ticket);
   };
 
-  let historyEntry = () => {
-    return `____________________________________________________________________________________________________________\n  
-    ${getFormattedDate(Date.now())} : ${user.email} - ${
-      ticket.status
-    } 
-    ${ticket.statement}\n`;
-  };
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -72,11 +64,19 @@ const TicketDetail = ({
       ...ticketRef.current,
       ...update,
     };
-
     newTicket.date = Date.now();
     // updated ticket has not been read by the student
     newTicket.readStudent = false;
     newTicket.readProfessor = true;
+
+    let historyEntry = () => {
+      return `____________________________________________________________________________________________________________\n  
+      ${getFormattedDate(Date.now())} : ${user.email} - ${
+        newTicket.status
+      } 
+      ${newTicket.statement}\n`;
+    };
+
     newTicket.history.push(historyEntry());
 
     await toast.promise(updateTicket(newTicket), {
