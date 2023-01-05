@@ -81,7 +81,7 @@ const TicketDetail = ({
 
     await toast.promise(updateTicket(newTicket), {
       pending: 'Please wait...',
-      success: 'Changes has been saved.',
+      success: 'Changes have been saved.',
       error: {
         render({ data: error }) {
           return error.response.data;
