@@ -44,7 +44,7 @@ const Login = () => {
         },
       })
       .then(() => {
-        navigate('/ticket/overview');
+        navigate('/');
       });
   };
 
