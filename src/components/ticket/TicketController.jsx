@@ -96,7 +96,6 @@ const Ticket = ({ user, time }) => {
   };
 
   const handleResultsPerPage = (resultsPerPage) => {
-    // update number of items per page
     if (typeof resultsPerPage == 'string') resultsPerPage = Infinity;
 
     setCurrentPage(1);
