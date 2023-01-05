@@ -1,6 +1,5 @@
 import { getCurrentUser } from '../services/authenticationService';
-import { Route, Routes } from 'react-router-dom';
-import Home from './Home';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Login from './administration/Login';
 import NavBar from './subcomponents/composite/Navbar';
 import NewTicket from './ticket/NewTicket';
@@ -42,8 +41,7 @@ function App() {
 
       {user ? (
         <Routes>
-          <Route index element={<Home />} />
-          <Route path="/*" element={<Home />} />
+          <Route path="*" element={<Navigate to="/ticket/overview" />} />
           <Route
             path="/ticket/*"
             element={<TicketController user={user} time={time} />}

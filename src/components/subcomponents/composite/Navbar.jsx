@@ -7,9 +7,7 @@ import { deleteToken } from '../../../services/authenticationService';
 const NavBar = ({ user }) => {
   return (
     <div className="navbar">
-      <NavLink className="navbar__home" to="/">
-        korrektursystem.live
-      </NavLink>
+      <span className="navbar__home">korrektursystem.live</span>
 
       <NavLink className="navbar__tickets" to="/ticket/overview">
         Tickets

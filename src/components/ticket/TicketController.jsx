@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import {
+  Routes,
+  Route,
+  useNavigate,
+  Navigate,
+} from 'react-router-dom';
 import TicketOverview from './TicketOverview';
 import TicketDetail from './TicketDetail';
 import config from '../../config/config';
@@ -7,7 +12,6 @@ import { paginate } from '../../services/paginate';
 import { getTickets } from '../../services/ticketService';
 import { search } from '../../services/search';
 import { sort } from '../../services/sort';
-import Home from '../Home';
 import { toast } from 'react-toastify';
 import { quitSession } from '../../services/authenticationService';
 import { markNewTickets } from '../../services/markNewTickets';
@@ -138,7 +142,10 @@ const Ticket = ({ user, time }) => {
             />
           }
         />
-        <Route path="/*" element={<Home />} />
+        <Route
+          path="/*"
+          element={<Navigate to="/ticket/overview" />}
+        />
       </Routes>
     </>
   );
