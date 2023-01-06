@@ -38,11 +38,13 @@ const TicketDetail = ({
       else if (user.role === 'professor')
         ticketCopy.readProfessor = true;
 
-      try {
-        await updateTicket(ticketCopy);
-      } catch (error) {
-        toast.error('An error occured.');
-      }
+      await toast.promise(updateTicket(ticketCopy), {
+        error: {
+          render({ data: error }) {
+            return error.response.data;
+          },
+        },
+      });
     };
     if (!ticket.title) window.location = '/ticket/overview';
     else updateReadStatus();
