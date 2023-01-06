@@ -27,7 +27,7 @@ function App() {
         transition={Slide}
         limit={1}
         position="top-right"
-        autoClose={1500}
+        autoClose={3000}
         hideProgressBar
         newestOnTop={false}
         closeOnClick
@@ -41,7 +41,10 @@ function App() {
 
       {user ? (
         <Routes>
-          <Route path="*" element={<Navigate to="/ticket/overview" />} />
+          <Route
+            path="*"
+            element={<Navigate to="/ticket/overview" />}
+          />
           <Route
             path="/ticket/*"
             element={<TicketController user={user} time={time} />}
