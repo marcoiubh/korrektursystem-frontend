@@ -1,7 +1,5 @@
 # TODO
 
-- fix email send on page change
-
 - fix response form width to small (error messages)
 - fix disable text select
 - search function reusability
@@ -9,6 +7,7 @@
 
 // done
 
+- fix email send on page or readstatus change -> fixed
 - fix statement does not get updated if undefined -> fixed
 - fix: update ticket -> fixed
 - disable text select for all elements -> done
