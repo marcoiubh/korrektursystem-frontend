@@ -39,19 +39,12 @@ const TicketDetail = ({
         ticketCopy.readProfessor = true;
 
       await toast.promise(updateTicket(ticketCopy), {
-        // pending: 'Please wait...',
-        // success: 'Changes have been saved.',
         error: {
           render({ data: error }) {
             return error.response.data;
           },
         },
       });
-      // try {
-      //   await updateTicket(ticketCopy);
-      // } catch (error) {
-      //   toast.error('An error occured.', response.data);
-      // }
     };
     if (!ticket.title) window.location = '/ticket/overview';
     else updateReadStatus();
