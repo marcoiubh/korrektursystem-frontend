@@ -12,29 +12,37 @@ import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const navigate = useNavigate();
+
+  // initiate react form hook
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
     mode: 'onChange',
+    // schema to validate on
     resolver: joiResolver(LoginSchema),
   });
 
   const [showPassword, setShowPassword] = useState(false);
 
+  // eye icon
   const handleShowPassword = () => {
     showPassword ? setShowPassword(false) : setShowPassword(true);
   };
 
+  // login button
   const handleLogin = async (inputValues) => {
+    // get form field values
     const credentials = {
       email: inputValues.email,
       password: inputValues.password,
     };
 
+    // log user in and wait for response
     await toast
       .promise(loginUser(credentials), {
+        // display notification based on response
         pending: 'Please wait...',
         success: 'You are logged in.',
         error: {
@@ -44,6 +52,7 @@ const Login = () => {
         },
       })
       .then(() => {
+        // return back to overview when successful
         navigate('/ticket/overview');
       });
   };
@@ -54,9 +63,12 @@ const Login = () => {
         className="login__form"
         onSubmit={handleSubmit(handleLogin)}
       >
+        {/* title */}
         <div className="login__form__heading">
           <h1>Login</h1>
         </div>
+
+        {/* email */}
         <div className="login__form__username">
           <InputForm
             property="email"
@@ -65,6 +77,8 @@ const Login = () => {
             errors={errors}
           />
         </div>
+
+        {/* password */}
         <div className="login__form__password">
           <InputForm
             property="password"
@@ -74,6 +88,8 @@ const Login = () => {
             errors={errors}
           />
         </div>
+
+        {/* eye icon */}
         <div className="login__form__eye">
           <ShowPassword
             state={showPassword}
@@ -81,6 +97,7 @@ const Login = () => {
           />
         </div>
 
+        {/* login button */}
         <div className="login__form__button">
           <Button label="Login" />
         </div>
