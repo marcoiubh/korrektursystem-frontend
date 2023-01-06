@@ -1,4 +1,5 @@
 export function search(items, searchQuery) {
+  // returns only items for which at least one statement is true
   return items.filter((m) => {
     return (
       (m.status &&

@@ -10,22 +10,22 @@ export function sort(data, config) {
   if (customSortProperties.includes(config.property)) {
     result = sortBasedOnArray(
       data,
-      configJson[config.property],
+      configJson[config.property], // sort config for each property
       config.property,
       config.order
     );
   } else {
-    // sort by numerical or alphabetical order
+    // sort all others by numerical or alphabetical order
     result = _.orderBy(data, config.property, config.order);
   }
 
   return result;
 }
 
-export function sortBasedOnArray(data, sortArray, property, order) {
-  // convert property to numerical value in each element based on sortArray
+export function sortBasedOnArray(data, sortConfig, property, order) {
+  // convert property to numerical value in each element based on sort config
   data.forEach((i) => {
-    i[property] = sortArray.indexOf(i[property]);
+    i[property] = sortConfig.indexOf(i[property]);
   });
 
   // sort array based on numerical values
@@ -33,7 +33,7 @@ export function sortBasedOnArray(data, sortArray, property, order) {
 
   // convert numerical values back to strings
   data.forEach((i) => {
-    i[property] = sortArray[i[property]];
+    i[property] = sortConfig[i[property]];
   });
 
   return data;
