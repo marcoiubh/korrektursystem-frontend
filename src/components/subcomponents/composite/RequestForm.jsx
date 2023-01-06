@@ -12,27 +12,26 @@ import SelectForm from '../atomic/SelectForm';
 import '../../../css/newTicket.css';
 
 const RequestForm = ({ ticket, onSave, onCancel }) => {
+  // initiate react hook form
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
     mode: 'onChange',
+    // schema to validate on
     resolver: joiResolver(RequestSchema),
   });
 
-  const onErrors = (error) => {
-    console.error(error);
-  };
   return (
-    <form
-      className="requestForm"
-      onSubmit={handleSubmit(onSave, onErrors)}
-    >
+    <form className="requestForm" onSubmit={handleSubmit(onSave)}>
+      {/* heading */}
       <div className="requestForm__heading">
         <h1>New Ticket</h1>
       </div>
+
       <div className="requestForm__form">
+        {/* title */}
         <div className="requestForm__form__title">
           <InputForm
             property="title"
@@ -41,6 +40,8 @@ const RequestForm = ({ ticket, onSave, onCancel }) => {
             errors={errors}
           />
         </div>
+
+        {/* module */}
         <div className="requestForm__form__module">
           <SelectForm
             property="module"
@@ -50,6 +51,8 @@ const RequestForm = ({ ticket, onSave, onCancel }) => {
             errors={errors}
           />
         </div>
+
+        {/* type */}
         <div className="requestForm__form__type">
           <SelectForm
             property="type"
@@ -59,6 +62,8 @@ const RequestForm = ({ ticket, onSave, onCancel }) => {
             errors={errors}
           />
         </div>
+
+        {/* source */}
         <div className="requestForm__form__source">
           <SelectForm
             property="source"
@@ -68,6 +73,8 @@ const RequestForm = ({ ticket, onSave, onCancel }) => {
             errors={errors}
           />
         </div>
+
+        {/* comment */}
         <div className="requestForm__form__comment">
           <TextAreaForm
             property="comment"
@@ -78,9 +85,12 @@ const RequestForm = ({ ticket, onSave, onCancel }) => {
         </div>
       </div>
 
+      {/* submit button */}
       <div className="requestForm__save">
         <Button label="Submit" />
       </div>
+
+      {/* cancle button */}
       <div className="requestForm__cancel">
         <Button label="Cancel" onClick={onCancel} type="button" />
       </div>

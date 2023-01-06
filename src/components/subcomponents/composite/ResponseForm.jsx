@@ -9,6 +9,7 @@ import Button from '../atomic/Button';
 import '../../../css/response.css';
 
 const ResponseForm = ({ ticket, onSave }) => {
+  // initiate react hook form
   const {
     register,
     handleSubmit,
@@ -19,6 +20,7 @@ const ResponseForm = ({ ticket, onSave }) => {
     resolver: joiResolver(ResponseSchema),
   });
 
+  // set eventually existing values from database
   useEffect(() => {
     let defaultValues = {};
     defaultValues.statement = ticket.statement;
@@ -27,19 +29,17 @@ const ResponseForm = ({ ticket, onSave }) => {
     reset({ ...defaultValues });
   }, [ticket]);
 
-  const onError = () => {
-    console.error(errors);
-  };
-
   return (
     <form
       className={`response__form ${
         ticket.mark ? 'ticketDetail__mark' : null
       }`}
-      onSubmit={handleSubmit(onSave, onError)}
+      onSubmit={handleSubmit(onSave)}
     >
+      {/* heading */}
       <p className="response__form__heading">Professor response</p>
 
+      {/* priority */}
       <div className="response__form__priority">
         <SelectForm
           property="priority"
@@ -49,6 +49,8 @@ const ResponseForm = ({ ticket, onSave }) => {
           errors={errors}
         />
       </div>
+
+      {/* status */}
       <div className="response__form__status">
         <SelectForm
           property="status"
@@ -58,6 +60,8 @@ const ResponseForm = ({ ticket, onSave }) => {
           errors={errors}
         />
       </div>
+
+      {/* statement */}
       <div className="response__form__statement">
         <TextAreaForm
           property="statement"
@@ -66,6 +70,8 @@ const ResponseForm = ({ ticket, onSave }) => {
           errors={errors}
         />
       </div>
+
+      {/* save button */}
       <div className="response__form__save">
         <Button label="Save" />
       </div>

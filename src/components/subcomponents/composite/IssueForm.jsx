@@ -9,26 +9,25 @@ import { IssueSchema } from '../../../config/joiSchema';
 import '../../../css/issue.css';
 
 const IssueForm = ({ onSubmit }) => {
+  // initiate react hook form
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
     mode: 'onChange',
+    // schema to validate on
     resolver: joiResolver(IssueSchema),
   });
 
-  const onErrors = (error) => {
-    console.error(error);
-  };
   return (
-    <form
-      className="issue__form"
-      onSubmit={handleSubmit(onSubmit, onErrors)}
-    >
+    <form className="issue__form" onSubmit={handleSubmit(onSubmit)}>
+      {/* heading */}
       <div className="issue__form__heading">
         <h1>Contact</h1>
       </div>
+
+      {/* title */}
       <div className="issue__form__issue">
         <InputForm
           property="title"
@@ -37,6 +36,8 @@ const IssueForm = ({ onSubmit }) => {
           errors={errors}
         />
       </div>
+
+      {/* description */}
       <div className="issue__form__description">
         <TextAreaForm
           property="description"
@@ -46,6 +47,7 @@ const IssueForm = ({ onSubmit }) => {
         />
       </div>
 
+      {/* send button */}
       <div className="issue__form__button">
         <Button label="Send" />
       </div>
