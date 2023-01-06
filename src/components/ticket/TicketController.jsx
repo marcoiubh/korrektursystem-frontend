@@ -29,13 +29,24 @@ const Ticket = ({ user, time }) => {
 
   useEffect(() => {
     const prepareTickets = async () => {
+      // fetch tickets from database
       const fetchedTickets = await fetchTickets();
+
+      // filter tickets based on search query
       const filteredTickets = search(fetchedTickets, searchQuery);
+      // set total count of search results
       setTotalCount(filteredTickets.length);
+
+      // sort tickets based on sort column
       const sortedTickets = sort(filteredTickets, sortColumn);
 
+      // mark new tickets
       const markedTickets = markNewTickets(sortedTickets, user);
+
+      // set tickets for detail view
       setTickets(markedTickets);
+
+      // paginate tickets for ticket overview
       const paginatedTickets = paginate(
         markedTickets,
         currentPage,
@@ -46,10 +57,12 @@ const Ticket = ({ user, time }) => {
 
     const fetchTickets = async () => {
       try {
+        // fetch tickets from database
         const { data } = await getTickets();
         return data;
       } catch (error) {
         if (error) toast.error(error.message);
+        // on authorization error quit session
         if (error.response.status === 401) quitSession();
       }
     };
@@ -65,16 +78,19 @@ const Ticket = ({ user, time }) => {
     ticket,
   ]);
 
-  // EventHandler
+  // row click
   const handleView = (ticket) => {
+    // select ticket and head to detail view
     setTicket(ticket);
     navigate(`/ticket/detail`);
   };
 
+  // create ticket button
   const handleNew = () => {
     navigate(`/new`);
   };
 
+  // column sort
   const handleSort = (property) => {
     // shallow copy of sortColumn object
     const newSortColumn = { ...sortColumn };
@@ -90,26 +106,31 @@ const Ticket = ({ user, time }) => {
     setSortColumn(newSortColumn);
   };
 
+  // page button overview
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
 
+  // search bar
   const handleSearch = (query) => {
+    // set search query and go back to page one
     setCurrentPage(1);
     setSearchQuery(query);
   };
 
+  // dropdown
   const handleResultsPerPage = (resultsPerPage) => {
+    // convert 'all' to infinity
     if (typeof resultsPerPage == 'string') resultsPerPage = Infinity;
-
+    // set new page size and go back to page one
     setCurrentPage(1);
     setPageSize(resultsPerPage);
   };
 
-  // Rendering
   return (
     <>
       <Routes>
+        {/* overview */}
         <Route
           path="/overview"
           element={
@@ -131,6 +152,7 @@ const Ticket = ({ user, time }) => {
           }
         />
 
+        {/* details */}
         <Route
           path="/detail"
           element={
@@ -142,6 +164,8 @@ const Ticket = ({ user, time }) => {
             />
           }
         />
+
+        {/* arbitrary urls */}
         <Route
           path="/*"
           element={<Navigate to="/ticket/overview" />}

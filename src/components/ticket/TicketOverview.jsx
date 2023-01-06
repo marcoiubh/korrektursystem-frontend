@@ -23,6 +23,7 @@ const TicketOverview = ({
 }) => {
   return (
     <div className="ticketoverview">
+      {/* pagination */}
       <div className="ticketoverview__pagination">
         <Pagination
           itemsCount={totalCount}
@@ -31,14 +32,20 @@ const TicketOverview = ({
           onPageChange={onPageChange}
         />
       </div>
+
+      {/* create button - students only */}
       {user.role === 'student' ? (
         <div className="ticketoverview__create">
           <Button label="Create Ticket" onClick={onNew} />
         </div>
       ) : null}
+
+      {/* search bar */}
       <div className="ticketoverview__search">
         <SearchBox value={searchQuery} onChange={onSearch} />
       </div>
+
+      {/* dropdown */}
       <div className="ticketoverview__results-per-page">
         <DropDown
           label={'Results per page'}
@@ -46,6 +53,8 @@ const TicketOverview = ({
           options={[4, 8, 12, 16, 'All']}
         />
       </div>
+
+      {/* ticket table */}
       <div className="ticketoverview__table">
         {tickets.length === 0 ? (
           <p className="ticketoverview--no-tickets">

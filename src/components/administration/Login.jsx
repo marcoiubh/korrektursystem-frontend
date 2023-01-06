@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router-dom';
 const Login = () => {
   const navigate = useNavigate();
 
-  // initiate react form hook
+  // initiate react hook form 
   const {
     register,
     handleSubmit,
@@ -63,7 +63,7 @@ const Login = () => {
         className="login__form"
         onSubmit={handleSubmit(handleLogin)}
       >
-        {/* title */}
+        {/* heading */}
         <div className="login__form__heading">
           <h1>Login</h1>
         </div>

@@ -9,6 +9,7 @@ const TicketTable = ({
   sortColumn,
   tickets,
 }) => {
+  // configuration file holds role dependent table schema
   const propertyList = config.table_properties[user.role];
 
   return (

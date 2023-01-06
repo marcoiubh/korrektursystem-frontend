@@ -19,10 +19,15 @@ const TicketDetail = ({
 }) => {
   const [ticket, _setTicket] = useState(propsticket);
   const [currentPage, setCurrentPage] = useState(
+    // calculate current page based in ticket index
     tickets.map((t) => t._id).indexOf(ticket._id) + 1
   );
+
+  // initiate ref element to access state from
+  // within event handler
   const ticketRef = useRef(ticket);
 
+  // proxy setTicket and store current ref value
   const setTicket = (ticket) => {
     ticketRef.current = ticket;
     _setTicket(ticket);
@@ -31,14 +36,18 @@ const TicketDetail = ({
   const navigate = useNavigate();
 
   useEffect(() => {
+    // update read status of current ticket
     const updateReadStatus = async () => {
+      // shallow copy of ticket
       const ticketCopy = { ...ticket };
-
+      // set read status based on user role
       if (user.role === 'student') ticketCopy.readStudent = true;
       else if (user.role === 'professor')
         ticketCopy.readProfessor = true;
 
+      // update ticket and wait for response
       await toast.promise(updateTicket(ticketCopy), {
+        // show notification on error
         error: {
           render({ data: error }) {
             return error.response.data;
@@ -46,19 +55,25 @@ const TicketDetail = ({
         },
       });
     };
+
+    // reload overview if component did not load data
     if (!ticket.title) window.location = '/ticket/overview';
     else updateReadStatus();
   }, [ticket]);
 
+  // page button
   const handlePageChange = (page) => {
+    // update current page and select associated ticket from tickets
     setCurrentPage(page);
     setTicket(tickets[page - 1]);
   };
 
+  // overview button
   const handleOverview = () => {
     navigate('/ticket/overview');
   };
 
+  // save button
   const handleSave = async (update) => {
     // copy new value into existing values
     const newTicket = {
@@ -66,6 +81,8 @@ const TicketDetail = ({
       ...ticketRef.current,
       ...update,
     };
+
+    // store metadata
     newTicket.date = Date.now();
     // updated ticket has not been read by the student
     newTicket.readStudent = false;
@@ -81,7 +98,9 @@ const TicketDetail = ({
 
     newTicket.history.push(historyEntry());
 
+    // update ticket and wait for response
     await toast.promise(updateTicket(newTicket), {
+      // show notification based on response
       pending: 'Please wait...',
       success: 'Changes have been saved.',
       error: {
@@ -105,6 +124,7 @@ const TicketDetail = ({
 
   return (
     <div className="ticketDetail">
+      {/* pagination */}
       <div className="ticketDetail__pagination">
         <Pagination
           itemsCount={totalCount}
@@ -114,20 +134,26 @@ const TicketDetail = ({
         />
       </div>
 
+      {/* overview button */}
       <div className="ticketDetail__overview">
         <Button label="Overview" onClick={handleOverview} />
       </div>
 
+      {/* heading */}
       <h1 className="ticketDetail__title">Ticket status</h1>
+
+      {/* ticket id */}
       <p className="ticketDetail__id">
         Ticket number # {ticket._id}{' '}
       </p>
 
+      {/* read only request block */}
       <div className="request">
         <RequestLabel ticket={ticket} />
       </div>
 
       {user.role === 'professor' ? (
+        // response form blick
         <div className="response">
           <ResponseForm
             ticket={ticket}
@@ -135,6 +161,7 @@ const TicketDetail = ({
           />
         </div>
       ) : (
+        //  read only response block
         <div className="response">
           <ResponseLabel ticket={ticket} />
         </div>
