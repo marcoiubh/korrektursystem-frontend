@@ -1,10 +1,16 @@
 # TODO
 
-- fix: update ticket
--
+- fix email send on page change
+
+- fix response form width to small (error messages)
+- fix disable text select
+- search function reusability
+- refine column width
 
 // done
 
+- fix statement does not get updated if undefined -> fixed
+- fix: update ticket -> fixed
 - disable text select for all elements -> done
 - countdown ticket expired -> done
 - table schema based on config.json -> done

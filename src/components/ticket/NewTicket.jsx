@@ -17,6 +17,8 @@ const NewTicket = ({ user }) => {
       student: user.email,
       date: Date.now(),
       status: 'New',
+      priority: '',
+      statement: '',
       // new ticket has not been read by a professor
       readProfessor: false,
       readStudent: true,
