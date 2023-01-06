@@ -4,7 +4,7 @@
   display: grid;
   border-radius: 6px;
   height: 100%;
-  grid-template-columns: 600px;
+  grid-template-columns: 640px;
   grid-template-areas: 'response__form';
 }
 
@@ -18,8 +18,8 @@
   display: grid;
   height: 100%;
   width: 100%;
-  grid-template-rows: 25px 35px 65px 120px 35px 35px 110px;
-  grid-template-columns: 285px 285px;
+  grid-template-rows: 15px 35px 35px 120px 35px 35px 110px;
+  grid-template-columns: 300px 300px;
   grid-gap: 10px 10px;
   grid-template-areas:
     '. .'

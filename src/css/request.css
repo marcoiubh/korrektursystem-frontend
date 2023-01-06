@@ -19,7 +19,7 @@
   display: grid;
   height: 100%;
   width: 100%;
-  grid-template-rows: 25px 35px 35px 35px 35px 110px 110px;
+  grid-template-rows: 15px 52px 35px 35px 35px 110px 110px;
   grid-template-columns: 300px 300px;
   grid-gap: 10px 10px;
   grid-template-areas:

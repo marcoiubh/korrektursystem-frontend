@@ -1,12 +1,13 @@
 # TODO
 
-- fix response form width to small (error messages)
+- fix newTicket redirect on email error
 - fix disable text select
 - search function reusability
 - refine column width
 
 // done
 
+- fix response form width to small (error messages)
 - fix email send on page or readstatus change -> fixed
 - fix statement does not get updated if undefined -> fixed
 - fix: update ticket -> fixed
