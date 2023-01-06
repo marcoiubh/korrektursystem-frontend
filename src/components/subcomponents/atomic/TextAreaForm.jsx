@@ -9,6 +9,7 @@ const TextAreaForm = ({
 }) => {
   return (
     <div className="textArea">
+      {/* validation error message */}
       <div
         className={
           errors[property]
@@ -18,16 +19,22 @@ const TextAreaForm = ({
       >
         {errors[property]?.message}
       </div>
+
+      {/* label */}
       <div className="textArea__label">
         <label className="textArea__text-frame" htmlFor={property}>
           {property}
         </label>
       </div>
+
+      {/* text */}
       <textarea
         {...rest}
         name={property}
         id={property}
+        // display existing values
         defaultValue={obj[property]}
+        // register to react hook form
         {...register(property)}
         className="textArea__text"
       />
