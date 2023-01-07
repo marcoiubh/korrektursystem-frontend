@@ -35,5 +35,5 @@
   font-size: 13px;
 }
 .ticketDetail__mark {
-  background-color: var(--new);
+  background-color: var(--new) !important;
 }

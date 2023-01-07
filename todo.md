@@ -1,6 +1,5 @@
 # TODO
 
-- fix: green mark detail
 
 
 
@@ -11,6 +10,7 @@
 
 // done
 
+- fix: green mark not on detail page -> fixed
 - fix: student does not retrieve emails -> fixed
 - fix response form width to small (error messages)
 - fix email send on page or readstatus change -> fixed
