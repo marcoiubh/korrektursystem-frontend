@@ -1,9 +1,11 @@
-import { saveTicket } from '../../services/ticketService';
-import { useNavigate } from 'react-router-dom';
 import React, { useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { getFormattedDate } from '../../services/getFormattedTimestamp';
+
 import _ from 'lodash';
+
+import { getFormattedDate } from '../../services/getFormattedTimestamp';
+import { saveTicket } from '../../services/ticketService';
 import RequestForm from '../subcomponents/composite/RequestForm';
 
 const NewTicket = ({ user }) => {

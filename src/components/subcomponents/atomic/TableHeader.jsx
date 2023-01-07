@@ -1,5 +1,7 @@
 import React from 'react';
+
 import '../../../css/table.css';
+
 import SortIconDown from './SortIconDown';
 import SortIconUp from './SortIconUp';
 

@@ -1,12 +1,14 @@
 import React from 'react';
-import InputForm from '../atomic/InputForm';
-import TextAreaForm from '../atomic/TextAreaForm';
-import Button from '../atomic/Button';
 import { useForm } from 'react-hook-form';
+
 import { joiResolver } from '@hookform/resolvers/joi';
-import { IssueSchema } from '../../../config/joiSchema';
 
 import '../../../css/issue.css';
+
+import { IssueSchema } from '../../../config/joiSchema';
+import Button from '../atomic/Button';
+import InputForm from '../atomic/InputForm';
+import TextAreaForm from '../atomic/TextAreaForm';
 
 const IssueForm = ({ onSubmit }) => {
   // initiate react hook form
@@ -21,35 +23,38 @@ const IssueForm = ({ onSubmit }) => {
   });
 
   return (
-    <form className="issue__form" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className='issue__form'
+      onSubmit={handleSubmit(onSubmit)}
+    >
       {/* heading */}
-      <div className="issue__form__heading">
+      <div className='issue__form__heading'>
         <h1>Contact</h1>
       </div>
 
       {/* title */}
-      <div className="issue__form__issue">
+      <div className='issue__form__issue'>
         <InputForm
-          property="title"
-          obj=""
+          property='title'
+          obj=''
           register={register}
           errors={errors}
         />
       </div>
 
       {/* description */}
-      <div className="issue__form__description">
+      <div className='issue__form__description'>
         <TextAreaForm
-          property="description"
-          obj=""
+          property='description'
+          obj=''
           register={register}
           errors={errors}
         />
       </div>
 
       {/* send button */}
-      <div className="issue__form__button">
-        <Button label="Send" />
+      <div className='issue__form__button'>
+        <Button label='Send' />
       </div>
     </form>
   );

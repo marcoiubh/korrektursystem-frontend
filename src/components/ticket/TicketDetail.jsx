@@ -1,22 +1,20 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
+import _ from 'lodash';
+
+import '../../css/ticketDetail.css';
+
+import { getFormattedDate } from '../../services/getFormattedTimestamp';
+import { updateTicket } from '../../services/ticketService';
+import Button from '../subcomponents/atomic/Button';
 import Pagination from '../subcomponents/composite/Pagination';
 import RequestLabel from '../subcomponents/composite/RequestLabel';
 import ResponseForm from '../subcomponents/composite/ResponseForm';
-import { updateTicket } from '../../services/ticketService';
-import Button from '../subcomponents/atomic/Button';
-import { toast } from 'react-toastify';
-import { getFormattedDate } from '../../services/getFormattedTimestamp';
-import _ from 'lodash';
-import '../../css/ticketDetail.css';
 import ResponseLabel from '../subcomponents/composite/ResponseLabel';
 
-const TicketDetail = ({
-  user,
-  ticket: propsticket,
-  tickets,
-  totalCount,
-}) => {
+const TicketDetail = ({ user, ticket: propsticket, tickets, totalCount }) => {
   const [ticket, _setTicket] = useState(propsticket);
   const [currentPage, setCurrentPage] = useState(
     // calculate current page based in ticket index
@@ -42,8 +40,7 @@ const TicketDetail = ({
       const ticketCopy = { ...ticket };
       // set read status based on user role
       if (user.role === 'student') ticketCopy.readStudent = true;
-      else if (user.role === 'professor')
-        ticketCopy.readProfessor = true;
+      else if (user.role === 'professor') ticketCopy.readProfessor = true;
 
       // update ticket and wait for response
       await toast.promise(updateTicket(ticketCopy), {
@@ -90,9 +87,7 @@ const TicketDetail = ({
 
     let historyEntry = () => {
       return `____________________________________________________________________________________________________________\n  
-      ${getFormattedDate(Date.now())} : ${user.email} - ${
-        newTicket.status
-      } 
+      ${getFormattedDate(Date.now())} : ${user.email} - ${newTicket.status} 
       ${newTicket.statement}\n`;
     };
 
@@ -123,9 +118,9 @@ const TicketDetail = ({
   );
 
   return (
-    <div className="ticketDetail">
+    <div className='ticketDetail'>
       {/* pagination */}
-      <div className="ticketDetail__pagination">
+      <div className='ticketDetail__pagination'>
         <Pagination
           itemsCount={totalCount}
           pageSize={1}
@@ -135,26 +130,27 @@ const TicketDetail = ({
       </div>
 
       {/* overview button */}
-      <div className="ticketDetail__overview">
-        <Button label="Overview" onClick={handleOverview} />
+      <div className='ticketDetail__overview'>
+        <Button
+          label='Overview'
+          onClick={handleOverview}
+        />
       </div>
 
       {/* heading */}
-      <h1 className="ticketDetail__title">Ticket status</h1>
+      <h1 className='ticketDetail__title'>Ticket status</h1>
 
       {/* ticket id */}
-      <p className="ticketDetail__id">
-        Ticket number # {ticket._id}{' '}
-      </p>
+      <p className='ticketDetail__id'>Ticket number # {ticket._id} </p>
 
       {/* read only request block */}
-      <div className="request">
+      <div className='request'>
         <RequestLabel ticket={ticket} />
       </div>
 
       {user.role === 'professor' ? (
         // response form blick
-        <div className="response">
+        <div className='response'>
           <ResponseForm
             ticket={ticket}
             onSave={debouncedHandleSave}
@@ -162,7 +158,7 @@ const TicketDetail = ({
         </div>
       ) : (
         //  read only response block
-        <div className="response">
+        <div className='response'>
           <ResponseLabel ticket={ticket} />
         </div>
       )}

@@ -1,5 +1,7 @@
 import React from 'react';
+
 import '../../../css/table.css';
+
 import { getFormattedDate } from '../../../services/getFormattedTimestamp';
 
 const TableBody = ({ records, propertyList, onClick }) => {
@@ -23,7 +25,10 @@ const TableBody = ({ records, propertyList, onClick }) => {
         >
           {/* cells */}
           {propertyList.map((property, index) => (
-            <td className={property} key={index}>
+            <td
+              className={property}
+              key={index}
+            >
               {renderCell(record, property)}
             </td>
           ))}

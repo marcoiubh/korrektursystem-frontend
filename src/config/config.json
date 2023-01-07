@@ -1,6 +1,5 @@
 {
   "dateFormat": "lll",
-  "timeFormat": "mm:ss",
   "module": [
     "BSTA01-01",
     "IOBP02",
@@ -9,16 +8,30 @@
     "DLBINGE04",
     "ISPE01"
   ],
-  "priority": ["Critical", "Major", "Medium", "Minor"],
+  "priority": [
+    "Critical",
+    "Major",
+    "Medium",
+    "Minor"
+  ],
+  "sortColumn": {
+    "order": "desc",
+    "property": "date"
+  },
+  "source": [
+    "Script",
+    "Vodcast",
+    "App",
+    "Excercises",
+    "OnlineQuiz"
+  ],
+  "status": [
+    "Closed",
+    "Pending",
+    "In Progress",
+    "New"
+  ],
   "table_properties": {
-    "student": [
-      "date",
-      "title",
-      "module",
-      "type",
-      "source",
-      "status"
-    ],
     "professor": [
       "date",
       "priority",
@@ -28,13 +41,21 @@
       "type",
       "source",
       "status"
+    ],
+    "student": [
+      "date",
+      "title",
+      "module",
+      "type",
+      "source",
+      "status"
     ]
   },
-  "sortColumn": {
-    "property": "date",
-    "order": "desc"
-  },
-  "source": ["Script", "Vodcast", "App", "Excercises", "OnlineQuiz"],
-  "status": ["Closed", "Pending", "In Progress", "New"],
-  "type": ["Error", "Proposal", "Improvement", "Notice"]
+  "timeFormat": "mm:ss",
+  "type": [
+    "Error",
+    "Proposal",
+    "Improvement",
+    "Notice"
+  ]
 }

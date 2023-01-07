@@ -1,16 +1,17 @@
-import { getCurrentUser } from '../services/authenticationService';
+import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
+import { Slide, ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import { getCurrentUser } from '../services/authenticationService';
+import useRefresh from '../services/useRefresh';
+import ExpiredSession from './administration/ExpiredSession';
+import Issue from './administration/Issue';
 import Login from './administration/Login';
+import Footer from './subcomponents/composite/Footer';
 import NavBar from './subcomponents/composite/Navbar';
 import NewTicket from './ticket/NewTicket';
-import React from 'react';
 import TicketController from './ticket/TicketController';
-import { toast, ToastContainer, Slide } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import Issue from './administration/Issue';
-import Footer from './subcomponents/composite/Footer';
-import ExpiredSession from './administration/ExpiredSession';
-import useRefresh from '../services/useRefresh';
 
 function App() {
   // set global background-color
@@ -26,12 +27,12 @@ function App() {
   let user = getCurrentUser();
 
   return (
-    <div className="container">
+    <div className='container'>
       {/* notification */}
       <ToastContainer
         transition={Slide}
         limit={1}
-        position="top-right"
+        position='top-right'
         autoClose={3000}
         hideProgressBar
         newestOnTop={false}
@@ -40,7 +41,7 @@ function App() {
         pauseOnFocusLoss={false}
         draggable
         pauseOnHover
-        theme="dark"
+        theme='dark'
       />
 
       {/* navigation bar */}
@@ -51,34 +52,48 @@ function App() {
         <Routes>
           {/* arbitrary urls */}
           <Route
-            path="*"
-            element={<Navigate to="/ticket/overview" />}
+            path='*'
+            element={<Navigate to='/ticket/overview' />}
           />
           {/* /ticket urls */}
           <Route
-            path="/ticket/*"
-            element={<TicketController user={user} time={time} />}
+            path='/ticket/*'
+            element={
+              <TicketController
+                user={user}
+                time={time}
+              />
+            }
           />
 
           {/* new ticket - students only */}
           {user.role === 'student' ? (
-            <Route path="/new" element={<NewTicket user={user} />} />
+            <Route
+              path='/new'
+              element={<NewTicket user={user} />}
+            />
           ) : null}
 
           {/* contact */}
-          <Route path="/issue" element={<Issue />} />
+          <Route
+            path='/issue'
+            element={<Issue />}
+          />
         </Routes>
       ) : (
         // non-valid users
         <Routes>
           {/* expired token */}
           <Route
-            path="/expiredSession"
+            path='/expiredSession'
             element={<ExpiredSession />}
           />
 
           {/* arbitrary urls */}
-          <Route path="/*" element={<Login />} />
+          <Route
+            path='/*'
+            element={<Login />}
+          />
         </Routes>
       )}
 

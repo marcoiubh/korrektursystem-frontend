@@ -2,15 +2,18 @@ import '../../../css/dropdown.css';
 
 const DropDown = ({ label, onClick, options }) => {
   return (
-    <div className="dropdown">
+    <div className='dropdown'>
       {/* dropdown field */}
-      <button className="button">{label}</button>
+      <button className='button'>{label}</button>
 
       {/* dropdown menu */}
-      <div className="dropdown__menu">
+      <div className='dropdown__menu'>
         {options.map((option, index) => (
           // menu items
-          <p key={index} onClick={() => onClick(option)}>
+          <p
+            key={index}
+            onClick={() => onClick(option)}
+          >
             {option}
           </p>
         ))}

@@ -1,4 +1,5 @@
 import _ from 'lodash';
+
 import configJson from '../config/config.json';
 
 export function sort(data, config) {

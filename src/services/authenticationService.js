@@ -1,6 +1,8 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
+
 import { getFormattedTime } from './getFormattedTimestamp';
+
 const api = '/authentication/';
 const item = 'token';
 
@@ -40,8 +42,7 @@ export function getCurrentUser() {
 
     // display remaining time
     // if expiration time not reached
-    if (expInSeconds > now)
-      timeToLogout = getFormattedTime(expInSeconds - now);
+    if (expInSeconds > now) timeToLogout = getFormattedTime(expInSeconds - now);
 
     // create user object to use in application
     user = {

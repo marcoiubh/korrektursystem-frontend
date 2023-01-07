@@ -5,7 +5,12 @@ const ShowPassword = ({ state, onClick }) => {
   // show password
   if (state) classes += '-slash';
 
-  return <i onClick={onClick} className={classes} />;
+  return (
+    <i
+      onClick={onClick}
+      className={classes}
+    />
+  );
 };
 
 export default ShowPassword;

@@ -1,15 +1,16 @@
 import React from 'react';
-import InputForm from '../atomic/InputForm';
-import TextAreaForm from '../atomic/TextAreaForm';
-import Button from '../atomic/Button';
-import config from '../../../config/config.json';
-
 import { useForm } from 'react-hook-form';
+
 import { joiResolver } from '@hookform/resolvers/joi';
-import { RequestSchema } from '../../../config/joiSchema';
-import SelectForm from '../atomic/SelectForm';
 
 import '../../../css/newTicket.css';
+
+import config from '../../../config/config.json';
+import { RequestSchema } from '../../../config/joiSchema';
+import Button from '../atomic/Button';
+import InputForm from '../atomic/InputForm';
+import SelectForm from '../atomic/SelectForm';
+import TextAreaForm from '../atomic/TextAreaForm';
 
 const RequestForm = ({ ticket, onSave, onCancel }) => {
   // initiate react hook form
@@ -24,17 +25,20 @@ const RequestForm = ({ ticket, onSave, onCancel }) => {
   });
 
   return (
-    <form className="requestForm" onSubmit={handleSubmit(onSave)}>
+    <form
+      className='requestForm'
+      onSubmit={handleSubmit(onSave)}
+    >
       {/* heading */}
-      <div className="requestForm__heading">
+      <div className='requestForm__heading'>
         <h1>New Ticket</h1>
       </div>
 
-      <div className="requestForm__form">
+      <div className='requestForm__form'>
         {/* title */}
-        <div className="requestForm__form__title">
+        <div className='requestForm__form__title'>
           <InputForm
-            property="title"
+            property='title'
             obj={ticket}
             register={register}
             errors={errors}
@@ -42,9 +46,9 @@ const RequestForm = ({ ticket, onSave, onCancel }) => {
         </div>
 
         {/* module */}
-        <div className="requestForm__form__module">
+        <div className='requestForm__form__module'>
           <SelectForm
-            property="module"
+            property='module'
             obj={ticket}
             options={config.module}
             register={register}
@@ -53,9 +57,9 @@ const RequestForm = ({ ticket, onSave, onCancel }) => {
         </div>
 
         {/* type */}
-        <div className="requestForm__form__type">
+        <div className='requestForm__form__type'>
           <SelectForm
-            property="type"
+            property='type'
             obj={ticket}
             options={config.type}
             register={register}
@@ -64,9 +68,9 @@ const RequestForm = ({ ticket, onSave, onCancel }) => {
         </div>
 
         {/* source */}
-        <div className="requestForm__form__source">
+        <div className='requestForm__form__source'>
           <SelectForm
-            property="source"
+            property='source'
             obj={ticket}
             options={config.source}
             register={register}
@@ -75,9 +79,9 @@ const RequestForm = ({ ticket, onSave, onCancel }) => {
         </div>
 
         {/* comment */}
-        <div className="requestForm__form__comment">
+        <div className='requestForm__form__comment'>
           <TextAreaForm
-            property="comment"
+            property='comment'
             obj={ticket}
             register={register}
             errors={errors}
@@ -86,13 +90,17 @@ const RequestForm = ({ ticket, onSave, onCancel }) => {
       </div>
 
       {/* submit button */}
-      <div className="requestForm__save">
-        <Button label="Submit" />
+      <div className='requestForm__save'>
+        <Button label='Submit' />
       </div>
 
       {/* cancle button */}
-      <div className="requestForm__cancel">
-        <Button label="Cancel" onClick={onCancel} type="button" />
+      <div className='requestForm__cancel'>
+        <Button
+          label='Cancel'
+          onClick={onCancel}
+          type='button'
+        />
       </div>
     </form>
   );

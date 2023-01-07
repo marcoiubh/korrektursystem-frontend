@@ -1,17 +1,13 @@
 import React from 'react';
-import TableBody from '../atomic/TableBody';
-import TableHeader from '../atomic/TableHeader';
+
 import '../../../css/table.css';
 
-const Table = ({
-  propertyList,
-  records,
-  sortColumn,
-  onSort,
-  onClick,
-}) => {
+import TableBody from '../atomic/TableBody';
+import TableHeader from '../atomic/TableHeader';
+
+const Table = ({ propertyList, records, sortColumn, onSort, onClick }) => {
   return (
-    <table className="table">
+    <table className='table'>
       <TableHeader
         propertyList={propertyList}
         onSort={onSort}

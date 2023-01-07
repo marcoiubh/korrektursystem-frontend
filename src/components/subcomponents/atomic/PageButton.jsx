@@ -4,9 +4,7 @@ const PageButton = ({ page, currentPage, onClick, ...rest }) => {
   return (
     <button
       {...rest}
-      className={
-        page === currentPage ? 'button button--active' : 'button'
-      }
+      className={page === currentPage ? 'button button--active' : 'button'}
       onClick={() => onClick(page)}
     >
       {page}

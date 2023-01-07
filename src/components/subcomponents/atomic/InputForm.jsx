@@ -2,19 +2,20 @@ import '../../../css/input.css';
 
 const InputForm = ({ property, obj, register, errors, ...rest }) => {
   return (
-    <div className="input">
+    <div className='input'>
       {/* validation error message */}
       <div
-        className={
-          errors[property] ? 'input__error' : 'input__error--no-error'
-        }
+        className={errors[property] ? 'input__error' : 'input__error--no-error'}
       >
         {errors[property]?.message}
       </div>
 
       {/* label */}
-      <div className="input__label">
-        <label className="input__text-frame" htmlFor={property}>
+      <div className='input__label'>
+        <label
+          className='input__text-frame'
+          htmlFor={property}
+        >
           {property}
         </label>
       </div>
@@ -28,7 +29,7 @@ const InputForm = ({ property, obj, register, errors, ...rest }) => {
         defaultValue={obj[property]}
         // register to react hook form
         {...register(property)}
-        className="input__text"
+        className='input__text'
       />
     </div>
   );

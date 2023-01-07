@@ -1,20 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import {
-  Routes,
-  Route,
-  useNavigate,
-  Navigate,
-} from 'react-router-dom';
-import TicketOverview from './TicketOverview';
-import TicketDetail from './TicketDetail';
-import config from '../../config/config';
-import { paginate } from '../../services/paginate';
-import { getTickets } from '../../services/ticketService';
-import { search } from '../../services/search';
-import { sort } from '../../services/sort';
+import React, { useEffect, useState } from 'react';
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+
+import config from '../../config/config';
 import { quitSession } from '../../services/authenticationService';
 import { markNewTickets } from '../../services/markNewTickets';
+import { paginate } from '../../services/paginate';
+import { search } from '../../services/search';
+import { sort } from '../../services/sort';
+import { getTickets } from '../../services/ticketService';
+import TicketDetail from './TicketDetail';
+import TicketOverview from './TicketOverview';
 
 const Ticket = ({ user, time }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -47,11 +43,7 @@ const Ticket = ({ user, time }) => {
       setTickets(markedTickets);
 
       // paginate tickets for ticket overview
-      const paginatedTickets = paginate(
-        markedTickets,
-        currentPage,
-        pageSize
-      );
+      const paginatedTickets = paginate(markedTickets, currentPage, pageSize);
       setPagedTicketsOnly(paginatedTickets);
     };
 
@@ -68,15 +60,7 @@ const Ticket = ({ user, time }) => {
     };
 
     prepareTickets();
-  }, [
-    time,
-    user,
-    currentPage,
-    pageSize,
-    sortColumn,
-    searchQuery,
-    ticket,
-  ]);
+  }, [time, user, currentPage, pageSize, sortColumn, searchQuery, ticket]);
 
   // row click
   const handleView = (ticket) => {
@@ -96,8 +80,7 @@ const Ticket = ({ user, time }) => {
     const newSortColumn = { ...sortColumn };
     // if the same column was pressed, change orientation
     if (newSortColumn.property === property)
-      newSortColumn.order =
-        sortColumn.order === 'asc' ? 'desc' : 'asc';
+      newSortColumn.order = sortColumn.order === 'asc' ? 'desc' : 'asc';
     // change sortColumn otherwise
     else {
       newSortColumn.property = property;
@@ -132,7 +115,7 @@ const Ticket = ({ user, time }) => {
       <Routes>
         {/* overview */}
         <Route
-          path="/overview"
+          path='/overview'
           element={
             <TicketOverview
               user={user}
@@ -154,7 +137,7 @@ const Ticket = ({ user, time }) => {
 
         {/* details */}
         <Route
-          path="/detail"
+          path='/detail'
           element={
             <TicketDetail
               user={user}
@@ -167,8 +150,8 @@ const Ticket = ({ user, time }) => {
 
         {/* arbitrary urls */}
         <Route
-          path="/*"
-          element={<Navigate to="/ticket/overview" />}
+          path='/*'
+          element={<Navigate to='/ticket/overview' />}
         />
       </Routes>
     </>

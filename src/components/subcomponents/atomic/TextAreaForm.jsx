@@ -1,28 +1,23 @@
 import '../../../css/textArea.css';
 
-const TextAreaForm = ({
-  property,
-  obj,
-  register,
-  errors,
-  ...rest
-}) => {
+const TextAreaForm = ({ property, obj, register, errors, ...rest }) => {
   return (
-    <div className="textArea">
+    <div className='textArea'>
       {/* validation error message */}
       <div
         className={
-          errors[property]
-            ? 'textArea__error'
-            : 'textArea__error--no-error'
+          errors[property] ? 'textArea__error' : 'textArea__error--no-error'
         }
       >
         {errors[property]?.message}
       </div>
 
       {/* label */}
-      <div className="textArea__label">
-        <label className="textArea__text-frame" htmlFor={property}>
+      <div className='textArea__label'>
+        <label
+          className='textArea__text-frame'
+          htmlFor={property}
+        >
           {property}
         </label>
       </div>
@@ -36,7 +31,7 @@ const TextAreaForm = ({
         defaultValue={obj[property]}
         // register to react hook form
         {...register(property)}
-        className="textArea__text"
+        className='textArea__text'
       />
     </div>
   );

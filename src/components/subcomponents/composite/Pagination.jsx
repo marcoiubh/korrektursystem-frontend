@@ -1,14 +1,12 @@
+import React, { useEffect, useState } from 'react';
+
 import _ from 'lodash';
-import React, { useState, useEffect } from 'react';
-import PageButton from '../atomic/PageButton';
+
 import '../../../css/pagination.css';
 
-const Pagination = ({
-  currentPage,
-  itemsCount,
-  onPageChange,
-  pageSize,
-}) => {
+import PageButton from '../atomic/PageButton';
+
+const Pagination = ({ currentPage, itemsCount, onPageChange, pageSize }) => {
   const [numberOfPages, setNumberOfPages] = useState(0);
 
   // array of page numbers to display
@@ -54,15 +52,9 @@ const Pagination = ({
         if (currentPage <= 2) {
           setBoundaries(1 + offset, 4 + offset);
         } else if (currentPage >= numberOfPages - 1) {
-          setBoundaries(
-            numberOfPages - 2 + offset,
-            numberOfPages + 1 + offset
-          );
+          setBoundaries(numberOfPages - 2 + offset, numberOfPages + 1 + offset);
         } else {
-          setBoundaries(
-            currentPage - 1 + offset,
-            currentPage + 2 + offset
-          );
+          setBoundaries(currentPage - 1 + offset, currentPage + 2 + offset);
         }
       }
       // set array with page numbers from lowest to highest
@@ -91,10 +83,10 @@ const Pagination = ({
   };
 
   return (
-    <div className="pagination">
+    <div className='pagination'>
       {/* previous */}
       {numberOfPages > 3 && min > 1 && (
-        <div className="pagination__previous">
+        <div className='pagination__previous'>
           <PageButton
             page={<span>&laquo;</span>}
             onClick={handlePrevious}
@@ -103,7 +95,7 @@ const Pagination = ({
       )}
 
       {/* pages */}
-      <div className="pagination__button">
+      <div className='pagination__button'>
         {pages.map((page) => (
           <PageButton
             key={page}
@@ -117,7 +109,7 @@ const Pagination = ({
 
       {/* next */}
       {numberOfPages > 3 && max <= numberOfPages && (
-        <div className="pagination__next">
+        <div className='pagination__next'>
           <PageButton
             page={<span>&raquo;</span>}
             onClick={handleNext}

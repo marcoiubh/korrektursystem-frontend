@@ -1,17 +1,19 @@
 import React, { useMemo } from 'react';
-import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-import { sendEmail } from '../../services/emailService';
+import { toast } from 'react-toastify';
+
 import _ from 'lodash';
-import IssueForm from '../subcomponents/composite/IssueForm';
+
 import '../../css/issue.css';
+
+import { sendEmail } from '../../services/emailService';
+import IssueForm from '../subcomponents/composite/IssueForm';
 
 const Issue = () => {
   const navigate = useNavigate();
 
-// send button
+  // send button
   const handleSend = async (inputValues) => {
-
     // get form field values
     const issue = {
       title: inputValues.title,
@@ -21,7 +23,6 @@ const Issue = () => {
     // send email and wait for response
     await toast
       .promise(sendEmail(issue), {
-
         // display notification based on response
         pending: 'Please wait...',
         success: 'Email has been sent.',
@@ -48,7 +49,7 @@ const Issue = () => {
   );
 
   return (
-    <div className="issue">
+    <div className='issue'>
       <IssueForm onSubmit={debouncedHandleSend} />
     </div>
   );

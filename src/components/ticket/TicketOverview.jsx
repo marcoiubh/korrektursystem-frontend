@@ -1,10 +1,12 @@
-import Pagination from '../subcomponents/composite/Pagination';
 import React from 'react';
-import SearchBox from '../subcomponents/atomic/SearchBox';
-import TicketTable from '../subcomponents/composite/TicketTable';
-import DropDown from '../subcomponents/atomic/DropDown';
+
 import '../../css/ticketOverview.css';
+
 import Button from '../subcomponents/atomic/Button';
+import DropDown from '../subcomponents/atomic/DropDown';
+import SearchBox from '../subcomponents/atomic/SearchBox';
+import Pagination from '../subcomponents/composite/Pagination';
+import TicketTable from '../subcomponents/composite/TicketTable';
 
 const TicketOverview = ({
   user,
@@ -22,9 +24,9 @@ const TicketOverview = ({
   onResultsPerPage,
 }) => {
   return (
-    <div className="ticketoverview">
+    <div className='ticketoverview'>
       {/* pagination */}
-      <div className="ticketoverview__pagination">
+      <div className='ticketoverview__pagination'>
         <Pagination
           itemsCount={totalCount}
           pageSize={pageSize}
@@ -35,18 +37,24 @@ const TicketOverview = ({
 
       {/* create button - students only */}
       {user.role === 'student' ? (
-        <div className="ticketoverview__create">
-          <Button label="Create Ticket" onClick={onNew} />
+        <div className='ticketoverview__create'>
+          <Button
+            label='Create Ticket'
+            onClick={onNew}
+          />
         </div>
       ) : null}
 
       {/* search bar */}
-      <div className="ticketoverview__search">
-        <SearchBox value={searchQuery} onChange={onSearch} />
+      <div className='ticketoverview__search'>
+        <SearchBox
+          value={searchQuery}
+          onChange={onSearch}
+        />
       </div>
 
       {/* dropdown */}
-      <div className="ticketoverview__results-per-page">
+      <div className='ticketoverview__results-per-page'>
         <DropDown
           label={'Results per page'}
           onClick={onResultsPerPage}
@@ -55,9 +63,9 @@ const TicketOverview = ({
       </div>
 
       {/* ticket table */}
-      <div className="ticketoverview__table">
+      <div className='ticketoverview__table'>
         {tickets.length === 0 ? (
-          <p className="ticketoverview--no-tickets">
+          <p className='ticketoverview--no-tickets'>
             Currently no tickets available.
           </p>
         ) : (

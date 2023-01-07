@@ -1,4 +1,5 @@
 import moment from 'moment';
+
 import config from '../config/config.json';
 
 export const getFormattedDate = (date) => {

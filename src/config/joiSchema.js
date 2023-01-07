@@ -1,4 +1,5 @@
 import Joi from 'joi';
+
 import config from '../config/config.json';
 
 const LoginSchema = Joi.object({

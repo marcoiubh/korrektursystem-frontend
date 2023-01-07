@@ -1,19 +1,22 @@
-import { loginUser } from '../../services/authenticationService';
-import { useForm } from 'react-hook-form';
 import React, { useState } from 'react';
-import { joiResolver } from '@hookform/resolvers/joi';
-import InputForm from '../subcomponents/atomic/InputForm';
-import Button from '../subcomponents/atomic/Button';
-import { LoginSchema } from '../../config/joiSchema';
-import ShowPassword from '../subcomponents/atomic/ShowPassword';
-import { toast } from 'react-toastify';
-import '../../css/login.css';
+import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
+import { joiResolver } from '@hookform/resolvers/joi';
+
+import '../../css/login.css';
+
+import { LoginSchema } from '../../config/joiSchema';
+import { loginUser } from '../../services/authenticationService';
+import Button from '../subcomponents/atomic/Button';
+import InputForm from '../subcomponents/atomic/InputForm';
+import ShowPassword from '../subcomponents/atomic/ShowPassword';
 
 const Login = () => {
   const navigate = useNavigate();
 
-  // initiate react hook form 
+  // initiate react hook form
   const {
     register,
     handleSubmit,
@@ -58,31 +61,31 @@ const Login = () => {
   };
 
   return (
-    <div className="login">
+    <div className='login'>
       <form
-        className="login__form"
+        className='login__form'
         onSubmit={handleSubmit(handleLogin)}
       >
         {/* heading */}
-        <div className="login__form__heading">
+        <div className='login__form__heading'>
           <h1>Login</h1>
         </div>
 
         {/* email */}
-        <div className="login__form__username">
+        <div className='login__form__username'>
           <InputForm
-            property="email"
-            obj=""
+            property='email'
+            obj=''
             register={register}
             errors={errors}
           />
         </div>
 
         {/* password */}
-        <div className="login__form__password">
+        <div className='login__form__password'>
           <InputForm
-            property="password"
-            obj=""
+            property='password'
+            obj=''
             type={showPassword ? 'text' : 'password'}
             register={register}
             errors={errors}
@@ -90,7 +93,7 @@ const Login = () => {
         </div>
 
         {/* eye icon */}
-        <div className="login__form__eye">
+        <div className='login__form__eye'>
           <ShowPassword
             state={showPassword}
             onClick={handleShowPassword}
@@ -98,8 +101,8 @@ const Login = () => {
         </div>
 
         {/* login button */}
-        <div className="login__form__button">
-          <Button label="Login" />
+        <div className='login__form__button'>
+          <Button label='Login' />
         </div>
       </form>
     </div>

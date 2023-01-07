@@ -1,14 +1,9 @@
 import React from 'react';
-import Table from './Table';
-import config from '../../../config/config.json';
 
-const TicketTable = ({
-  user,
-  onSort,
-  onClick,
-  sortColumn,
-  tickets,
-}) => {
+import config from '../../../config/config.json';
+import Table from './Table';
+
+const TicketTable = ({ user, onSort, onClick, sortColumn, tickets }) => {
   // configuration file holds role dependent table schema
   const propertyList = config.table_properties[user.role];
 

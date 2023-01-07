@@ -1,12 +1,15 @@
 import React, { useEffect } from 'react';
-import config from '../../../config/config.json';
 import { useForm } from 'react-hook-form';
+
 import { joiResolver } from '@hookform/resolvers/joi';
-import { ResponseSchema } from '../../../config/joiSchema';
-import TextAreaForm from '../atomic/TextAreaForm';
-import SelectForm from '../atomic/SelectForm';
-import Button from '../atomic/Button';
+
 import '../../../css/response.css';
+
+import config from '../../../config/config.json';
+import { ResponseSchema } from '../../../config/joiSchema';
+import Button from '../atomic/Button';
+import SelectForm from '../atomic/SelectForm';
+import TextAreaForm from '../atomic/TextAreaForm';
 
 const ResponseForm = ({ ticket, onSave }) => {
   // initiate react hook form
@@ -31,18 +34,16 @@ const ResponseForm = ({ ticket, onSave }) => {
 
   return (
     <form
-      className={`response__form ${
-        ticket.mark ? 'ticketDetail__mark' : null
-      }`}
+      className={`response__form ${ticket.mark ? 'ticketDetail__mark' : null}`}
       onSubmit={handleSubmit(onSave)}
     >
       {/* heading */}
-      <p className="response__form__heading">Professor response</p>
+      <p className='response__form__heading'>Professor response</p>
 
       {/* priority */}
-      <div className="response__form__priority">
+      <div className='response__form__priority'>
         <SelectForm
-          property="priority"
+          property='priority'
           obj={ticket}
           options={config.priority}
           register={register}
@@ -51,9 +52,9 @@ const ResponseForm = ({ ticket, onSave }) => {
       </div>
 
       {/* status */}
-      <div className="response__form__status">
+      <div className='response__form__status'>
         <SelectForm
-          property="status"
+          property='status'
           obj={ticket}
           options={config.status}
           register={register}
@@ -62,9 +63,9 @@ const ResponseForm = ({ ticket, onSave }) => {
       </div>
 
       {/* statement */}
-      <div className="response__form__statement">
+      <div className='response__form__statement'>
         <TextAreaForm
-          property="statement"
+          property='statement'
           obj={ticket}
           register={register}
           errors={errors}
@@ -72,8 +73,8 @@ const ResponseForm = ({ ticket, onSave }) => {
       </div>
 
       {/* save button */}
-      <div className="response__form__save">
-        <Button label="Save" />
+      <div className='response__form__save'>
+        <Button label='Save' />
       </div>
     </form>
   );

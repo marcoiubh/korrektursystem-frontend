@@ -5,9 +5,7 @@ export function search(items, searchQuery) {
       (m.status &&
         m.status.toLowerCase().includes(searchQuery.toLowerCase())) ||
       (m.priority &&
-        m.priority
-          .toLowerCase()
-          .includes(searchQuery.toLowerCase())) ||
+        m.priority.toLowerCase().includes(searchQuery.toLowerCase())) ||
       m.student.toLowerCase().includes(searchQuery.toLowerCase()) ||
       m.module.toLowerCase().includes(searchQuery.toLowerCase()) ||
       m.source.toLowerCase().includes(searchQuery.toLowerCase()) ||
