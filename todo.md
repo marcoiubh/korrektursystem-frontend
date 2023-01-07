@@ -1,5 +1,9 @@
 # TODO
 
+- fix: green mark detail
+
+
+
 - fix newTicket redirect on email error
 - fix disable text select
 - search function reusability
@@ -7,6 +11,7 @@
 
 // done
 
+- fix: student does not retrieve emails -> fixed
 - fix response form width to small (error messages)
 - fix email send on page or readstatus change -> fixed
 - fix statement does not get updated if undefined -> fixed
