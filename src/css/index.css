@@ -52,3 +52,18 @@ a:focus {
   font-size: 14px;
   outline: none;
 }
+
+
+.button,
+.navbar,
+.dropdown,
+.footer,
+.pagination,
+.searchBox,
+.table
+ {
+    /* Disable text select for all elements */
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

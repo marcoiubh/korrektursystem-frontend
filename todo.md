@@ -4,12 +4,12 @@
 
 
 - fix newTicket redirect on email error
-- fix disable text select
 - search function reusability
 - refine column width
 
 // done
 
+- fix disable text select -> fixed
 - fix: green mark not on detail page -> fixed
 - fix: student does not retrieve emails -> fixed
 - fix response form width to small (error messages)

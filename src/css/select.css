@@ -1,10 +1,6 @@
 .select {
   border-bottom: 1px solid var(--text-bright);
   overflow: hidden;
-  /* Disable text select for all elements */
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
 .select:focus-within label {
