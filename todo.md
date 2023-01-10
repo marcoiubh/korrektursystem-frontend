@@ -1,12 +1,6 @@
 # TODO
 
 
-
-
-- fix newTicket redirect on email error
-- search function reusability
-- refine column width
-
 // done
 
 - fix disable text select -> fixed
